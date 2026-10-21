@@ -1,6 +1,6 @@
 @echo off
-rem AGENT_DISPLAY_LIVE wrapper (v2): UTF-8 + cwd live + ???? + collector loop
-rem stdout->NUL (? Task Scheduler ??????), stderr->live\collector.stderr.log
+rem AGENT_DISPLAY_LIVE wrapper: PYTHONUTF8 + cwd live + singleton cleanup + collector loop
+rem stdout -> NUL (avoid Task Scheduler pipe-buffer blocking), stderr -> live\collector.stderr.log
 set PYTHONUTF8=1
 cd /d C:\dsh\agent-display\live
 powershell -NoProfile -ExecutionPolicy Bypass -File "C:\dsh\agent-display\live\ensure_single_collector.ps1" >nul 2>&1
