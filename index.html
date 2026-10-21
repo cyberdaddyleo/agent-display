@@ -36,7 +36,7 @@ body{background:var(--page);overflow:hidden}
 .tn small{font-size:10.5px;color:var(--sheet-mute);font-family:"Noto Sans SC",var(--mono);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .sw{width:84px;height:48px;border-radius:4px;display:block;box-sizing:border-box}
 .sw-ops{background:radial-gradient(circle at -30% 55%,transparent 58%,#151515 58.6% 59.6%,transparent 60.2% 77%,#151515 77.6% 78.4%,transparent 79%),repeating-linear-gradient(-28deg,transparent 0 9px,rgba(21,21,21,.18) 9px 10px),#eeede8}
-.sw-spider{border:4px solid #ec4fae;background:linear-gradient(118deg,transparent 46%,#45e6f5 47% 48.5%,transparent 49.5%),linear-gradient(62deg,transparent 54%,#45e6f5 55% 56.5%,transparent 57.5%),radial-gradient(circle at 51% 50%,#ff3f8e 0 3px,transparent 3.5px),#0b0c12}
+.sw-spider{border:4px solid #2b9e5f;background:linear-gradient(118deg,transparent 46%,#45e6f5 47% 48.5%,transparent 49.5%),linear-gradient(62deg,transparent 54%,#45e6f5 55% 56.5%,transparent 57.5%),radial-gradient(circle at 51% 50%,#35c47e 0 3px,transparent 3.5px),#0b0c12}
 .sw-neural{background:radial-gradient(circle at 50% 50%,rgba(240,246,255,.95) 0 2px,rgba(170,205,255,.45) 4px,rgba(120,160,220,.12) 10px,transparent 13px),radial-gradient(circle at 50% 50%,transparent 15px,rgba(220,236,255,.85) 15.5px 16.5px,transparent 17px 18.5px,rgba(220,236,255,.5) 19px 21px,transparent 21.5px 22.5px,rgba(220,236,255,.3) 23px 23.6px,transparent 24px),#04060b}
 .tcard.next{cursor:default;border-style:dashed;opacity:.55}
 .tcard.next:hover{border-color:var(--sheet-line)}
@@ -54,7 +54,7 @@ body{background:var(--page);overflow:hidden}
   <div class="pk-h"><b id="pkT">AGENT 战术大屏</b><span>THEME SERIES · 主题</span><button class="pk-x" id="pkX" type="button" aria-label="关闭">✕</button></div>
   <div class="pk-list">
    <button class="tcard" type="button" data-theme-id="ops"><span class="sw sw-ops" aria-hidden="true"></span><span class="tn"><b>01 · OPS 纸面工程</b><small>纸与墨的工程图 · 调度飞轮 · 可切粒子荧光</small></span><em>当前</em></button>
-   <button class="tcard" type="button" data-theme-id="spider"><span class="sw sw-spider" aria-hidden="true"></span><span class="tn"><b>02 · SPIDER 蛛网战术</b><small>粉框作战室 · 巡检蛛 · token 账与交付飞轮</small></span><em>当前</em></button>
+   <button class="tcard" type="button" data-theme-id="spider"><span class="sw sw-spider" aria-hidden="true"></span><span class="tn"><b>02 · SPIDER 蛛网战术</b><small>墨绿框作战室 · 巡检蛛 · token 账与交付飞轮</small></span><em>当前</em></button>
    <button class="tcard" type="button" data-theme-id="neural"><span class="sw sw-neural" aria-hidden="true"></span><span class="tn"><b>03 · NEURAL 神经星环</b><small>13 个神经团 · 突触脉冲派单 · HUD 星环</small></span><em>当前</em></button>
    <div class="tcard next" aria-disabled="true"><span class="sw sw-next" aria-hidden="true"></span><span class="tn"><b>04 · 下一款</b><small>系列主题筹备中</small></span></div>
   </div>
@@ -90,7 +90,7 @@ body{background:var(--page);overflow:hidden}
 :host{display:block;height:100%;overflow:auto}
 [hidden]{display:none!important}
 :host{background:var(--bg);color:var(--ink);font-family:var(--font);font-size:11px;-webkit-font-smoothing:antialiased}
-.app{min-height:100%;box-sizing:border-box;display:grid;grid-template-rows:minmax(440px,1fr) auto;gap:10px;padding-block:14px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.app{min-height:100%;box-sizing:border-box;display:grid;grid-template-rows:minmax(440px,1fr) auto auto;gap:10px;padding-block:14px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 
 /* 顶部指标轨 */
 .top{position:absolute;z-index:3;left:0;top:0;display:grid;grid-template-columns:repeat(3,minmax(86px,auto));gap:12px 26px;align-items:end;padding:14px 48px 34px 16px;pointer-events:none;text-shadow:0 0 2px var(--bg),0 0 6px var(--bg),0 0 12px var(--bg);background:radial-gradient(farthest-side at 0 0,color-mix(in srgb,var(--bg) 82%,transparent),color-mix(in srgb,var(--bg) 45%,transparent) 62%,transparent)}
@@ -190,6 +190,11 @@ body{background:var(--page);overflow:hidden}
 }
 @media (prefers-reduced-motion:reduce){.cell::after{transition:none}.caret{animation:none}}
 
+/* 跨机实况数据条：crypto-agent 四节点只读实况（数据来自 live.json，由 live/collect_live.py 采集） */
+.live{--lv-line:var(--hair);--lv-sub:var(--ink2);--lv-ok:#2f7d4f;--lv-warn:#a2711c;--lv-bad:#b23a3a;height:48px;flex:none;background:var(--panel);border:1px solid var(--hair);color:var(--ink)}
+@media (prefers-color-scheme:dark){:host(:not([data-theme="light"])) .live{--lv-ok:#5fd6a6;--lv-warn:#ffb454;--lv-bad:#ff6b6b}}
+:host([data-theme="dark"]) .live{--lv-ok:#5fd6a6;--lv-warn:#ffb454;--lv-bad:#ff6b6b}
+
 /* 系列水印：贴着舞台左下角，和图上的小标签同一套字 */
 .wm{position:absolute;z-index:2;left:16px;bottom:12px;font-family:var(--font);font-size:8px;letter-spacing:.18em;color:var(--mute);opacity:.62;pointer-events:none;white-space:nowrap;text-shadow:0 0 2px var(--bg),0 0 6px var(--bg)}
 </style>
@@ -197,15 +202,15 @@ body{background:var(--page);overflow:hidden}
   <main class="stage" id="stage">
   <header class="top">
     <div class="cell title">
-      <h1>AGENT OPS / <span class="zh">调度中心</span></h1>
-      <p>TASKS → AGENTS → OUTPUTS · 示例数据 · <b id="clock">--</b></p>
+      <h1>CRYPTO-AGENT / <span class="zh">跨机协作</span></h1>
+      <p>WIN · MAC · SG · HK 四节点实况 · <b id="clock">--</b></p>
     </div>
-    <div class="cell stat"><span class="k">TASKS<i>任务</i></span><span class="v" id="s0">64</span></div>
-    <div class="cell stat"><span class="k">AGENTS<i>智能体</i></span><span class="v" id="s1">12</span></div>
-    <div class="cell stat"><span class="k">WORKFLOWS<i>工作流</i></span><span class="v" id="s2">11</span></div>
-    <div class="cell stat"><span class="k">OUTPUTS<i>产出</i></span><span class="v" id="s3">0</span></div>
-    <div class="cell stat"><span class="k">MATCHED<i>已匹配</i></span><span class="v" id="s4">0</span></div>
-    <div class="cell stat"><span class="k">PENDING<i>待复核</i></span><span class="v" id="s5">0</span></div>
+    <div class="cell stat"><span class="k">CLAIMS<i>知识条目</i></span><span class="v" id="s0">—</span></div>
+    <div class="cell stat"><span class="k">COMPONENTS<i>组件</i></span><span class="v" id="s1">—</span></div>
+    <div class="cell stat"><span class="k">PIPELINES<i>管线</i></span><span class="v" id="s2">—</span></div>
+    <div class="cell stat"><span class="k">U1 MATCHED<i>校验通过</i></span><span class="v" id="s3">—</span></div>
+    <div class="cell stat"><span class="k">VERIFIED<i>自有验证</i></span><span class="v" id="s4">—</span></div>
+    <div class="cell stat"><span class="k">HYPOTHESIS<i>待验证</i></span><span class="v" id="s5">—</span></div>
   </header>
   <div class="ctls">
     <button class="btn" id="theme" type="button">粒子</button>
@@ -213,8 +218,8 @@ body{background:var(--page);overflow:hidden}
     <button class="btn" id="full" type="button">全屏</button>
   </div>
     <canvas id="sc" aria-label="调度主视图：左侧连线汇聚到三个工作流节点，中间旋转环带滚动执行记录，右侧旋转谱线表示输出流"></canvas>
-    <div class="hud"><span>STABILITY CHECK · 稳定性</span><span>CFL = |u|·Δt/Δx = <b id="cfl">0.00</b> <span id="cflst">OK</span></span></div>
-    <div class="note"><span class="nh">WORKFLOW / REVIEW STATE</span><b id="noteMain">— / 11 已匹配</b><span class="ns">— 每条结果都能追溯到来源</span></div>
+    <div class="hud"><span>DATA FRESH · 数据时效</span><span>lag <b id="hudLag">—</b> · htf15 <b id="hudHtf">—</b></span></div>
+    <div class="note"><span class="nh">BOARD / CLAIM STATE</span><b id="noteMain">—</b><span class="ns">— 每条结论都能追溯到 BOARD.md 与 git</span></div>
     <div class="tip" id="tip" hidden></div>
     <div class="wm">DEVELOPED BY @赛博老爸</div>
   </main>
@@ -238,25 +243,26 @@ body{background:var(--page);overflow:hidden}
       <div class="pb"><pre class="code" id="code"></pre></div>
     </article>
     <article class="panel">
-      <div class="ph"><h2>12 AGENTS / DISPATCH<i>调度</i></h2><span id="agMeta">0 idle</span></div>
+      <div class="ph"><h2>COMPONENTS / DISPATCH<i>组件</i></h2><span id="agMeta">—</span></div>
       <div class="pb"><ul class="agents" id="agents"></ul></div>
       <div class="pf">independent jobs / shared event bus</div>
     </article>
   </section>
+  <section class="live" data-live aria-label="跨机实况数据条"></section>
 </div>
 </template>
 
 <!-- ===== 主题 02 · SPIDER 蛛网战术 ===== -->
 <template id="tpl-spider">
 <style>
-/* Layout: 1920×1080 固定画布按视口等比缩放。粉色外框 → 标题轨 → 7×2 智能体卡 → 中部：作战室（左）+ 产出曲线 / 任务流（右）→ 底部：质检台 / 调度规则 / 执行代码。
+/* Layout: 1920×1080 固定画布按视口等比缩放。墨绿外框 → 标题轨 → 7×2 智能体卡 → 中部：作战室（左）+ 产出曲线 / 任务流（右）→ 底部：质检台 / 调度规则 / 执行代码。
    巡检蛛 CRAWLER 在整块屏上爬，腿抓住正在发生事情的地方。单一深色视觉，刻意不做浅色版。 */
 :host{
   color-scheme:dark;
-  --frame:#ec4fae; --frame-hi:#ff7fcb; --frame-deep:#b42f80; --frame-ink:#1b0613;
+  --frame:#0d5f36; --frame-hi:#1f7a4a; --frame-deep:#042c19; --frame-ink:#e6fff1;
   --bg:#07080d; --panel:#0b0c12; --panel-2:#10121a; --line:#1b1e2a; --line-2:#262a39;
   --ink:#eef0f7; --ink-2:#b8bccb; --mute:#73788e; --dim:#454a5e;
-  --cyan:#45e6f5; --joint:#ff3f8e; --good:#35e08a; --bad:#ff4d5e; --warn:#ffb020; --sticky:#ffd84a;
+  --cyan:#45e6f5; --joint:#35c47e; --good:#35e08a; --bad:#ff4d5e; --warn:#ffb020; --sticky:#ffd84a;
   --stage:#0a0c13; --wall:#0e1019; --wall-2:#0b0d15; --floor:#0b0d14; --desk:#2a2e3b; --desk-front:#181b25; --metal:#343949; --screen:#05070c;
   --display:"Archivo","Noto Sans SC","PingFang SC",system-ui,sans-serif;
   --mono:"JetBrains Mono","Noto Sans SC","PingFang SC",ui-monospace,Menlo,monospace;
@@ -274,7 +280,7 @@ body{background:var(--page);overflow:hidden}
 /* ---------- 标题轨 ---------- */
 .hdr{display:flex;align-items:center;gap:22px;color:var(--frame-ink);min-width:0;padding:0 4px}
 .brand{display:flex;align-items:center;gap:12px;min-width:0}
-.logo{width:42px;height:42px;border-radius:8px;background:var(--frame-ink);color:var(--frame-hi);display:grid;place-items:center;flex:none}
+.logo{width:42px;height:42px;border-radius:8px;background:var(--frame-ink);color:var(--frame-deep);display:grid;place-items:center;flex:none}
 .logo svg{width:30px;height:30px}
 .hdr h1{margin:0;font-family:var(--display);font-weight:900;font-size:34px;letter-spacing:-.01em;line-height:1;white-space:nowrap}
 .hdr h1 em{font-style:normal;opacity:.5;margin:0 6px}
@@ -289,9 +295,9 @@ body{background:var(--page);overflow:hidden}
 .day{font-weight:800;font-size:13px;letter-spacing:.1em;white-space:nowrap}
 .btns{display:flex;gap:6px}
 .btn{font:800 11px/1 var(--mono);letter-spacing:.08em;color:var(--frame-ink);background:transparent;border:2px solid var(--frame-ink);border-radius:4px;padding:7px 10px;cursor:pointer;white-space:nowrap}
-.btn:hover,.btn[aria-pressed="true"]{background:var(--frame-ink);color:var(--frame-hi)}
+.btn:hover,.btn[aria-pressed="true"]{background:var(--frame-ink);color:var(--frame-deep)}
 .btn:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
-.clock{background:var(--frame-ink);color:var(--frame-hi);font:800 22px/1 var(--mono);padding:10px 14px;border-radius:5px;letter-spacing:.04em;font-variant-numeric:tabular-nums;white-space:nowrap}
+.clock{background:var(--frame-ink);color:var(--frame-deep);font:800 22px/1 var(--mono);padding:10px 14px;border-radius:5px;letter-spacing:.04em;font-variant-numeric:tabular-nums;white-space:nowrap}
 
 /* ---------- 智能体卡 ---------- */
 .cards{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:8px;min-height:0}
@@ -302,7 +308,7 @@ body{background:var(--page);overflow:hidden}
 .nm{min-width:0;flex:1;display:grid}
 .nm b{font-family:var(--display);font-weight:900;font-size:17px;line-height:15px;color:var(--c);letter-spacing:.01em}
 .nm span{font-family:var(--cjk);font-size:9.5px;line-height:11px;color:var(--mute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.tg{font-style:normal;font-size:8px;line-height:1;letter-spacing:.12em;color:var(--joint);border:1px solid rgba(255,63,142,.55);border-radius:2px;padding:3px 4px;align-self:flex-start;white-space:nowrap}
+.tg{font-style:normal;font-size:8px;line-height:1;letter-spacing:.12em;color:var(--joint);border:1px solid rgba(53,196,126,.55);border-radius:2px;padding:3px 4px;align-self:flex-start;white-space:nowrap}
 .c3{display:flex;align-items:baseline;justify-content:space-between;gap:8px;min-width:0}
 .c3 .k{font-size:9.5px;color:var(--mute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
 .c3 .v{font-size:16px;line-height:15px;font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums;white-space:nowrap}
@@ -394,7 +400,7 @@ body{background:var(--page);overflow:hidden}
 .rl .row span:nth-child(2){color:var(--mute);text-align:right}
 .rl .row span:nth-child(3){text-align:right;font-variant-numeric:tabular-nums}
 .rl .row .ok{color:var(--good)} .rl .row .no{color:var(--bad)} .rl .row .pd{color:var(--dim)}
-.rl .row.cur{background:rgba(255,63,142,.08)}
+.rl .row.cur{background:rgba(53,196,126,.08)}
 .rl .hd{color:var(--ink);padding:0 6px;margin-top:3px}
 .rl .hd i{font-style:normal;color:var(--mute)}
 .rl .k{padding-left:10px;color:var(--ink-2)}
@@ -402,7 +408,7 @@ body{background:var(--page);overflow:hidden}
 .flow .fl{font-size:9px;letter-spacing:.12em;color:var(--mute)}
 .chips{display:flex;align-items:center;gap:5px;font-size:10px}
 .chips span{border:1px solid rgba(53,224,138,.45);color:var(--good);border-radius:3px;padding:2px 7px;transition:background .3s,color .3s}
-.chips span.on{background:var(--joint);border-color:var(--joint);color:var(--frame-ink);font-weight:800}
+.chips span.on{background:var(--joint);border-color:var(--joint);color:var(--frame-deep);font-weight:800}
 .chips i{font-style:normal;color:var(--dim)}
 .code{margin:0;flex:1;min-height:0;font-size:10.5px;line-height:14px;overflow:hidden;font-family:var(--mono)}
 .code .row{display:block;white-space:pre}
@@ -416,6 +422,11 @@ body{background:var(--page);overflow:hidden}
 #spider{position:absolute;left:0;top:0;width:1920px;height:1080px;pointer-events:none;z-index:20}
 @media (prefers-reduced-motion:reduce){.caret{animation:none}.feed li.new{animation:none}.track i,.bar i{transition:none}}
 
+/* 跨机实况数据条：crypto-agent 四节点只读实况（数据来自 live.json，由 live/collect_live.py 采集） */
+.wrap{display:flex;flex-direction:column}
+.fit{flex:1 1 auto;min-height:0;height:auto}
+.live{--lv-line:var(--line);--lv-sub:var(--ink-2);height:46px;flex:none;margin-top:8px;background:var(--panel);border:1px solid var(--line);border-radius:5px;color:var(--ink);font-family:var(--mono)}
+
 /* 系列水印：作战室左下角，和舞台里的小字同一套等宽字 */
 .wm{position:absolute;left:30px;bottom:9px;font:500 8.5px/1 var(--mono);letter-spacing:.2em;color:var(--dim);pointer-events:none;white-space:nowrap}
 </style>
@@ -426,11 +437,11 @@ body{background:var(--page);overflow:hidden}
     <div class="brand">
      <span class="logo" aria-hidden="true"><svg viewBox="0 0 32 32"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 13 8 7 5 2M12 15 5 12 1 13M12 17 5 19 1 23M13 19 9 25 6 30M19 13l5-6 3-5M20 15l7-3 4 1M20 17l7 2 4 4M19 19l4 6 3 5"/></g><ellipse cx="16" cy="16" rx="4.6" ry="6" fill="currentColor"/></svg></span>
      <h1>AGENT OPS<em>+</em><span class="zh">数字战术大屏</span></h1>
-     <div class="tagline">CRAWLER READS · CHIEF SPLITS · AGENTS SHIP<small>示例数据 · 模拟运行 · 12 个智能体 + 1 个总调度 + 1 只巡检蛛</small></div>
+     <div class="tagline">COLLECT → AGGREGATE → RESEARCH → CLAIMS<small>WIN / MAC / SG / HK 跨机实况 · 12 个组件 + 总调度 + 巡检蛛</small></div>
     </div>
     <div class="spacer"></div>
-    <div class="goal"><span class="gl">今日产出<small id="goalTxt">0 / 20,000</small></span><span class="track"><i id="goalBar"></i></span><span id="goalPct">0%</span></div>
-    <div class="day" id="dayTxt">DAY 11 · OCT 19</div>
+    <div class="goal"><span class="gl">U1 校验<small id="goalTxt">— / —</small></span><span class="track"><i id="goalBar"></i></span><span id="goalPct">0%</span></div>
+    <div class="day" id="dayTxt">LIVE · --</div>
     <div class="btns">
      <button class="btn" type="button" data-series-pick>主题</button>
      <button class="btn" id="btnFull" type="button">全屏</button>
@@ -451,12 +462,12 @@ body{background:var(--page);overflow:hidden}
      <article class="pnl fly">
       <canvas id="flyCv" aria-label="交付飞轮：左侧任务线汇入三个工作流节点，环带滚动任务记录，每交付一件飞轮被推快一点，外射光线是刚交付的成果"></canvas>
       <div class="fh"><h2>FLYWHEEL<i>交付飞轮</i></h2><p id="flyRpm">—</p></div>
-      <div class="big fhud" id="fhud"><span>DELIVERED · 今日交付</span><b id="outBig">0</b>
+      <div class="big fhud" id="fhud"><span>U1 MATCHED · 校验通过</span><b id="outBig">0</b>
        <div class="kv2"><span>TOKENS · 今日消耗</span><em class="tk" id="kTok">0</em></div>
-       <div class="kv2"><span>COST · 今日成本</span><em class="cost" id="kCost">¥0</em></div>
+       <div class="kv2"><span>CACHE · 缓存读</span><em class="cost" id="kCost">¥0</em></div>
        <div class="kv2"><span>PER ITEM · 单件</span><em class="sm" id="kPer">—</em></div>
       </div>
-      <div class="fnote">示例单价 · 输入 ¥2/M · 缓存 ¥0.5/M · 输出 ¥8/M</div>
+      <div class="fnote">真实 token · 来自 DSH 会话缓存（input/output/cache）</div>
       <div class="tip" id="flyTip" hidden></div>
      </article>
      <article class="pnl">
@@ -497,6 +508,7 @@ body{background:var(--page);overflow:hidden}
   </div>
   <div class="hint">横屏或在电脑上打开效果最好</div>
  </div>
+ <div class="live" data-live aria-label="跨机实况数据条"></div>
 </div>
 </template>
 
@@ -625,6 +637,10 @@ body{background:var(--page);overflow:hidden}
 .prog i{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--ice);box-shadow:0 0 10px var(--ice)}
 .bc.big .v{color:#fff;text-shadow:0 0 18px rgba(166,241,255,.35)}
 
+/* 跨机实况数据条：crypto-agent 四节点只读实况（数据来自 live.json，由 live/collect_live.py 采集） */
+.fit{inset:0 0 54px 0}
+.live{--lv-line:var(--hair2);--lv-sub:var(--ink2);position:absolute;left:24px;right:24px;bottom:12px;height:42px;border-top:1px solid var(--hair2);background:linear-gradient(0deg,rgba(3,5,10,.9),rgba(3,5,10,.45));color:var(--ink)}
+
 .wm{position:absolute;left:440px;bottom:126px;font-family:var(--display);font-size:9px;letter-spacing:.32em;color:var(--dim);white-space:nowrap}
 
 /* ---------- 悬停提示 ---------- */
@@ -662,8 +678,8 @@ body{background:var(--page);overflow:hidden}
   <header class="hd">
    <div class="eb">AGENT OPS · THEME <b>03</b> · SYNAPTIC DISPATCH</div>
    <h1><span>NEURAL</span><span>RING<em>神经星环</em></span></h1>
-   <div class="sub">CHIEF 拆单 · 12 个智能体接力 · CRAWLER 巡检</div>
-   <div class="sub2">示例数据 · 本地模拟 · 未接模型 · <b id="clock">--:--:--</b></div>
+   <div class="sub">CHIEF 总调度 · 12 个真实组件 · CRAWLER 探针巡检</div>
+   <div class="sub2">跨机实况 · live.json 15s 刷新 · <b id="clock">--:--:--</b></div>
   </header>
 
   <div class="cap" id="cap">
@@ -701,10 +717,10 @@ body{background:var(--page);overflow:hidden}
   </div>
 
   <section class="bs">
-   <div class="bc"><span class="l">TOPOLOGY<i>拓扑</i></span><span class="v" id="bTopo">0<small>突触</small></span><span class="s" id="bTopoS">—</span></div>
-   <div class="bc"><span class="l">SIGNAL RATE<i>脉冲</i></span><span class="v" id="bRate">0<small>次/秒</small></span><span class="s" id="bRateS">—</span><canvas class="spark" id="spark" aria-label="最近 60 秒每秒脉冲数"></canvas></div>
-   <div class="bc big"><span class="l">DELIVERED TODAY<i>今日交付</i></span><span class="v" id="bOut">0</span><span class="s" id="bOutS">—</span><span class="prog"><i id="bOutBar"></i></span></div>
-   <div class="bc"><span class="l">PROOF<i>审校通过</i></span><span class="v" id="bPass">—</span><span class="s" id="bPassS">—</span></div>
+   <div class="bc"><span class="l">TOKENS<i>跨机真实</i></span><span class="v" id="bTopo">0<small>突触</small></span><span class="s" id="bTopoS">—</span></div>
+   <div class="bc"><span class="l">EVENTS<i>活动条</i></span><span class="v" id="bRate">0<small>次/秒</small></span><span class="s" id="bRateS">—</span><canvas class="spark" id="spark" aria-label="最近 60 秒每秒脉冲数"></canvas></div>
+   <div class="bc big"><span class="l">U1 MATCHED<i>校验通过</i></span><span class="v" id="bOut">0</span><span class="s" id="bOutS">—</span><span class="prog"><i id="bOutBar"></i></span></div>
+   <div class="bc"><span class="l">CLAIMS<i>verified</i></span><span class="v" id="bPass">—</span><span class="s" id="bPassS">—</span></div>
    <div class="bc"><span class="l">TOKENS<i>算力</i></span><span class="v" id="bTok">0</span><span class="s" id="bTokS">—</span></div>
    <div class="bc"><span class="l">RENDER<i>渲染</i></span><span class="v" id="bFps">—</span><span class="s" id="bFpsS">—</span></div>
   </section>
@@ -722,119 +738,269 @@ body{background:var(--page);overflow:hidden}
   </div>
   <div>
    <div class="m-cap" id="mCap">—</div>
-   <div class="m-stats"><div><span>今日交付</span><b id="mOut">0</b></div><div><span>在跑智能体</span><b id="mLive">0</b></div><div><span>TOKEN</span><b id="mTok">0</b></div></div>
+   <div class="m-stats"><div><span>U1 通过</span><b id="mOut">0</b></div><div><span>在线组件</span><b id="mLive">0</b></div><div><span>TOKEN</span><b id="mTok">0</b></div></div>
    <div class="m-wm">DEVELOPED BY @赛博老爸</div>
   </div>
  </div>
 </div></div>
 </div>
+<div class="live" data-live aria-label="跨机实况数据条"></div>
 <div class="tip" id="tip" hidden></div>
 <div class="glfail" id="glFail" hidden>这台设备的浏览器没法显示 3D 画面（WebGL 不可用），右侧数据照常在跑。换 Chrome / Edge 打开即可看到星环。</div>
 </template>
 
 <script>
+/* ================= 跨机实况数据条：crypto-agent 四节点（WIN/MAC/SG/HK）只读实况 ================= */
+/* 数据由 live/collect_live.py 采集写入同目录 live.json；本模块只拉取与渲染，不写数据。
+   fetch 失败时保留最后一次成功数据并标“未连接”，主题其余部分不受影响。 */
+const LIVE_URL = 'live.json', LIVE_FETCH_MS = 15000, LIVE_AGE_MS = 5000;
+const LIVE_STATES = {ok: 1, warn: 1, down: 1, unknown: 1};
+const LIVE_CSS = `
+.live{box-sizing:border-box;display:flex;align-items:stretch;gap:12px;padding:5px 12px;overflow:hidden;font-size:9px;line-height:12px;font-variant-numeric:tabular-nums}
+.live[data-state="off"]{opacity:.8}
+.live .lv-badge{display:flex;align-items:center;gap:6px;flex:none;padding-right:12px;border-right:1px solid var(--lv-line,rgba(128,128,128,.28))}
+.live .lv-badge b{font-weight:800;letter-spacing:.16em;font-size:10px}
+.live .lv-badge em{font-style:normal;font-family:var(--cjk,inherit);font-size:9px;color:var(--mute);letter-spacing:.04em}
+.live .lv-live{width:6px;height:6px;border-radius:50%;flex:none;background:var(--mute)}
+.live[data-state="on"] .lv-live{background:var(--lv-ok,var(--good,#2f7d4f));animation:lvpulse 2.4s infinite}
+.live[data-state="warn"] .lv-live{background:var(--lv-warn,var(--warn,#a2711c))}
+.live[data-state="off"] .lv-live{background:var(--lv-bad,var(--bad,#b23a3a))}
+@keyframes lvpulse{50%{opacity:.3}}
+.live .lv-age{font-size:9px;color:var(--mute);white-space:nowrap}
+.live[data-age="warn"] .lv-age{color:var(--lv-warn,var(--warn,#a2711c))}
+.live[data-age="bad"] .lv-age{color:var(--lv-bad,var(--bad,#b23a3a))}
+.live .lv-nodes{display:flex;gap:10px;flex:1;min-width:0}
+.live .lv-n{display:flex;flex-direction:column;justify-content:center;gap:1px;min-width:0;flex:0 1 208px;overflow:hidden}
+.live .lv-hd{display:flex;align-items:center;gap:5px;white-space:nowrap;font-size:10px;letter-spacing:.08em;overflow:hidden}
+.live .lv-hd em{font-style:normal;font-family:var(--cjk,inherit);font-size:9px;color:var(--mute);letter-spacing:.02em}
+.live .lv-d{width:6px;height:6px;border-radius:50%;flex:none;background:var(--mute)}
+.live .lv-n[data-state="ok"] .lv-d{background:var(--lv-ok,var(--good,#2f7d4f))}
+.live .lv-n[data-state="warn"] .lv-d{background:var(--lv-warn,var(--warn,#a2711c))}
+.live .lv-n[data-state="down"] .lv-d{background:var(--lv-bad,var(--bad,#b23a3a))}
+.live .lv-f{display:flex;flex-direction:column;padding-left:11px;color:var(--lv-sub,var(--ink2,var(--ink-2)));overflow:hidden}
+.live .lv-f span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.live .lv-prog{display:flex;flex-direction:column;justify-content:center;gap:1px;flex:none;max-width:330px;padding-left:12px;border-left:1px solid var(--lv-line,rgba(128,128,128,.28));color:var(--lv-sub,var(--ink2,var(--ink-2)));overflow:hidden}
+.live .lv-prog>span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.live .lv-k{font-style:normal;font-size:8px;letter-spacing:.1em;color:var(--mute);margin-right:5px}
+.live .lv-alert{display:flex;align-items:center;gap:6px;flex:0 1 320px;min-width:0;padding-left:12px;border-left:1px solid var(--lv-line,rgba(128,128,128,.28));font-size:9px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--lv-warn,var(--warn,#a2711c))}
+.live .lv-alert i{font-style:normal;flex:none}
+.live .lv-alert em{font-style:normal;color:var(--mute)}
+.live .lv-alert[data-level="bad"]{color:var(--lv-bad,var(--bad,#b23a3a))}
+@media (max-width:1520px){.live .lv-f span + span{display:none}}
+@media (max-width:1240px){.live .lv-prog{display:none}}
+@media (max-width:960px){.live .lv-alert{display:none}}
+@media (max-width:760px){.live{flex-wrap:wrap;height:auto!important;min-height:46px;row-gap:2px}.live .lv-nodes{order:3;flex-basis:100%;gap:8px}.live .lv-n{flex:1 1 0}.live .lv-f span + span{display:none}}
+@media (prefers-reduced-motion:reduce){.live[data-state="on"] .lv-live{animation:none}}
+`;
+const Live = {data: null, error: null, targets: [], timer: null, cbs: []};
+function liveEsc(v){ return String(v == null ? '' : v).replace(/[&<>"]/g, c => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c])); }
+function liveAgeStr(epoch){
+  if (!epoch) return '—';
+  const s = Math.max(0, Math.round(Date.now() / 1000 - epoch));
+  if (s < 90) return s + 's 前';
+  if (s < 3600) return Math.round(s / 60) + 'm 前';
+  return Math.round(s / 3600) + 'h ' + String(Math.round((s % 3600) / 60)).padStart(2, '0') + 'm 前';
+}
+function liveNodeHTML(n){
+  const st = LIVE_STATES[n && n.state] ? n.state : 'unknown';
+  const label = liveEsc(n && n.label), role = liveEsc(n && n.role);
+  const f1 = liveEsc(n && n.f1), f2 = liveEsc(n && n.f2);
+  const tip = [label, role, f1, f2].filter(Boolean).join(' · ');
+  return '<span class="lv-n" data-state="' + st + '" title="' + tip + '"><span class="lv-hd"><i class="lv-d"></i><b>' + label + '</b><em>' + role + '</em></span><span class="lv-f"><span>' + f1 + '</span><span>' + f2 + '</span></span></span>';
+}
+function livePaint(bar){
+  const d = Live.data;
+  if (!d){
+    bar.dataset.state = Live.error ? 'off' : 'wait';
+    bar.dataset.age = '';
+    bar.innerHTML = '<span class="lv-badge"><i class="lv-live"></i><b>LIVE</b><em>跨机协作</em><span class="lv-age">' + (Live.error ? '未连接' : '连接中…') + '</span></span>' +
+      '<span class="lv-nodes">' + ['WIN', 'MAC', 'SG', 'HK'].map(l => liveNodeHTML({label: l, role: '', state: 'unknown', f1: '—', f2: ''})).join('') + '</span>' +
+      '<span class="lv-prog"><span><i class="lv-k">数据</i>' + (Live.error ? 'live.json 不可用 · 先运行 live/collect_live.py' : '等待采集器…') + '</span></span>';
+    return;
+  }
+  const ok = !(d.collect && d.collect.ok === false);
+  bar.dataset.state = ok ? 'on' : 'warn';
+  const age = d.epoch ? Math.max(0, Math.round(Date.now() / 1000 - d.epoch)) : null;
+  bar.dataset.age = age == null ? '' : age > 300 ? 'bad' : age > 90 ? 'warn' : 'ok';
+  const pr = d.progress || {}, cl = d.claims || {};
+  const alerts = Array.isArray(d.alerts) ? d.alerts.filter(a => a && a.text) : [];
+  const alertHTML = alerts.length
+    ? '<span class="lv-alert" data-level="' + (alerts[0].level === 'bad' ? 'bad' : 'warn') + '" title="' + alerts.map(a => liveEsc(a.text)).join('&#10;') + '"><i>⚠</i>' + liveEsc(alerts[0].text) + (alerts.length > 1 ? '<em>+' + (alerts.length - 1) + '</em>' : '') + '</span>'
+    : '';
+  const errTip = d.collect && Array.isArray(d.collect.errors) && d.collect.errors.length ? ' title="' + liveEsc(d.collect.errors.join(' | ')) + '"' : '';
+  bar.innerHTML =
+    '<span class="lv-badge"' + errTip + '><i class="lv-live"></i><b>LIVE</b><em>跨机协作</em><span class="lv-age">' + liveAgeStr(d.epoch) + '</span></span>' +
+    '<span class="lv-nodes">' + (Array.isArray(d.nodes) ? d.nodes.map(liveNodeHTML).join('') : '') + '</span>' +
+    '<span class="lv-prog">' +
+      '<span><i class="lv-k">U1</i>' + liveEsc(pr.u1 || '—') + '</span>' +
+      '<span><i class="lv-k">CLAIMS</i>' + liveEsc(cl.total == null ? '—' : cl.total) + ' · verified ' + liveEsc(cl.verified == null ? '—' : cl.verified) + '</span>' +
+      '<span><i class="lv-k">COMMIT</i>' + liveEsc(pr.commit || '—') + (pr.commit_at ? ' @' + liveEsc(pr.commit_at) : '') + '</span>' +
+    '</span>' + alertHTML;
+}
+function liveRenderAll(){ for (const bar of Live.targets) { try { livePaint(bar); } catch (e) { console.error(e); } } }
+function liveFetch(){
+  fetch(LIVE_URL + '?t=' + Date.now(), {cache: 'no-store'})
+    .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+    .then(d => { Live.data = d; Live.error = null; })
+    .catch(e => { Live.error = String((e && e.message) || e); })
+    .then(() => { liveRenderAll(); liveNotify(); });
+}
+function initLiveBar(SR, theme){
+  const bar = SR.querySelector('[data-live]');
+  if (!bar || bar.dataset.liveInit) return;
+  bar.dataset.liveInit = '1';
+  bar.dataset.theme = theme;
+  const style = document.createElement('style');
+  style.textContent = LIVE_CSS;
+  SR.appendChild(style);
+  Live.targets.push(bar);
+  livePaint(bar);
+  if (!Live.timer){
+    Live.timer = setInterval(liveFetch, LIVE_FETCH_MS);
+    setInterval(liveRenderAll, LIVE_AGE_MS);
+    liveFetch();
+  }
+}
+
+/* ================= 真实数据层：三主题共用（消费 live.json v2，v1 缺失时降级） ================= */
+/* 主题内的 agent/任务流/token/质检数字全部从这里取；live.json 不可用时只降级数值，不显示假数据。 */
+const REAL_FALLBACK_AGENTS = [
+  {id:'collector', label:'COLLECTOR', zh:'采集器',   where:'SG',  state:'unknown', pct:0, note:'等待实况…'},
+  {id:'aggregate', label:'AGGREGATE', zh:'聚合',     where:'SG',  state:'unknown', pct:0, note:'等待实况…'},
+  {id:'futures',   label:'FUTURES',   zh:'衍生采集', where:'SG',  state:'unknown', pct:0, note:'等待实况…'},
+  {id:'agent-svc', label:'AGENT-SVC', zh:'分析服务', where:'SG',  state:'unknown', pct:0, note:'等待实况…'},
+  {id:'claims',    label:'CLAIMS',    zh:'claim库',  where:'MAC', state:'unknown', pct:0, note:'等待实况…'},
+  {id:'retrieval', label:'RETRIEVAL', zh:'检索层',   where:'MAC', state:'unknown', pct:0, note:'等待实况…'},
+  {id:'replay',    label:'REPLAY',    zh:'回放引擎', where:'MAC', state:'unknown', pct:0, note:'等待实况…'},
+  {id:'u1-vision', label:'U1-VISION', zh:'历史下载', where:'MAC', state:'unknown', pct:0, note:'等待实况…'},
+  {id:'u1-verify', label:'U1-VERIFY', zh:'数据校验', where:'MAC', state:'unknown', pct:0, note:'等待实况…'},
+  {id:'duckdb',    label:'DUCKDB',    zh:'研究库',   where:'WIN', state:'unknown', pct:0, note:'等待实况…'},
+  {id:'backup',    label:'BACKUP',    zh:'备份',     where:'HK',  state:'unknown', pct:0, note:'等待实况…'},
+  {id:'research',  label:'RESEARCH',  zh:'研究节点', where:'WIN', state:'unknown', pct:0, note:'等待实况…'}
+];
+const REAL_FALLBACK_ACTIVITY = [];
+function liveHasData(){ return !!(Live.data && Live.data.schema); }
+function liveAgentsReal(){ const a = Live.data && Live.data.agents; return Array.isArray(a) && a.length === 12 ? a : REAL_FALLBACK_AGENTS; }
+function liveActivityReal(){ const a = Live.data && Live.data.activity; return Array.isArray(a) ? a : REAL_FALLBACK_ACTIVITY; }
+function liveTokensReal(){ return (Live.data && Live.data.tokens) || {}; }
+function liveClaimsReal(){ return (Live.data && Live.data.claims) || {}; }
+function liveMetricsReal(){ return (Live.data && Live.data.metrics) || {}; }
+function liveProgressReal(){ return (Live.data && Live.data.progress) || {}; }
+function liveTokSum(){
+  const t = liveTokensReal(), tot = t.total || {}, w = t.win || {}, m = t.mac || {};
+  const input = tot.inputTokens ?? ((w.inputTokens || 0) + (m.inputTokens || 0));
+  const output = tot.outputTokens ?? ((w.outputTokens || 0) + (m.outputTokens || 0));
+  const cache = tot.cacheReadTokens ?? ((w.cacheReadTokens || 0) + (m.cacheReadTokens || 0));
+  const all = tot.allTokens ?? (input + output + cache);
+  return {input, output, cache, all, win: w, mac: m};
+}
+function liveLiveCount(){ return liveAgentsReal().filter(a => a.state === 'ok' || a.state === 'warn').length; }
+function liveDoneCount(){ return liveActivityReal().filter(a => a.state === 'done').length; }
+function liveRunCount(){ return liveActivityReal().filter(a => a.state === 'run').length; }
+function liveWarnCount(){ return liveActivityReal().filter(a => a.state === 'warn').length; }
+function fmtBig(n){
+  if (n == null || isNaN(n)) return '—';
+  n = Math.round(n);
+  if (Math.abs(n) >= 1e9) return (n / 1e9).toFixed(2) + 'B';
+  if (Math.abs(n) >= 1e6) return (n / 1e6).toFixed(2) + 'M';
+  if (Math.abs(n) >= 1e3) return (n / 1e3).toFixed(1) + 'k';
+  return String(n);
+}
+function fmtLag(sec){
+  if (sec == null || isNaN(sec)) return '—';
+  sec = Math.round(sec);
+  if (sec < 90) return sec + 's';
+  if (sec < 3600) return Math.round(sec / 60) + 'm';
+  return (sec / 3600).toFixed(1) + 'h';
+}
+function liveSubscribe(fn){
+  Live.cbs.push(fn);
+  try { fn(); } catch (e) { console.error(e); }
+}
+function liveNotify(){ for (const fn of Live.cbs.slice()) { try { fn(); } catch (e) { console.error(e); } } }
+/* 真实活动 → 通用任务名/id；供三主题任务流使用 */
+function liveTaskNames(){
+  const a = liveActivityReal();
+  if (!a.length) return null;
+  return a.map(x => x.title || x.id || '—');
+}
+
+
 /* ===== 主题 01 · OPS 纸面工程 ===== */
 function mountOps(host, SR){
 'use strict';
 
 /* ================= 1. 数据配置（换成你自己的内容即可） ================= */
 const CONFIG = {
-  agents: [['01','检索'],['02','拆解'],['03','文案'],['04','设计'],['05','代码'],['06','测试'],
-           ['07','审校'],['08','数据'],['09','剪辑'],['10','投放'],['11','客服'],['12','归档']],
-  taskNames: ['竞品资料检索','需求拆解','短视频脚本','封面图六版','落地页改版','接口联调','合同条款审校','周报数据汇总',
-              '投标文件生成','私域话术更新','素材归档','发版检查','用户反馈聚类','广告素材测试','知识库更新','直播切片'],
-  workflows: ['资料检索','需求拆解','脚本生成','视觉设计','代码实现','测试验证','合规审校','数据汇总','视频剪辑','投放优化','知识归档'],
-  // 执行代码面板：多套示例，随机轮换，一轮内不重复。agent = 对应 agents 的序号（0 起）
+  /* 真实项目组件（与 live.json v2 的 agents 顺序一致，仅作 12 席展示用） */
+  agents: [['01','采集'],['02','聚合'],['03','衍生'],['04','分析'],['05','Claim'],['06','检索'],
+           ['07','回放'],['08','U1 下载'],['09','U1 校验'],['10','研究库'],['11','备份'],['12','研究']],
+  /* 真实任务名：crypto-agent 当前在跑/跑过的活 */
+  taskNames: ['1m bar 增量入库','5m/15m/1h 聚合','OI/资金费率采集','HTF 缺口重算','claim 批次复核','FTS5 检索联调',
+              'replay 时点隔离','U1 522 标的下载','U1 全量校验','duckdb 研究库构建','SG→HK 备份推送','fapi 快照采集',
+              '破位门控预注册','P0-B 检验冻结','BOARD 状态同步','看板实况采集'],
+  /* 真实数据管线（5 条） */
+  workflows: ['数据主链','衍生链','历史链','研究链','运维链'],
+  // 执行代码面板：真实项目脚本片段，随机轮换
   codeSets: [
-    {file: 'dispatch.py', agent: 1, start: 7, lines: [
-      "# 每日调度：拆任务、派给智能体",
-      "tasks = load_queue('今日')",
-      "plan = split(tasks, by='skill')",
-      "for step in plan:",
-      "    agent = dispatch(step.skill)",
-      "    out = agent.run(step)",
-      "    if review(out) < 0.8:",
-      "        out = agent.revise(out)",
-      "    board.attach(step.id, out)"]},
-    {file: 'retrieve.py', agent: 0, start: 18, lines: [
-      "# 竞品资料检索",
-      "def retrieve(topic, k=20):",
-      "    hits = search.web(topic, top=k)",
-      "    docs = [fetch(h.url) for h in hits]",
-      "    docs = dedupe(docs, by='title')",
-      "    notes = summarize(docs, lang='zh')",
-      "    kb.save(topic, notes)",
-      "    return notes"]},
-    {file: 'script.py', agent: 2, start: 31, lines: [
-      "# 短视频脚本：钩子 + 正文 + 互动",
-      "def write_script(topic, pains):",
-      "    hook = pick_hook(pains, max_s=5)",
-      "    body = outline(topic, beats=4)",
-      "    cta = ask_for_comment(topic)",
-      "    draft = llm.write(hook, body, cta)",
-      "    return polish(draft, tone='口语')"]},
-    {file: 'cover.py', agent: 3, start: 42, lines: [
-      "# 封面图六版，挑最佳",
-      "specs = brief.cover_specs()",
-      "imgs = []",
-      "for i in range(6):",
-      "    imgs.append(img.gen(specs, seed=i))",
-      "scores = [rate(x, specs) for x in imgs]",
-      "best = imgs[argmax(scores)]",
-      "export(best, size='1080x1440')"]},
-    {file: 'tender.py', agent: 6, start: 56, lines: [
-      "# 投标文件：按甲方要求逐条响应",
-      "reqs = parse_tender('招标文件.pdf')",
-      "doc = Template('投标模板.docx')",
-      "for r in reqs:",
-      "    ans = draft_response(r, kb)",
-      "    doc.fill(r.id, ans)",
-      "missing = doc.check_required(reqs)",
-      "assert not missing, missing",
-      "doc.save('投标文件_v3.docx')"]},
-    {file: 'weekly.py', agent: 7, start: 64, lines: [
-      "# 周报数据汇总",
-      "rows = db.query('tasks', week=42)",
-      "done = [r for r in rows if r.done]",
-      "rate = len(done) / len(rows)",
-      "chart = plot.bar(group(done, 'agent'))",
-      "report.add('完成率', f'{rate:.0%}')",
-      "report.add_chart(chart)",
-      "report.send(to='周报群')"]},
-    {file: 'preflight.py', agent: 5, start: 77, lines: [
-      "# 发版前检查",
-      "def preflight(build):",
-      "    tests = run_tests(build, fast=True)",
-      "    if tests.failed:",
-      "        return block(tests.failed)",
-      "    diff = compare(build, last_release)",
-      "    if diff.risk > 0.3:",
-      "        return ask_review(diff)",
-      "    return approve(build)"]},
-    {file: 'ads_ab.py', agent: 9, start: 88, lines: [
-      "# 广告素材测试：小预算跑 AB",
-      "variants = load_creatives('第3批')",
-      "for v in variants:",
-      "    ads.launch(v, budget=200)",
-      "wait(hours=24)",
-      "stats = ads.report(variants)",
-      "win = max(stats, key=lambda s: s.ctr)",
-      "ads.scale(win, budget=2000)"]},
-    {file: 'archive.py', agent: 11, start: 95, lines: [
-      "# 素材归档与知识库更新",
-      "files = scan('素材/本周')",
-      "for f in files:",
-      "    tags = vision.tag(f)",
-      "    kb.index(f, tags=tags)",
-      "    move(f, to=f'归档/{tags[0]}')",
-      "log.info(f'归档 {len(files)} 个文件')"]}
+    {file: 'collect_1m.py', agent: 0, start: 7, lines: [
+      "# SG 采集器：15s REST 轮询 1m bar",
+      "def poll(symbols):",
+      "    for s in symbols:",
+      "        k = rest.klines(s, '1m', limit=2)",
+      "        if k and k[-1]['is_closed']:",
+      "            store.upsert(s, k[-1])",
+      "        guard.check_gap(s, k)"]},
+    {file: 'aggregate.py', agent: 1, start: 18, lines: [
+      "# 5m / 15m / 1h 增量聚合（只取已收盘）",
+      "for iv in ('5m', '15m', '1h'):",
+      "    sql = f'INSERT OR REPLACE INTO bars_{iv}'",
+      "    sql += ' SELECT symbol, ts, o, h, l, c, v'",
+      "    sql += ' FROM bars_1m WHERE is_closed = 1'",
+      "    db.execute(sql, since=last_open)",
+      "    verify.vs_binance(iv, n=20)"]},
+    {file: 'futures.py', agent: 2, start: 31, lines: [
+      "# OI / 多空比 / taker / 资金费率（5m timer）",
+      "for kind, ep in ENDPOINTS.items():",
+      "    rows = rest.paged(ep, limit=500)",
+      "    store.upsert_futures(kind, rows)",
+      "    guard.check_lag(kind, max_s=1800)"]},
+    {file: 'u1_verify.py', agent: 8, start: 42, lines: [
+      "# U1 历史数据校验：与 REST 对照 20 根/标的",
+      "for sym, iv in SAMPLES:",
+      "    a = vision.bars(sym, iv, n=20)",
+      "    b = rest.bars(sym, iv, n=20)",
+      "    assert allclose(a, b, rtol=1e-9), sym",
+      "print(json.dumps({'checked': n, 'matched': m}))"]},
+    {file: 'duckdb_build.py', agent: 9, start: 56, lines: [
+      "# WIN 研究库：duckdb 1.5.6",
+      "con = duckdb.connect('research/db/crypto.duckdb')",
+      "sql = 'CREATE TABLE IF NOT EXISTS bars_5m AS SELECT * FROM read_parquet(?)'",
+      "con.execute(sql, [p])",
+      "con.execute('CREATE INDEX IF NOT EXISTS idx_sym_ts ON bars_1m(symbol, ts)')"]},
+    {file: 'board_sync.sh', agent: 4, start: 64, lines: [
+      "# 跨机任务通道：BOARD.md 是唯一真相",
+      "git pull --rebase origin main",
+      "python ops/scripts/board_brief.py   # 我该做什么",
+      "git add BOARD.md",
+      "git commit -m \"board: claim 复核 [r1xplE]\"",
+      "git push origin main"]},
+    {file: 'live_probe.py', agent: 11, start: 77, lines: [
+      "# live 采集：只读探针经 SSH stdin 执行",
+      "p = subprocess.run(",
+      "    ['ssh', '-i', KEY, f'{USER}@{HOST}', 'python3', '-'],",
+      "    input=PROBE, text=True, timeout=15)",
+      "payload = json.loads(extract(p.stdout))"]},
+    {file: 'replay.py', agent: 6, start: 88, lines: [
+      "# replay 引擎：时点隔离 + 未来函数检测",
+      "for i, bar in enumerate(bars):",
+      "    frame = snapshot(bar.ts)          # 只看当时可见数据",
+      "    if scan(frame) > 0:",
+      "        raise Leak('future function', i)",
+      "    out = strategy.decide(frame)"]}
   ]
 };
-const CODEBITS = ['eqs = extract(spec.p)','solve(grid, dt=0.004)','log(claim, consts)','assert stable(state)','check_mass(state, ref)',
-  'flag(blind_spots)','drift = compare(out, ref)','rerun(scene_07)','cite(page=12)','metric = spec.metric()','state = step(inputs)',
-  'out = agent.run(step)','score = review(out)','board.attach(id, out)','route(task, skill)','queue.push(task)'];
-
-/* 飞轮转速（弧度/秒），越大转得越快 */
+const CODEBITS = ['store.upsert(s, k[-1])','INSERT OR REPLACE INTO bars_5m','guard.check_lag(kind, 1800)','claims.total += 1','score = review(out)','futures_fresh == True','replay.seek(ts)','duckdb.connect(path)','rsync -avz --delete','board_brief.py','verify.vs_binance(iv, n=20)','snapshot(bar.ts)'];
 const SPIN = 0.16;
 
 /* ================= 2. 工具 ================= */
@@ -873,7 +1039,7 @@ const tasks = Array.from({length: 64}, (_, i) => ({i, id: 'T-' + String(i + 1).p
   name: CONFIG.taskNames[(R() * CONFIG.taskNames.length) | 0], wf: (R() * NW) | 0, prog: 0, state: 'queued', agent: -1}));
 const agents = CONFIG.agents.map(([code, name], i) => ({i, code, name, task: -1}));
 const wfs = CONFIG.workflows.map((name, i) => ({i, id: 'W' + pad2(i + 1), name, q: 0, cells: Array.from({length: 16}, () => R())}));
-[0.91, 0.86, 0.72, 0.88, 0.84, 0.69, 0.93, 0.82, 0.74, 0.87, 0.71].forEach((q, i) => wfs[i].q = q);
+[0.91, 0.86, 0.72, 0.88, 0.84].forEach((q, i) => wfs[i].q = q);
 const order = tasks.map(t => t.i);
 for (let i = order.length - 1; i > 0; i--) { const j = (R() * (i + 1)) | 0; [order[i], order[j]] = [order[j], order[i]]; }
 order.slice(0, 22).forEach(i => { tasks[i].state = 'done'; tasks[i].prog = 1; });
@@ -883,31 +1049,40 @@ const running = () => agents.filter(a => a.task >= 0).length;
 const doneCount = () => tasks.filter(t => t.state === 'done').length;
 const matched = () => wfs.filter(w => w.q >= 0.8).length;
 
-let logN = 38;
+/* 任务流 = live.json 的真实活动（activity）；取不到实况时留空，不造假。
+   下面的 tasks 只是画布动画载体：名字用真实任务名，状态由真实活动映射（done/run/warn）。 */
+let logN = 0;
 const feed = [];
 const VERB = {read: '读取', build: '生成', check: '核验', review: '复核'};
-function log(verb, t){ feed.push({n: logN++, verb, text: `${VERB[verb]} ${t.name}`}); if (feed.length > 30) feed.shift(); }
-order.slice(8, 20).forEach((i, k) => log(['read', 'build', 'check', 'review'][k % 4], tasks[i]));
+const WVERB = {done: '交付', run: '在跑', warn: '告警', queued: '排队', plan: '计划'};
+function seedFeed(){
+  feed.length = 0; logN = 0;
+  const acts = liveActivityReal();
+  for (const ev of acts) feed.push({n: ++logN, verb: WVERB[ev.state] || '事件', text: `[${ev.who || '—'}] ${ev.title || '—'}`});
+  if (!acts.length) feed.push({n: ++logN, verb: '等待', text: '正在连接跨机实况（live.json）…'});
+}
+function log(){ /* 模拟派单日志停用：任务流只显示真实活动 */ }
+function syncRealTasks(){
+  /* 把真实活动映射成画布任务：真实的 id/标题/状态，进度只按状态给固定值 */
+  const acts = liveActivityReal();
+  if (!acts.length) return;
+  const stMap = {done: 'done', run: 'run', warn: 'warn', queued: 'queued', plan: 'queued'};
+  tasks.length = 0;
+  acts.slice(0, 18).forEach((ev, i) => {
+    const wf = i % Math.max(1, NW);
+    tasks.push({i, id: ev.id || ('T-' + pad2(i + 1)), name: ev.title || '—', wf,
+      prog: ev.state === 'done' ? 1 : ev.state === 'run' ? 0.62 : ev.state === 'warn' ? 0.35 : 0.1,
+      state: stMap[ev.state] || 'queued', agent: -1});
+  });
+  agents.forEach(a => a.task = -1);
+}
+syncRealTasks();
 
 function step(){
-  for (const a of agents) {
-    if (a.task < 0) continue;
-    const t = tasks[a.task];
-    t.prog = Math.min(1, t.prog + 0.03 + Math.random() * 0.08);
-    if (t.prog >= 1) { t.state = 'done'; t.agent = -1; a.task = -1; log(Math.random() < 0.5 ? 'check' : 'review', t); }
-  }
-  for (const a of agents) {
-    if (a.task >= 0 || Math.random() > 0.4) continue;
-    const q = tasks.filter(t => t.state === 'queued');
-    if (!q.length) break;
-    const t = q[(Math.random() * q.length) | 0];
-    t.state = 'run'; t.agent = a.i; t.prog = 0.02; a.task = t.i; log(Math.random() < 0.5 ? 'read' : 'build', t);
-  }
-  const done = tasks.filter(t => t.state === 'done');
-  if (done.length > 54) for (let k = 0; k < 18; k++) { const t = done[(Math.random() * done.length) | 0]; t.state = 'queued'; t.prog = 0; }
-  const w = wfs[(Math.random() * NW) | 0];
-  w.q = Math.max(0.6, Math.min(0.97, w.q + (Math.random() - 0.38) * 0.05));
-  w.cells[(Math.random() * 16) | 0] = Math.random();
+  /* 任务 = 真实活动快照；派单/进度不再由模拟器生成，只把在跑的真实任务分配给 12 席做动画 */
+  const runs = tasks.filter(t => t.state === 'run' || t.state === 'warn');
+  agents.forEach((a, i) => { a.task = runs.length ? runs[i % runs.length].i : -1; });
+  for (const a of agents) if (a.task >= 0) { const t = tasks[a.task]; t.prog = Math.min(0.99, 0.35 + 0.6 * ((Math.sin(simT * .55 + a.i * 1.7) + 1) / 2)); }
   renderAll();
 }
 
@@ -916,23 +1091,30 @@ const themeBtn = $('#theme'), fullBtn = $('#full');
 const feedEl = $('#feed'), agentsEl = $('#agents'), codeEl = $('#code');
 
 function renderStats(){
-  const run = running(), m = matched();
-  $('#s1').innerHTML = `${run} <small>/ ${NA}</small>`;
-  $('#s3').textContent = doneCount();
-  $('#s4').innerHTML = `${m} <small>/ ${NW}</small>`;
-  $('#s5').textContent = NW - m;
-  $('#noteMain').textContent = `${m} / ${NW} 已匹配 · ${NW - m} 待复核`;
-  $('#agMeta').textContent = `${NA - run} idle`;
+  const ag = liveAgentsReal(), cl = liveClaimsReal(), met = liveMetricsReal();
+  const sg = met.sg || {}, u1 = met.u1 || {};
+  const active = ag.filter(a => a.state === 'ok' || a.state === 'warn').length;
+  $('#s0').textContent = cl.total != null ? cl.total : '—';
+  $('#s1').innerHTML = `${active} <small>/ ${ag.length}</small>`;
+  $('#s2').textContent = NW;
+  $('#s3').innerHTML = u1.matched != null ? `${u1.matched} <small>/ ${u1.checked != null ? u1.checked : '—'}</small>` : '—';
+  $('#s4').textContent = cl.verified != null ? cl.verified : '—';
+  $('#s5').textContent = cl.hypothesis != null ? cl.hypothesis : '—';
+  $('#noteMain').textContent = `CLAIMS ${cl.total != null ? cl.total : '—'} · VERIFIED ${cl.verified != null ? cl.verified : '—'} · HTF15 ${fmtLag(sg.htf15_lag_s)}`;
+  $('#agMeta').textContent = `${active} on · ${ag.length - active} off`;
+  const hl = $('#hudLag'); if (hl) hl.textContent = fmtLag(sg.data_lag_s);
+  const hh = $('#hudHtf'); if (hh) hh.textContent = fmtLag(sg.htf15_lag_s);
 }
 function renderFeed(){
   const n = Math.max(4, Math.floor(feedEl.clientHeight / 13.5));
-  feedEl.innerHTML = feed.slice(-n).map(e => `<li><span class="n">${String(e.n).padStart(3, '0')}</span><span class="vb">${e.verb}</span><span class="d">${e.text}</span></li>`).join('');
+  feedEl.innerHTML = feed.slice(-n).map(e => `<li><span class="n">${String(e.n).padStart(3, '0')}</span><span class="vb">${e.verb}</span><span class="d">${esc(e.text)}</span></li>`).join('');
 }
 function renderAgents(){
-  agentsEl.innerHTML = agents.map(a => {
-    const t = a.task >= 0 ? tasks[a.task] : null;
-    const st = t ? `${t.id} · ${t.prog < 0.35 ? 'reading' : t.prog < 0.75 ? 'working' : 'review'}` : 'idle';
-    return `<li class="${t ? 'busy' : 'idle'}"><span class="n">${a.code}</span><span class="r">${a.name}</span><span class="b"><b><i style="width:${t ? Math.max(4, t.prog * 100).toFixed(0) : 0}%"></i></b><small>${st}</small></span></li>`;
+  const ag = liveAgentsReal();
+  agentsEl.innerHTML = ag.map((x, i) => {
+    const on = x.state === 'ok' || x.state === 'warn';
+    const st = x.state === 'down' ? '不可达' : x.state === 'unknown' ? '等待实况' : (x.note || x.label || '');
+    return `<li class="${on ? 'busy' : 'idle'}"><span class="n">${pad2(i + 1)}</span><span class="r">${esc(x.zh || x.label || '')}</span><span class="b"><b><i style="width:${on ? Math.max(4, Math.min(100, +x.pct || 0)) : 0}%"></i></b><small>${esc(x.label || '')}</small></span></li>`;
   }).join('');
 }
 function renderAll(){ renderStats(); renderFeed(); renderAgents(); if (hoverHub >= 0) showTip(); }
@@ -979,7 +1161,7 @@ const stage = $('#stage'), sc = $('#sc'), sctx = sc.getContext('2d'), tip = $('#
 let W = 1, H = 1, DPR = 1, G = null, layThreads = null, layRing = null;
 let hubs = [], pulses = [], blocks = [], streaks = [], blockFS = 8, blockLH = 11;
 let hoverHub = -1, needs = true, stageDirty = true, panelsNeed = true;
-const hubWf = [4, 0, 8], hubCh = [-10, -10, -10];   // 三个汇聚节点当前对应的工作流、上次切换时间
+const hubWf = [0, 2, 4], hubCh = [-10, -10, -10];   // 三个汇聚节点当前对应的管线、上次切换时间
 let hubTurn = 0;
 const ax = (Rr, y) => G.cx + Math.sqrt(Math.max(0, Rr * Rr - (y - G.cy) * (y - G.cy)));
 const visAng = (Rr, pad) => Math.asin(Math.min(1, (Math.max(G.cy, H - G.cy) + pad) / Rr));
@@ -1426,9 +1608,11 @@ function frame(now){
 }
 
 function hudTick(){
-  const cfl = maxU / 1.6, bad = cfl > 1;
-  $('#cfl').textContent = cfl.toFixed(2);
-  const st = $('#cflst'); st.textContent = bad ? 'OVER · 步长减半' : 'OK'; st.className = bad ? 'warn' : '';
+  /* 稳定性读数改为真实数据时效：data lag / HTF 15m lag（来自 live.json metrics.sg） */
+  const sg = (liveMetricsReal().sg) || {};
+  const lagEl = $('#hudLag'), htfEl = $('#hudHtf');
+  if (lagEl) lagEl.textContent = fmtLag(sg.data_lag_s);
+  if (htfEl) htfEl.textContent = fmtLag(sg.htf15_lag_s);
   $('#stepN').textContent = 'step ' + stepN;
 }
 function clockTick(){ $('#clock').textContent = hms(new Date()); }
@@ -1446,6 +1630,8 @@ const ro = new ResizeObserver(entries => {
 if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { stageDirty = true; panelsNeed = true; });
 
 readTheme();
+syncRealTasks();
+liveSubscribe(() => { syncRealTasks(); seedFeed(); renderAll(); });
 renderAll(); nextCodeSet();
 if (reduce) { cl = cset.lines.length - 1; cc = cset.lines[cl].length; }
 renderCode(); clockTick(); cycleHi();
@@ -1491,68 +1677,63 @@ const C = {};
 
 /* ================= 1. 配置：智能体 / 工作流（换成你自己的即可） ================= */
 const AG = [
-  {k:'CHIEF',  zh:'总调度', role:'只拆不干，盯全局',   tag:'LLM',  col:'#f3f4f8', shape:'robot',   sp:1,
-   ph:['一个任务一个负责人','今天目标两万件','先排队，别抢活','PROOF 那边别堵']},
-  {k:'SCOUT',  zh:'检索',   role:'读全网，找资料',     tag:'TOOL', col:'#2fd27a', shape:'blob',    sp:.9, mon:'line',
-   ph:['先把 20 篇竞品读完','这个数据源不靠谱，换','找到 3 份行业报告','引用都标好出处了']},
-  {k:'SPLIT',  zh:'拆解',   role:'把需求切成小块',     tag:'LLM',  col:'#a774ff', shape:'diamond', sp:.8, mon:'code',
-   ph:['拆成 5 步，每步一个人','这块太大，再切一刀','验收标准写清楚了','依赖关系理顺了']},
-  {k:'COPY',   zh:'文案',   role:'脚本 · 话术 · 标书', tag:'LLM',  col:'#ff4458', shape:'square',  sp:.7, mon:'bars',
-   ph:['开头 5 秒先给结果','标题直戳痛点','第三版比第二版顺','再口语一点']},
-  {k:'DESIGN', zh:'设计',   role:'封面 · 海报 · 页面', tag:'LLM',  col:'#ff5cae', shape:'tri',     sp:.9, mon:'grid',
-   ph:['封面焦点放左上','出了 6 版，挑 2 版','主色压一压','字号再大一号']},
-  {k:'CODE',   zh:'代码',   role:'页面 · 接口 · 脚本', tag:'LLM',  col:'#3b7cff', shape:'circle',  sp:1,  mon:'code',
-   ph:['接口先 mock 掉','这段重构一下','本地跑通了','加一层缓存']},
-  {k:'TEST',   zh:'测试',   role:'跑用例，卡发版',     tag:'RULE', col:'#25d6f0', shape:'pill',    sp:.7, mon:'grid',
-   ph:['32 条用例全过','有条边界没覆盖','回归跑完了','卡住，等修复']},
-  {k:'PROOF',  zh:'审校',   role:'不过不发，打回重写', tag:'RULE', col:'#ff9a1f', shape:'hex',     sp:.45, mon:'code',
-   ph:['事实核验一遍','这句有夸大，改','合规词扫完了','不过不发']},
-  {k:'DATA',   zh:'数据',   role:'拉数 · 报表 · 归因', tag:'TOOL', col:'#ffd23f', shape:'octa',    sp:.8, mon:'line',
-   ph:['拉本周数据','完成率 87%','异常值剔掉了','图表出好了']},
-  {k:'CUT',    zh:'剪辑',   role:'切片 · 字幕 · 节奏', tag:'TOOL', col:'#ff7b54', shape:'ghost',   sp:.9, mon:'bars',
-   ph:['高光切 6 段','节奏再快一点','字幕对齐了','封面帧选好了']},
-  {k:'ADS',    zh:'投放',   role:'小预算跑 AB',        tag:'TOOL', col:'#b5ef3a', shape:'tridown', sp:.8, mon:'line',
-   ph:['小预算先跑 AB','B 组点击率高','放量到 2000','停掉低效计划']},
-  {k:'CARE',   zh:'客服',   role:'评论 · 私信 · 回访', tag:'LLM',  col:'#62e6c7', shape:'drop',    sp:.8, mon:'bars',
-   ph:['47 条评论归好类','高频问题 Top5','回访话术更新','差评先安抚']},
-  {k:'VAULT',  zh:'归档',   role:'打标签，进知识库',   tag:'RULE', col:'#9aa6ff', shape:'box',     sp:.55, mon:'grid',
-   ph:['素材打好标签','归进知识库','版本留底','索引重建完']},
-  {k:'CRAWLER',zh:'巡检蛛', role:'先读再派，满屏巡逻', tag:'PATROL', col:'#45e6f5', shape:'spider'}
+  {k:'CHIEF',  zh:'总调度', role:'MAC 军机 · 项目主',   tag:'LLM',  col:'#f3f4f8', shape:'robot',   sp:1,
+   ph:['先读 BOARD 再派活','claim 只认自有数据','预注册冻结后不改','跨机只信 git 与实时探针']},
+  {k:'COLLECTOR',  zh:'采集器', role:'SG · 15s 轮询 1m', tag:'TOOL', col:'#2fd27a', shape:'blob',    sp:.9, mon:'line',
+   ph:['1m bar 15s 一轮','只收已收盘 bar','0 缺口连续 24h','data lag 15s']},
+  {k:'AGGREGATE',  zh:'聚合',   role:'SG · 5m/15m/1h',    tag:'TOOL', col:'#19b26a', shape:'tri',     sp:.9, mon:'grid',
+   ph:['三周期与币安一致','只算已收盘','补断层 48/72 根','5 分钟增量']},
+  {k:'FUTURES',    zh:'衍生采集', role:'SG · OI/费率/taker', tag:'TOOL', col:'#b5ef3a', shape:'hex',  sp:.8, mon:'line',
+   ph:['OI/多空比/taker 5m','资金费率 8h','29.5 天已回填','lag 守门 H9']},
+  {k:'AGENT-SVC',  zh:'分析服务', role:'SG · 127.0.0.1:8710', tag:'LLM', col:'#25d6f0', shape:'circle', sp:1, mon:'code',
+   ph:['/health 报 htf_lag','只做状态描述','不预测方向','claims 命中 3 条']},
+  {k:'CLAIMS',     zh:'claim库',  role:'MAC · 41 条',      tag:'RULE', col:'#ffd23f', shape:'box',    sp:.8, mon:'grid',
+   ph:['refuted 12 条禁重试','contested 16 条','verified 只认自有数据','method 6 条口径']},
+  {k:'RETRIEVAL',  zh:'检索层',   role:'MAC · FTS5+结构化', tag:'TOOL', col:'#a774ff', shape:'diamond', sp:.8, mon:'code',
+   ph:['中文分词正确','同义词走 OR','20 测试全过','CLI search 可用']},
+  {k:'REPLAY',     zh:'回放引擎', role:'MAC · 时点隔离',    tag:'RULE', col:'#3b7cff', shape:'pill',   sp:.8, mon:'code',
+   ph:['1250 点/秒','未来函数检测','只暴露已收盘','断点可续跑']},
+  {k:'U1-VISION',  zh:'历史下载', role:'MAC · 522 标的',    tag:'TOOL', col:'#ff7b54', shape:'square', sp:.9, mon:'bars',
+   ph:['月度包 1.86MB','522 个标的','1.0G 已落盘','manifest 80k']},
+  {k:'U1-VERIFY',  zh:'数据校验', role:'MAC · 与 REST 对照', tag:'RULE', col:'#ff9a1f', shape:'hex',   sp:.6, mon:'grid',
+   ph:['59/59 全匹配','rtol 1e-9','零成交量占位剔除 1','校验 JSON 已落']},
+  {k:'DUCKDB',     zh:'研究库',   role:'WIN · duckdb 1.5.6', tag:'TOOL', col:'#62e6c7', shape:'octa',  sp:.8, mon:'grid',
+   ph:['9.5G 研究库','35 GB 空间','写前 WAL 保护','表索引已建']},
+  {k:'BACKUP',     zh:'备份',     role:'HK · /srv 870M',    tag:'RULE', col:'#9aa6ff', shape:'drop',   sp:.7, mon:'bars',
+   ph:['SG→HK 15 分钟','integrity ok','最新 7 分钟前','disk 53G']},
+  {k:'RESEARCH',   zh:'研究节点', role:'WIN · fapi 快照',   tag:'TOOL', col:'#ff4458', shape:'ghost',  sp:.9, mon:'bars',
+   ph:['fapi 全量快照','raw 4.8G','研究 worker 已启用','SCP 30MB/s']},
+  {k:'CRAWLER',    zh:'巡检蛛',   role:'live · 跨机探针',   tag:'PATROL', col:'#45e6f5', shape:'spider'}
 ];
-const PROOF = 7, CRAWLER = 13;
+const PROOF = 10, CRAWLER = 13;
 const WF = [
-  {id:'W01', zh:'短视频',   ch:0, path:[1,3,9,7,10],  names:['口播短视频','产品种草短视频','教程短视频']},
-  {id:'W02', zh:'落地页',   ch:2, path:[2,4,5,6,7],   names:['落地页改版','活动页上线','官网首页']},
-  {id:'W03', zh:'投标文件', ch:1, path:[1,2,3,7,12],  names:['投标文件生成','技术方案标书','资质材料整理']},
-  {id:'W04', zh:'周报',     ch:1, path:[8,3,7,12],    names:['周报数据汇总','月度经营复盘','客户报表']},
-  {id:'W05', zh:'广告素材', ch:4, path:[4,10,8],      names:['广告素材测试','信息流素材','投放 AB 组']},
-  {id:'W06', zh:'私域话术', ch:3, path:[11,3,7],      names:['私域话术更新','社群活动文案','回访话术']},
-  {id:'W07', zh:'发版',     ch:2, path:[5,6,12],      names:['发版检查','接口联调','热修复']},
-  {id:'W08', zh:'用户反馈', ch:5, path:[11,8,2],      names:['用户反馈聚类','差评归因','需求池整理']},
-  {id:'W09', zh:'直播切片', ch:0, path:[9,7,10],      names:['直播切片','直播高光','回放剪辑']},
-  {id:'W10', zh:'知识库',   ch:5, path:[1,12],        names:['知识库更新','竞品资料检索','行业报告收集']},
-  {id:'W11', zh:'封面图',   ch:1, path:[4,7],         names:['封面图六版','海报设计','详情页主图']}
+  {id:'W01', zh:'数据主链', ch:0, path:[1, 2, 4, 5],       names:['1m bar 增量入库','HTF 聚合','分析服务']},
+  {id:'W02', zh:'衍生链',   ch:1, path:[3, 4],             names:['OI/资金费率采集','衍生快照']},
+  {id:'W03', zh:'历史链',   ch:2, path:[8, 9, 10],         names:['U1 522 标的下载','U1 全量校验','duckdb 构建']},
+  {id:'W04', zh:'研究链',   ch:3, path:[10, 7, 5, 6],      names:['replay 回放','claim 复核','检索联调']},
+  {id:'W05', zh:'运维链',   ch:5, path:[1, 11],            names:['SG→HK 备份推送','备份就绪']},
+  {id:'W06', zh:'研究链2', ch:5, path:[12, 10],          names:['fapi 快照采集','研究入库']}
 ];
-const CH = [{zh:'视频', col:'#ff4458'}, {zh:'图文', col:'#ffd23f'}, {zh:'官网', col:'#3b7cff'}, {zh:'私域', col:'#2fd27a'}, {zh:'广告', col:'#ff5cae'}, {zh:'知识', col:'#9aa6ff'}];
+const CH = [{zh:'分析API', col:'#45e6f5'}, {zh:'检索API', col:'#3b7cff'}, {zh:'研究库', col:'#ffd23f'}, {zh:'回放', col:'#a774ff'}, {zh:'HK 备份', col:'#2fd27a'}, {zh:'看板', col:'#ff9a1f'}];
+/* 质检台 = 6 道真实门（数值由 live.json metrics 计算，见 renderGate） */
 const CHECKS = [
-  {n:'需求覆盖',   ok: t => `${t.req}/${t.req}`,            bad: t => `${t.req - 2}/${t.req}`},
-  {n:'事实核验',   ok: () => '0 处存疑',                     bad: () => '2 处存疑'},
-  {n:'品牌口径',   ok: t => t.tone.toFixed(2),               bad: () => '0.61'},
-  {n:'合规敏感词', ok: () => '0 命中',                       bad: () => '1 命中'},
-  {n:'重复率',     ok: t => (t.dup * 100).toFixed(1) + '%',  bad: () => '14.2%'},
-  {n:'交付时限',   ok: t => Math.round(simT - t.born) + 's', bad: t => Math.round(simT - t.born) + 's'}
+  {n:'数据新鲜',   ok: () => '', bad: () => ''},
+  {n:'HTF 15m',    ok: () => '', bad: () => ''},
+  {n:'衍生数据',   ok: () => '', bad: () => ''},
+  {n:'U1 校验',    ok: () => '', bad: () => ''},
+  {n:'HK 备份',    ok: () => '', bad: () => ''},
+  {n:'Mac 工作区', ok: () => '', bad: () => ''}
 ];
-const DAY_TARGET = 20000, PER_MIN = 14;
+const DAY_TARGET = 59, PER_MIN = 14;
 const CODESETS = [
-  {file:'dispatch.py', agent:0, start:7, lines:["# 每日调度：拆任务、派给智能体","tasks = load_queue('今日')","plan = split(tasks, by='skill')","for step in plan:","    agent = dispatch(step.skill)","    out = agent.run(step)","    if review(out) < 0.8:","        out = agent.revise(out)","    board.attach(step.id, out)"]},
-  {file:'retrieve.py', agent:1, start:18, lines:["# 竞品资料检索","def retrieve(topic, k=20):","    hits = search.web(topic, top=k)","    docs = [fetch(h.url) for h in hits]","    docs = dedupe(docs, by='title')","    notes = summarize(docs, lang='zh')","    kb.save(topic, notes)","    return notes"]},
-  {file:'script.py', agent:3, start:31, lines:["# 短视频脚本：钩子 + 正文 + 互动","def write_script(topic, pains):","    hook = pick_hook(pains, max_s=5)","    body = outline(topic, beats=4)","    cta = ask_for_comment(topic)","    draft = llm.write(hook, body, cta)","    return polish(draft, tone='口语')"]},
-  {file:'cover.py', agent:4, start:42, lines:["# 封面图六版，挑最佳","specs = brief.cover_specs()","imgs = []","for i in range(6):","    imgs.append(img.gen(specs, seed=i))","scores = [rate(x, specs) for x in imgs]","best = imgs[argmax(scores)]","export(best, size='1080x1440')"]},
-  {file:'tender.py', agent:7, start:56, lines:["# 投标文件：按甲方要求逐条响应","reqs = parse_tender('招标文件.pdf')","doc = Template('投标模板.docx')","for r in reqs:","    ans = draft_response(r, kb)","    doc.fill(r.id, ans)","missing = doc.check_required(reqs)","assert not missing, missing","doc.save('投标文件_v3.docx')"]},
-  {file:'weekly.py', agent:8, start:64, lines:["# 周报数据汇总","rows = db.query('tasks', week=42)","done = [r for r in rows if r.done]","rate = len(done) / len(rows)","chart = plot.bar(group(done, 'agent'))","report.add('完成率', f'{rate:.0%}')","report.add_chart(chart)","report.send(to='周报群')"]},
-  {file:'preflight.py', agent:6, start:77, lines:["# 发版前检查","def preflight(build):","    tests = run_tests(build, fast=True)","    if tests.failed:","        return block(tests.failed)","    diff = compare(build, last_release)","    if diff.risk > 0.3:","        return ask_review(diff)","    return approve(build)"]},
-  {file:'ads_ab.py', agent:10, start:88, lines:["# 广告素材测试：小预算跑 AB","variants = load_creatives('第3批')","for v in variants:","    ads.launch(v, budget=200)","wait(hours=24)","stats = ads.report(variants)","win = max(stats, key=lambda s: s.ctr)","ads.scale(win, budget=2000)"]},
-  {file:'archive.py', agent:12, start:95, lines:["# 素材归档与知识库更新","files = scan('素材/本周')","for f in files:","    tags = vision.tag(f)","    kb.index(f, tags=tags)","    move(f, to=f'归档/{tags[0]}')","log.info(f'归档 {len(files)} 个文件')"]}
+  {file:'collect_1m.py', agent:1, start:7, lines:["# SG 采集器：15s REST 轮询 1m bar","def poll(symbols):","    for s in symbols:","        k = rest.klines(s, '1m', limit=2)","        if k and k[-1]['is_closed']:","            store.upsert(s, k[-1])","        guard.check_gap(s, k)"]},
+  {file:'aggregate.py', agent:2, start:18, lines:["# 5m / 15m / 1h 增量聚合（只取已收盘）","for iv in ('5m', '15m', '1h'):","    sql = f'INSERT OR REPLACE INTO bars_{iv}'","    sql += ' SELECT symbol, ts, o, h, l, c, v'","    sql += ' FROM bars_1m WHERE is_closed = 1'","    db.execute(sql, since=last_open)","    verify.vs_binance(iv, n=20)"]},
+  {file:'futures.py', agent:3, start:31, lines:["# OI / 多空比 / taker / 资金费率（5m timer）","for kind, ep in ENDPOINTS.items():","    rows = rest.paged(ep, limit=500)","    store.upsert_futures(kind, rows)","    guard.check_lag(kind, max_s=1800)"]},
+  {file:'u1_verify.py', agent:9, start:42, lines:["# U1 历史数据校验：与 REST 对照 20 根/标的","for sym, iv in SAMPLES:","    a = vision.bars(sym, iv, n=20)","    b = rest.bars(sym, iv, n=20)","    assert allclose(a, b, rtol=1e-9), sym","print(json.dumps({'checked': n, 'matched': m}))"]},
+  {file:'duckdb_build.py', agent:10, start:56, lines:["# WIN 研究库：duckdb 1.5.6","con = duckdb.connect('research/db/crypto.duckdb')","sql = 'CREATE TABLE IF NOT EXISTS bars_5m AS SELECT * FROM read_parquet(?)'","con.execute(sql, [p])","con.execute('CREATE INDEX IF NOT EXISTS idx_sym_ts ON bars_1m(symbol, ts)')"]},
+  {file:'board_sync.sh', agent:5, start:64, lines:["# 跨机任务通道：BOARD.md 是唯一真相","git pull --rebase origin main","python ops/scripts/board_brief.py   # 我该做什么","git add BOARD.md","git commit -m \"board: claim 复核 [r1xplE]\"","git push origin main"]},
+  {file:'live_probe.py', agent:12, start:77, lines:["# live 采集：只读探针经 SSH stdin 执行","p = subprocess.run(","    ['ssh', '-i', KEY, f'{USER}@{HOST}', 'python3', '-'],","    input=PROBE, text=True, timeout=15)","payload = json.loads(extract(p.stdout))"]},
+  {file:'replay.py', agent:7, start:88, lines:["# replay 引擎：时点隔离 + 未来函数检测","for i, bar in enumerate(bars):","    frame = snapshot(bar.ts)          # 只看当时可见数据","    if scan(frame) > 0:","        raise Leak('future function', i)","    out = strategy.decide(frame)"]}
 ];
 
 /* ================= 2. 作战室几何（舞台坐标 1340×562） ================= */
@@ -1636,11 +1817,19 @@ function newTask(wi){
   return t;
 }
 const nameOf = i => AG[i].k;
-function log(ai, verb, text, kind){
-  feed.unshift({t: hms(new Date()), a: ai, verb, text, kind: kind || '', fresh: true});
-  if (feed.length > 40) feed.pop();
+const WHO_AG = {WIN: 12, MAC: 0, SG: 1, HK: 11};
+const WVERB2 = {done: '交付', run: '在跑', warn: '告警', queued: '排队', plan: '计划'};
+/* 任务流 = live.json 真实活动；模拟派单日志停用 */
+function seedFeed(){
+  feed.length = 0;
+  for (const ev of liveActivityReal()) {
+    feed.unshift({t: ev.at || '—', a: WHO_AG[ev.who] ?? 0, verb: WVERB2[ev.state] || '事件',
+      text: ev.title || '—', kind: ev.state === 'warn' ? 'bad' : ev.state === 'done' ? 'ship' : '', fresh: true});
+  }
   feedDirty = true;
 }
+
+function log(){ /* 模拟派单日志停用：任务流只显示真实活动 */ }
 function say(a, text){ a.bub = {text, born: animT, until: animT + 2.8}; a.say = text; }
 function flowHit(i){ flowIdx = i; flowT = animT; }
 
@@ -1789,7 +1978,7 @@ function ring(p, col){ rings.push({x: p.x, y: p.y - 6, born: animT, col}); }
     feed.push({t: hms(new Date(back)), a: a.i, verb: v, text, kind: v === '交付' ? 'ship' : ''});
   }
   reviews.push({n: 4517, id: 'T-037', name: '落地页改版', ok: true, item: '全部通过', dur: 44}, {n: 4516, id: 'T-035', name: '社群活动文案', ok: false, item: '合规敏感词', dur: 39}, {n: 4515, id: 'T-033', name: '周报数据汇总', ok: true, item: '全部通过', dur: 51});
-  packet(CHIEF_PT, AG[1].seat, C.joint, () => AG[1].inbox.push(newTask(9)));
+  packet(CHIEF_PT, AG[1].seat, C.joint, () => AG[1].inbox.push(newTask(0)));
 })();
 
 /* ================= 5. 每帧推进 ================= */
@@ -1998,12 +2187,12 @@ function buildLayer(){
   c.fillStyle = '#20232e'; c.beginPath(); c.moveTo(1244, 292); c.lineTo(1314, 292); c.lineTo(1318, 298); c.lineTo(1240, 298); c.closePath(); c.fill();
   c.fillStyle = '#111319'; c.fillRect(1240, 298, 78, 252); c.strokeStyle = '#262a36'; c.strokeRect(1240.5, 298.5, 77, 251);
   for (let k = 0; k < 14; k++) { c.fillStyle = '#171a22'; c.fillRect(1246, 306 + k * 17, 66, 13); }
-  c.fillStyle = C.mute; c.font = `700 7px ${MONO}`; c.fillText('GPU ×8', 1250, 545);
-  // 军令板
+  c.fillStyle = C.mute; c.font = `700 7px ${MONO}`; c.fillText('duckdb 9.5G', 1250, 545);
+  // 军令板 = 项目真实纪律
   c.fillStyle = '#0f1119'; c.fillRect(1188, 62, 142, 106); c.strokeStyle = '#2a2e3c'; c.strokeRect(1188.5, 62.5, 141, 105);
-  c.fillStyle = '#e9ebf3'; c.font = `800 7.5px ${MONO}`; c.fillText('DAY 11 MANDATE · 今日军令', 1194, 75);
+  c.fillStyle = '#e9ebf3'; c.font = `800 7.5px ${MONO}`; c.fillText('MANDATE · 项目纪律', 1194, 75);
   c.fillStyle = '#b8f5cf'; c.font = `500 7.5px ${MONO}`;
-  ['· CHIEF 只拆不干', '· 一个任务一个负责人', '· 审校不过不发', '· CRAWLER 先读再派', '· 废稿进碎纸机', '· 交付即归档'].forEach((s, k) => c.fillText(s, 1194, 90 + k * 12));
+  ['· 跨机只信 BOARD + git', '· claim 只认自有数据', '· 预注册冻结后不改', '· 数据 15s 只读探针', '· 备份 15min 到 HK', '· 两机 token 记实账'].forEach((s, k) => c.fillText(s, 1194, 90 + k * 12));
   c.fillStyle = C.sticky; [[1296, 128, -.1], [1310, 140, .12], [1294, 146, .05], [1312, 116, -.06]].forEach(([x, y, r]) => { c.save(); c.translate(x, y); c.rotate(r); c.fillRect(-6, -6, 12, 12); c.restore(); });
   // 时钟框
   c.fillStyle = '#06120c'; c.fillRect(1092, 66, 80, 34); c.strokeStyle = '#1f3a2a'; c.strokeRect(1092.5, 66.5, 79, 33);
@@ -2026,40 +2215,39 @@ function drawBigScreen(c){
   const x0 = 410, y0 = 32, w = 456, rate = curRate(), over = rate > BUDGET;
   c.save(); c.beginPath(); c.rect(x0, y0, w, 144); c.clip();
   c.fillStyle = C.screen; c.fillRect(x0, y0, w, 144);
-  c.fillStyle = '#e9ebf3'; c.font = `800 8px ${MONO}`; c.fillText('TOKEN BURN · 消耗速率 / min', x0 + 10, y0 + 14);
-  c.fillStyle = C.mute; c.font = `500 7px ${MONO}`; c.fillText('按智能体堆叠 · 每格 2.5s · 粉线 = 预算', x0 + 10, y0 + 24);
-  const chips = [['TOKENS', fmtTok(tokDay)], ['INPUT', fmtTok(tokIn)], ['OUTPUT', fmtTok(tokOut)], ['CACHE HIT', Math.round(cacheHit * 100) + '%'], ['COST', '¥' + costDay().toFixed(0)]];
+  c.fillStyle = '#e9ebf3'; c.font = `800 8px ${MONO}`; c.fillText('TOKEN LEDGER · 跨机真实累计', x0 + 10, y0 + 14);
+  const T0 = liveTokSum(), W0 = (liveTokensReal().win || {}), M0 = (liveTokensReal().mac || {});
+  c.fillStyle = C.mute; c.font = `500 7px ${MONO}`; c.fillText(`WIN ${fmtBig(W0.inputTokens)}/${fmtBig(W0.outputTokens)} · MAC ${fmtBig(M0.inputTokens)}/${fmtBig(M0.outputTokens)} · 输入/输出`, x0 + 10, y0 + 24);
+  const chips = [['TOKENS', fmtBig(liveTokSum().all)], ['INPUT', fmtBig(liveTokSum().input)], ['OUTPUT', fmtBig(liveTokSum().output)], ['CACHE', fmtBig(liveTokSum().cache)], ['SESS', String((liveTokensReal().win || {}).sessions ?? '—') + '/' + String((liveTokensReal().mac || {}).sessions ?? '—')]];
   chips.forEach(([k, v], i) => { const cx = x0 + 168 + i * 56; c.strokeStyle = '#232838'; c.lineWidth = 1; c.strokeRect(cx + .5, y0 + 6.5, 52, 20); c.fillStyle = C.mute; c.font = `500 6px ${MONO}`; c.fillText(k, cx + 4, y0 + 13); c.fillStyle = i === 0 ? C.cyan : i === 4 ? C.sticky : '#e9ebf3'; c.font = `700 8px ${MONO}`; c.fillText(String(v), cx + 4, y0 + 23); });
   const top = y0 + 34, bot = y0 + 120, cw = w - 46;
   const all = slots.concat([{sec: Math.max(.4, slotAcc), a: slotCur, live: true}]);
   let mx = BUDGET * 1.25; for (const q of all) mx = Math.max(mx, slotRate(q) * 1.05);
   const Y = v => bot - v / mx * (bot - top), step = (cw - 10) / all.length;
   c.font = `500 6.5px ${MONO}`;
-  [0, .5, 1].forEach(k => { const v = mx * k, y = Y(v); c.strokeStyle = 'rgba(255,255,255,.05)'; c.beginPath(); c.moveTo(x0 + 8, y + .5); c.lineTo(x0 + cw, y + .5); c.stroke(); c.fillStyle = C.mute; c.fillText(fmtTok(v), x0 + cw + 6, y + 3); });
+  [0, .5, 1].forEach(k => { const v = mx * k, y = Y(v); c.strokeStyle = 'rgba(255,255,255,.05)'; c.beginPath(); c.moveTo(x0 + 8, y + .5); c.lineTo(x0 + cw, y + .5); c.stroke(); });
   all.forEach((q, i) => {
     const x = x0 + 10 + i * step, bw = Math.max(2, step * .68); let yb = bot;
     c.globalAlpha = q.live ? .55 + .3 * Math.sin(animT * 6) : .92;
     for (let j = 0; j < 13; j++) { const v = q.a[j] / q.sec * 60; if (v <= 0) continue; const hh = v / mx * (bot - top); c.fillStyle = AG[j].col; c.fillRect(x, yb - hh, bw, Math.max(.6, hh - .7)); yb -= hh; }
   });
   c.globalAlpha = 1;
-  const by = Y(BUDGET);
-  c.setLineDash([3, 3]); c.strokeStyle = C.joint; c.lineWidth = 1; c.beginPath(); c.moveTo(x0 + 8, by); c.lineTo(x0 + cw, by); c.stroke(); c.setLineDash([]);
-  c.fillStyle = C.joint; c.font = `700 6.5px ${MONO}`; c.fillText('BUDGET ' + fmtTok(BUDGET) + '/min', x0 + 12, by - 3);
-  const ry = Y(rate);
-  c.fillStyle = over ? C.bad : C.cyan; c.fillRect(x0 + cw + 2, ry - 6, 42, 12); c.fillStyle = '#03141a'; c.font = `800 7px ${MONO}`; c.fillText(fmtTok(rate), x0 + cw + 5, ry + 3);
-  const share = new Array(13).fill(0); let tot = 0;
-  for (const q of slots) for (let j = 0; j < 13; j++) { share[j] += q.a[j]; tot += q.a[j]; }
-  const tops = share.map((v, j) => [j, v]).sort((p, q) => q[1] - p[1]).slice(0, 4);
+  const sg0 = liveMetricsReal().sg || {};
+  c.fillStyle = (sg0.data_fresh === false) ? C.bad : C.cyan; c.fillRect(x0 + cw + 2, y0 + 60, 46, 14); c.fillStyle = '#03141a'; c.font = `800 7px ${MONO}`; c.fillText('lag ' + fmtLag(sg0.data_lag_s), x0 + cw + 4, y0 + 70);
+  const W1 = (liveTokensReal().win || {}), M1 = (liveTokensReal().mac || {});
+  const shares = [['WIN', (W1.inputTokens || 0) + (W1.outputTokens || 0), '#2fd27a'], ['MAC', (M1.inputTokens || 0) + (M1.outputTokens || 0), '#45e6f5'], ['CACHE', liveTokSum().cache, '#ffd23f']];
+  const totShare = shares.reduce((s, x) => s + x[1], 0) || 1;
   c.font = `700 7px ${MONO}`; let lx = x0 + 10;
-  c.fillStyle = C.mute; c.fillText('TOP BURN', lx, y0 + 137); lx += 46;
-  tops.forEach(([j, v]) => { const t = `${AG[j].k} ${Math.round(v / Math.max(1, tot) * 100)}%`; c.fillStyle = AG[j].col; c.fillRect(lx, y0 + 131, 7, 7); c.fillStyle = '#e9ebf3'; c.fillText(t, lx + 10, y0 + 137); lx += c.measureText(t).width + 22; });
+  c.fillStyle = C.mute; c.fillText('SHARE', lx, y0 + 137); lx += 46;
+  shares.forEach(([name, v, col]) => { const t = `${name} ${Math.round(v / totShare * 100)}%`; c.fillStyle = col; c.fillRect(lx, y0 + 131, 7, 7); c.fillStyle = '#e9ebf3'; c.fillText(t, lx + 10, y0 + 137); lx += c.measureText(t).width + 22; });
   c.restore();
   c.fillStyle = C.good; c.font = `700 9.5px ${MONO}`; c.textAlign = 'center';
-  c.fillText(`TOKENS ${fmtTok(tokDay)} · 成本 ¥${costDay().toFixed(2)} · 单件 ${fmtTok(tokDay / total)} tok · LIVE ${liveN()}/12`, 638, 198);
+  c.fillText(`TOKENS ${fmtBig(liveTokSum().all)} · CACHE ${fmtBig(liveTokSum().cache)} · CLAIMS ${liveClaimsReal().total ?? '—'} · U1 ${(liveMetricsReal().u1 || {}).matched ?? '—'}/${(liveMetricsReal().u1 || {}).checked ?? '—'}`, 638, 198);
   c.textAlign = 'left';
 }
 function drawTicker(c){
-  const s = `· CRAWLER READS, CHIEF SPLITS, AGENTS SHIP · DONE ${fmt(total)} · TOKENS ${fmtTok(tokDay)} · ${fmtTok(curRate())}/min · ¥${costDay().toFixed(0)} · LIVE ${liveN()} · QUEUE ${queueDepth()} · PASS ${(passRate() * 100).toFixed(1)}% · LAST DISPATCH ${lastDispatch} · DAY 11 `;
+  const met0 = liveMetricsReal(), sgA = met0.sg || {}, u1A = met0.u1 || {}, hkA = met0.hk || {}, macA = met0.mac || {};
+  const s = `· CRYPTO-AGENT 跨机协作 · WIN/MAC/SG/HK · TOKENS ${fmtBig(liveTokSum().all)} · CLAIMS ${liveClaimsReal().total ?? '—'} · U1 ${u1A.matched ?? '—'}/${u1A.checked ?? '—'} · SG lag ${fmtLag(sgA.data_lag_s)} · HK 备份 ${fmtLag(hkA.age_s)}前 · MAC HEAD ${macA.head ?? '—'} · `;
   c.save(); c.beginPath(); c.rect(156, 3, 914, 16); c.clip();
   c.font = `700 8.5px ${MONO}`; c.fillStyle = C.good;
   const tw = c.measureText(s).width, off = (animT * 38) % tw;
@@ -2399,38 +2587,47 @@ function buildCards(){
 }
 function setT(ref, key, el, val){ if (!el) return; if (ref.cache[key] !== val) { ref.cache[key] = val; el.textContent = val; } }
 function renderCards(){
+  const AGR = liveAgentsReal();
+  const alts = (Live.data && Live.data.alerts) || [];
+  const downs = ((Live.data && Live.data.nodes) || []).filter(n => n.state === 'down').length;
   for (let i = 0; i < AG.length; i++) {
-    const a = AG[i], E = cardEls[i]; if (!E) continue;
+    const E = cardEls[i]; if (!E) continue;
     if (i === CRAWLER) {
-      E.cs.querySelector('[data-f="pages"]').textContent = fmt(crawl.pages);
-      E.cs.querySelector('[data-f="read"]').textContent = fmt(crawl.read);
-      E.cs.querySelector('[data-f="bugs"]').textContent = crawl.bugs;
-      E.cs.querySelector('[data-f="fails"]').textContent = failN;
-      setT(E, 'q', E.q, SP.mode === 'hold' && SP.tag ? '◉ ' + SP.tag.text : '◉ on the move · 巡逻中');
-      setT(E, 'st', E.st, `TAPS ${crawl.patrols % 12 || 12}/12`);
+      E.cs.querySelector('[data-f="pages"]').textContent = fmt(liveActivityReal().length);
+      E.cs.querySelector('[data-f="read"]').textContent = fmt(liveLiveCount());
+      E.cs.querySelector('[data-f="bugs"]').textContent = alts.length;
+      E.cs.querySelector('[data-f="fails"]').textContent = downs;
+      setT(E, 'q', E.q, '◉ live 探针 · 逐节点巡检');
+      setT(E, 'st', E.st, 'TAPS 15s');
       continue;
     }
+    const R = AGR[i - 1];
     if (i === 0) {
-      setT(E, 'k', E.k, `队列 ${tasks.length} · 在跑 ${liveN()}`);
-      setT(E, 'v', E.v, lastDispatch);
-      E.bar.style.width = clamp(tasks.length / 18, 0, 1) * 100 + '%';
-      setT(E, 'q', E.q, `“${a.say || a.ph[0]}”`);
-      setT(E, 'st', E.st, a.bub && a.bub.until > animT ? 'speaking' : 'watching');
+      const met = liveMetricsReal(), u1 = met.u1 || {}, mac = met.mac || {};
+      const p = u1.checked ? u1.matched / u1.checked : 0;
+      setT(E, 'k', E.k, `4 节点 · ${liveLiveCount()}/12 组件在线`);
+      setT(E, 'v', E.v, mac.head || '—');
+      E.bar.style.width = clamp(p, 0, 1) * 100 + '%';
+      setT(E, 'q', E.q, `“${(R && R.note) || AG[0].ph[0]}”`);
+      setT(E, 'st', E.st, 'watching');
       E.el.className = 'card work';
       continue;
     }
-    const moving = a.path.length > 0 || a.carry, cls = moving ? 'move' : a.cur && a.at === 'seat' ? 'work' : 'idle';
-    if (E.cache.cls !== cls) { E.cache.cls = cls; E.el.className = 'card ' + cls + (E.el.classList.contains('hit') ? ' hit' : ''); }
-    if (a.cur) { setT(E, 'k', E.k, `${a.cur.id} · ${a.cur.name}`); setT(E, 'v', E.v, Math.round(a.prog * 100) + '%'); E.bar.style.width = a.prog * 100 + '%'; }
-    else { setT(E, 'k', E.k, a.inbox.length ? `排队 ${a.inbox.length} 件` : '没有在手的活'); setT(E, 'v', E.v, `${a.outs}件`); E.bar.style.width = '0%'; }
-    const q = a.carry ? `→ 送 ${a.carry.id} 给下一棒` : moving ? (a.cur ? '回工位' : a.inbox.length ? '回工位接活' : '走动中') : a.cur ? `“${a.say}”` : a.at === 'couch' ? '沙发上等活' : '等派单';
-    setT(E, 'q', E.q, q);
-    setT(E, 'st', E.st, cls === 'work' ? 'typing ▍' : cls === 'move' ? 'moving' : 'idle');
+    if (!R) { setT(E, 'k', E.k, '等待实况'); setT(E, 'v', E.v, '—'); continue; }
+    const on = R.state === 'ok' || R.state === 'warn';
+    const cls = R.state === 'down' ? 'idle' : on ? 'work' : 'idle';
+    if (E.cache.cls !== cls) { E.cache.cls = cls; E.el.className = 'card ' + cls; }
+    setT(E, 'k', E.k, `${R.label || ''} · ${R.where || ''}`);
+    setT(E, 'v', E.v, on ? Math.round(+R.pct || 0) + '%' : R.state === 'down' ? 'DOWN' : '—');
+    E.bar.style.width = (on ? Math.max(2, Math.min(100, +R.pct || 0)) : 0) + '%';
+    setT(E, 'q', E.q, `“${R.note || ''}”`);
+    setT(E, 'st', E.st, on ? 'online' : R.state === 'down' ? 'offline' : 'waiting');
   }
 }
 
 const feedEl = $('#feed');
 let feedDirty = true;
+seedFeed();
 function renderFeed(){
   if (!feedDirty) return; feedDirty = false;
   feedEl.innerHTML = feed.slice(0, 17).map(e => `<li class="${e.kind}${e.fresh ? ' new' : ''}"><time>${e.t}</time><b style="color:${AG[e.a].col}">${AG[e.a].k}</b><em>${e.verb}</em><span>${e.text}</span></li>`).join('');
@@ -2438,64 +2635,78 @@ function renderFeed(){
 }
 
 const statsEl = $('#rvStats'), chkEl = $('#chk'), verdictEl = $('#verdict'), rtabEl = $('#rtab');
-statsEl.innerHTML = ['阶段', '用时', '版本', '引用', '字数', '打回'].map(k => `<div><span>${k}</span><b>—</b></div>`).join('');
+statsEl.innerHTML = ['CLAIMS', 'VERIFIED', 'CONT', 'METHOD', 'U1', 'HTF15'].map(k => `<div><span>${k}</span><b>—</b></div>`).join('');
 chkEl.innerHTML = CHECKS.map(k => `<li><span class="n">${k.n}</span><span class="vl">—</span><span class="s wait">···</span></li>`).join('');
+/* 质检台 = 6 道真实门（数据全部来自 live.json metrics） */
 function renderReview(){
-  const P = AG[PROOF], live = rv.cur && P.cur === rv.cur, src = live ? {t: rv.cur, fail: rv.cur.fail, failIdx: rv.cur.failIdx} : rv.last;
-  $('#revMeta').textContent = `REVIEWED ${fmt(passN + failN)} · PASS ${(passRate() * 100).toFixed(1)}%`;
-  if (!src) return;
-  const t = src.t, w = WF[t.wf];
-  $('#rvId').textContent = t.id; $('#rvName').textContent = t.name; $('#rvWf').textContent = `${w.id} ${w.zh}`;
-  const by = live ? rv.by : t.last >= 0 ? t.last : 3; const byEl = $('#rvBy'); byEl.textContent = `by ${nameOf(WF[t.wf].path[Math.max(0, (live ? t.stage : t.stage) - 1)] ?? by)}`;
-  const vals = [`${(live ? t.stage : t.stage) + 1}/${w.path.length}`, Math.round(simT - t.born) + 's', 'v' + t.ver, t.cites, fmt(t.words), t.rework];
-  [...statsEl.querySelectorAll('b')].forEach((b, i) => { const v = String(vals[i]); if (b.textContent !== v) b.textContent = v; });
-  const prog = live ? P.prog : 1, n = CHECKS.length;
-  [...chkEl.children].forEach((li, j) => {
-    const vl = li.children[1], s = li.children[2], at = (j + 1) / (n + .4), done = prog >= at, running = !done && prog >= j / (n + .4);
-    const bad = src.fail && j === src.failIdx;
-    const txt = done ? (bad ? CHECKS[j].bad(t) : CHECKS[j].ok(t)) : running ? '检查中' : '—';
-    if (vl.textContent !== txt) vl.textContent = txt;
-    const st = done ? (bad ? 'DROP' : 'PASS') : running ? '···' : '···', cl = 's ' + (done ? (bad ? 'drop' : 'pass') : running ? 'run' : 'wait');
-    if (s.textContent !== st) s.textContent = st; if (s.className !== cl) s.className = cl;
+  const met = liveMetricsReal(), sg = met.sg || {}, u1 = met.u1 || {}, hk = met.hk || {}, mac = met.mac || {}, cl = liveClaimsReal();
+  const age = Live.data && Live.data.epoch ? Math.max(0, Math.round(Date.now() / 1000 - Live.data.epoch)) : null;
+  const gates = [
+    {n: '数据新鲜', ok: sg.data_fresh !== false && (sg.data_lag_s == null || sg.data_lag_s <= 120), v: 'lag ' + fmtLag(sg.data_lag_s)},
+    {n: 'HTF 15m', ok: sg.htf15_lag_s != null && sg.htf15_lag_s <= 1200, v: fmtLag(sg.htf15_lag_s)},
+    {n: '衍生数据', ok: sg.futures_fresh === true, v: sg.futures_fresh === true ? 'fresh' : 'stale'},
+    {n: 'U1 校验', ok: u1.checked != null && u1.matched === u1.checked, v: (u1.matched ?? '—') + '/' + (u1.checked ?? '—')},
+    {n: 'HK 备份', ok: hk.age_s != null && hk.age_s <= 3600, v: fmtLag(hk.age_s) + '前'},
+    {n: 'Mac 工作区', ok: mac.dirty === 0, v: mac.dirty === 0 ? 'clean' : `${mac.dirty ?? '—'} 改动`}
+  ];
+  const pass = gates.filter(g => g.ok).length;
+  $('#revMeta').textContent = `GATES ${pass}/${gates.length} PASS · 实况 ${fmtLag(age)}前`;
+  [...chkEl.children].forEach((li, i) => {
+    const g = gates[i]; if (!g) return;
+    const vl = li.children[1], st = li.children[2];
+    vl.textContent = g.v;
+    const txt = g.ok ? 'PASS' : 'DROP';
+    if (st.textContent !== txt) st.textContent = txt;
+    st.className = 's ' + (g.ok ? 'pass' : 'drop');
   });
-  const vd = live ? (prog < .97 ? ['run', 'CHECKING ▍', `${Math.round(prog * 100)}%`] : ['run', 'SIGNING', '']) : src.fail ? ['drop', 'DROP · 打回', `→ ${rv.last.next}`] : ['pass', 'PASS · 放行', `→ ${rv.last.next}`];
+  const vals = [cl.total ?? '—', cl.verified ?? '—', cl.contested ?? '—', cl.method ?? '—', (u1.matched ?? '—') + '/' + (u1.checked ?? '—'), fmtLag(sg.htf15_lag_s)];
+  [...statsEl.querySelectorAll('b')].forEach((b, i) => { const v = String(vals[i]); if (b.textContent !== v) b.textContent = v; });
+  const vd = pass === gates.length ? ['pass', 'ALL PASS · 放行', `→ ${gates.length}/${gates.length}`] : ['drop', 'CHECK · 有待处理', `→ ${pass}/${gates.length}`];
   verdictEl.className = 'verdict ' + vd[0]; verdictEl.children[0].textContent = vd[1]; verdictEl.children[1].textContent = vd[2];
-  const html = reviews.map(r => `<tr><td>${r.n}</td><td>${r.id}</td><td>${r.name}</td><td style="color:${r.ok ? 'var(--good)' : 'var(--bad)'}">${r.ok ? 'PASS' : 'DROP'}</td><td>${r.item}</td><td>${r.dur}s</td></tr>`).join('');
+  const acts = liveActivityReal().slice(0, 5);
+  $('#rvId').textContent = acts[0] ? (acts[0].id || '—') : '—';
+  $('#rvName').textContent = acts[0] ? (acts[0].title || '—') : '等待实况…';
+  $('#rvWf').textContent = acts[0] ? (acts[0].who || '—') : '—';
+  $('#rvBy').textContent = acts[0] ? (acts[0].at || '') : '';
+  const html = acts.map(r => `<tr><td>${r.at || ''}</td><td>${r.who || ''}</td><td>${r.title || ''}</td><td style="color:${r.state === 'warn' ? 'var(--bad)' : 'var(--good)'}">${(r.state || '').toUpperCase()}</td><td></td><td></td></tr>`).join('');
   if (rtabEl.innerHTML !== html) rtabEl.innerHTML = html;
 }
 
 const rulesEl = $('#rules');
 let ruleHit = -1;
-const HARD = [
-  ['max_tokens_per_min', '72k', () => fmtTok(curRate()), () => curRate() <= BUDGET],
-  ['max_queue_depth', '24', () => String(queueDepth()), () => queueDepth() <= 24],
-  ['min_pass_rate', '0.80', () => passRate().toFixed(3), () => passRate() >= .8],
-  ['max_cycle_sec', '180', () => Math.round(avgCycle()) + 's', () => avgCycle() <= 180],
-  ['max_rework_per_task', '2', () => String(maxReworkSeen), () => maxReworkSeen <= 2]
-];
-const SOFT = [
-  ['tokens_per_item', 'max 6k', t => fmtTok(t.tok || 0), 0, t => (t.tok || 0) > 6000],
-  ['brand_tone_match', 'min 0.70', t => t.tone.toFixed(2), 2, t => t.tone < .7],
-  ['fact_check_coverage', 'min 0.90', t => (t.fail && t.failIdx === 1 ? .82 : .96).toFixed(2), 1, t => t.fail && t.failIdx === 1],
-  ['dup_rate', 'max 0.10', t => (t.fail && t.failIdx === 4 ? .142 : t.dup).toFixed(3), 4, t => t.fail && t.failIdx === 4]
+const REAL_RULES = [
+  {group: 'HARD = {  # 真实数据门', rows: [
+    ['collector_units', '5/5', () => { const g = liveMetricsReal().sg || {}; return `${g.units_ok ?? '—'}/${g.units_total ?? '—'}`; }, () => { const g = liveMetricsReal().sg || {}; return g.units_ok != null && g.units_ok === g.units_total; }],
+    ['data_lag_max', '120s', () => fmtLag((liveMetricsReal().sg || {}).data_lag_s), () => ((liveMetricsReal().sg || {}).data_lag_s ?? 1e9) <= 120],
+    ['htf_15m_max', '1200s', () => fmtLag((liveMetricsReal().sg || {}).htf15_lag_s), () => ((liveMetricsReal().sg || {}).htf15_lag_s ?? 1e9) <= 1200],
+    ['futures_fresh', 'true', () => String((liveMetricsReal().sg || {}).futures_fresh), () => (liveMetricsReal().sg || {}).futures_fresh === true],
+    ['hk_backup_max', '60m', () => fmtLag((liveMetricsReal().hk || {}).age_s) + '前', () => ((liveMetricsReal().hk || {}).age_s ?? 1e9) <= 3600]
+  ]},
+  {group: 'SOFT = {  # 研究口径', rows: [
+    ['claims_total', '真实', () => String(liveClaimsReal().total ?? '—'), () => liveClaimsReal().total != null],
+    ['claims_verified', '自有', () => String(liveClaimsReal().verified ?? '—'), () => (liveClaimsReal().verified ?? 0) >= 0],
+    ['u1_match', '59/59', () => { const u = liveMetricsReal().u1 || {}; return `${u.matched ?? '—'}/${u.checked ?? '—'}`; }, () => { const u = liveMetricsReal().u1 || {}; return u.checked != null && u.matched === u.checked; }],
+    ['duckdb_size', 'GB', () => { const w = liveMetricsReal().win || {}; return (w.duckdb_gb ?? '—') + 'G'; }, () => (liveMetricsReal().win || {}).duckdb_gb != null]
+  ]}
 ];
 function buildRules(){
-  const row = (cls, k) => `<div class="row ${cls}"><span class="k">${k}</span><span></span><span></span><span></span></div>`;
-  rulesEl.innerHTML = `<div class="hd">HARD = { <i># 算术判断，零成本，先跑</i></div>` + HARD.map(r => row('h', r[0])).join('') +
-    `<div class="hd">SOFT = { <i># 套在 CHIEF 的拆解和 PROOF 的结论上</i></div>` + SOFT.map(r => row('s', r[0])).join('');
+  rulesEl.innerHTML = REAL_RULES.map(g => `<div class="hd">${g.group}</div>` + g.rows.map(r => `<div class="row h"><span class="k">${r[0]}</span><span></span><span></span><span></span></div>`).join('')).join('');
 }
 function renderRules(){
   const rows = [...rulesEl.querySelectorAll('.row')];
-  HARD.forEach((r, i) => { const el = rows[i], ok = r[3](); el.children[1].textContent = r[1]; el.children[2].textContent = r[2](); el.children[3].textContent = ok ? '✓' : '✗'; el.children[3].className = ok ? 'ok' : 'no'; el.classList.toggle('cur', ruleHit === i); });
-  const P = AG[PROOF], live = rv.cur && P.cur === rv.cur, t = live ? rv.cur : rv.last ? rv.last.t : null;
-  SOFT.forEach((r, i) => {
-    const el = rows[HARD.length + i]; el.children[1].textContent = r[1];
-    const ready = t && (!live || P.prog >= (r[3] + 1) / (CHECKS.length + .4));
-    if (!ready) { el.children[2].textContent = '...'; el.children[3].textContent = ''; el.children[3].className = 'pd'; }
-    else { const v = r[2](t), bad = !!r[4](t); el.children[2].textContent = v; el.children[3].textContent = bad ? '✗' : '✓'; el.children[3].className = bad ? 'no' : 'ok'; }
-    el.classList.toggle('cur', ruleHit === HARD.length + i);
-  });
+  let i = 0;
+  for (const g of REAL_RULES) for (const r of g.rows) {
+    const el = rows[i++]; if (!el) continue;
+    el.children[1].textContent = r[1];
+    const v = safe(() => String(r[2]()));
+    const ok = safe(() => !!r[3]());
+    el.children[2].textContent = v;
+    el.children[3].textContent = ok ? '✓' : '✗';
+    el.children[3].className = ok ? 'ok' : 'no';
+  }
 }
+function safe(fn){ try { return fn(); } catch (e) { return false; } }
+
 const FLOW = ['intake', 'split', 'route', 'work', 'proof', 'ship'];
 const chipsEl = $('#chips');
 chipsEl.innerHTML = FLOW.map((f, i) => (i ? '<i>→</i>' : '') + `<span>${f}</span>`).join('');
@@ -2551,13 +2762,15 @@ function typeTick(){
 /* --- 标题轨 --- */
 const MON = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
 function renderHeader(){
-  const p = total / DAY_TARGET;
-  $('#goalTxt').textContent = `${fmt(total)} / ${fmt(DAY_TARGET)}`;
+  const met = liveMetricsReal(), sg = met.sg || {}, u1 = met.u1 || {};
+  const p = u1.checked ? u1.matched / u1.checked : 0;
+  $('#goalTxt').textContent = `${u1.matched ?? '—'} / ${u1.checked ?? '—'}`;
   $('#goalBar').style.width = clamp(p, 0, 1) * 100 + '%';
-  $('#goalPct').textContent = (p * 100).toFixed(1) + '%';
-  $('#feedMeta').textContent = `${tasks.length} tasks · ${liveN()} live · queue ${queueDepth()}`;
+  $('#goalPct').textContent = u1.checked ? (p * 100).toFixed(1) + '%' : '—%';
+  $('#feedMeta').textContent = `${liveActivityReal().length} events · ${liveLiveCount()} live · lag ${fmtLag(sg.data_lag_s)}`;
 }
-function clockTick(){ const d = new Date(); $('#clock').textContent = hms(d); $('#dayTxt').textContent = `DAY 11 · ${MON[d.getMonth()]} ${pad(d.getDate())}`; }
+
+function clockTick(){ const d = new Date(); $('#clock').textContent = hms(d); $('#dayTxt').textContent = `LIVE · ${pad(d.getMonth() + 1)}-${pad(d.getDate())}`; }
 
 /* ================= 8b. 交付飞轮（右栏）：每交付一件推一把，转速跟着产出走 ================= */
 const flyCv = $('#flyCv'), fctx = flyCv.getContext('2d'), flyTip = $('#flyTip');
@@ -2873,12 +3086,15 @@ function drawFly(dt){
   }
 }
 function renderFlyHud(){
-  $('#outBig').textContent = fmt(total);
-  $('#kTok').textContent = fmtTok(tokDay);
-  $('#kCost').textContent = '¥' + costDay().toFixed(2);
-  $('#kPer').textContent = `${fmtTok(tokDay / total)} tok · ¥${(costDay() / total).toFixed(3)}`;
-  $('#flyRpm').textContent = `转速 ${(spinVel / TAU * 60).toFixed(2)} rpm · 近 1 分钟交付 ${kicks.length} 件`;
+  const met = liveMetricsReal(), u1 = met.u1 || {}, tok = liveTokSum();
+  const done = liveDoneCount();
+  $('#outBig').textContent = u1.matched != null ? u1.matched : '—';
+  $('#kTok').textContent = fmtBig(tok.all);
+  $('#kCost').textContent = fmtBig(tok.cache);
+  $('#kPer').textContent = done ? `${fmtBig(Math.round(tok.all / Math.max(1, done)))} tok/件 · ${done} 件` : '—';
+  $('#flyRpm').textContent = `实况 ${liveActivityReal().length} 条 · 在线组件 ${liveLiveCount()}/12`;
 }
+
 function showFlyTip(){
   const h = hubs[hoverHub]; if (!h) { flyTip.hidden = true; return; }
   const wi = hubWf[hoverHub], w = WF[wi], inflight = tasks.filter(t => t.wf === wi), live = inflight.filter(t => AG[t.owner] && AG[t.owner].cur === t).length;
@@ -2959,6 +3175,7 @@ arrive();
 nextCodeSet(); renderCode();
 clockTick(); setInterval(clockTick, 1000);
 setInterval(() => { if (!paused && !host.hidden) typeTick(); }, 34);
+liveSubscribe(() => { seedFeed(); renderCards(); renderFeed(); renderReview(); renderRules(); renderHeader(); renderFlyHud(); });
 renderCards(); renderFeed(); renderReview(); renderRules(); renderFlow(); renderHeader();
 requestAnimationFrame(frame);
 }
@@ -2989,43 +3206,38 @@ const CJK = '"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif';
 
 /* ================= 1. 配置：和蜘蛛款同一套智能体 / 工作流（换成你自己的即可） ================= */
 const AG = [
-  {k:'CHIEF',  zh:'总调度', role:'只拆不干，盯全局',   tag:'LLM',    col:'#f3f4f8', sp:1},
-  {k:'SCOUT',  zh:'检索',   role:'读全网，找资料',     tag:'TOOL',   col:'#2fd27a', sp:.9},
-  {k:'SPLIT',  zh:'拆解',   role:'把需求切成小块',     tag:'LLM',    col:'#a774ff', sp:.8},
-  {k:'COPY',   zh:'文案',   role:'脚本 · 话术 · 标书', tag:'LLM',    col:'#ff4458', sp:.7},
-  {k:'DESIGN', zh:'设计',   role:'封面 · 海报 · 页面', tag:'LLM',    col:'#ff5cae', sp:.9},
-  {k:'CODE',   zh:'代码',   role:'页面 · 接口 · 脚本', tag:'LLM',    col:'#3b7cff', sp:1},
-  {k:'TEST',   zh:'测试',   role:'跑用例，卡发版',     tag:'RULE',   col:'#25d6f0', sp:.7},
-  {k:'PROOF',  zh:'审校',   role:'不过不发，打回重写', tag:'RULE',   col:'#ff9a1f', sp:.5},
-  {k:'DATA',   zh:'数据',   role:'拉数 · 报表 · 归因', tag:'TOOL',   col:'#ffd23f', sp:.8},
-  {k:'CUT',    zh:'剪辑',   role:'切片 · 字幕 · 节奏', tag:'TOOL',   col:'#ff7b54', sp:.9},
-  {k:'ADS',    zh:'投放',   role:'小预算跑 AB',        tag:'TOOL',   col:'#b5ef3a', sp:.8},
-  {k:'CARE',   zh:'客服',   role:'评论 · 私信 · 回访', tag:'LLM',    col:'#62e6c7', sp:.8},
-  {k:'VAULT',  zh:'归档',   role:'打标签，进知识库',   tag:'RULE',   col:'#9aa6ff', sp:.55},
-  {k:'CRAWLER',zh:'巡检蛛', role:'先读再派，满屏巡逻', tag:'PATROL', col:'#45e6f5', sp:1}
+  {k:'CHIEF', zh:'总调度', role:'MAC 军机 · 项目主', tag:'LLM', col:'#f3f4f8', sp:1},
+  {k:'COLLECTOR', zh:'采集器', role:'SG · 15s 轮询 1m', tag:'TOOL', col:'#2fd27a', sp:.9},
+  {k:'AGGREGATE', zh:'聚合', role:'SG · 5m/15m/1h', tag:'TOOL', col:'#19b26a', sp:.9},
+  {k:'FUTURES', zh:'衍生采集', role:'SG · OI/费率/taker', tag:'TOOL', col:'#b5ef3a', sp:.8},
+  {k:'AGENT-SVC', zh:'分析服务', role:'SG · 127.0.0.1:8710', tag:'LLM', col:'#25d6f0', sp:1},
+  {k:'CLAIMS', zh:'claim库', role:'MAC · 41 条', tag:'RULE', col:'#ffd23f', sp:.8},
+  {k:'RETRIEVAL', zh:'检索层', role:'MAC · FTS5+结构化', tag:'TOOL', col:'#a774ff', sp:.8},
+  {k:'REPLAY', zh:'回放引擎', role:'MAC · 时点隔离', tag:'RULE', col:'#3b7cff', sp:.8},
+  {k:'U1-VISION', zh:'历史下载', role:'MAC · 522 标的', tag:'TOOL', col:'#ff7b54', sp:.9},
+  {k:'U1-VERIFY', zh:'数据校验', role:'MAC · 与 REST 对照', tag:'RULE', col:'#ff9a1f', sp:.6},
+  {k:'DUCKDB', zh:'研究库', role:'WIN · duckdb 1.5.6', tag:'TOOL', col:'#62e6c7', sp:.8},
+  {k:'BACKUP', zh:'备份', role:'HK · /srv 870M', tag:'RULE', col:'#9aa6ff', sp:.7},
+  {k:'RESEARCH', zh:'研究节点', role:'WIN · fapi 快照', tag:'TOOL', col:'#ff4458', sp:.9},
+  {k:'CRAWLER', zh:'巡检蛛', role:'live · 跨机探针', tag:'PATROL', col:'#45e6f5', sp:1}
 ];
-const PROOF = 7, CRAWLER = 13, NCL = 13;               // 0..12 是神经团，13 是巡检探针
+const PROOF = 10, CRAWLER = 13, NCL = 13;               // 0..12 是神经团，13 是巡检探针
 const WF = [
-  {id:'W01', zh:'短视频',   ch:0, path:[1,3,9,7,10],  names:['口播短视频','产品种草短视频','教程短视频']},
-  {id:'W02', zh:'落地页',   ch:2, path:[2,4,5,6,7],   names:['落地页改版','活动页上线','官网首页']},
-  {id:'W03', zh:'投标文件', ch:1, path:[1,2,3,7,12],  names:['投标文件生成','技术方案标书','资质材料整理']},
-  {id:'W04', zh:'周报',     ch:1, path:[8,3,7,12],    names:['周报数据汇总','月度经营复盘','客户报表']},
-  {id:'W05', zh:'广告素材', ch:4, path:[4,10,8],      names:['广告素材测试','信息流素材','投放 AB 组']},
-  {id:'W06', zh:'私域话术', ch:3, path:[11,3,7],      names:['私域话术更新','社群活动文案','回访话术']},
-  {id:'W07', zh:'发版',     ch:2, path:[5,6,12],      names:['发版检查','接口联调','热修复']},
-  {id:'W08', zh:'用户反馈', ch:5, path:[11,8,2],      names:['用户反馈聚类','差评归因','需求池整理']},
-  {id:'W09', zh:'直播切片', ch:0, path:[9,7,10],      names:['直播切片','直播高光','回放剪辑']},
-  {id:'W10', zh:'知识库',   ch:5, path:[1,12],        names:['知识库更新','竞品资料检索','行业报告收集']},
-  {id:'W11', zh:'封面图',   ch:1, path:[4,7],         names:['封面图六版','海报设计','详情页主图']}
+  {id:'W01', zh:'数据主链', ch:0, path:[1, 2, 4, 5],  names:['1m bar 增量入库','HTF 聚合','分析服务']},
+  {id:'W02', zh:'衍生链',   ch:1, path:[3, 4],        names:['OI/资金费率采集','衍生快照']},
+  {id:'W03', zh:'历史链',   ch:2, path:[8, 9, 10],    names:['U1 522 标的下载','U1 全量校验','duckdb 构建']},
+  {id:'W04', zh:'研究链',   ch:3, path:[10, 7, 5, 6], names:['replay 回放','claim 复核','检索联调']},
+  {id:'W05', zh:'运维链',   ch:4, path:[1, 11],       names:['SG→HK 备份推送','备份就绪']},
+  {id:'W06', zh:'研究链2', ch:5, path:[12, 10],     names:['fapi 快照采集','研究入库']}
 ];
-const CH = [{zh:'视频', en:'VIDEO', col:'#ff4458'}, {zh:'图文', en:'POST', col:'#ffd23f'}, {zh:'官网', en:'WEB', col:'#3b7cff'},
-            {zh:'私域', en:'PRIVATE', col:'#2fd27a'}, {zh:'广告', en:'ADS', col:'#ff5cae'}, {zh:'知识', en:'KB', col:'#9aa6ff'}];
-const CHECKS = ['需求覆盖', '事实核验', '品牌口径', '合规敏感词', '重复率'];
+const CH = [{zh:'分析API', en:'ANALYZE', col:'#45e6f5'}, {zh:'检索API', en:'CLAIMS', col:'#3b7cff'}, {zh:'研究库', en:'DUCKDB', col:'#ffd23f'},
+            {zh:'回放', en:'REPLAY', col:'#a774ff'}, {zh:'HK备份', en:'BACKUP', col:'#2fd27a'}, {zh:'看板', en:'LIVE', col:'#ff9a1f'}];
+const CHECKS = ['数据新鲜', 'HTF 15m', '衍生数据', 'U1 校验', 'HK 备份', 'Mac 工作区'];
 const BAD = '#ff4d5e', CYAN = '#45e6f5';
-const DAY_TARGET = 20000, PER_MIN = 14;
-const PRICE = {inMiss: 2, inHit: .5, out: 8};                                   // ¥ / 百万 token（示例单价）
-const TOKR = [25, 140, 90, 150, 110, 160, 30, 80, 60, 50, 40, 90, 25];         // 干活时每秒 token
-const INR  = [.8, .92, .7, .55, .6, .62, .75, .88, .8, .7, .75, .7, .85];      // 输入 token 占比
+const DAY_TARGET = 59, PER_MIN = 14;
+const PRICE = {inMiss: 2, inHit: .5, out: 8};
+const TOKR = [25, 140, 90, 150, 110, 160, 30, 80, 60, 50, 40, 90, 25];
+const INR  = [.8, .92, .7, .55, .6, .62, .75, .88, .8, .7, .75, .7, .85];
 const AGC = AG.map(a => hex3(a.col));
 
 /* ================= 2. 模拟状态（接真实数据时替换这一段） ================= */
@@ -3064,14 +3276,20 @@ function newTask(wi){
   tasks.push(t);
   return t;
 }
-function log(ai, verb, text, kind){
-  feed.unshift({t: hms(new Date()), a: ai, verb, text, kind: kind || ''});
-  if (feed.length > 40) feed.pop();
-  caption = {a: ai, verb, text, kind: kind || ''};
-  tape.unshift(`${AG[ai].k} ${verb} ${text}`); if (tape.length > 40) tape.pop();
-  AG[ai].hitT = 1.2;
+const WHO_AG = {WIN: 12, MAC: 0, SG: 1, HK: 11};
+const WVERB2 = {done: '交付', run: '在跑', warn: '告警', queued: '排队', plan: '计划'};
+/* 任务流 = live.json 真实活动；模拟日志停用 */
+function seedFeed(){
+  feed.length = 0; tape.length = 0;
+  for (const ev of liveActivityReal()) {
+    feed.unshift({t: ev.at || '—', a: WHO_AG[ev.who] ?? 0, verb: WVERB2[ev.state] || '事件',
+      text: ev.title || '—', kind: ev.state === 'warn' ? 'bad' : ev.state === 'done' ? 'ship' : ''});
+    tape.unshift(`${ev.who || '—'} ${ev.title || '—'}`);
+  }
   feedDirty = capDirty = tapeDirty = true;
 }
+seedFeed();
+function log(){ /* 模拟日志停用：任务流只显示真实活动 */ }
 const queueTotal = () => workers.reduce((n, a) => n + a.inbox.length, 0);
 const liveN = () => workers.filter(a => a.cur).length;
 const inFlight = () => signals.filter(s => s.kind !== 'ray').length;
@@ -3694,32 +3912,36 @@ let rowY = AG.map((_, i) => 31 + i * 48 + 22);                  // 每行中心�
 $('#ltMeta').textContent = `13 团 + 1 探针 · ${fmt(NEU)} 神经元`;
 
 function renderList(){
+  const AGR = liveAgentsReal();
   AG.forEach((a, i) => {
-    const r = rows[i];
+    const r = rows[i]; if (!r) return;
     let cls = 'cl', pc = '—', w = 0, st = '';
-    if (i === 0) {
-      cls += ' work'; pc = 'Q' + queueTotal(); w = 1 - clamp(chiefT / chiefDur, 0, 1);
-      st = `派单 ${lastDispatch} · 在途 ${inFlight()} · 下一单 ${Math.max(0, chiefT).toFixed(1)}s`;
-    } else if (i === CRAWLER) {
-      cls += ' work'; pc = String(crawl.patrols); w = probe.u < 1 ? probe.u : 1 - clamp(probe.dwell / 3, 0, 1);
-      st = `${probe.u < 1 ? '飞往' : '扫描'} ${AG[crawl.target].k} · 已读 ${fmt(crawl.read)} 页`;
-    } else if (a.cur) {
-      cls += ' work'; pc = Math.round(a.prog * 100) + '%'; w = a.prog;
-      st = `${a.cur.id} ${a.cur.name}${a.cur.rework ? ' · 返工 ' + a.cur.rework : ''}${a.inbox.length ? ' · 排队 ' + a.inbox.length : ''}`;
-    } else if (a.inbox.length) { cls += ' idle'; pc = 'Q' + a.inbox.length; st = `排队 ${a.inbox.length} · 下一个 ${a.inbox[0].id}`; }
-    else { cls += ' idle'; st = `待命 · 今日完成 ${a.outs}`; }
-    if (a.hitT > 0) cls += ' hit';
+    if (i === CRAWLER) {
+      const downs = ((Live.data && Live.data.nodes) || []).filter(n => n.state === 'down').length;
+      cls += ' work'; pc = String(liveActivityReal().length); w = 1;
+      st = `探针巡检 · 在线 ${liveLiveCount()}/12 · 下线 ${downs}`;
+    } else if (i === 0) {
+      const mac = liveMetricsReal().mac || {};
+      cls += ' work'; pc = mac.head || '—'; w = 1;
+      st = 'BOARD 唯一真相 · 只认自有数据 · 预注册不改';
+    } else {
+      const R = AGR[i - 1];
+      if (!R) st = '等待实况';
+      else {
+        const on = R.state === 'ok' || R.state === 'warn';
+        cls += on ? ' work' : ' idle';
+        pc = on ? Math.round(+R.pct || 0) + '%' : R.state === 'down' ? 'DOWN' : '—';
+        w = on ? Math.max(2, Math.min(100, +R.pct || 0)) / 100 : 0;
+        st = `${R.note || ''} · ${R.where || ''}`;
+      }
+    }
     if (focus === i) cls += ' foc';
     if (r.el.className !== cls) r.el.className = cls;
     r.pc.textContent = pc; r.bar.style.width = (w * 100).toFixed(1) + '%'; r.st.textContent = st;
   });
-  const p = $('#connP');
-  if (lastHand && lastHand.t > 0) {
-    const y1 = rowY[lastHand.a], y2 = rowY[lastHand.b], bulge = 18 + Math.abs(y2 - y1) * .09;
-    p.setAttribute('d', `M2 ${y1} C ${2 + bulge} ${y1}, ${2 + bulge} ${y2}, 2 ${y2}`);
-    p.setAttribute('stroke', lastHand.col); p.setAttribute('opacity', String(clamp(lastHand.t, 0, 1)));
-  } else p.setAttribute('opacity', '0');
+  const p = $('#connP'); if (p) p.setAttribute('opacity', '0');
 }
+
 function renderFeed(){
   feedDirty = false;
   const n = Math.max(6, Math.floor(feedEl.clientHeight / 15));
@@ -3727,12 +3949,16 @@ function renderFeed(){
 }
 function renderCap(){
   capDirty = false;
-  const c = caption, a = AG[c.a];
-  $('#cap').className = 'cap ' + c.kind;
+  const ev = liveActivityReal()[0];
+  if (!ev) { $('#capK').textContent = 'LIVE'; $('#capV').textContent = '等待'; $('#capT').textContent = '正在连接跨机实况…'; return; }
+  const a = AG[WHO_AG[ev.who] ?? 0] || AG[0];
+  $('#cap').className = 'cap ' + (ev.state === 'warn' ? 'bad' : ev.state === 'done' ? 'ship' : '');
   $('#capK').textContent = a.k; $('#capK').style.color = a.col;
-  $('#capV').textContent = c.verb; $('#capT').textContent = c.text;
-  $('#mCap').innerHTML = `<b style="color:${a.col}">${a.k}</b>${c.verb} · ${c.text}`;
+  $('#capV').textContent = WVERB2[ev.state] || '事件';
+  $('#capT').textContent = ev.title || '—';
+  $('#mCap').innerHTML = `<b style="color:${a.col}">${ev.who || a.k}</b>${ev.title || ''}`;
 }
+
 const heatCv = $('#heat'), heatX = heatCv.getContext('2d');
 const sparkCv = $('#spark'), sparkX = sparkCv.getContext('2d');
 // 画板被整体缩放过，按「缩放后的实际像素」出图才清楚
@@ -3776,27 +4002,31 @@ function renderSpark(){
 }
 let fps = 60, fpsN = 0, fpsT = 0, lowT = 0, autoNote = '';
 function renderBottom(){
-  $('#bTopo').innerHTML = `${fmt(SYN)}<small>突触</small>`;
-  $('#bTopoS').innerHTML = `<b>${fmt(NEU)}</b> 神经元 · <b>13</b> 团 · <b>${BUN.length}</b> 束`;
-  $('#bRate').innerHTML = `${rateBins[rateBins.length - 1]}<small>次/秒</small>`;
-  $('#bOut').textContent = fmt(total);
-  const pct = total / DAY_TARGET;
-  $('#bOutS').innerHTML = `目标 <b>${fmt(DAY_TARGET)}</b> · <b>${(pct * 100).toFixed(1)}%</b> · 在跑 <b>${liveN()}</b>`;
-  $('#bOutBar').style.width = (Math.min(1, pct) * 100).toFixed(2) + '%';
-  $('#bPass').textContent = (passN / (passN + failN) * 100).toFixed(1) + '%';
-  $('#bPassS').innerHTML = `通过 <b>${passN}</b> · 打回 <b>${failN}</b>`;
-  const perMin = tokWin.reduce((p, v) => p + v, 0);
-  $('#bTok').textContent = fmtTok(tokDay);
-  $('#bTokS').innerHTML = `<b>¥${costDay().toFixed(0)}</b> · <b>${fmtTok(perMin)}</b>/min · 缓存 <b>${Math.round(cacheHit * 100)}%</b>`;
+  const met = liveMetricsReal(), sg = met.sg || {}, u1 = met.u1 || {}, hk = met.hk || {}, mac = met.mac || {}, cl = liveClaimsReal();
+  const tok = liveTokSum(), W = liveTokensReal().win || {}, M = liveTokensReal().mac || {};
+  const age = Live.data && Live.data.epoch ? Math.max(0, Math.round(Date.now() / 1000 - Live.data.epoch)) : null;
+  $('#bTopo').innerHTML = `${fmtBig(tok.all)}<small>tokens</small>`;
+  $('#bTopoS').innerHTML = `WIN <b>${fmtBig(W.inputTokens)}</b> in / <b>${fmtBig(W.outputTokens)}</b> out`;
+  $('#bRate').innerHTML = `${liveActivityReal().length}<small>事件</small>`;
+  $('#bRateS').innerHTML = `在线组件 <b>${liveLiveCount()}</b>/12 · 实况 <b>${fmtLag(age)}</b>前`;
+  $('#bOut').textContent = u1.matched != null ? u1.matched : '—';
+  $('#bOutS').innerHTML = `U1 <b>${u1.matched ?? '—'}/${u1.checked ?? '—'}</b> · SG lag <b>${fmtLag(sg.data_lag_s)}</b>`;
+  $('#bOutBar').style.width = (u1.checked ? Math.min(1, u1.matched / u1.checked) * 100 : 0).toFixed(2) + '%';
+  $('#bPass').textContent = cl.verified != null ? String(cl.verified) : '—';
+  $('#bPassS').innerHTML = `CLAIMS <b>${cl.total ?? '—'}</b> · HTF <b>${fmtLag(sg.htf15_lag_s)}</b> · HK <b>${fmtLag(hk.age_s)}</b>前`;
+  $('#bTok').textContent = fmtBig(tok.all);
+  $('#bTokS').innerHTML = `in <b>${fmtBig(tok.input)}</b> · out <b>${fmtBig(tok.output)}</b> · cache <b>${fmtBig(tok.cache)}</b>`;
   $('#bFps').innerHTML = glOK ? `${fps}<small>fps</small>` : '—';
   $('#bFpsS').innerHTML = glOK ? `${MODES[modeI].zh} · DPR <b>${pr.toFixed(2)}</b>${autoNote}` : 'WebGL 不可用';
-  $('#bRateS').innerHTML = `派单 · 交接 · 打回 · 交付 · 在飞 <b>${inFlight()}</b>`;
-  $('#cwP').textContent = fmt(crawl.patrols); $('#cwR').textContent = fmt(crawl.read); $('#cwB').textContent = crawl.bugs; $('#cwF').textContent = failN;
-  const ta = AG[crawl.target];
-  $('#cwNow').innerHTML = `<b>${probe.u < 1 ? '飞往' : '正在看'}</b>${ta.k} ${ta.zh}${ta.cur ? ' · ' + ta.cur.id + ' ' + ta.cur.name : ' · 待命'}`;
-  $('#feedMeta').textContent = `${inFlight()} in flight · ${tasks.length} open`;
-  $('#mOut').textContent = fmt(total); $('#mLive').textContent = `${liveN()} / 12`; $('#mTok').textContent = fmtTok(tokDay);
+  $('#cwP').textContent = liveActivityReal().length;
+  $('#cwR').textContent = liveLiveCount();
+  $('#cwB').textContent = ((Live.data && Live.data.alerts) || []).length;
+  $('#cwF').textContent = liveWarnCount();
+  $('#cwNow').innerHTML = `<b>巡检</b>${((Live.data && Live.data.nodes) || []).map(n => `${n.label}:${n.state}`).join(' · ')}`;
+  $('#feedMeta').textContent = `${liveActivityReal().length} events · ${liveLiveCount()} live · lag ${fmtLag(sg.data_lag_s)}`;
+  $('#mOut').textContent = u1.matched ?? '—'; $('#mLive').textContent = `${liveLiveCount()} / 12`; $('#mTok').textContent = fmtBig(tok.all);
 }
+
 function clockTick(){ $('#clock').textContent = hms(new Date()); }
 
 /* ---------- HUD 画布：扇区 + 通道环、文字带 ---------- */
@@ -4131,11 +4361,11 @@ document.addEventListener('keydown', e => {
 
 /* ---------- 开场 ---------- */
 // 先让几个智能体处在干活中途，画面一打开就是在跑的状态
-[[1, 0], [3, 0], [5, 1], [7, 2], [9, 8], [11, 5], [4, 10]].forEach(([ai, wi]) => {
+[[1, 0], [3, 1], [5, 0], [7, 3], [9, 2], [11, 4], [4, 0]].forEach(([ai, wi]) => {
   const w = WF[wi], t = newTask(wi), st = Math.max(0, w.path.indexOf(ai)); t.stage = st;
   const a = AG[ai]; a.cur = t; a.prog = rnd(.1, .8); a.dur = rnd(5, 9) * a.sp;
 });
-AG[2].inbox.push(newTask(2)); AG[8].inbox.push(newTask(3));
+AG[2].inbox.push(newTask(1)); AG[8].inbox.push(newTask(2));
 log(0, '派单', `T-049 竞品资料检索 → SCOUT`);
 log(3, '交接', `T-047 口播短视频 → CUT`);
 log(7, '打回', `T-045 落地页改版 合规敏感词不过 → TEST 重写`, 'bad');
@@ -4146,6 +4376,7 @@ new ResizeObserver(() => layout()).observe(host);
 layout();
 if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { drawRing(); drawTape(); layout(); });
 drawRing(); drawTape(); renderList(); renderFeed(); renderCap(); renderBottom(); renderHeat(); renderSpark();
+liveSubscribe(() => { seedFeed(); renderList(); renderFeed(); renderCap(); renderBottom(); });
 clockTick(); setInterval(clockTick, 1000);
 syncButtons();
 // 调试用：快进模拟若干秒（控制台里 document.getElementById('host-neural').__nr.ff(20)）
@@ -4181,7 +4412,7 @@ requestAnimationFrame(frame);
       const SR = host.attachShadow({mode: 'open'});
       SR.appendChild(document.getElementById(T.tpl).content.cloneNode(true));
       SR.querySelectorAll('[data-series-pick]').forEach(b => b.addEventListener('click', openPicker));
-      const go = () => { try { T.mount(host, SR); } catch (e) { console.error(e); } };
+      const go = () => { try { T.mount(host, SR); } catch (e) { console.error(e); } try { initLiveBar(SR, id); } catch (e) { console.error(e); } };
       if (T.deps && !window.THREE) loadScripts(T.deps).then(go); else go();
     }
     cur = id;
