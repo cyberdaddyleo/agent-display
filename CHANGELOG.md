@@ -1,5 +1,42 @@
 # 更新日志
 
+## [3.2] - 2026-10-21 · 主题内真实数据 + 自启
+
+### 新增：三款主题内部数据全部接真实
+
+- **12 个真实组件**：COLLECTOR / AGGREGATE / FUTURES / AGENT-SVC（SG）· CLAIMS / RETRIEVAL / REPLAY / U1-VISION / U1-VERIFY（MAC）· DUCKDB / RESEARCH（WIN）· BACKUP（HK），替换原演示智能体名单；卡片/神经团显示真实 state / pct / note。
+- **任务流**：改为 live.json 真实活动（Mac git 提交、BOARD 任务、u1 校验、Win fapi/duckdb、SG 采集、HK 备份），模拟派单日志停用。
+- **token**：读取 Win + Mac 两机 DSH 会话缓存 `tokenUsage.totals`，展示真实 input / output / cache 累计（跨机合计）；停用虚构成本与单价。
+- **质检 / 规则**：SPIDER 质检台改为 6 道真实数据门（数据新鲜 / HTF 15m / 衍生数据 / U1 / HK 备份 / Mac 工作区），rules.py 显示真实阈值与实测值。
+- **降级**：live.json 不可用时显示「— / 等待实况」，不回落假数据。
+
+### 调整
+
+- 采集器改 Win 直连 Mac / SG / HK（不再经 Mac 中转），三路并行、单路超时降级；契约升级 `agent-live/2`（新增 tokens / metrics / agents / activity）。
+- 新增 Windows 计划任务 `AGENT_DISPLAY_LIVE`（采集器 --loop 15）与 `AGENT_DISPLAY_SERVER`（8123 静态站），登录自启、失败重启。
+- OPS 顶部指标改为 CLAIMS / COMPONENTS / PIPELINES / U1 MATCHED / VERIFIED / HYPOTHESIS；HUD 显示真实 data lag / HTF 15m。
+
+### 修复
+
+- 三主题引用真实数据后的初始化顺序问题（feedDirty / ruleHit / WF 索引）。
+
+## [3.1] - 2026-10-21 · 跨机实况数据条
+
+### 新增：三款主题内嵌跨机实况数据条
+
+- **数据来源**：crypto-agent 项目四节点（WIN 研究节点 / MAC 开发节点 / SG 实时采集 / HK 备份）的只读实况，由 `live/collect_live.py` 通过 SSH 探针采集，原子写入 `live.json`；页面每 15 秒 fetch 一次，数据时效每 5 秒刷新。
+- **四节点**：状态灯 + 两行关键事实（repo HEAD 与提交时间、u1 校验结果、数据滞后、unit 状态、磁盘/内存、备份年龄）。
+- **进度段**：u1 数据校验、claims 统计（total / verified）、最近一次 git 提交。
+- **告警段**：SG HTF 滞后、futures 采集异常、备份过期、节点不可达等；无告警时自动隐藏。数据时效 >90s 变琥珀、>300s 变红。
+- **降级**：`live.json` 缺失或 fetch 失败时整条显示「未连接」并提示启动命令，主题其余部分照常运行；单节点不可达时只降级该节点，`collect.ok=false` 并保留告警。
+- **版式**：OPS 作为 `.app` 第三行；SPIDER 作为 `.wrap` 底部条（画板等比缩放自动让位）；NEURAL 悬浮在底栏下方（`.fit` 让出 54px）。窄屏逐级隐藏次要信息。
+
+### 新增：采集器 `live/`
+
+- `live/collect_live.py`：单次 / `--loop SEC` 循环采集，原子写 `live.json`，日志 `live/collector.log`（>1MB 轮转）。
+- `live/probes/`：Mac / SG / HK 只读探针，经 stdin 管道在远端内存中执行，不在远端落文件；嵌套 SSH 走 relay 模板。
+- `live/README.md`：启动/停止、数据契约、探针清单、故障降级行为。
+
 ## [3.0] - 2026-10-20 · NEURAL 神经星环
 
 ### 新增：主题 03 · NEURAL 神经星环

@@ -1,0 +1,18 @@
+﻿# 运行产物 / 日志（不入库）
+live.json
+live.json.tmp
+live/collector*.log*
+live/*.stdout.log
+live/*.stderr.log
+server.stdout.log
+server.stderr.log
+# 本机部署配置（含真实主机与密钥路径）
+live/local.json
+# 本地备份
+*.bak-*
+# 跨机协作记录（内部，不入公开仓库）
+*-junshi-*.md
+REPLY-xiaoma-*.md
+# Python
+__pycache__/
+*.pyc
