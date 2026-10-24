@@ -1,6 +1,6 @@
 <!doctype html>
 <!--
-  Agent 战术大屏 v5.0 · DEVELOPED BY @赛博老爸
+  Agent 战术大屏 v6.0 · DEVELOPED BY @赛博老爸
   SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
   Required Notice: Copyright (c) 2026 赛博老爸
   非商业用途可免费使用；商业使用需另行获得授权，联系 cyberdaddyleo@outlook.com。许可证全文见仓库 LICENSE 文件或 https://polyformproject.org/licenses/noncommercial/1.0.0
@@ -47,6 +47,7 @@ body{background:var(--page);overflow:hidden}
 .sw-neural{background:radial-gradient(circle at 50% 50%,rgba(240,246,255,.95) 0 2px,rgba(170,205,255,.45) 4px,rgba(120,160,220,.12) 10px,transparent 13px),radial-gradient(circle at 50% 50%,transparent 15px,rgba(220,236,255,.85) 15.5px 16.5px,transparent 17px 18.5px,rgba(220,236,255,.5) 19px 21px,transparent 21.5px 22.5px,rgba(220,236,255,.3) 23px 23.6px,transparent 24px),#04060b}
 .sw-factory{background:linear-gradient(90deg,transparent 10px,#ffc21a 10px 12px,transparent 12px 72px,#ffc21a 72px 74px,transparent 74px),linear-gradient(180deg,transparent 9px,#ffc21a 9px 11px,transparent 11px 37px,#ffc21a 37px 39px,transparent 39px),radial-gradient(ellipse 6px 12px at 50% 46%,#e6e9ee 0 60%,transparent 64%),linear-gradient(90deg,#2fd27a 0 8px,transparent 8px 76px,#3b7cff 76px),repeating-linear-gradient(90deg,#1a212b 0 10px,#151b23 10px 20px)}
 .sw-nebula{background:radial-gradient(circle at 50% 54%,#fff 0 2px,rgba(255,255,255,.0) 2.5px),radial-gradient(circle at 44% 54%,rgba(240,248,255,.95) 0 1.6px,transparent 2px),radial-gradient(circle at 56% 54%,rgba(240,248,255,.95) 0 1.6px,transparent 2px),radial-gradient(circle at 50% 55%,rgba(200,225,255,.55) 0 7px,transparent 8px),radial-gradient(ellipse 15px 11px at 50% 38%,rgba(255,190,160,.55),transparent 70%),radial-gradient(circle at 18% 30%,rgba(124,200,255,.65) 0 2px,rgba(124,200,255,.18) 7px,transparent 10px),radial-gradient(circle at 82% 66%,rgba(255,134,194,.6) 0 2px,rgba(255,134,194,.16) 7px,transparent 10px),radial-gradient(circle at 80% 24%,rgba(255,210,122,.55) 0 1.5px,rgba(255,210,122,.14) 6px,transparent 9px),radial-gradient(circle at 22% 74%,rgba(160,147,255,.6) 0 1.5px,rgba(160,147,255,.16) 6px,transparent 9px),radial-gradient(ellipse at 50% 50%,rgba(60,90,170,.35),transparent 75%),#03050c}
+.sw-forge{background:radial-gradient(circle at 58% 50%,#020306 0 8px,rgba(235,244,255,.95) 8.6px 9.6px,rgba(156,208,255,.35) 10px 13px,transparent 14px),radial-gradient(ellipse 34px 13px at 58% 50%,rgba(255,173,94,.38),transparent 72%),repeating-linear-gradient(8deg,transparent 0 4px,rgba(143,227,185,.16) 4px 5px),linear-gradient(90deg,#0a0d12 0 22%,#05070a 22%)}
 .tcard.next{cursor:default;border-style:dashed;opacity:.55}
 .tcard.next:hover{border-color:var(--sheet-line)}
 .sw-next{border:1px dashed var(--sheet-mute);background:repeating-linear-gradient(45deg,transparent 0 6px,rgba(125,130,152,.15) 6px 7px)}
@@ -59,6 +60,7 @@ body{background:var(--page);overflow:hidden}
 <div class="th-host" id="host-neural" hidden></div>
 <div class="th-host" id="host-factory" hidden></div>
 <div class="th-host" id="host-nebula" hidden></div>
+<div class="th-host" id="host-forge" hidden></div>
 
 <div class="picker" id="picker" hidden>
  <div class="pk" role="dialog" aria-modal="true" aria-labelledby="pkT">
@@ -69,7 +71,8 @@ body{background:var(--page);overflow:hidden}
    <button class="tcard" type="button" data-theme-id="neural"><span class="sw sw-neural" aria-hidden="true"></span><span class="tn"><b>03 · NEURAL 神经星环</b><small>13 个神经团 · 突触脉冲派单 · HUD 星环</small></span><em>当前</em></button>
    <button class="tcard" type="button" data-theme-id="factory"><span class="sw sw-factory" aria-hidden="true"></span><span class="tn"><b>04 · FACTORY 机器人工厂</b><small>整座 3D 车间 · 12 台机器人接力 · 总工程造完就发射</small></span><em>当前</em></button>
    <button class="tcard" type="button" data-theme-id="nebula"><span class="sw sw-nebula" aria-hidden="true"></span><span class="tn"><b>05 · NEBULA 星核蜘蛛</b><small>12 团智能体星云 · 星云蛛逐字审需求 · 过线才派单</small></span><em>当前</em></button>
-   <div class="tcard next" aria-disabled="true"><span class="sw sw-next" aria-hidden="true"></span><span class="tn"><b>06 · 下一款</b><small>系列主题筹备中</small></span></div>
+   <button class="tcard" type="button" data-theme-id="forge"><span class="sw sw-forge" aria-hidden="true"></span><span class="tn"><b>06 · FORGE 视界熔炉</b><small>黑洞吸积子 Agent 情报 · 星核投影出整机再拆解 · 逐件交付</small></span><em>当前</em></button>
+   <div class="tcard next" aria-disabled="true"><span class="sw sw-next" aria-hidden="true"></span><span class="tn"><b>07 · 下一款</b><small>系列主题筹备中</small></span></div>
   </div>
   <div class="pk-f"><span>按 T 键直接轮换主题 · 选择会被记住</span><span>DEVELOPED BY @赛博老爸</span></div>
  </div>
@@ -1379,6 +1382,378 @@ button.tb:focus-visible{outline:1px solid var(--ice);outline-offset:2px}
 </div>
 <div class="tip" id="tip" hidden></div>
 <div class="glfail" id="glFail" hidden>这台设备的浏览器没法显示 3D 画面（WebGL 不可用），面板数据照常在跑。换 Chrome / Edge 打开即可看到星云。</div>
+</template>
+
+<!-- ===== 主题 06 · FORGE 视界熔炉 ===== -->
+<template id="tpl-forge">
+<style>
+/* Layout: 三栏作战大屏 —— 左「子 Agent 阵列」经 STATE IN 总线把情报送进中央黑洞，星核坍缩后锻造成当前工单的机械零件（零件 = 子任务），
+   右侧经 DISPATCH OUT 总线流向「锻造工位」逐件验收、再流入交付记录；底部四块遥测。左上标题、右上按钮与前几款同一套写法。
+   星核是原生 WebGL（不依赖 three.js），线束与流光画在 2D 画布上。深空单一深色。 */
+:host{
+  color-scheme:dark;
+  --bg:#05070a; --panel:rgba(8,11,16,.82); --card:rgba(5,7,10,.74);
+  --line:rgba(150,180,215,.13); --line-2:rgba(170,200,235,.28);
+  --fg:#d8e0ea; --fg-2:#97a3b2; --fg-3:#5b6674;
+  --ice:#9cd0ff; --hot:#ffad5e; --ok:#86e3b6; --ink:#06080b;
+  --display:"Syncopate","Noto Sans SC",system-ui,sans-serif;
+  --mono:"JetBrains Mono","Noto Sans SC","PingFang SC",ui-monospace,Menlo,monospace;
+  --cjk:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+}
+:host{display:block;height:100%;position:relative;overflow:hidden;background:var(--bg);color:var(--fg);font-family:var(--mono);-webkit-font-smoothing:antialiased}
+[hidden]{display:none!important}
+*{box-sizing:border-box}
+.gl{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:grab;touch-action:none}
+.gl.drag{cursor:grabbing}
+.vig{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 72% 78% at 50% 44%,transparent 58%,rgba(0,0,0,.5) 100%)}
+.fx{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none}
+.nr{position:absolute;inset:0;pointer-events:none}
+.fit{position:absolute;inset:0;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));pointer-events:none}
+.fit-in{position:relative;width:100%;height:100%}
+.board{position:absolute;left:50%;top:50%;width:1920px;height:1080px;transform:translate(-50%,-50%) scale(var(--s,.5));pointer-events:none}
+.pe{pointer-events:auto}
+.labels{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+
+/* ---------- 左上标题（与 03–05 同款） ---------- */
+.topfade{position:absolute;left:-40px;top:0;width:900px;height:330px;background:radial-gradient(ellipse 700px 300px at 0 0,rgba(2,4,8,.92),rgba(2,4,8,.55) 55%,rgba(2,4,8,0) 85%)}
+.hd{position:absolute;left:24px;top:18px;width:max-content;text-shadow:0 0 6px var(--bg),0 0 14px var(--bg)}
+.eb{width:max-content;font-size:10px;letter-spacing:.26em;color:var(--fg-3);white-space:nowrap}
+.eb b{color:var(--ice);font-weight:500}
+.hd h1{margin:12px 0 0;font-family:var(--display);font-weight:700;font-size:44px;line-height:1.06;letter-spacing:.05em;color:var(--fg)}
+.hd h1 span{display:block;width:max-content;white-space:nowrap}
+.hd h1 .l1{display:flex;align-items:center;width:max-content}
+.hd h1 em{font-style:normal;font-family:var(--cjk);font-weight:900;font-size:36px;line-height:1;letter-spacing:.08em;margin-left:22px;text-shadow:none;background:linear-gradient(90deg,#b8dcff,#ffad5e);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 10px rgba(255,173,94,.3))}
+.sub{width:max-content;margin-top:12px;font-family:var(--cjk);font-size:14px;letter-spacing:.06em;color:var(--fg-2);white-space:nowrap}
+.sub2{width:max-content;margin-top:6px;font-size:10px;letter-spacing:.16em;color:var(--fg-3);white-space:nowrap}
+.sub2 b{color:var(--fg);font-weight:500;font-variant-numeric:tabular-nums}
+
+/* ---------- 右上按钮（与 03–05 同款） ---------- */
+.tools{position:absolute;right:24px;top:14px;display:flex;gap:6px}
+button.tb{font:500 11px/1 var(--mono);letter-spacing:.1em;color:var(--fg-2);background:rgba(6,9,14,.75);border:1px solid rgba(160,195,235,.3);padding:8px 11px;cursor:pointer;white-space:nowrap}
+button.tb b{color:var(--fg);font-weight:700;font-family:var(--cjk);margin-left:6px;letter-spacing:.04em}
+button.tb:hover{border-color:var(--ice);color:var(--fg)}
+button.tb:focus-visible{outline:1px solid var(--ice);outline-offset:2px}
+.strip{position:absolute;right:24px;top:52px;display:flex;gap:16px;font-size:9.5px;letter-spacing:.12em;color:var(--fg-3);white-space:nowrap}
+.strip b{color:var(--fg);font-weight:500;margin-left:5px;font-variant-numeric:tabular-nums}
+.strip .live::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--ok);margin-right:6px;vertical-align:1px;box-shadow:0 0 6px var(--ok)}
+
+/* ---------- 框体 ---------- */
+.panel{position:relative;background:var(--panel);border:1px solid var(--line);min-width:0;min-height:0}
+.panel::before,.panel::after{content:"";position:absolute;width:9px;height:9px;pointer-events:none;border:1px solid var(--line-2)}
+.panel::before{top:-1px;left:-1px;border-right:0;border-bottom:0}
+.panel::after{bottom:-1px;right:-1px;border-left:0;border-top:0}
+.ph{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:9px 12px 7px;border-bottom:1px solid var(--line);font-size:10px;letter-spacing:.14em;color:var(--fg-3);white-space:nowrap}
+.ph>span:first-child{color:var(--fg-2);overflow:hidden;text-overflow:ellipsis}
+.ph b{color:var(--fg);font-weight:500;margin-right:2px}
+
+/* 左：子 Agent 阵列 */
+.col-l{position:absolute;left:24px;top:206px;bottom:246px;width:396px;display:flex;flex-direction:column}
+.agents{flex:1;display:grid;grid-template-rows:repeat(8,minmax(0,1fr));gap:6px;padding:8px 11px 10px 10px;min-height:0}
+.ag{position:relative;display:flex;flex-direction:column;min-height:0;background:var(--card);border:1px solid rgba(160,190,220,.08);transition:border-color .5s,box-shadow .5s}
+.ag-h{display:flex;justify-content:space-between;align-items:center;background:var(--c);color:var(--ink);font-size:10px;font-weight:700;letter-spacing:.05em;line-height:14px;padding:1px 7px;opacity:.82;transition:opacity .4s}
+.ag-b{flex:1;display:flex;flex-direction:column;justify-content:space-evenly;padding:1px 7px 2px;min-height:0}
+.ag-r{display:grid;grid-template-columns:auto minmax(0,1fr) 28px auto minmax(0,1fr) 28px;align-items:center;gap:5px;font-size:9px;line-height:12px;color:var(--fg-3);font-family:var(--cjk)}
+.bar{display:block;height:5px;background:rgba(255,255,255,.06);position:relative;overflow:hidden}
+.bar i{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--c);opacity:.6;transition:width .12s linear}
+.v{color:var(--fg-2);text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums}
+.ag-r2{display:flex;align-items:center;gap:8px;font-size:9.5px;line-height:13px;color:var(--fg-2);min-width:0}
+.ag-r2 .role{flex:none;font-family:var(--cjk)}
+.ag-r2 .task{flex:1;min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;color:var(--fg-3);font-family:var(--cjk)}
+.st{flex:none;font-size:8px;line-height:11px;letter-spacing:.12em;padding:0 5px;border:1px solid var(--line-2);color:var(--fg-3)}
+.ag-r3{display:flex;align-items:flex-end;gap:2px;height:8px}
+.ag-r3 i{flex:1;background:var(--c);opacity:.38;min-height:1px}
+.port{position:absolute;right:-5px;top:50%;width:8px;height:8px;margin-top:-4px;border:1px solid var(--c);background:var(--c);opacity:.35;box-shadow:0 0 8px var(--c);transition:opacity .1s}
+.ag::after{content:"";position:absolute;right:-2px;top:16%;bottom:16%;width:2px;background:repeating-linear-gradient(to bottom,var(--c) 0 1px,transparent 1px 4px);opacity:.55;animation:fgtick .35s linear infinite}
+@keyframes fgtick{from{background-position:0 0}to{background-position:0 4px}}
+.ag.busy .st{color:var(--fg-2)}
+.ag.on{border-color:var(--c);box-shadow:0 0 22px -10px var(--c)}
+.ag.on .ag-h{opacity:1}
+.ag.on .st{color:var(--c);border-color:var(--c)}
+.ag.on .port{background:var(--c)}
+.ag.on .ag-r2 .task{color:var(--fg)}
+.ag.on .ag-r3 i{opacity:.7}
+
+/* 中：星核 HUD */
+.stage{position:absolute;left:444px;right:504px;top:0;bottom:246px}
+.hud-top{position:absolute;left:50%;top:18px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:7px;width:660px}
+.job-line{font-size:9.5px;letter-spacing:.18em;color:var(--fg-3);white-space:nowrap}
+.job-line .id{color:var(--fg-2)}
+.job-line .sep{margin:0 8px;opacity:.6}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));width:100%;gap:7px}
+.steps li{position:relative;display:flex;align-items:baseline;gap:6px;padding-bottom:6px;font-size:9px;color:var(--fg-3);letter-spacing:.1em;white-space:nowrap;transition:color .4s}
+.steps .sl{font-family:var(--cjk);font-size:12.5px;letter-spacing:.08em}
+.steps .se{font-size:8px;opacity:.8}
+.steps i{position:absolute;left:0;right:0;bottom:0;height:1px;background:rgba(160,190,220,.16)}
+.steps i::after{content:"";position:absolute;left:0;top:0;bottom:0;width:100%;background:var(--fg-2);transform-origin:left center;transform:scaleX(var(--p,0))}
+.steps li.done{color:var(--fg-2)}
+.steps li.on{color:var(--fg)}
+.steps li.on i::after{background:var(--ice);box-shadow:0 0 6px var(--ice)}
+.steps li.on.hot i::after{background:var(--hot);box-shadow:0 0 6px var(--hot)}
+.hint{font-size:8.5px;letter-spacing:.14em;color:var(--fg-3);opacity:.75;white-space:nowrap}
+.hud-bl{position:absolute;left:56px;bottom:10px;max-width:56%}
+.eyebrow{font-size:9px;letter-spacing:.2em;color:var(--fg-3);margin-bottom:7px;white-space:nowrap}
+.eyebrow i{display:inline-block;width:6px;height:6px;background:var(--hot);margin-right:8px;vertical-align:1px;animation:fgblink 1.2s infinite}
+.now-title{font-family:var(--cjk);font-size:30px;font-weight:700;letter-spacing:.02em;line-height:1.12;white-space:nowrap;text-shadow:0 0 12px var(--bg)}
+.now-sub{font-size:10px;color:var(--fg-2);margin-top:7px;letter-spacing:.04em;font-family:var(--cjk);white-space:nowrap}
+.hud-br{position:absolute;right:56px;bottom:10px;text-align:right}
+.big{font-family:var(--mono);font-size:46px;font-weight:400;line-height:1;font-variant-numeric:tabular-nums;color:var(--fg);letter-spacing:-.02em}
+.big small{font-size:16px;color:var(--fg-3);margin-left:4px}
+.cap{font-size:8.5px;letter-spacing:.18em;color:var(--fg-3);margin-top:6px;white-space:nowrap}
+@keyframes fgblink{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* 右：锻造工位 */
+.col-r{position:absolute;right:24px;top:80px;bottom:246px;width:456px;display:flex;flex-direction:column;gap:12px}
+.bay{flex:1;display:flex;flex-direction:column}
+.bay-job{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;padding:9px 12px 8px;border-bottom:1px solid var(--line)}
+.bj-id{font-size:9px;letter-spacing:.16em;color:var(--fg-3);white-space:nowrap}
+.bj-pct{font-size:9px;color:var(--fg-2);text-align:right;font-variant-numeric:tabular-nums;letter-spacing:.08em}
+.bj-t{grid-column:1/-1;font-family:var(--cjk);font-size:16px;font-weight:700;color:var(--fg);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bj-bar{grid-column:1/-1;height:3px;background:rgba(255,255,255,.07);position:relative;overflow:hidden}
+.bj-bar i{position:absolute;left:0;top:0;bottom:0;width:0;background:linear-gradient(90deg,var(--ice),var(--hot))}
+.parts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;padding:8px 10px 2px}
+.pc{position:relative;display:flex;flex-direction:column;gap:3px;padding:6px 8px 7px;border:1px solid rgba(160,190,220,.1);background:var(--card);cursor:pointer;min-width:0;overflow:hidden;transition:border-color .35s,background .35s,box-shadow .35s;font:inherit;color:inherit;text-align:left}
+.pc.wide{grid-column:1/-1}
+.pc-t{display:flex;justify-content:space-between;gap:6px;font-size:8.5px;letter-spacing:.08em;color:var(--fg-3);white-space:nowrap}
+.pc-n{overflow:hidden;text-overflow:ellipsis}
+.pc-s{flex:none;font-size:8px;letter-spacing:.14em}
+.pc-task{font-size:13px;color:var(--fg);font-family:var(--cjk);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pc-m{display:flex;align-items:center;gap:6px;font-size:8.5px;color:var(--fg-3);white-space:nowrap}
+.pc-m .dot{width:6px;height:6px;background:var(--c);flex:none}
+.pc-pct{margin-left:auto;color:var(--fg-2);font-variant-numeric:tabular-nums}
+.pc-bar{height:2px;background:rgba(255,255,255,.07);position:relative;overflow:hidden;margin-top:1px}
+.pc-bar i{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--fg-3)}
+.pc:hover{border-color:rgba(160,190,220,.3)}
+.pc:focus-visible{outline:1px solid var(--fg);outline-offset:2px}
+.pc.hot{border-color:rgba(255,173,94,.75);background:rgba(38,22,8,.6);box-shadow:inset 0 0 26px -14px var(--hot)}
+.pc.hot .pc-s,.pc.hot .pc-pct{color:var(--hot)}
+.pc.hot .pc-bar i{background:var(--hot)}
+.pc.done .pc-s{color:var(--ice)}
+.pc.done .pc-bar i{background:var(--ice)}
+.pc.focus{border-color:var(--fg)}
+.op{flex:1;display:flex;flex-direction:column;gap:7px;margin:8px 10px 10px;padding:9px 10px 9px;border:1px solid rgba(160,190,220,.1);background:linear-gradient(180deg,rgba(156,208,255,.05),transparent 70%);min-height:0;overflow:hidden}
+.op-h{display:flex;justify-content:space-between;gap:8px;font-size:8.5px;letter-spacing:.16em;color:var(--fg-3);white-space:nowrap}
+.op-h b{color:var(--c,var(--fg-2));font-weight:500;letter-spacing:.08em}
+.op-main{display:flex;align-items:center;gap:12px;min-width:0}
+.op-code{font-family:var(--mono);font-size:34px;font-weight:400;line-height:1;color:var(--fg);font-variant-numeric:tabular-nums;flex:none}
+.op.hot .op-code{color:var(--hot)}
+.op-txt{min-width:0}
+.op-n{font-size:8.5px;letter-spacing:.14em;color:var(--fg-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.op-t{font-family:var(--cjk);font-size:15px;font-weight:500;color:var(--fg);margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.op-steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px}
+.op-steps li{position:relative;padding-top:6px;font-size:8.5px;color:var(--fg-3);font-family:var(--cjk);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.op-steps li::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:rgba(255,255,255,.08)}
+.op-steps li.done{color:var(--fg-2)}
+.op-steps li.done::before{background:var(--ice)}
+.op-steps li.on{color:var(--fg)}
+.op-steps li.on::before{background:linear-gradient(90deg,var(--hot) var(--sp,0%),rgba(255,255,255,.08) var(--sp,0%))}
+.op-cap{display:flex;justify-content:space-between;font-size:8px;letter-spacing:.14em;color:var(--fg-3);margin-top:2px}
+.op-cap b{font-weight:400;color:var(--fg-2);font-variant-numeric:tabular-nums}
+.op-wave{flex:1;display:flex;align-items:flex-end;gap:2px;min-height:14px;border-bottom:1px solid rgba(160,190,220,.12)}
+.op-wave i{flex:1;background:var(--fg-3);opacity:.35;min-height:1px}
+.op.hot .op-wave i{background:var(--hot);opacity:.6}
+.op-m{display:flex;justify-content:space-between;gap:8px;font-size:8px;letter-spacing:.12em;color:var(--fg-3);white-space:nowrap}
+.op-m b{display:block;font-family:var(--mono);font-size:14px;font-weight:400;letter-spacing:.02em;color:var(--fg-2);margin-top:2px;font-variant-numeric:tabular-nums}
+.deliv{flex:none;display:flex;flex-direction:column}
+.dl{display:flex;flex-direction:column;padding:4px 12px 7px;font-size:9px}
+.dr{display:grid;grid-template-columns:40px 64px minmax(0,1fr) 40px;gap:9px;padding:5px 0;border-bottom:1px dashed rgba(160,190,220,.09);color:var(--fg-3);align-items:baseline;white-space:nowrap}
+.dr:last-child{border-bottom:0}
+.dr .t{color:var(--fg-2);font-family:var(--cjk);font-size:10.5px;overflow:hidden;text-overflow:ellipsis}
+.dr .d{text-align:right;font-variant-numeric:tabular-nums}
+.dr.new{animation:fgflash 2.2s ease-out}
+.dr.new .t{color:var(--fg)}
+@keyframes fgflash{0%{background:rgba(255,173,94,.18)}100%{background:transparent}}
+
+/* 底：四块遥测 */
+.bottom{position:absolute;left:24px;right:24px;bottom:36px;height:198px;display:grid;grid-template-columns:1.25fr 1fr 1.15fr 1fr;gap:12px}
+.bottom>.panel{display:flex;flex-direction:column;overflow:hidden}
+.log{flex:1;padding:6px 12px;font-size:9px;line-height:16px;overflow:hidden;color:var(--fg-3);min-height:0}
+.lr{display:grid;grid-template-columns:52px 66px 52px minmax(0,1fr);gap:8px;white-space:nowrap}
+.lr .a{color:var(--c)}
+.lr .vb{color:var(--fg-2);letter-spacing:.06em}
+.lr .x{color:var(--fg-2);overflow:hidden;text-overflow:ellipsis;font-family:var(--cjk)}
+.lr.fresh .x{color:var(--fg)}
+.disp{flex:1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:minmax(0,1fr);column-gap:16px;padding:6px 12px 8px;min-height:0;align-items:center}
+.dpr{display:grid;grid-template-columns:70px minmax(0,1fr) 16px;gap:7px;align-items:center;font-size:8.5px;color:var(--fg-3)}
+.dpr .n{color:var(--c);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.dpr .bar{height:5px}
+.dpr .q{text-align:right;color:var(--fg-2);font-variant-numeric:tabular-nums}
+.code{flex:1;margin:0;padding:6px 10px 6px 0;list-style:none;font:400 9.5px/13px var(--mono);color:#7f8b9a;overflow:hidden;min-height:0}
+.code.sc{-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 26px);mask-image:linear-gradient(180deg,transparent 0,#000 26px)}
+.code li{white-space:pre;overflow:hidden;text-overflow:ellipsis}
+.code li::before{content:attr(data-n);display:inline-block;width:4ch;padding-right:12px;text-align:right;color:var(--fg-3);opacity:.75}
+.code li.hl{color:var(--fg);background:linear-gradient(90deg,rgba(156,208,255,.12),transparent 90%);box-shadow:inset 2px 0 0 var(--ice)}
+.code li.hl.hot{background:linear-gradient(90deg,rgba(255,173,94,.13),transparent 90%);box-shadow:inset 2px 0 0 var(--hot)}
+.code li.hl::before{color:var(--fg-2);opacity:1}
+.code li.cur::after{content:"\258C";color:var(--ice);margin-left:1px;animation:fcblink 1s steps(1) infinite}
+.code li.cur.hot::after{color:var(--hot)}
+.code li.cur.tp::after{animation:none}
+@keyframes fcblink{50%{opacity:0}}
+.code .xk{color:#b9a6ff}
+.code .xf{color:var(--ice)}
+.code .xs{color:#e8c18f}
+.code .xn{color:#8fe3b9}
+.code .xc{color:#66727f;font-family:var(--cjk)}
+.tele{flex:1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:auto auto minmax(0,1fr);gap:5px 14px;padding:7px 12px 8px;min-height:0}
+.tv{display:flex;flex-direction:column;gap:2px;min-width:0}
+.tk{font-size:8px;letter-spacing:.14em;color:var(--fg-3);white-space:nowrap;font-family:var(--cjk)}
+.tn{font-family:var(--mono);font-size:21px;font-weight:400;color:var(--fg);font-variant-numeric:tabular-nums;line-height:1.08;white-space:nowrap}
+.tn small{font-size:.6em;color:var(--fg-3);margin-left:3px}
+.spark{grid-column:1/-1;width:100%;height:100%;min-height:18px;display:block}
+.sb{position:absolute;left:24px;right:24px;bottom:9px;display:flex;align-items:center;justify-content:center;gap:28px;font-size:9.5px;letter-spacing:.14em;color:var(--fg-3);white-space:nowrap;overflow:hidden}
+.sb b{color:var(--fg-2);font-weight:500;font-variant-numeric:tabular-nums}
+.sb .on::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--ok);margin-right:7px;vertical-align:1px;box-shadow:0 0 6px var(--ok)}
+.sb .wm{font-family:var(--display);font-size:9px;letter-spacing:.3em;color:#3c4552}
+
+/* ---------- 星核上的标注（在 board 外，按缩放比例同步缩放） ---------- */
+.pl{position:absolute;left:0;top:0;width:160px;transform-origin:0 0;padding:5px 8px 6px;background:rgba(6,9,13,.86);border:1px solid rgba(156,208,255,.26);font-size:8.5px;color:var(--fg-2);pointer-events:auto;cursor:pointer;will-change:transform,opacity;transition:border-color .3s,background .3s}
+.pl .h{display:flex;gap:6px;align-items:baseline;color:var(--fg);font-size:9px;letter-spacing:.05em;white-space:nowrap}
+.pl .h b{color:var(--ice);font-weight:500}
+.pl .h span{font-family:var(--cjk);font-size:10.5px}
+.pl .h em{font-style:normal;color:var(--fg-3);font-size:7.5px;letter-spacing:.12em;margin-left:auto}
+.pl .k{margin-top:3px;display:flex;justify-content:space-between;gap:6px;font-family:var(--cjk);font-size:9.5px;color:var(--fg-3);white-space:nowrap}
+.pl .k .p{font-family:var(--mono);font-variant-numeric:tabular-nums;color:var(--fg-2)}
+.pl.hot{border-color:var(--hot);background:rgba(34,19,6,.9)}
+.pl.hot .h b,.pl.hot .k .p{color:var(--hot)}
+.pl.hot .k{color:var(--fg)}
+.pl.done{border-color:rgba(156,208,255,.45)}
+.pl.done .k .p{color:var(--ice)}
+.pl.focus{border-color:var(--fg);background:rgba(14,20,28,.94)}
+.ol{position:absolute;left:0;top:0;transform-origin:0 0;font-size:8.5px;letter-spacing:.14em;color:var(--fg-2);white-space:nowrap;will-change:transform,opacity}
+.ol i{display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--c);margin-right:7px;vertical-align:1px;box-shadow:0 0 6px var(--c)}
+
+/* ---------- 窄屏 / 竖屏 ---------- */
+.mini{display:none;position:absolute;inset:0;flex-direction:column;justify-content:space-between;pointer-events:none;padding-block:10px}
+.narrow .board{display:none}
+.narrow .mini{display:flex}
+.m-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.m-title{font-family:var(--display);font-weight:700;font-size:17px;letter-spacing:.05em;line-height:1.1;text-shadow:0 0 8px var(--bg)}
+.m-title i{display:block;font-style:normal;font-family:var(--cjk);font-weight:700;font-size:12px;color:var(--hot);letter-spacing:.12em;margin-top:5px}
+.m-btns{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:5px;max-width:210px}
+.m-btns .tb{padding:6px 8px;font-size:10px}
+.m-bot{background:linear-gradient(0deg,rgba(2,4,8,.92),rgba(2,4,8,.6) 70%,transparent);margin-inline:-16px;padding:24px 16px 0}
+.m-cap{font-family:var(--cjk);font-size:12px;color:var(--fg-2);text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.m-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;border-top:1px solid var(--line-2);padding-top:8px;margin-top:8px}
+.m-stats div{display:grid;gap:2px;min-width:0}
+.m-stats span{font-size:9px;letter-spacing:.12em;color:var(--fg-3);white-space:nowrap}
+.m-stats b{font-size:15px;font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-family:var(--cjk)}
+.m-wm{margin-top:6px;font-family:var(--display);font-weight:400;font-size:8.5px;letter-spacing:.3em;color:#3c4552;text-align:center}
+.glfail{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);max-width:340px;text-align:center;font-family:var(--cjk);font-size:13px;line-height:1.7;color:var(--fg-2);border:1px solid var(--line-2);padding:14px 18px;background:rgba(5,8,12,.85)}
+@media (prefers-reduced-motion:reduce){.eyebrow i{animation:none}.dr.new{animation:none}.ag::after{animation:none}.bar i{transition:none}.code li.cur::after{animation:none}}
+</style>
+
+<canvas class="gl" id="gl" aria-label="视界熔炉：左侧子 Agent 的情报沿线束汇入中央黑洞，星核坍缩后锻造成当前工单的机械零件，每个零件是一个子任务，逐件完成后交付。拖动旋转视角，滚轮缩放，双击复位"></canvas>
+<div class="vig" aria-hidden="true"></div>
+<canvas class="fx" id="fx" aria-hidden="true"></canvas>
+<div class="nr" id="nr">
+<div class="fit"><div class="fit-in" id="fitIn">
+ <div class="board" id="board">
+  <div class="topfade"></div>
+  <header class="hd">
+   <div class="eb">AGENT OPS · THEME <b>06</b> · EVENT HORIZON</div>
+   <h1><span>HORIZON</span><span class="l1">FORGE<em>视界熔炉</em></span></h1>
+   <div class="sub">子 Agent 情报汇入黑洞 · 星核锻造成工单零件 · 逐件验收交付</div>
+   <div class="sub2">示例数据 · 本地模拟 · 未接模型 · <b id="clock">--:--:--</b></div>
+  </header>
+  <div class="tools pe">
+   <button class="tb" type="button" data-act="mode">视角<b data-f="mode">环绕</b></button>
+   <button class="tb" type="button" data-series-pick>主题</button>
+   <button class="tb" type="button" data-act="full" data-f="full">全屏</button>
+  </div>
+  <div class="strip"><span class="live">CHIEF CORE</span><span>AGENTS<b id="sAg">8/8</b></span><span>IN<b id="sIn">0</b>/s</span><span>OUT<b id="sOut">0</b>/s</span><span>FPS<b id="sFps">60</b></span></div>
+
+  <aside class="col-l panel" id="colL">
+   <div class="ph"><span><b>01</b> / 子 AGENT 阵列 · ARRAY</span><span id="agMeta">8 ONLINE</span></div>
+   <div class="agents" id="agents"></div>
+  </aside>
+
+  <main class="stage" id="stage">
+   <div class="hud-top">
+    <div class="job-line"><span class="id" id="jobId">JOB-0427</span><span class="sep">/</span><span id="jobForm">HUMANOID 人形机器人</span></div>
+    <ol class="steps" id="steps">
+     <li data-s="0"><span class="sn">01</span><span class="sl">吸积</span><span class="se">INGEST</span><i></i></li>
+     <li data-s="1"><span class="sn">02</span><span class="sl">成形</span><span class="se">ASSEMBLE</span><i></i></li>
+     <li data-s="2"><span class="sn">03</span><span class="sl">拆解</span><span class="se">EXPLODE</span><i></i></li>
+     <li data-s="3"><span class="sn">04</span><span class="sl">锻造</span><span class="se">FORGE</span><i></i></li>
+     <li data-s="4"><span class="sn">05</span><span class="sl">交付</span><span class="se">DELIVER</span><i></i></li>
+    </ol>
+    <div class="hint">拖动旋转 · 滚轮缩放 · 点击工位聚焦零件 · 双击复位 · V 键切视角</div>
+   </div>
+   <div class="hud-bl">
+    <div class="eyebrow"><i></i><span id="nowEye">正在吸积 · INGESTING</span></div>
+    <div class="now-title" id="nowTitle">智能客服机器人上线</div>
+    <div class="now-sub" id="nowSub">—</div>
+   </div>
+   <div class="hud-br">
+    <div class="big"><span id="bigN">00</span><small>/ <span id="bigD">08</span></small></div>
+    <div class="cap">已锻零件 · PARTS FORGED</div>
+   </div>
+  </main>
+
+  <aside class="col-r pe" id="colR">
+   <section class="panel bay" id="bay">
+    <div class="ph"><span><b>03</b> / 锻造工位 · FORGE BAY</span><span id="bayMeta">08 PARTS</span></div>
+    <div class="bay-job">
+     <div class="bj-id" id="bjId">JOB-0427 · HUMANOID</div>
+     <div class="bj-pct" id="bjPct">0%</div>
+     <div class="bj-t" id="bjT">智能客服机器人上线</div>
+     <div class="bj-bar"><i id="bjBar"></i></div>
+    </div>
+    <div class="parts" id="parts"></div>
+    <div class="op" id="op">
+     <div class="op-h"><span>当前工序 · ACTIVE OPERATION</span><b id="opAg">—</b></div>
+     <div class="op-main">
+      <div class="op-code" id="opCode">--</div>
+      <div class="op-txt"><div class="op-n" id="opN">WAITING FOR CORE</div><div class="op-t" id="opT">等待星核成形</div></div>
+     </div>
+     <ol class="op-steps" id="opSteps"><li>解析需求</li><li>生成方案</li><li>执行改动</li><li>交叉校验</li><li>合并入核</li></ol>
+     <div class="op-cap"><span>吞吐 · TOKEN/S</span><b id="opRate">0</b></div>
+     <div class="op-wave" id="opWave"></div>
+     <div class="op-m"><span>TOKENS<b id="opTok">0</b></span><span>ELAPSED<b id="opEl">0.0s</b></span><span>CHECKS<b id="opCk">0 / 5</b></span><span>OWNER<b id="opOw">—</b></span></div>
+    </div>
+   </section>
+   <section class="panel deliv" id="deliv">
+    <div class="ph"><span><b>04</b> / 交付记录 · DELIVERED</span><span id="delivMeta">126 TOTAL</span></div>
+    <div class="dl" id="dl"></div>
+   </section>
+  </aside>
+
+  <section class="bottom">
+   <div class="panel"><div class="ph"><span><b>05</b> / 事件流 · EVENT STREAM</span><span>LIVE</span></div><div class="log" id="log"></div></div>
+   <div class="panel"><div class="ph"><span><b>06</b> / 调度负载 · DISPATCH</span><span id="dispMeta">QUEUE 0</span></div><div class="disp" id="disp"></div></div>
+   <div class="panel"><div class="ph"><span><b>07</b> / 执行代码 · FORGE.PY</span><span id="smPh">INGEST</span></div><ol class="code" id="code" aria-label="锻造脚本实时输出"></ol></div>
+   <div class="panel"><div class="ph"><span><b>08</b> / 星核遥测 · CORE TELEMETRY</span><span id="fps">60 FPS</span></div>
+    <div class="tele">
+     <div class="tv"><span class="tk">吸积数据包 · ABSORBED</span><span class="tn" id="tAbs">48,213</span></div>
+     <div class="tv"><span class="tk">星核质量 · CORE MASS</span><span class="tn" id="tMass">0.84<small>M</small></span></div>
+     <div class="tv"><span class="tk">已锻零件 · FORGED</span><span class="tn" id="tForged">1,904</span></div>
+     <div class="tv"><span class="tk">交付工单 · DELIVERED</span><span class="tn" id="tDel">126</span></div>
+     <canvas class="spark" id="spark" aria-hidden="true"></canvas>
+    </div>
+   </div>
+  </section>
+  <footer class="sb">
+   <span class="on">SYSTEM ONLINE</span><span>今日交付 <b id="sbDel">126</b></span><span>吸积 <b id="sbAbs">0</b></span><span>已锻零件 <b id="sbForged">0</b></span><span>当前工单 <b id="sbJob">—</b></span><span class="wm">DEVELOPED BY @赛博老爸</span>
+  </footer>
+ </div>
+
+ <div class="mini" id="mini">
+  <div class="m-top">
+   <div class="m-title">HORIZON FORGE<i>视界熔炉 · 示例数据</i></div>
+   <div class="m-btns pe">
+    <button class="tb" type="button" data-act="mode">视角<b data-f="mode">环绕</b></button>
+    <button class="tb" type="button" data-series-pick>主题</button>
+   </div>
+  </div>
+  <div class="m-bot">
+   <div class="m-cap" id="mCap">—</div>
+   <div class="m-stats"><div><span>当前工单</span><b id="mJob">—</b></div><div><span>锻造进度</span><b id="mProg">—</b></div><div><span>今日交付</span><b id="mDel">0</b></div></div>
+   <div class="m-wm">DEVELOPED BY @赛博老爸</div>
+  </div>
+ </div>
+</div></div>
+</div>
+<div class="labels" id="labels"></div>
+<div class="glfail" id="glFail" hidden>这台设备的浏览器没法显示 3D 画面（WebGL 不可用），面板数据照常在跑。换 Chrome / Edge 打开即可看到星核。</div>
 </template>
 
 <script>
@@ -4870,7 +5245,7 @@ const VEH = {
 const PROJECTS = [
   {name:'双11 大促战役', type:'rocket',  code:'PHOENIX', wf:[6, 0, 4, 8, 5, 1, 10, 9], subs:['活动页发版', '种草短视频', '信息流投放', '直播切片', '私域召回话术', '大促落地页', '主图与海报', '竞品情报库']},
   {name:'智能投标交付',  type:'mech',    code:'TITAN',   wf:[7, 9, 3, 2, 1, 6, 10, 0], subs:['甲方需求梳理', '资质库检索', '报价测算', '技术方案标书', '项目展示页', '演示环境部署', '标书封面排版', '讲标视频']},
-  {name:'新品发布会',    type:'shuttle', code:'ODYSSEY', wf:[2, 5, 8, 1, 4, 10, 6, 0], subs:['发布会讲稿', '媒体邀约话术', '直播推流切片', '新品官网', '预热投放', 'KV 主视觉', '下单系统上线', '发布会短片']},
+  {name:'新品发布会',    type:'shuttle', code:'ODYSSEY', wf:[2, 5, 8, 1, 4, 10, 6, 0], subs:['发布会讲稿', '媒体邀约话术', '直播推流切片', '新品官网', '预热投放', 'KV 主视觉', '预约系统上线', '发布会短片']},
   {name:'品牌出海计划',  type:'fighter', code:'VIPER',   wf:[1, 10, 4, 7, 6, 0, 5, 3], subs:['海外独立站', '品牌视觉本地化', '海外广告投放', '海外评论聚类', '多语言版本发布', 'TikTok 短视频', '海外社群运营', '市场数据周报']}
 ];
 const PRICE = {inMiss: 2, inHit: .5, out: 8};                                   // ¥ / 百万 token（示例单价）
@@ -7898,6 +8273,1705 @@ host.__info = () => glOK ? (renderer.info.autoReset = false, renderer.info.reset
 requestAnimationFrame(frame);
 }
 
+/* ================= 主题 06 · FORGE 视界熔炉（原生 WebGL，不依赖 three.js） ================= */
+function mountForge(host, SR){
+"use strict";
+var TAU = Math.PI * 2;
+var RM = false;
+try { RM = window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) {}
+
+/* =====================================================================
+   1. 配置：子 Agent 与工单（零件 = 子任务）
+   ===================================================================== */
+var AGENTS = [
+  { id: "code_smith", role: "代码工程", c: "#8fe3b9", beat: ["单测 46/46 通过", "提交 diff +214", "重构 3 个模块", "类型检查通过"] },
+  { id: "research",   role: "情报检索", c: "#8cc8ff", beat: ["行业报告 12 篇", "竞品更新 4 条", "检索 38 个来源", "摘要 2.1k 字"] },
+  { id: "builder",    role: "方案构建", c: "#f2b872", beat: ["方案草稿 v3", "排期表更新", "拆解 6 个步骤", "预算模型校准"] },
+  { id: "review",     role: "审查评估", c: "#f0a6c4", beat: ["规则 18 条通过", "风险 2 项标记", "回归用例复核", "合规检查完成"] },
+  { id: "data_ops",   role: "数据运维", c: "#72d4d0", beat: ["清洗 2.4k 行", "同步 3 张表", "索引重建完成", "延迟 42ms"] },
+  { id: "designer",   role: "视觉设计", c: "#b9a6ff", beat: ["生成 4 版布局", "图标集 v2", "配色校准", "动效曲线导出"] },
+  { id: "scout",      role: "外部侦测", c: "#d6df7c", beat: ["抓取 3 个站点", "新增线索 7 条", "舆情无异常", "接口探活正常"] },
+  { id: "deploy",     role: "部署交付", c: "#ff9f8c", beat: ["镜像构建 #212", "灰度 5% → 20%", "回滚点已建立", "健康检查通过"] }
+];
+var AGI = {};
+AGENTS.forEach(function (a, i) { AGI[a.id] = i; });
+
+var JOBS = [
+  { id: "JOB-0427", title: "智能客服机器人上线", form: "humanoid", formName: "HUMANOID 人形机器人", short: "HUMANOID",
+    parts: [
+      { n: "头部", en: "HEAD", task: "意图识别模型", ag: "research" },
+      { n: "躯干", en: "TORSO", task: "知识库搭建", ag: "data_ops" },
+      { n: "动力核心", en: "CORE", task: "多模型调度", ag: "code_smith" },
+      { n: "左臂", en: "L-ARM", task: "工单系统对接", ag: "code_smith" },
+      { n: "右臂", en: "R-ARM", task: "多渠道接入", ag: "builder" },
+      { n: "腿部", en: "LEGS", task: "部署与扩容", ag: "deploy" },
+      { n: "电池背包", en: "BATTERY", task: "话术与人设", ag: "designer" }
+    ] },
+  { id: "JOB-0428", title: "招投标资料自动生成", form: "engine", formName: "RAPTOR-CLASS 推进单元", short: "RAPTOR-CLASS",
+    parts: [
+      { n: "喷管", en: "NOZZLE", task: "标书排版输出", ag: "designer" },
+      { n: "燃烧室", en: "CHAMBER", task: "甲方要求解析", ag: "research" },
+      { n: "喷注器", en: "INJECTOR", task: "招标信息抓取", ag: "scout" },
+      { n: "氧涡轮泵", en: "LOX PUMP", task: "资质文件核验", ag: "review" },
+      { n: "甲烷涡轮泵", en: "CH4 PUMP", task: "历史标书检索", ag: "data_ops" },
+      { n: "预燃室", en: "PREBURNER", task: "技术方案撰写", ag: "builder" },
+      { n: "管路", en: "PLUMBING", task: "系统接口联调", ag: "code_smith" },
+      { n: "万向节", en: "GIMBAL", task: "统一投递", ag: "deploy" }
+    ] },
+  { id: "JOB-0429", title: "短视频生产线提速", form: "line", formName: "ASSEMBLY LINE 工业产线", short: "ASSEMBLY LINE",
+    parts: [
+      { n: "上料站", en: "LOADING", task: "选题入库", ag: "research" },
+      { n: "加工站", en: "MACHINING", task: "脚本生成", ag: "builder" },
+      { n: "检测站", en: "INSPECTION", task: "素材质检", ag: "review" },
+      { n: "装配站", en: "ASSEMBLY", task: "剪辑合成", ag: "designer" },
+      { n: "质检站", en: "QC GATE", task: "内容审核", ag: "review" },
+      { n: "包装站", en: "PACKING", task: "封面与标题", ag: "designer" },
+      { n: "输送线", en: "CONVEYOR", task: "多平台分发", ag: "deploy" }
+    ] },
+  { id: "JOB-0430", title: "智慧园区建设工程", form: "city", formName: "SITE PLAN 园区工程投影", short: "SITE PLAN",
+    parts: [
+      { n: "场地基座", en: "DATUM", task: "地块勘测放线", ag: "data_ops" },
+      { n: "主干路网", en: "ARTERIAL", task: "主干道施工", ag: "builder" },
+      { n: "支路管网", en: "GRID", task: "地下管网铺设", ag: "code_smith" },
+      { n: "东区楼宇", en: "BLOCK-E", task: "东区主体施工", ag: "builder" },
+      { n: "西区楼宇", en: "BLOCK-W", task: "西区主体施工", ag: "designer" },
+      { n: "通行路线", en: "ROUTE", task: "交通组织方案", ag: "research" },
+      { n: "配套节点", en: "POI", task: "配套设施点位", ag: "scout" }
+    ] },
+  { id: "JOB-0431", title: "企业知识库迁移", form: "gear", formName: "PLANETARY 行星减速器", short: "PLANETARY",
+    parts: [
+      { n: "太阳轮", en: "SUN GEAR", task: "检索主轴", ag: "research" },
+      { n: "行星轮组", en: "PLANETS", task: "三部门同步", ag: "data_ops" },
+      { n: "内齿圈", en: "RING GEAR", task: "权限校验", ag: "review" },
+      { n: "行星架", en: "CARRIER", task: "文档模板", ag: "designer" },
+      { n: "输出轴", en: "OUTPUT", task: "问答接口", ag: "code_smith" },
+      { n: "壳体", en: "HOUSING", task: "归档整理", ag: "builder" }
+    ] },
+  { id: "JOB-0432", title: "合同审查自动化", form: "arm", formName: "6-AXIS 机械臂", short: "6-AXIS ARM",
+    parts: [
+      { n: "底座", en: "BASE", task: "合同接入", ag: "scout" },
+      { n: "肩关节", en: "SHOULDER", task: "条款识别", ag: "research" },
+      { n: "大臂", en: "UPPER ARM", task: "法规检索", ag: "research" },
+      { n: "肘关节", en: "ELBOW", task: "风险标注", ag: "review" },
+      { n: "小臂", en: "FOREARM", task: "修订建议", ag: "builder" },
+      { n: "腕部", en: "WRIST", task: "格式校对", ag: "designer" },
+      { n: "夹爪", en: "GRIPPER", task: "归档签发", ag: "deploy" }
+    ] }
+];
+
+/* =====================================================================
+   2. 数学工具
+   ===================================================================== */
+function mulberry32(a) { return function () { a |= 0; a = a + 0x6D2B79F5 | 0; var t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+var R = mulberry32(1);
+function add(a, b) { return [a[0] + b[0], a[1] + b[1], a[2] + b[2]]; }
+function sub(a, b) { return [a[0] - b[0], a[1] - b[1], a[2] - b[2]]; }
+function scl(a, s) { return [a[0] * s, a[1] * s, a[2] * s]; }
+function cross(a, b) { return [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]]; }
+function vlen(a) { return Math.sqrt(a[0] * a[0] + a[1] * a[1] + a[2] * a[2]); }
+function norm(a) { var l = vlen(a) || 1; return [a[0] / l, a[1] / l, a[2] / l]; }
+function lerp3(a, b, t) { return [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t, a[2] + (b[2] - a[2]) * t]; }
+function clamp(x, a, b) { return x < a ? a : (x > b ? b : x); }
+function ease(t) { t = clamp(t, 0, 1); return t * t * (3 - 2 * t); }
+function easeIO(t) { t = clamp(t, 0, 1); return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
+function mRotX(a) { var c = Math.cos(a), s = Math.sin(a); return [1, 0, 0, 0, c, s, 0, -s, c]; }
+function mRotY(a) { var c = Math.cos(a), s = Math.sin(a); return [c, 0, -s, 0, 1, 0, s, 0, c]; }
+function mMul(a, b) {
+  var o = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+  for (var col = 0; col < 3; col++) for (var row = 0; row < 3; row++)
+    o[col * 3 + row] = a[row] * b[col * 3] + a[3 + row] * b[col * 3 + 1] + a[6 + row] * b[col * 3 + 2];
+  return o;
+}
+function mApply(m, v) { return [m[0] * v[0] + m[3] * v[1] + m[6] * v[2], m[1] * v[0] + m[4] * v[1] + m[7] * v[2], m[2] * v[0] + m[5] * v[1] + m[8] * v[2]]; }
+function bsearch(cum, y) { var lo = 0, hi = cum.length - 1; while (lo < hi) { var m = (lo + hi) >> 1; if (cum[m] < y) lo = m + 1; else hi = m; } return lo; }
+
+/* =====================================================================
+   3. 零件采样器：每个函数返回一个「随机取点」闭包，点落在线框上
+   ===================================================================== */
+function frameOf(axis) {
+  var w = norm(axis);
+  var ref = Math.abs(w[1]) < 0.92 ? [0, 1, 0] : [1, 0, 0];
+  var u = norm(cross(ref, w)), v = cross(w, u);
+  return [u, v, w];
+}
+function at(c, F, x, y, h) {
+  return [c[0] + F[0][0] * x + F[1][0] * y + F[2][0] * h,
+          c[1] + F[0][1] * x + F[1][1] * y + F[2][1] * h,
+          c[2] + F[0][2] * x + F[1][2] * y + F[2][2] * h];
+}
+function sRing(c, axis, r) { var F = frameOf(axis); return function () { var a = R() * TAU; return at(c, F, Math.cos(a) * r, Math.sin(a) * r, 0); }; }
+function sCyl(c, axis, r, h, rings, mers) {
+  var F = frameOf(axis), rl = rings * TAU * r, ml = mers * h, pr = rl / (rl + ml);
+  return function () {
+    var a, hh;
+    if (R() < pr) { var k = Math.floor(R() * rings); hh = rings > 1 ? (-h / 2 + h * k / (rings - 1)) : 0; a = R() * TAU; }
+    else { a = Math.floor(R() * mers) / mers * TAU; hh = (R() - 0.5) * h; }
+    return at(c, F, Math.cos(a) * r, Math.sin(a) * r, hh);
+  };
+}
+function sLathe(c, axis, prof, mers) {
+  var F = frameOf(axis), ringCum = [], tot = 0, segCum = [], L = 0, i;
+  for (i = 0; i < prof.length; i++) { tot += TAU * prof[i][1]; ringCum.push(tot); }
+  for (i = 1; i < prof.length; i++) { L += Math.sqrt(Math.pow(prof[i][0] - prof[i - 1][0], 2) + Math.pow(prof[i][1] - prof[i - 1][1], 2)); segCum.push(L); }
+  var pr = tot / (tot + L * mers);
+  return function () {
+    var a, h, r;
+    if (R() < pr) { var j = bsearch(ringCum, R() * tot); h = prof[j][0]; r = prof[j][1]; a = R() * TAU; }
+    else {
+      a = Math.floor(R() * mers) / mers * TAU;
+      var y = R() * L, k = bsearch(segCum, y), s0 = k ? segCum[k - 1] : 0, f = (y - s0) / ((segCum[k] - s0) || 1);
+      h = prof[k][0] + (prof[k + 1][0] - prof[k][0]) * f; r = prof[k][1] + (prof[k + 1][1] - prof[k][1]) * f;
+    }
+    return at(c, F, Math.cos(a) * r, Math.sin(a) * r, h);
+  };
+}
+function sSegs(segs) {
+  var cum = [], L = 0;
+  for (var i = 0; i < segs.length; i++) { L += vlen(sub(segs[i][1], segs[i][0])); cum.push(L); }
+  return function () {
+    var y = R() * L, k = bsearch(cum, y), s0 = k ? cum[k - 1] : 0, f = (y - s0) / ((cum[k] - s0) || 1);
+    return lerp3(segs[k][0], segs[k][1], f);
+  };
+}
+function polySegs(pts) { var s = []; for (var i = 1; i < pts.length; i++) s.push([pts[i - 1], pts[i]]); return s; }
+function sTube(pts, r, lines) {
+  var cum = [], L = 0, fr = [];
+  for (var i = 1; i < pts.length; i++) { var d = sub(pts[i], pts[i - 1]); L += vlen(d); cum.push(L); fr.push(frameOf(d)); }
+  return function () {
+    var y = R() * L, k = bsearch(cum, y), s0 = k ? cum[k - 1] : 0, f = (y - s0) / ((cum[k] - s0) || 1);
+    var p = lerp3(pts[k], pts[k + 1], f), a = Math.floor(R() * lines) / lines * TAU + 0.4;
+    return at(p, fr[k], Math.cos(a) * r, Math.sin(a) * r, 0);
+  };
+}
+function sDisk(c, axis, r, rings, spokes) {
+  var F = frameOf(axis), rl = 0, i;
+  for (i = 1; i <= rings; i++) rl += TAU * r * i / rings;
+  var sl = spokes * r * 0.85, pr = rl / (rl + sl);
+  return function () {
+    var a;
+    if (R() < pr || !spokes) { var k = 1 + Math.floor(R() * rings); a = R() * TAU; var rr = r * k / rings; return at(c, F, Math.cos(a) * rr, Math.sin(a) * rr, 0); }
+    a = Math.floor(R() * spokes) / spokes * TAU; var q = r * (0.15 + 0.85 * R());
+    return at(c, F, Math.cos(a) * q, Math.sin(a) * q, 0);
+  };
+}
+function sGear(c, axis, Rr, teeth, depth, thick, internal, hub, spokes) {
+  var F = frameOf(axis);
+  return function () {
+    var q = R(), face = (R() < 0.5 ? -1 : 1) * thick / 2, a, r;
+    if (q < 0.6) {
+      a = R() * TAU;
+      var tv = clamp(Math.sin(teeth * a) * 2.4, -1, 1) * 0.5 + 0.5;
+      r = internal ? (Rr - depth * tv) : (Rr + depth * tv);
+      return at(c, F, Math.cos(a) * r, Math.sin(a) * r, face);
+    }
+    if (q < 0.72) {
+      a = (Math.floor(R() * teeth) + 0.25) / teeth * TAU; r = internal ? Rr - depth : Rr + depth;
+      return at(c, F, Math.cos(a) * r, Math.sin(a) * r, (R() - 0.5) * thick);
+    }
+    if (q < 0.86 || !spokes) {
+      a = R() * TAU; r = internal ? Rr + depth * 2.2 : hub;
+      return at(c, F, Math.cos(a) * r, Math.sin(a) * r, face);
+    }
+    a = Math.floor(R() * spokes) / spokes * TAU; r = hub + (Rr - depth - hub) * R() * 0.94;
+    return at(c, F, Math.cos(a) * r, Math.sin(a) * r, face * 0.5);
+  };
+}
+function sBoxSegs(cx, cy, cz, sx, sy, sz) {
+  var x0 = cx - sx / 2, x1 = cx + sx / 2, z0 = cz - sz / 2, z1 = cz + sz / 2, y0 = cy, y1 = cy + sy;
+  var c = [[x0, y0, z0], [x1, y0, z0], [x1, y0, z1], [x0, y0, z1], [x0, y1, z0], [x1, y1, z0], [x1, y1, z1], [x0, y1, z1]];
+  return [[c[0], c[1]], [c[1], c[2]], [c[2], c[3]], [c[3], c[0]], [c[4], c[5]], [c[5], c[6]], [c[6], c[7]], [c[7], c[4]], [c[0], c[4]], [c[1], c[5]], [c[2], c[6]], [c[3], c[7]]];
+}
+function sBeam(a, b, w, h, braces) {
+  var F = frameOf(sub(b, a)), segs = [], corners = [[-w / 2, -h / 2], [w / 2, -h / 2], [w / 2, h / 2], [-w / 2, h / 2]], i, k;
+  function P(base, cx, cy) { return at(base, F, cx, cy, 0); }
+  for (i = 0; i < 4; i++) segs.push([P(a, corners[i][0], corners[i][1]), P(b, corners[i][0], corners[i][1])]);
+  var n = braces + 1;
+  for (k = 0; k <= n; k++) {
+    var m = lerp3(a, b, k / n);
+    for (i = 0; i < 4; i++) segs.push([P(m, corners[i][0], corners[i][1]), P(m, corners[(i + 1) % 4][0], corners[(i + 1) % 4][1])]);
+    if (k < n) {
+      var m2 = lerp3(a, b, (k + 1) / n), ci = k % 2 ? 0 : 1;
+      segs.push([P(m, corners[ci][0], corners[ci][1]), P(m2, corners[ci + 2][0], corners[ci + 2][1])]);
+      segs.push([P(m, corners[3][0], corners[3][1]), P(m2, corners[0][0], corners[0][1])]);
+    }
+  }
+  return sSegs(segs);
+}
+function sMix(list) {
+  var cum = [], t = 0;
+  for (var i = 0; i < list.length; i++) { t += list[i][0]; cum.push(t); }
+  return function () { return list[bsearch(cum, R() * t)][1](); };
+}
+function bez(p0, p1, p2, p3, n) {
+  n = n || 16;
+  var o = [];
+  for (var i = 0; i <= n; i++) { var t = i / n, u = 1 - t; o.push([0, 1, 2].map(function (k) { return u * u * u * p0[k] + 3 * u * u * t * p1[k] + 3 * u * t * t * p2[k] + t * t * t * p3[k]; })); }
+  return o;
+}
+
+/* ---------- 四种成形：推进器 / 城市投影 / 行星减速器 / 机械臂 ---------- */
+var Y = [0, 1, 0], Z = [0, 0, 1];
+function defEngine() {
+  var bell = [];
+  for (var i = 0; i <= 10; i++) { var f = i / 10; bell.push([-1.18 + f * 0.76, 0.19 + 0.34 * Math.pow(1 - f, 0.8)]); }
+  var O = [0, 0, 0];
+  var tubes = [
+    bez([0.37, 0.13, 0.04], [0.37, -0.06, 0.06], [0.3, -0.1, 0.03], [0.21, -0.12, 0]),
+    bez([-0.35, 0.1, -0.05], [-0.37, -0.12, -0.05], [-0.31, -0.3, -0.02], [-0.25, -0.4, 0]),
+    bez([0.37, 0.59, 0.04], [0.26, 0.72, 0.12], [0.12, 0.36, 0.16], [0.08, 0.14, 0.12]),
+    bez([-0.35, 0.5, -0.05], [-0.2, 0.63, -0.13], [-0.1, 0.3, -0.16], [-0.08, 0.14, -0.12]),
+    bez([0.37, 0.25, 0.04], [0.55, 0.0, 0.1], [0.5, -0.5, 0.12], [0.3, -0.62, 0.05])
+  ];
+  return { rot: mRotX(-0.2), fit: 1.0, parts: [
+    { w: 0.24, ex: [0, -0.55, 0], s: sLathe(O, Y, bell, 28) },
+    { w: 0.11, ex: [0, -0.2, 0], s: sMix([[0.78, sCyl([0, -0.2, 0], Y, 0.21, 0.44, 5, 18)], [0.22, sRing([0, -0.4, 0], Y, 0.27)]]) },
+    { w: 0.08, ex: [0, 0.1, 0.34], s: sMix([[0.6, sDisk([0, 0.06, 0], Y, 0.23, 3, 12)], [0.4, sLathe(O, Y, [[0.06, 0.23], [0.13, 0.17], [0.17, 0.08]], 12)]]) },
+    { w: 0.12, ex: [0.58, 0.08, 0], spin: 2.6, s: sMix([[0.74, sCyl([0.37, 0.36, 0.04], Y, 0.12, 0.46, 6, 10)], [0.13, sRing([0.37, 0.13, 0.04], Y, 0.155)], [0.13, sRing([0.37, 0.59, 0.04], Y, 0.155)]]) },
+    { w: 0.11, ex: [-0.58, 0.04, 0], spin: -2.6, s: sMix([[0.74, sCyl([-0.35, 0.3, -0.05], Y, 0.11, 0.4, 6, 10)], [0.13, sRing([-0.35, 0.1, -0.05], Y, 0.145)], [0.13, sRing([-0.35, 0.5, -0.05], Y, 0.145)]]) },
+    { w: 0.07, ex: [0, 0.4, 0], s: sMix([[1, sCyl([0.37, 0.68, 0.04], Y, 0.075, 0.18, 4, 8)], [1, sCyl([-0.35, 0.6, -0.05], Y, 0.07, 0.16, 4, 8)]]) },
+    { w: 0.17, ex: [0, -0.02, 0.5], s: sMix(tubes.map(function (t) { return [1, sTube(t, 0.026, 4)]; })) },
+    { w: 0.1, ex: [0, 0.55, 0], s: sMix([[0.42, sDisk([0, 0.88, 0], Y, 0.15, 2, 8)], [0.58, sSegs([[[0, 0.88, 0], [0.37, 0.78, 0.04]], [[0, 0.88, 0], [-0.35, 0.69, -0.05]], [[0, 0.88, 0], [0.06, 0.17, 0.13]], [[0, 0.88, 0], [-0.07, 0.17, -0.13]]])]]) }
+  ] };
+}
+function defCity() {
+  var Rc = 1.5, xs = [-1.28, -0.95, -0.62, -0.3, 0, 0.32, 0.66, 0.98, 1.3], art = [], grid = [], i, j;
+  function hz(x) { return Math.sqrt(Math.max(0, Rc * Rc * 0.94 - x * x)); }
+  for (i = 0; i < xs.length; i++) {
+    var x = xs[i], h = hz(x);
+    if (x === 0) { art.push([[-0.022, 0, -h], [-0.022, 0, h]], [[0.022, 0, -h], [0.022, 0, h]]); } else grid.push([[x, 0, -h], [x, 0, h]]);
+    if (x === 0.32) { art.push([[-h, 0, x - 0.022], [h, 0, x - 0.022]], [[-h, 0, x + 0.022], [h, 0, x + 0.022]]); } else grid.push([[-h, 0, x], [h, 0, x]]);
+  }
+  art.push([[-0.99, 0, -0.95], [0.97, 0, 1.01]], [[-0.95, 0, -0.99], [1.01, 0, 0.97]]);
+  var east = [], west = [];
+  for (i = 0; i < xs.length - 1; i++) for (j = 0; j < xs.length - 1; j++) {
+    var cx = (xs[i] + xs[i + 1]) / 2, cz = (xs[j] + xs[j + 1]) / 2, dist = Math.sqrt(cx * cx + cz * cz);
+    if (dist > 1.25) continue;
+    var cw = xs[i + 1] - xs[i] - 0.08, cd = xs[j + 1] - xs[j] - 0.08, n = R() < 0.45 ? 2 : 1;
+    for (var b = 0; b < n; b++) {
+      var sx = cw * (n === 2 ? 0.42 : 0.78) * (0.75 + R() * 0.25), sz = cd * (0.55 + R() * 0.35);
+      var ox = n === 2 ? (b ? 1 : -1) * cw * 0.25 : (R() - 0.5) * 0.04;
+      var hgt = 0.05 + Math.pow(R(), 2.2) * 0.48 + ((dist < 0.6 && R() < 0.4) ? 0.32 : 0);
+      var segs = sBoxSegs(cx + ox, 0, cz + (R() - 0.5) * 0.04, sx, hgt, sz);
+      if (cx > 0) east = east.concat(segs); else west = west.concat(segs);
+    }
+  }
+  var route = [[-0.95, 0.02, 0.96], [-0.95, 0.02, 0.32], [0, 0.02, 0.32], [0, 0.02, -0.62], [0.66, 0.02, -0.62], [0.66, 0.02, -0.98]];
+  function pin(p, tall) { return sMix([[0.5, sSegs([[p, [p[0], tall, p[2]]]])], [0.25, sRing([p[0], tall, p[2]], Y, 0.045)], [0.25, sRing(p, Y, 0.085)]]); }
+  var ticks = [];
+  for (i = 0; i < 72; i++) { var a = i / 72 * TAU, l = i % 6 === 0 ? 0.1 : 0.045; ticks.push([[Math.cos(a) * 1.5, 0, Math.sin(a) * 1.5], [Math.cos(a) * (1.5 + l), 0, Math.sin(a) * (1.5 + l)]]); }
+  return { rot: mRotX(0.42), fit: 1.25, parts: [
+    { w: 0.1, ex: [0, -0.5, 0], s: sMix([[0.45, sRing([0, 0, 0], Y, 1.5)], [0.25, sRing([0, 0, 0], Y, 1.43)], [0.3, sSegs(ticks)]]) },
+    { w: 0.14, ex: [0, -0.12, 0], s: sSegs(art) },
+    { w: 0.13, ex: [0, -0.26, 0], s: sSegs(grid) },
+    { w: 0.21, ex: [0.28, 0.14, 0], s: sSegs(east) },
+    { w: 0.19, ex: [-0.28, 0.14, 0], s: sSegs(west) },
+    { w: 0.11, ex: [0, 0.5, 0], s: sMix([[0.6, sTube(route, 0.016, 3)], [0.4, sSegs(polySegs(route))]]) },
+    { w: 0.12, ex: [0, 0.72, 0], s: sMix([[1.6, pin([-0.95, 0, 0.96], 0.42)], [1.6, pin([0.66, 0, -0.98], 0.42)], [1, pin([0.32, 0, 0.66], 0.24)], [1, pin([-0.62, 0, -0.3], 0.24)], [1, pin([0.98, 0, 0], 0.24)], [1, pin([-0.3, 0, -0.95], 0.24)]]) }
+  ] };
+}
+function defGear() {
+  var pc = [], i;
+  for (i = 0; i < 3; i++) { var a = i / 3 * TAU + Math.PI / 2; pc.push([Math.cos(a) * 0.53, 0, Math.sin(a) * 0.53]); }
+  var bolts = [];
+  for (i = 0; i < 8; i++) { var b = i / 8 * TAU + 0.2; bolts.push([1, sRing([Math.cos(b) * 1.06, -0.23, Math.sin(b) * 1.06], Y, 0.035)]); }
+  return { rot: mRotX(0.6), fit: 1.12, parts: [
+    { w: 0.15, ex: [0, 0.55, 0], spin: 1.3, s: sMix([[0.85, sGear([0, 0, 0], Y, 0.25, 14, 0.05, 0.16, false, 0.08, 0)], [0.15, sCyl([0, 0, 0], Y, 0.055, 0.5, 3, 6)]]) },
+    { w: 0.25, ex: [0, 0.3, 0], spin: -0.42, s: sMix(pc.map(function (p) { return [1, sGear(p, Y, 0.2, 11, 0.045, 0.14, false, 0.055, 4)]; })) },
+    { w: 0.21, ex: [0, 0.1, 0], s: sMix([[0.82, sGear([0, 0, 0], Y, 0.8, 40, 0.05, 0.18, true, 0, 0)], [0.18, sRing([0, 0.09, 0], Y, 0.93)]]) },
+    { w: 0.12, ex: [0, -0.34, 0], spin: -0.42, s: sMix([[0.4, sRing([0, -0.15, 0], Y, 0.62)], [0.35, sSegs(pc.map(function (p) { return [[0, -0.15, 0], [p[0], -0.15, p[2]]]; }))], [0.25, sMix(pc.map(function (p) { return [1, sCyl([p[0], -0.05, p[2]], Y, 0.035, 0.22, 2, 6)]; }))]]) },
+    { w: 0.11, ex: [0, -0.8, 0], spin: -0.42, s: sMix([[0.6, sCyl([0, -0.55, 0], Y, 0.1, 0.7, 6, 10)], [0.4, sDisk([0, -0.22, 0], Y, 0.24, 2, 10)]]) },
+    { w: 0.16, ex: [0, -0.02, 0], s: sMix([[0.55, sCyl([0, -0.02, 0], Y, 1.0, 0.42, 3, 32)], [0.25, sRing([0, -0.23, 0], Y, 1.12)], [0.2, sMix(bolts)]]) }
+  ] };
+}
+function defArm() {
+  var sh = [0, -0.6, 0], el = [0.45, 0.14, 0], wr = [-0.12, 0.55, 0];
+  var dir = norm(sub(wr, el)), tip = add(wr, scl(dir, 0.14));
+  return { rot: mRotX(-0.1), fit: 0.92, parts: [
+    { w: 0.15, ex: [0, -0.42, 0], s: sMix([[0.6, sCyl([0, -1.0, 0], Y, 0.42, 0.16, 4, 24)], [0.2, sRing([0, -1.08, 0], Y, 0.52)], [0.2, sDisk([0, -0.92, 0], Y, 0.3, 2, 12)]]) },
+    { w: 0.16, ex: [-0.34, -0.14, 0], s: sMix([[0.5, sCyl([0, -0.8, 0], Y, 0.27, 0.2, 4, 16)], [0.5, sCyl(sh, Z, 0.17, 0.36, 4, 14)]]) },
+    { w: 0.18, ex: [0.36, -0.06, 0.26], s: sBeam(sh, el, 0.15, 0.12, 6) },
+    { w: 0.1, ex: [0.48, 0.1, 0], spin: 0, s: sCyl(el, Z, 0.12, 0.3, 4, 12) },
+    { w: 0.16, ex: [0.04, 0.26, 0.32], s: sBeam(el, wr, 0.11, 0.09, 5) },
+    { w: 0.1, ex: [-0.32, 0.3, 0], s: sMix([[0.6, sCyl(wr, dir, 0.08, 0.16, 3, 10)], [0.4, sRing(add(wr, scl(dir, 0.1)), dir, 0.1)]]) },
+    { w: 0.15, ex: [-0.36, 0.3, 0], s: sMix([
+      [1, sBeam(add(tip, [0, 0, 0.07]), add(tip, add(scl(dir, 0.24), [0, 0, 0.1])), 0.045, 0.035, 2)],
+      [1, sBeam(add(tip, [0, 0, -0.07]), add(tip, add(scl(dir, 0.24), [0, 0, -0.1])), 0.045, 0.035, 2)],
+      [0.7, sBeam(add(tip, [0, 0, -0.1]), add(tip, [0, 0, 0.1]), 0.06, 0.05, 1)]]) }
+  ] };
+}
+function defHumanoid() {
+  var X = [1, 0, 0];
+  function arm(sg) {
+    return sMix([
+      [0.8, sCyl([sg * 0.34, 0.62, 0], X, 0.09, 0.13, 3, 10)],
+      [1.2, sBeam([sg * 0.36, 0.56, 0], [sg * 0.43, 0.2, 0], 0.1, 0.1, 3)],
+      [0.6, sCyl([sg * 0.43, 0.18, 0], X, 0.065, 0.11, 3, 8)],
+      [1.0, sBeam([sg * 0.43, 0.16, 0], [sg * 0.47, -0.18, 0.05], 0.09, 0.08, 3)],
+      [0.6, sBeam([sg * 0.47, -0.2, 0.05], [sg * 0.48, -0.33, 0.07], 0.08, 0.05, 1)]
+    ]);
+  }
+  function leg(sg) {
+    return sMix([
+      [0.6, sCyl([sg * 0.13, -0.24, 0], X, 0.075, 0.12, 3, 10)],
+      [1.2, sBeam([sg * 0.13, -0.27, 0], [sg * 0.15, -0.68, 0], 0.13, 0.12, 3)],
+      [0.6, sCyl([sg * 0.15, -0.7, 0], X, 0.07, 0.13, 3, 8)],
+      [1.1, sBeam([sg * 0.15, -0.73, 0], [sg * 0.15, -1.08, 0], 0.11, 0.1, 3)],
+      [0.6, sBeam([sg * 0.15, -1.12, -0.05], [sg * 0.15, -1.12, 0.18], 0.06, 0.11, 1)]
+    ]);
+  }
+  return { rot: mRotX(-0.08), fit: 1.15, parts: [
+    { w: 0.12, ex: [0, 0.42, 0.05], s: sMix([[0.7, sLathe([0, 0, 0], Y, [[0.78, 0.07], [0.83, 0.14], [0.91, 0.17], [1.0, 0.165], [1.08, 0.12], [1.13, 0.04]], 14)], [0.15, sRing([0, 0.95, 0], Y, 0.18)], [0.15, sCyl([0, 0.72, 0], Y, 0.06, 0.1, 3, 8)]]) },
+    { w: 0.2, ex: [0, 0.02, 0], s: sMix([[0.55, sBeam([0, 0.17, 0], [0, 0.68, 0], 0.28, 0.5, 3)], [0.25, sCyl([0, 0.03, 0], Y, 0.15, 0.24, 4, 12)], [0.2, sBeam([0, -0.2, 0], [0, -0.07, 0], 0.24, 0.4, 1)]]) },
+    { w: 0.08, ex: [0, 0.02, 0.62], s: sMix([[0.6, sDisk([0, 0.46, 0.15], Z, 0.085, 3, 8)], [0.4, sRing([0, 0.46, 0.15], Z, 0.11)]]) },
+    { w: 0.16, ex: [0.52, 0.06, 0], s: arm(1) },
+    { w: 0.16, ex: [-0.52, 0.06, 0], s: arm(-1) },
+    { w: 0.2, ex: [0, -0.42, 0], s: sMix([[1, leg(1)], [1, leg(-1)]]) },
+    { w: 0.08, ex: [0, 0.08, -0.62], s: sMix([[0.7, sBeam([0, 0.24, -0.2], [0, 0.62, -0.2], 0.1, 0.32, 2)], [0.3, sCyl([0, 0.43, -0.27], Y, 0.04, 0.34, 3, 6)]]) }
+  ] };
+}
+function defLine() {
+  var X = [1, 0, 0], i, rails = [], rollers = [], legs = [], items = [], qc = [], pack = [];
+  rails.push([[-1.4, 0, -0.13], [1.05, 0, -0.13]], [[-1.4, 0, 0.13], [1.05, 0, 0.13]], [[-1.4, -0.04, -0.13], [1.05, -0.04, -0.13]], [[-1.4, -0.04, 0.13], [1.05, -0.04, 0.13]]);
+  for (i = 0; i <= 24; i++) { var rx = -1.4 + i * 0.1; rollers.push([[rx, -0.02, -0.13], [rx, -0.02, 0.13]]); }
+  for (i = 0; i <= 6; i++) { var lx = -1.35 + i * 0.39; legs.push([[lx, -0.04, -0.13], [lx, -0.34, -0.13]], [[lx, -0.04, 0.13], [lx, -0.34, 0.13]]); }
+  for (i = 0; i < 8; i++) items = items.concat(sBoxSegs(-1.25 + i * 0.3, 0.005, 0, 0.1, 0.08, 0.1));
+  for (i = 0; i < 9; i++) qc.push([[0.72, 0.02 + i * 0.038, -0.21], [0.72, 0.02 + i * 0.038, 0.21]]);
+  qc.push([[0.72, -0.04, -0.21], [0.72, 0.36, -0.21]], [[0.72, -0.04, 0.21], [0.72, 0.36, 0.21]]);
+  pack = pack.concat(sBoxSegs(1.27, -0.14, 0, 0.34, 0.04, 0.34));
+  [[1.19, -0.08], [1.35, -0.08], [1.19, 0.08], [1.35, 0.08]].forEach(function (q) { pack = pack.concat(sBoxSegs(q[0], -0.1, q[1], 0.14, 0.14, 0.14)); });
+  pack = pack.concat(sBoxSegs(1.27, 0.04, 0, 0.14, 0.14, 0.14));
+  var post = function (x, z) { return [[x, -0.34, z], [x, 0.4, z]]; };
+  return { rot: mRotX(0.5), fit: 1.25, parts: [
+    { w: 0.12, ex: [-0.12, 0.42, 0], s: sMix([[0.6, sLathe([-1.2, 0, 0], Y, [[0.14, 0.05], [0.34, 0.2], [0.46, 0.21]], 12)], [0.4, sSegs([post(-1.36, -0.16), post(-1.04, -0.16), post(-1.36, 0.16), post(-1.04, 0.16)])]]) },
+    { w: 0.14, ex: [0, 0.4, -0.12], s: sMix([[0.7, sSegs(sBoxSegs(-0.68, -0.04, 0, 0.36, 0.44, 0.52))], [0.3, sCyl([-0.68, 0.24, 0], Y, 0.045, 0.22, 3, 8)]]) },
+    { w: 0.12, ex: [0, 0.48, 0.12], s: sMix([[0.55, sSegs([[[-0.2, -0.04, -0.24], [-0.2, 0.36, -0.24]], [[-0.2, -0.04, 0.24], [-0.2, 0.36, 0.24]], [[-0.2, 0.36, -0.24], [-0.2, 0.36, 0.24]], [[-0.26, 0.36, -0.24], [-0.26, 0.36, 0.24]], [[-0.26, 0.36, -0.24], [-0.26, -0.04, -0.24]], [[-0.26, 0.36, 0.24], [-0.26, -0.04, 0.24]]])], [0.45, sRing([-0.23, 0.2, 0], X, 0.13)]]) },
+    { w: 0.12, ex: [0, 0.38, -0.28], s: sMix([[0.3, sCyl([0.3, -0.04, -0.42], Y, 0.08, 0.08, 3, 10)], [0.35, sBeam([0.3, 0, -0.42], [0.34, 0.3, -0.3], 0.06, 0.06, 2)], [0.35, sBeam([0.34, 0.3, -0.3], [0.32, 0.12, -0.04], 0.05, 0.05, 2)]]) },
+    { w: 0.1, ex: [0, 0.46, 0.12], s: sSegs(qc) },
+    { w: 0.12, ex: [0.12, 0.42, 0], s: sSegs(pack) },
+    { w: 0.28, ex: [0, -0.32, 0], s: sMix([[0.35, sSegs(rails)], [0.3, sSegs(rollers)], [0.15, sSegs(legs)], [0.2, sSegs(items)]]) }
+  ] };
+}
+var FORM_DEFS = { humanoid: defHumanoid, line: defLine, engine: defEngine, city: defCity, gear: defGear, arm: defArm };
+
+/* =====================================================================
+   4. DOM 引用与构建
+   ===================================================================== */
+function $(id) { return SR.getElementById(id); }
+var stage = $("stage"), glc = $("gl"), fxc = $("fx"), labelsBox = $("labels"), board = $("board"), fitIn = $("fitIn"), nr = $("nr");
+var agentsBox = $("agents"), partsBox = $("parts"), dlBox = $("dl"), logBox = $("log"), dispBox = $("disp"), codeBox = $("code");
+var stepEls = [].slice.call(SR.querySelectorAll("#steps li"));
+function pad(n, w) { n = String(n); while (n.length < w) n = "0" + n; return n; }
+function fmt(n) { return Math.round(n).toLocaleString("en-US"); }
+function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;" }[c]; }); }
+function hms(d) { d = d || new Date(); return pad(d.getHours(), 2) + ":" + pad(d.getMinutes(), 2) + ":" + pad(d.getSeconds(), 2); }
+
+var AG = [];
+AGENTS.forEach(function (a, i) {
+  var d = document.createElement("div");
+  d.className = "ag";
+  d.style.setProperty("--c", a.c);
+  d.innerHTML = '<div class="ag-h"><span>' + a.id + '</span><span>A' + pad(i + 1, 2) + '</span></div>' +
+    '<div class="ag-b"><div class="ag-r"><span>负载</span><span class="bar"><i></i></span><span class="v">0.00</span>' +
+    '<span>上下文</span><span class="bar"><i></i></span><span class="v">0.00</span></div>' +
+    '<div class="ag-r2"><span class="role">' + a.role + '</span><span class="task">待命</span><span class="st">IDLE</span></div>' +
+    '<div class="ag-r3">' + new Array(33).join("<i></i>") + '</div></div><i class="port"></i>';
+  agentsBox.appendChild(d);
+  AG.push({ el: d, bars: d.querySelectorAll(".bar i"), vals: d.querySelectorAll(".v"), task: d.querySelector(".task"), st: d.querySelector(".st"),
+    hist: d.querySelectorAll(".ag-r3 i"), port: d.querySelector(".port"), emit: 0, hv: [], load: 0.3 + Math.random() * 0.2, ctx: 0.2 + Math.random() * 0.5, tLoad: 0.4, lastBeat: AGENTS[i].beat[0], queue: 1 + Math.floor(Math.random() * 3), cls: "" });
+});
+
+var DP = [];
+AGENTS.forEach(function (a) {
+  var r = document.createElement("div");
+  r.className = "dpr";
+  r.style.setProperty("--c", a.c);
+  r.innerHTML = '<span class="n">' + a.id + '</span><span class="bar"><i></i></span><span class="q">0</span>';
+  dispBox.appendChild(r);
+  DP.push({ bar: r.querySelector(".bar i"), q: r.querySelector(".q") });
+});
+
+/* 07 执行代码：锻造脚本按当前阶段一直往下写。新行先排队，逐字敲出，敲完停一下再换行；
+   队列空了就按阶段补一行，所以任何时候都在写。最后一行高亮，锻造阶段换成琥珀色。 */
+var KW_RE = /^(for|in|with|as|if|else|elif|assert|return|def|not|and|or|await|async|yield|True|False|None|while|try|except|lambda|import|from)$/;
+function tokenize(src) {
+  var out = [], m, re = /("[^"]*"?)|(#.*$)|([A-Za-z_][A-Za-z0-9_]*)|(\d+(?:\.\d+)?)|([^"#A-Za-z_\d]+)/g;
+  while ((m = re.exec(src))) {
+    if (m[1]) { var inner = m[1].replace(/"/g, ""); out.push([AGI.hasOwnProperty(inner) ? AGENTS[AGI[inner]].c : "xs", m[1]]); }
+    else if (m[2]) out.push(["xc", m[2]]);
+    else if (m[3]) out.push([KW_RE.test(m[3]) ? "xk" : src.charAt(re.lastIndex) === "(" ? "xf" : "", m[3]]);
+    else if (m[4]) out.push(["xn", m[4]]);
+    else out.push(["", m[5]]);
+  }
+  return out;
+}
+function lineHTML(L, upto) {
+  var h = "", left = upto, i, tk, take, s;
+  for (i = 0; i < L.t.length && left > 0; i++) {
+    tk = L.t[i]; take = Math.min(tk[1].length, left); left -= take; s = esc(tk[1].slice(0, take));
+    if (!tk[0]) h += s;
+    else if (tk[0].charAt(0) === "#") h += '<span style="color:' + tk[0] + '">' + s + "</span>";
+    else h += '<span class="' + tk[0] + '">' + s + "</span>";
+  }
+  return h || " ";
+}
+var CODE = { q: [], lines: [], n: 0, cur: null, chars: 0, pause: 0, idle: 0.3, hot: false, hlEl: null, si: 0, MAX: 36 };
+function cPush(src) { CODE.q.push(src); }
+function cNewLine(src) {
+  var C = CODE, t = tokenize(src), len = 0;
+  t.forEach(function (x) { len += x[1].length; });
+  C.n = C.n >= 9999 ? 1 : C.n + 1;
+  var li = document.createElement("li");
+  li.setAttribute("data-n", C.n);
+  li.innerHTML = " ";
+  var L = { t: t, len: len, el: li, typed: 0 };
+  C.lines.push(L); codeBox.appendChild(li);
+  if (C.lines.length > C.MAX) { var o = C.lines.shift(); if (o.el.parentNode) o.el.parentNode.removeChild(o.el); }
+  codeBox.scrollTop = codeBox.scrollHeight;
+  var sc = codeBox.scrollTop > 0;
+  if (codeBox.classList.contains("sc") !== sc) codeBox.classList.toggle("sc", sc);
+  return L;
+}
+function cFinish(L) { if (L && L.typed < L.len) { L.typed = L.len; L.el.innerHTML = lineHTML(L, L.len); } }
+function setCur(tp) {
+  var C = CODE, L = C.lines[C.lines.length - 1]; if (!L) return;
+  var cls = "hl cur" + (tp ? " tp" : "") + (C.hot ? " hot" : "");
+  if (C.hlEl !== L.el) { if (C.hlEl) C.hlEl.className = ""; C.hlEl = L.el; }
+  if (L.el.className !== cls) L.el.className = cls;
+}
+function rpick(a) { return a[Math.floor(Math.random() * a.length)]; }
+function rint(a, b) { return a + Math.floor(Math.random() * (b - a + 1)); }
+function zhForm(j) { return j.formName.replace(/^[A-Z0-9\- ]+ /, ""); }
+/* 阶段切换时写入的几行 */
+function codePhase(k) {
+  var j = job(), n = j.parts.length;
+  if (k === "ingest") {
+    if (CODE.n === 0) { cPush("from horizon import core, forge, swarm, dispatch"); cPush(""); }
+    else cPush("");
+    cPush("# ── " + j.id + " · " + j.title + " ──");
+    cPush('job = forge.load("' + j.id + '", form="' + j.form + '")');
+    cPush('agents = swarm.attach(' + AGENTS.length + ', bus="STATE_IN")');
+    cPush("with core.accrete(agents) as stream:");
+  } else if (k === "collapse") {
+    cPush("mass = core.collapse(threshold=" + (0.8 + Math.random() * 0.08).toFixed(2) + ")   # 星核坍缩");
+    cPush('assert mass.stable, "core unstable"');
+  } else if (k === "form") {
+    cPush('model = core.project(job.form, lod="full")   # ' + zhForm(j));
+    cPush('model.render(view="orbit", ribbons=3)');
+  } else if (k === "split") {
+    CODE.si = 0;
+    cPush("parts = model.explode(spread=1.6)   # 拆成 " + n + " 件");
+  } else if (k === "build") {
+    cPush("for p in parts: p.lock()   # 逐件锻造");
+  } else if (k === "assemble") {
+    cPush("unit = core.assemble(parts)   # 整机合拢");
+    cPush("assert unit.verify() == " + n + "   # " + n + "/" + n + " ok");
+  } else if (k === "deliver") {
+    cPush('dispatch.deliver(unit, bus="DISPATCH_OUT")');
+    cPush('dispatch.archive("' + j.id + '")   # 交付 ✓');
+  } else if (k === "dissolve") {
+    cPush("core.release()   # 视界复位");
+  }
+}
+function codePart(i) {
+  var p = job().parts[i];
+  cPush("p = parts[" + i + '].forge(agent="' + p.ag + '")   # ' + p.n + " · " + p.task);
+}
+function codeCommit(i) {
+  var p = job().parts[i];
+  cPush("p.commit()   # ✓ " + p.en + " " + (0.8 + Math.random() * 1.6).toFixed(1) + "s");
+}
+/* 队列空了就按阶段补一行 */
+function codeFill() {
+  var k = PHASES[ST.ph], j = job(), a = AGENTS[rint(0, AGENTS.length - 1)], p;
+  if (k === "ingest") cPush(rpick([
+    '    stream.pull("' + a.id + '", n=' + rint(12, 96) + ")   # " + a.role,
+    '    stream.pull("' + a.id + '", n=' + rint(12, 96) + ")",
+    "    core.absorb(stream.batch(" + rint(64, 320) + "), w=" + (0.4 + Math.random() * 0.5).toFixed(2) + ")",
+    "    core.lens(spin=" + (0.9 + Math.random() * 0.09).toFixed(3) + ")",
+    "    core.mass   # → " + TEL.mass.toFixed(2) + " M · " + fmt(TEL.abs) + " pkt"
+  ]));
+  else if (k === "collapse") cPush(rpick([
+    "core.compress(ratio=" + (1.05 + Math.random() * 0.2).toFixed(2) + ")",
+    "core.spin(rate=" + (0.9 + Math.random() * 0.09).toFixed(3) + ")   # 吸积盘加速"
+  ]));
+  else if (k === "form") cPush(rpick([
+    "model.refine(pass=" + rint(2, 4) + ")",
+    "model.check_mesh()   # " + fmt(rint(9, 16) * 1000 + rint(0, 999)) + " pts"
+  ]));
+  else if (k === "split") {
+    if (CODE.si < j.parts.length) { p = j.parts[CODE.si]; cPush("parts[" + CODE.si + '].assign("' + p.ag + '")   # ' + p.n); CODE.si++; }
+    else cPush("parts.layout(gap=" + (1.2 + Math.random() * 0.5).toFixed(2) + ")");
+  }
+  else if (k === "build") {
+    p = ST.active >= 0 ? j.parts[ST.active] : j.parts[0];
+    cPush(rpick([
+      "p.step(" + rint(1, 5) + ", of=6)   # " + p.task,
+      "p.verify(tol=0.0" + rint(1, 5) + ")   # ok",
+      "p.emit(tokens=" + rint(180, 960) + ")",
+      'p.sync("' + p.ag + '", ctx=' + rint(8, 64) * 1000 + ")",
+      'p.pass("toolpath", layer=' + rint(2, 24) + ")"
+    ]));
+  }
+  else if (k === "assemble") cPush(rpick([
+    'unit.align(axis="z", err=0.00' + rint(1, 9) + ")",
+    "unit.torque(" + rint(20, 60) + ")   # 紧固"
+  ]));
+  else if (k === "deliver") cPush(rpick([
+    'dispatch.ack("' + a.id + '")',
+    "dispatch.notify(channels=" + rint(2, 5) + ")"
+  ]));
+  else cPush(rpick([
+    "core.reset(k=1.00)",
+    "core.flush()   # " + rint(12, 80) + " MB"
+  ]));
+}
+function codeStep(dt) {
+  var C = CODE, L = C.cur;
+  C.hot = PHASES[ST.ph] === "build";
+  if (C.q.length > 8) { cFinish(L); while (C.q.length > 3) cFinish(cNewLine(C.q.shift())); L = C.cur = null; }
+  if (L && L.typed < L.len) {
+    var backlog = L.len - L.typed, i;
+    for (i = 0; i < C.q.length; i++) backlog += C.q[i].length;
+    C.chars += dt * Math.min(280, 58 + backlog * 0.9);
+    var nt = Math.min(L.len, Math.floor(C.chars));
+    if (nt !== L.typed) { L.typed = nt; L.el.innerHTML = lineHTML(L, nt); }
+    if (L.typed >= L.len) C.pause = C.q.length ? 0.04 + Math.random() * 0.08 : 0.1 + Math.random() * 0.2;
+    setCur(true);
+    return;
+  }
+  if (C.pause > 0) { C.pause -= dt; setCur(false); return; }
+  if (!C.q.length) {
+    C.idle -= dt;
+    if (C.idle > 0) { setCur(false); return; }
+    C.idle = 0.2 + Math.random() * 0.55;
+    codeFill();
+  }
+  C.cur = cNewLine(C.q.shift()); C.chars = 0;
+  setCur(true);
+}
+var OP = { el: $("op"), ag: $("opAg"), code: $("opCode"), n: $("opN"), t: $("opT"), steps: [].slice.call(SR.querySelectorAll("#opSteps li")),
+  tok: $("opTok"), elp: $("opEl"), ck: $("opCk"), ow: $("opOw"), tokens: 0, key: "" };
+var SIMK = 5;
+var WAVE = [], WAVEV = [];
+(function () { var w = $("opWave"); for (var i = 0; i < 64; i++) { var b = document.createElement("i"); w.appendChild(b); WAVE.push(b); WAVEV.push(0.05); } })();
+function pushWave(hot) {
+  var v = hot ? 0.25 + Math.random() * 0.55 + Math.sin(now * 3) * 0.12 : 0.04 + Math.random() * 0.08;
+  WAVEV.push(clamp(v, 0.03, 1)); WAVEV.shift();
+  for (var i = 0; i < WAVE.length; i++) WAVE[i].style.height = Math.round(WAVEV[i] * 100) + "%";
+  $("opRate").textContent = hot ? fmt(900 + v * 2400) : "0";
+}
+function mmss(sec) { sec = Math.round(sec); return pad(Math.floor(sec / 60), 2) + ":" + pad(sec % 60, 2); }
+
+/* =====================================================================
+   5. 粒子与成形数据
+   ===================================================================== */
+var NARROW = (host.clientWidth || window.innerWidth) < 760;
+var RIB = 14, LANE = 10, PER = NARROW ? 96 : 170, N = RIB * LANE * PER;
+var orbA = new Float32Array(N * 4), orbB = new Float32Array(N * 4), orbC = new Float32Array(N * 4), orbD = new Float32Array(N * 4);
+(function buildOrb() {
+  R = mulberry32(20261024);
+  var i = 0;
+  for (var r = 0; r < RIB; r++) {
+    var ex = R() * TAU, ey = R() * TAU, ez = R() * TAU, width = 0.06 + R() * 0.11;
+    var f1 = 1 + Math.floor(R() * 3), ph = R() * TAU, amp = 0.05 + R() * 0.15, tw = (1 + Math.floor(R() * 2)) * (R() < 0.5 ? -1 : 1);
+    var rx = (R() - 0.5) * 0.22, ry = (R() - 0.5) * 0.3, cm = R() < 0.42 ? 0.72 + R() * 0.28 : R() * 0.3, rad = 0.72 + R() * 0.34;
+    var flow = (0.16 + R() * 0.22) * (R() < 0.5 ? -1 : 1);
+    for (var l = 0; l < LANE; l++) {
+      var lo = l / (LANE - 1) * 2 - 1;
+      for (var k = 0; k < PER; k++) {
+        orbA[i * 4] = k / PER * TAU; orbA[i * 4 + 1] = lo; orbA[i * 4 + 2] = flow; orbA[i * 4 + 3] = R();
+        orbB[i * 4] = ex; orbB[i * 4 + 1] = ey; orbB[i * 4 + 2] = ez; orbB[i * 4 + 3] = width;
+        orbC[i * 4] = f1; orbC[i * 4 + 1] = ph; orbC[i * 4 + 2] = amp; orbC[i * 4 + 3] = tw;
+        orbD[i * 4] = rx; orbD[i * 4 + 1] = ry; orbD[i * 4 + 2] = cm; orbD[i * 4 + 3] = rad;
+        i++;
+      }
+    }
+  }
+})();
+var lineIdx = new Uint16Array(N * 2);
+(function () {
+  var j = 0;
+  for (var lane = 0; lane < RIB * LANE; lane++) {
+    var base = lane * PER;
+    for (var k = 0; k < PER; k++) { lineIdx[j++] = base + k; lineIdx[j++] = base + (k + 1) % PER; }
+  }
+})();
+
+function makeForm(def, seed) {
+  R = mulberry32(seed);
+  var d = def(), P = d.parts, np = P.length, ws = 0, i, j;
+  for (i = 0; i < np; i++) ws += P[i].w;
+  var counts = [], acc = 0;
+  for (i = 0; i < np; i++) { var c = Math.round(P[i].w / ws * N); counts.push(c); acc += c; }
+  counts[0] += N - acc;
+  var ids = new Float32Array(N), k = 0;
+  for (i = 0; i < np; i++) for (j = 0; j < counts[i]; j++) ids[k++] = i;
+  for (i = N - 1; i > 0; i--) { var r = Math.floor(R() * (i + 1)), t = ids[i]; ids[i] = ids[r]; ids[r] = t; }
+  var tgt = new Float32Array(N * 3), sums = [], mn = [1e9, 1e9, 1e9], mx = [-1e9, -1e9, -1e9];
+  for (i = 0; i < np; i++) sums.push([0, 0, 0, 0]);
+  for (i = 0; i < N; i++) {
+    var pi = ids[i], p = P[pi].s();
+    p[0] += (R() - 0.5) * 0.006; p[1] += (R() - 0.5) * 0.006; p[2] += (R() - 0.5) * 0.006;
+    tgt[i * 3] = p[0]; tgt[i * 3 + 1] = p[1]; tgt[i * 3 + 2] = p[2];
+    var s = sums[pi]; s[0] += p[0]; s[1] += p[1]; s[2] += p[2]; s[3]++;
+    for (j = 0; j < 3; j++) { if (p[j] < mn[j]) mn[j] = p[j]; if (p[j] > mx[j]) mx[j] = p[j]; }
+  }
+  var ctr = [(mn[0] + mx[0]) / 2, (mn[1] + mx[1]) / 2, (mn[2] + mx[2]) / 2];
+  var half = Math.max(mx[0] - mn[0], mx[1] - mn[1], mx[2] - mn[2]) / 2;
+  var sc = (d.fit || 1.2) / half;
+  for (i = 0; i < N; i++) for (j = 0; j < 3; j++) tgt[i * 3 + j] = (tgt[i * 3 + j] - ctr[j]) * sc;
+  var anchors = [], ex = [], spin = [];
+  for (i = 0; i < np; i++) {
+    var sm = sums[i], n = sm[3] || 1;
+    anchors.push([(sm[0] / n - ctr[0]) * sc, (sm[1] / n - ctr[1]) * sc, (sm[2] / n - ctr[2]) * sc]);
+    ex.push(scl(P[i].ex || [0, 0, 0], sc * 0.62));
+    spin.push(P[i].spin || 0);
+  }
+  return { tgt: tgt, part: ids, anchors: anchors, ex: ex, spin: spin, rot: d.rot, n: np };
+}
+var FORMS = JOBS.map(function (j, i) { return makeForm(FORM_DEFS[j.form], 900 + i * 77); });
+
+/* =====================================================================
+   6. WebGL
+   ===================================================================== */
+var gl = null;
+try { gl = glc.getContext("webgl", { antialias: true, alpha: false, premultipliedAlpha: false, powerPreference: "high-performance" }); } catch (e) { gl = null; }
+if (!gl) $("glFail").hidden = false;
+
+var PROJ = [
+  "uniform vec2 uRes; uniform vec2 uCtr; uniform float uScl; uniform float uCam;",
+  "vec2 toScreen(vec3 pv, out float k){ float d = uCam - pv.z; k = uCam / max(d, 0.25); return uCtr + vec2(pv.x, -pv.y) * uScl * k; }",
+  "vec4 toClip(vec2 sp){ return vec4(sp.x / uRes.x * 2.0 - 1.0, 1.0 - sp.y / uRes.y * 2.0, 0.0, 1.0); }",
+  "mat3 rX(float a){ float c = cos(a), s = sin(a); return mat3(1.0,0.0,0.0, 0.0,c,s, 0.0,-s,c); }",
+  "mat3 rY(float a){ float c = cos(a), s = sin(a); return mat3(c,0.0,-s, 0.0,1.0,0.0, s,0.0,c); }",
+  "mat3 rZ(float a){ float c = cos(a), s = sin(a); return mat3(c,s,0.0, -s,c,0.0, 0.0,0.0,1.0); }"
+].join("\n");
+
+var VS_CORE = [
+  "precision highp float;",
+  "attribute vec4 aO; attribute vec4 aRA; attribute vec4 aRB; attribute vec4 aRC; attribute vec3 aT; attribute float aPart;",
+  "uniform float uTime, uRing, uForm, uExplode, uOrbScale, uDpr, uPt, uFocus, uHole, uHot, uWhole;",
+  "uniform mediump float uLine;",
+  "uniform mat3 uView, uFormRot;",
+  "uniform vec3 uPartOff[10]; uniform vec3 uPartCtr[10]; uniform float uPartSpin[10]; uniform float uPartDone[10]; uniform float uPartHot[10];",
+  PROJ,
+  "varying vec3 vC; varying float vA;",
+  "void main(){",
+  "  float s = aO.x + uTime * aO.z;",
+  "  float r = aRC.w * (1.0 + aRB.z * sin(aRB.x * s + aRB.y));",
+  "  vec3 p = vec3(cos(s) * r, sin(s) * r, aRB.z * 0.9 * sin((aRB.x + 1.0) * s + aRB.y * 1.7));",
+  "  float tw = aRB.w * s + aRB.y;",
+  "  vec3 n = vec3(cos(s), sin(s), 0.0) * cos(tw) + vec3(0.0, 0.0, 1.0) * sin(tw);",
+  "  p += n * aO.y * aRA.w;",
+  "  p = rZ(aRA.z) * rY(aRA.y + uTime * aRC.y) * rX(aRA.x + uTime * aRC.x) * p;",
+  "  p *= uOrbScale;",
+  "  float rr = 1.0 + (aRC.w - 0.89) * 0.55 + aO.y * 0.05;",
+  "  vec3 pr = vec3(cos(s) * rr, aO.y * 0.022 + sin(s * 2.0 + uTime * 1.7) * 0.014, sin(s) * rr);",
+  "  pr = rX(0.16) * pr;",
+  "  int pi = int(aPart + 0.5);",
+  "  vec3 ctr = uPartCtr[pi];",
+  "  vec3 f = ctr + rY(uPartSpin[pi]) * (aT - ctr) + uPartOff[pi] * uExplode;",
+  "  f = uFormRot * f;",
+  "  float d = aO.w * 0.35;",
+  "  float kr = clamp((uRing - d) / 0.65, 0.0, 1.0); kr = kr * kr * (3.0 - 2.0 * kr);",
+  "  float kf = clamp((uForm - d) / 0.65, 0.0, 1.0); kf = kf * kf * (3.0 - 2.0 * kf);",
+  "  vec3 pos = mix(mix(p, pr, kr), f, kf);",
+  "  float sw = sin(kf * 3.14159) * (0.9 + aO.w * 1.4) + sin(kr * 3.14159) * 0.7;",
+  "  pos = rY(sw) * pos * (1.0 + sin(kf * 3.14159) * 0.22 * aO.w);",
+  "  vec3 pv = uView * pos;",
+  "  float k; vec2 sp = toScreen(pv, k);",
+  "  gl_Position = toClip(sp);",
+  "  float occ = (pv.z < 0.0 && length(sp - uCtr) < uHole) ? 0.0 : 1.0;",
+  "  occ = mix(occ, 1.0, kf);",
+  "  float laneC = 1.0 - abs(aO.y);",
+  "  vec3 cOrb = mix(mix(vec3(0.52, 0.74, 1.0), vec3(1.0, 0.70, 0.52), aRC.z), vec3(0.95, 0.97, 1.0), laneC * 0.38);",
+  "  vec3 cRing = mix(vec3(1.0, 0.84, 0.64), vec3(1.0, 0.97, 0.92), laneC * 0.6);",
+  "  float done = uPartDone[pi]; float hot = uPartHot[pi] * (0.86 + 0.14 * sin(uTime * 18.0 + aO.w * 40.0));",
+  "  vec3 cForm = mix(vec3(0.44, 0.68, 0.98), vec3(0.80, 0.95, 1.0), done);",
+  "  cForm = mix(cForm, vec3(0.74, 0.92, 1.0), uWhole * 0.75);",
+  "  cForm = mix(cForm, vec3(1.0, 0.6, 0.26), hot);",
+  "  vC = mix(mix(cOrb, cRing, kr), cForm, kf);",
+  "  float foc = uFocus < 0.0 ? 1.0 : (abs(aPart - uFocus) < 0.5 ? 1.35 : 0.3);",
+  "  float aForm = mix(mix(0.46, 0.82, max(done, hot)), 0.8, uWhole) * foc;",
+  "  float aOrb = mix(0.42, 0.55, kr);",
+  "  float depthF = 0.62 + 0.38 * clamp(pv.z * 0.6 + 0.5, 0.0, 1.0);",
+  "  vA = mix(aOrb, aForm, kf) * occ * depthF;",
+  "  if (uLine > 0.5) { float lf = 1.0 - kf; vA *= 0.6 * lf * lf * lf; }",
+  "  gl_PointSize = uPt * uDpr * k * (0.75 + aO.w * 0.5) * (1.0 + hot * 0.7 * kf) * mix(1.0, 1.25, kf);",
+  "}"
+].join("\n");
+var FS_SOFT = [
+  "precision mediump float;",
+  "varying vec3 vC; varying float vA; uniform float uLine;",
+  "void main(){",
+  "  float a = vA;",
+  "  if (uLine < 0.5) { vec2 q = gl_PointCoord - 0.5; float d = dot(q, q) * 4.0; a *= exp(-d * 3.2) * step(d, 1.0); }",
+  "  gl_FragColor = vec4(vC * a, a);",
+  "}"
+].join("\n");
+var VS_ORBIT = [
+  "precision highp float;",
+  "attribute vec4 aOrb; attribute vec2 aMisc;",
+  "uniform mat3 uView; uniform float uTime, uDust, uDpr, uHole, uDT;",
+  PROJ,
+  "varying vec3 vC; varying float vA;",
+  "void main(){",
+  "  float a = aOrb.w + uDust * uDT * aMisc.x;",
+  "  vec3 p = vec3(cos(a) * aOrb.z, 0.0, sin(a) * aOrb.z);",
+  "  p = rY(uTime * 0.025 * (0.6 + aOrb.x)) * rZ(aOrb.y) * rX(aOrb.x) * p;",
+  "  vec3 pv = uView * p;",
+  "  float k; vec2 sp = toScreen(pv, k);",
+  "  gl_Position = toClip(sp);",
+  "  float occ = (pv.z < 0.0 && length(sp - uCtr) < uHole) ? 0.0 : 1.0;",
+  "  float depthF = 0.5 + 0.5 * smoothstep(-2.2, 2.2, pv.z);",
+  "  vA = (uDust > 0.5 ? (0.3 + 0.7 * aMisc.y) : aMisc.y) * occ * depthF;",
+  "  vC = mix(vec3(0.72, 0.8, 0.9), vec3(0.95, 0.97, 1.0), aMisc.y);",
+  "  gl_PointSize = (1.1 + aMisc.y * 2.4) * uDpr * k;",
+  "}"
+].join("\n");
+var VS_STAR = [
+  "precision highp float;",
+  "attribute vec4 aS;",
+  "uniform float uTime, uDpr;",
+  "varying vec3 vC; varying float vA;",
+  "void main(){",
+  "  gl_Position = vec4(aS.x * 2.0 - 1.0, 1.0 - aS.y * 2.0, 0.0, 1.0);",
+  "  vA = (0.05 + 0.22 * fract(aS.w * 7.13)) * (0.6 + 0.4 * sin(uTime * (0.4 + fract(aS.w * 3.7)) + aS.w * 50.0));",
+  "  vC = vec3(0.78, 0.86, 1.0);",
+  "  gl_PointSize = aS.z * uDpr;",
+  "}"
+].join("\n");
+var VS_HOLE = [
+  "precision highp float;",
+  "attribute vec2 aQ; uniform vec2 uRes; uniform vec2 uCtr; uniform float uHalf; varying vec2 vP;",
+  "void main(){ vP = uCtr + aQ * uHalf; gl_Position = vec4(vP.x / uRes.x * 2.0 - 1.0, 1.0 - vP.y / uRes.y * 2.0, 0.0, 1.0); }"
+].join("\n");
+var FS_HOLE = [
+  "precision highp float;",
+  "uniform vec2 uCtr; uniform float uR, uTime, uEnergy, uPulse, uWarm, uAlpha; varying vec2 vP;",
+  "float sq(float x){ return x * x; }",
+  "void main(){",
+  "  vec2 q = vP - uCtr; q.y = -q.y;",
+  "  float r = length(q) / uR; float ang = atan(q.y, q.x);",
+  "  vec3 tint = mix(vec3(0.80, 0.88, 1.0), vec3(1.0, 0.80, 0.62), uWarm);",
+  "  float beam = 0.5 + 0.5 * cos(ang - 2.3);",
+  "  float glow = exp(-max(r - 1.0, 0.0) * 2.5) * 0.17 * (0.75 + uEnergy * 0.7);",
+  "  float s1 = 0.5 + 0.5 * sin(ang * 9.0 + r * 13.0 - uTime * 1.2);",
+  "  float s2 = 0.5 + 0.5 * sin(ang * 17.0 - r * 21.0 + uTime * 0.8 + 1.7);",
+  "  float band = exp(-sq((r - 1.28) / 0.34));",
+  "  float acc = band * (s1 * 0.6 + s2 * 0.4) * 0.11 * (0.6 + uEnergy);",
+  "  float ring = exp(-sq((r - 1.0) / 0.02)) * (0.45 + 0.95 * beam) * (0.85 + uEnergy * 0.6);",
+  "  float ring2 = exp(-sq((r - 1.05) / 0.07)) * 0.22 * (0.4 + beam);",
+  "  float halo = exp(-sq((r - 1.62) / 0.045)) * 0.05;",
+  "  float pr = 1.0 + uPulse * 3.6;",
+  "  float shock = uPulse > 0.0 ? exp(-sq((r - pr) / (0.05 + uPulse * 0.12))) * (1.0 - uPulse) * 0.55 : 0.0;",
+  "  vec3 col = tint * (glow * (0.6 + 0.6 * beam) + acc + ring + ring2 + halo + shock);",
+  "  float disc = 1.0 - smoothstep(0.985, 1.0, r);",
+  "  vec3 dcol = vec3(0.004, 0.005, 0.008) + tint * 0.035 * smoothstep(0.55, 1.0, r) * beam;",
+  "  gl_FragColor = vec4(col * (1.0 - disc) + dcol * disc, disc) * uAlpha;",
+  "}"
+].join("\n");
+
+var P_CORE, P_ORB, P_STAR, P_HOLE, B = {}, ORBIT_N = 0, ORBIT_IDX = 0, DUST_N = 0, STAR_N = 0, DUSTS = [], RINGS = [];
+function glSetup() {
+  function shd(type, src) { var s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) console.error(gl.getShaderInfoLog(s)); return s; }
+  function prog(vs, fs) { var p = gl.createProgram(); gl.attachShader(p, shd(gl.VERTEX_SHADER, vs)); gl.attachShader(p, shd(gl.FRAGMENT_SHADER, fs)); gl.linkProgram(p); if (!gl.getProgramParameter(p, gl.LINK_STATUS)) console.error(gl.getProgramInfoLog(p)); p.u = {}; p.a = {}; return p; }
+  P_CORE = prog(VS_CORE, FS_SOFT); P_ORB = prog(VS_ORBIT, FS_SOFT); P_STAR = prog(VS_STAR, FS_SOFT); P_HOLE = prog(VS_HOLE, FS_HOLE);
+  function buf(data, usage) { var b = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, b); gl.bufferData(gl.ARRAY_BUFFER, data, usage || gl.STATIC_DRAW); return b; }
+  B.oA = buf(orbA); B.oB = buf(orbB); B.oC = buf(orbC); B.oD = buf(orbD);
+  B.t = buf(FORMS[0].tgt, gl.DYNAMIC_DRAW); B.p = buf(FORMS[0].part, gl.DYNAMIC_DRAW);
+  B.li = gl.createBuffer(); gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, B.li); gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, lineIdx, gl.STATIC_DRAW);
+
+  R = mulberry32(4242);
+  var M = 58, SEG = 128, i, j;
+  for (i = 0; i < M; i++) RINGS.push({ ix: (R() - 0.5) * 1.55, iz: (R() - 0.5) * 0.95, r: 1.12 + Math.pow(R(), 0.85) * 1.0, a: 0.03 + R() * 0.055 });
+  var ov = new Float32Array(M * SEG * 4), om = new Float32Array(M * SEG * 2), oi = new Uint16Array(M * SEG * 2), q = 0;
+  for (i = 0; i < M; i++) for (j = 0; j < SEG; j++) {
+    var v = i * SEG + j, rg = RINGS[i];
+    ov[v * 4] = rg.ix; ov[v * 4 + 1] = rg.iz; ov[v * 4 + 2] = rg.r; ov[v * 4 + 3] = j / SEG * TAU;
+    om[v * 2] = 0; om[v * 2 + 1] = rg.a;
+    oi[q++] = v; oi[q++] = i * SEG + (j + 1) % SEG;
+  }
+  B.ov = buf(ov); B.om = buf(om); B.oi = gl.createBuffer(); gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, B.oi); gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, oi, gl.STATIC_DRAW);
+  ORBIT_IDX = q;
+  DUST_N = NARROW ? 520 : 1100;
+  var dv = new Float32Array(DUST_N * 4), dm = new Float32Array(DUST_N * 2);
+  for (i = 0; i < DUST_N; i++) {
+    var rg2 = RINGS[Math.floor(R() * M)], a0 = R() * TAU, sp = (0.22 + R() * 0.3) / rg2.r, br = Math.pow(R(), 3);
+    dv[i * 4] = rg2.ix; dv[i * 4 + 1] = rg2.iz; dv[i * 4 + 2] = rg2.r; dv[i * 4 + 3] = a0; dm[i * 2] = sp; dm[i * 2 + 1] = br;
+    if (DUSTS.length < AGENTS.length && rg2.r > 1.7 && br > 0.2) DUSTS.push({ ix: rg2.ix, iz: rg2.iz, r: rg2.r, a: a0, sp: sp });
+  }
+  while (DUSTS.length < AGENTS.length) { var rg3 = RINGS[DUSTS.length * 5 % M]; DUSTS.push({ ix: rg3.ix, iz: rg3.iz, r: Math.max(1.75, rg3.r), a: R() * TAU, sp: 0.15 }); }
+  B.dv = buf(dv); B.dm = buf(dm);
+  STAR_N = NARROW ? 380 : 900;
+  var sv = new Float32Array(STAR_N * 4);
+  for (i = 0; i < STAR_N; i++) { sv[i * 4] = R(); sv[i * 4 + 1] = R(); sv[i * 4 + 2] = 0.8 + Math.pow(R(), 4) * 2.2; sv[i * 4 + 3] = R(); }
+  B.sv = buf(sv);
+  B.q = buf(new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]));
+  gl.disable(gl.DEPTH_TEST);
+  gl.enable(gl.BLEND);
+}
+function U(p, n) { if (!(n in p.u)) p.u[n] = gl.getUniformLocation(p, n); return p.u[n]; }
+function attr(p, name, b, size) { if (!(name in p.a)) p.a[name] = gl.getAttribLocation(p, name); var loc = p.a[name]; if (loc < 0) return; gl.bindBuffer(gl.ARRAY_BUFFER, b); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, size, gl.FLOAT, false, 0, 0); }
+function unbindAll() { for (var i = 0; i < 8; i++) gl.disableVertexAttribArray(i); }
+function setProj(p) {
+  gl.uniform2f(U(p, "uRes"), glc.width, glc.height);
+  gl.uniform2f(U(p, "uCtr"), L.cx * L.dpr, L.cy * L.dpr);
+  gl.uniform1f(U(p, "uScl"), L.S * zoom * L.dpr);
+  gl.uniform1f(U(p, "uCam"), CAM);
+}
+if (gl) glSetup();
+
+/* =====================================================================
+   7. 布局与 2D 线束（左 STATE IN 总线 → 黑洞；黑洞 → 右 DISPATCH OUT 总线 → 工位 / 交付）
+   ===================================================================== */
+var CAM = 5.0, zoom = 1, yawDrag = 0, pitchDrag = 0, yawVel = 0, pitchVel = 0;
+var MODES = [{ zh: "环绕", pitch: 0.36, spin: 0.07 }, { zh: "正视", pitch: 0.1, spin: 0 }, { zh: "俯瞰", pitch: 0.95, spin: 0.03 }];
+var modeI = 0, autoYaw = 0, pitchBase = 0.36;
+var L = { w: 1, h: 1, dpr: 1, cx: 0, cy: 0, S: 100, stage: null, narrow: false, bs: 0.5 };
+var fx = fxc.getContext("2d");
+var web = document.createElement("canvas"), wctx = web.getContext("2d");
+var curvesIn = [], curvesOut = [], curvesDel = [], busIn = null, busOut = null, appR = null;
+var inByAgent = [], outByPart = [];
+var sparkC = $("spark"), sctx = sparkC.getContext("2d");
+
+function rel(el) { var r = el.getBoundingClientRect(); return { x: r.left - appR.left, y: r.top - appR.top, w: r.width, h: r.height }; }
+function layout() {
+  if (host.hidden || host.clientWidth < 2) return;
+  appR = host.getBoundingClientRect();
+  L.w = Math.max(1, appR.width); L.h = Math.max(1, appR.height);
+  L.narrow = L.w < 760 || L.w / L.h < 1.05;
+  nr.classList.toggle("narrow", L.narrow);
+  labelsBox.style.display = L.narrow ? "none" : "";
+  var fr = fitIn.getBoundingClientRect();
+  L.bs = Math.min(fr.width / 1920, fr.height / 1080) || 0.2;
+  board.style.width = (fr.width / L.bs) + "px"; board.style.height = (fr.height / L.bs) + "px";
+  board.style.setProperty("--s", L.bs);
+  L.dpr = Math.min(window.devicePixelRatio || 1, L.narrow ? 1.5 : 1.75);
+  glc.width = Math.round(L.w * L.dpr); glc.height = Math.round(L.h * L.dpr);
+  fxc.width = glc.width; fxc.height = glc.height; web.width = glc.width; web.height = glc.height;
+  if (L.narrow) L.stage = { x: 0, y: 70, w: L.w, h: Math.max(140, L.h - 70 - 160) };
+  else L.stage = rel(stage);
+  var s = L.stage;
+  L.cx = s.x + s.w / 2; L.cy = s.y + s.h * (L.narrow ? 0.5 : 0.52);
+  L.S = L.narrow ? Math.min(s.w * 0.25, s.h * 0.27) : Math.min(s.w * 0.2, s.h * 0.27);
+  if (!L.narrow) { var sr = sparkC.getBoundingClientRect(); sparkC.width = Math.max(1, Math.round(sr.width * L.dpr)); sparkC.height = Math.max(1, Math.round(sr.height * L.dpr)); }
+  buildCurves(); renderWeb(); measureLabels();
+}
+function tangentAt(th, toward) {
+  var tx = -Math.sin(th), ty = Math.cos(th);
+  if (Math.abs(tx) < 0.25) { if ((ty > 0) !== (toward > 0)) { tx = -tx; ty = -ty; } }
+  else if (tx < 0) { tx = -tx; ty = -ty; }
+  return [tx, ty];
+}
+function bzPt(s, t) { var u = 1 - t, a = u * u * u, b = 3 * u * u * t, c = 3 * u * t * t, d = t * t * t; return [a * s[0] + b * s[2] + c * s[4] + d * s[6], a * s[1] + b * s[3] + c * s[5] + d * s[7]]; }
+function bzLen(s) { var l = 0, px = s[0], py = s[1]; for (var i = 1; i <= 12; i++) { var p = bzPt(s, i / 12); l += Math.sqrt((p[0] - px) * (p[0] - px) + (p[1] - py) * (p[1] - py)); px = p[0]; py = p[1]; } return l; }
+function twoSeg(s1, s2) { var l1 = bzLen(s1), l2 = bzLen(s2); return { s1: s1, s2: s2, f: l1 / (l1 + l2) }; }
+function buildCurves() {
+  curvesIn = []; curvesOut = []; curvesDel = []; busIn = null; busOut = null; inByAgent = []; outByPart = [];
+  var rr = mulberry32(77), Rh = HOLE * L.S * zoom, cx = L.cx, cy = L.cy, bsc = L.bs, i, k, cv;
+  for (i = 0; i < AG.length; i++) inByAgent.push([]);
+  if (!L.narrow) {
+    var st = L.stage, colL = rel($("colL")), leftEdge = colL.x + colL.w;
+    var bx = leftEdge + 34 * bsc, b0 = st.y + st.h * 0.25, b1 = st.y + st.h * 0.83;
+    busIn = { x: bx, y0: b0, y1: b1, label: "STATE IN" };
+    var nPer = 44, total = AG.length * nPer;
+    for (i = 0; i < AG.length; i++) {
+      var r = rel(AG[i].el), px = r.x + r.w + 5 * bsc, py = r.y + r.h / 2;
+      for (k = 0; k < nPer; k++) {
+        var y0 = py + (k / (nPer - 1) - 0.5) * r.h * 0.62;
+        var by = b0 + (k * AG.length + i) / (total - 1) * (b1 - b0);
+        var th = Math.PI * (0.62 + 0.76 * rr()), re = Rh * (2.0 + rr() * 0.7);
+        var ex = cx + Math.cos(th) * re, ey = cy + Math.sin(th) * re, T = tangentAt(th, ey - by);
+        var d1 = bx - px, d2 = ex - bx;
+        cv = twoSeg([px, y0, px + d1 * 0.5, y0, bx - d1 * 0.5, by, bx, by],
+                    [bx, by, bx + d2 * 0.42, by, ex - T[0] * re * 0.35, ey - T[1] * re * 0.35, ex, ey]);
+        cv.a = i; inByAgent[i].push(curvesIn.length); curvesIn.push(cv);
+      }
+    }
+    var colR = rel($("colR")), bay = rel($("bay")), dv = rel($("deliv")), pcs = partsBox.children;
+    var ox = colR.x - 34 * bsc, o0 = st.y + st.h * 0.15, o1 = st.y + st.h * 0.86;
+    busOut = { x: ox, y0: o0, y1: o1, label: "DISPATCH OUT" };
+    var nOut = 18, oTot = Math.max(1, pcs.length * nOut - 1), splitY = o0 + (o1 - o0) * 0.72;
+    for (i = 0; i < pcs.length; i++) {
+      outByPart.push([]);
+      var pr = rel(pcs[i]), col = pcs[i].style.getPropertyValue("--c") || "#9cd0ff";
+      for (k = 0; k < nOut; k++) {
+        var ey2 = pr.y + pr.h / 2 + (k / (nOut - 1) - 0.5) * pr.h * 0.62, ex2 = bay.x - 1;
+        var oy = o0 + (k * pcs.length + i) / oTot * (splitY - o0);
+        var th2 = Math.PI * (-0.38 + 0.76 * rr()), re2 = Rh * (2.0 + rr() * 0.7);
+        var sx = cx + Math.cos(th2) * re2, sy = cy + Math.sin(th2) * re2, T2 = tangentAt(th2, oy - sy);
+        cv = twoSeg([sx, sy, sx + T2[0] * re2 * 0.35, sy + T2[1] * re2 * 0.35, ox - (ox - sx) * 0.42, oy, ox, oy],
+                    [ox, oy, ox + (ex2 - ox) * 0.5, oy, ex2 - (ex2 - ox) * 0.5, ey2, ex2, ey2]);
+        cv.p = i; cv.c = col.trim(); outByPart[i].push(curvesOut.length); curvesOut.push(cv);
+      }
+    }
+    for (k = 0; k < 24; k++) {
+      var dy = splitY + 8 * bsc + rr() * (o1 - splitY - 8 * bsc), ey3 = dv.y + 30 * bsc + rr() * Math.max(10, dv.h - 44 * bsc), ex3 = dv.x - 1;
+      var th3 = Math.PI * (-0.1 + 0.45 * rr()), re3 = Rh * (2.0 + rr() * 0.7);
+      var sx3 = cx + Math.cos(th3) * re3, sy3 = cy + Math.sin(th3) * re3, T3 = tangentAt(th3, dy - sy3);
+      curvesDel.push(twoSeg([sx3, sy3, sx3 + T3[0] * re3 * 0.35, sy3 + T3[1] * re3 * 0.35, ox - (ox - sx3) * 0.42, dy, ox, dy],
+                            [ox, dy, ox + (ex3 - ox) * 0.5, dy, ex3 - (ex3 - ox) * 0.5, ey3, ex3, ey3]));
+    }
+  } else {
+    for (i = 0; i < AG.length; i++) for (k = 0; k < 16; k++) {
+      var side = (i % 2) ? 1 : -1, sxn = side < 0 ? 2 : L.w - 2, syn = L.stage.y + L.stage.h * (0.12 + rr() * 0.76);
+      var thn = side < 0 ? Math.PI * (0.6 + 0.8 * rr()) : Math.PI * (-0.4 + 0.8 * rr()), ren = Rh * (1.08 + rr() * 0.45);
+      var exn = cx + Math.cos(thn) * ren, eyn = cy + Math.sin(thn) * ren, tx = -Math.sin(thn), ty = Math.cos(thn);
+      cv = { s1: [sxn, syn, sxn + (exn - sxn) * 0.5, syn, exn - tx * ren * 0.7, eyn - ty * ren * 0.7, exn, eyn], s2: null, f: 1, a: i };
+      inByAgent[i].push(curvesIn.length); curvesIn.push(cv);
+    }
+  }
+}
+function hexA(h, a) { var n = parseInt(h.slice(1), 16); return "rgba(" + (n >> 16 & 255) + "," + (n >> 8 & 255) + "," + (n & 255) + "," + a + ")"; }
+function pathTwo(c, cv) {
+  var s = cv.s1; c.moveTo(s[0], s[1]); c.bezierCurveTo(s[2], s[3], s[4], s[5], s[6], s[7]);
+  if (cv.s2) { s = cv.s2; c.bezierCurveTo(s[2], s[3], s[4], s[5], s[6], s[7]); }
+}
+function endOf(cv) { var s = cv.s2 || cv.s1; return [s[6], s[7]]; }
+function drawBus(c, b) {
+  var x = b.x, h = b.y1 - b.y0, bsc = Math.max(0.6, L.bs), i;
+  c.fillStyle = "rgba(6,8,11,0.88)"; c.fillRect(x - 5 * bsc, b.y0 - 6, 10 * bsc, h + 12);
+  c.strokeStyle = "rgba(170,200,235,0.32)"; c.lineWidth = 1; c.strokeRect(x - 5 * bsc + 0.5, b.y0 - 6 + 0.5, 10 * bsc - 1, h + 11);
+  var n = Math.floor(h / (5 * bsc));
+  for (i = 0; i <= n; i++) { var yy = b.y0 + i / n * h; c.fillStyle = i % 8 === 0 ? "rgba(200,220,245,0.55)" : "rgba(170,200,235,0.22)"; c.fillRect(x - 3 * bsc, yy, (i % 8 === 0 ? 6 : 4) * bsc, 1); }
+  c.font = "500 " + Math.round(8.5 * bsc) + "px JetBrains Mono, ui-monospace, monospace";
+  c.textAlign = "center";
+  c.fillStyle = "rgba(170,190,215,0.65)"; c.fillText(b.label, x, b.y0 - 14 * bsc);
+  c.fillStyle = "rgba(120,135,155,0.6)"; c.fillText(b.n + " CH", x, b.y1 + 20 * bsc);
+}
+function renderWeb() {
+  var c = wctx, d = L.dpr, i, cv, g, e;
+  c.setTransform(1, 0, 0, 1, 0, 0); c.clearRect(0, 0, web.width, web.height); c.setTransform(d, 0, 0, d, 0, 0);
+  c.globalCompositeOperation = "lighter"; c.lineWidth = 0.6;
+  for (i = 0; i < curvesIn.length; i++) {
+    cv = curvesIn[i]; var col = AGENTS[cv.a].c; e = endOf(cv);
+    g = c.createLinearGradient(cv.s1[0], cv.s1[1], e[0], e[1]);
+    g.addColorStop(0, hexA(col, 0.24)); g.addColorStop(0.4, hexA(col, 0.1)); g.addColorStop(1, "rgba(215,228,245,0.06)");
+    c.strokeStyle = g; c.beginPath(); pathTwo(c, cv); c.stroke();
+  }
+  for (i = 0; i < curvesOut.length; i++) {
+    cv = curvesOut[i]; e = endOf(cv);
+    g = c.createLinearGradient(cv.s1[0], cv.s1[1], e[0], e[1]);
+    g.addColorStop(0, hexA(cv.c, 0.05)); g.addColorStop(0.5, hexA(cv.c, 0.1)); g.addColorStop(1, hexA(cv.c, 0.28));
+    c.strokeStyle = g; c.beginPath(); pathTwo(c, cv); c.stroke();
+  }
+  c.strokeStyle = "rgba(255,190,130,0.07)";
+  for (i = 0; i < curvesDel.length; i++) { c.beginPath(); pathTwo(c, curvesDel[i]); c.stroke(); }
+  c.globalCompositeOperation = "source-over";
+  if (busIn) { busIn.n = curvesIn.length; drawBus(c, busIn); }
+  if (busOut) { busOut.n = curvesOut.length + curvesDel.length; drawBus(c, busOut); }
+}
+
+/* ---------- 标签 ---------- */
+var partLabels = [], orbitLabels = [], LBL = { w: 160, h: 38 };
+AGENTS.forEach(function (a, i) {
+  var o = document.createElement("div");
+  o.className = "ol"; o.style.setProperty("--c", a.c);
+  o.innerHTML = "<i></i>A" + pad(i + 1, 2) + " · " + a.id.toUpperCase();
+  labelsBox.appendChild(o); orbitLabels.push(o);
+});
+function measureLabels() { if (partLabels[0]) { LBL.w = partLabels[0].offsetWidth || 160; LBL.h = partLabels[0].offsetHeight || 38; } }
+
+/* =====================================================================
+   8. 工单状态机
+   ===================================================================== */
+var PART_T = 1.75;
+var PHASES = ["ingest", "collapse", "form", "split", "build", "assemble", "deliver", "dissolve"];
+var PDUR = { ingest: 6, collapse: 2.2, form: 3.0, split: 2.2, assemble: 2.4, deliver: 3.4, dissolve: 2.6 };
+var HOLE = 0.42;
+var ST = { whole: 0, holeK: 1, holeA: 1, job: 0, ph: 0, t: 0, ring: 0, form: 0, explode: 1, energy: 0.4, pulse: -1, warm: 0, active: -1, done: [], hot: [], prog: [], focus: -1, focusT: 0, jobT0: 0 };
+var TEL = { abs: 48213, forged: 1904, deliv: 126, mass: 0.84, absRate: [], absBucket: 0 };
+var LOG = [];
+var cardEls = [];
+
+function job() { return JOBS[ST.job]; }
+function form() { return FORMS[ST.job]; }
+function phDur(k) { return k === "build" ? job().parts.length * PART_T : PDUR[k]; }
+
+function log(agentIdx, verb, text, tail) {
+  LOG.unshift({ t: hms(), a: agentIdx, v: verb, x: text, tail: tail || "" });
+  if (LOG.length > 12) LOG.length = 12;
+  logBox.innerHTML = LOG.map(function (e, i) {
+    var a = e.a == null ? { id: "chief", c: "#d8e0ea" } : AGENTS[e.a];
+    return '<div class="lr' + (i === 0 ? " fresh" : "") + '" style="--c:' + a.c + '"><span>' + e.t + '</span><span class="a">' + a.id + '</span><span class="vb">' + e.v + '</span><span class="x">' + esc(e.x) + (e.tail ? "  ·  " + esc(e.tail) : "") + "</span></div>";
+  }).join("");
+}
+
+function buildJobDom() {
+  var j = job(), f = form();
+  partsBox.innerHTML = "";
+  cardEls = [];
+  j.parts.forEach(function (p, i) {
+    var a = AGENTS[AGI[p.ag]];
+    var b = document.createElement("button");
+    b.type = "button";
+    b.className = "pc" + ((j.parts.length % 2 === 1 && i === j.parts.length - 1) ? " wide" : "");
+    b.style.setProperty("--c", a.c);
+    b.setAttribute("data-p", i);
+    b.innerHTML = '<div class="pc-t"><span class="pc-n">' + pad(i + 1, 2) + " / " + p.n + " " + p.en + '</span><span class="pc-s">QUEUED</span></div>' +
+      '<div class="pc-task">' + p.task + '</div>' +
+      '<div class="pc-m"><span class="dot"></span><span>' + a.id + '</span><span class="pc-pct">0%</span></div>' +
+      '<div class="pc-bar"><i></i></div>';
+    partsBox.appendChild(b);
+    cardEls.push({ el: b, s: b.querySelector(".pc-s"), pct: b.querySelector(".pc-pct"), bar: b.querySelector(".pc-bar i"), cls: "" });
+  });
+  partLabels.forEach(function (l) { l.remove(); });
+  partLabels = j.parts.map(function (p, i) {
+    var d = document.createElement("div");
+    d.className = "pl"; d.setAttribute("data-p", i);
+    d.innerHTML = '<div class="h"><b>' + pad(i + 1, 2) + '</b><span>' + p.n + '</span><em>' + p.en + '</em></div><div class="k"><span>' + p.task + '</span><span class="p">QUEUED</span></div>';
+    d.style.opacity = "0";
+    labelsBox.appendChild(d);
+    return d;
+  });
+  $("jobId").textContent = j.id; $("jobForm").textContent = j.formName;
+  $("nowTitle").textContent = j.title;
+  var ags = {}; j.parts.forEach(function (p) { ags[p.ag] = 1; });
+  var est = PDUR.ingest + PDUR.collapse + PDUR.form + PDUR.assemble + PDUR.deliver + PDUR.dissolve + j.parts.length * PART_T;
+  $("nowSub").textContent = j.parts.length + " 个子任务 · " + Object.keys(ags).length + " 个 Agent 协同 · 预计 " + mmss(est * SIMK);
+  $("bigD").textContent = pad(j.parts.length, 2);
+  $("bayMeta").textContent = pad(j.parts.length, 2) + " PARTS";
+  $("bjId").textContent = j.id + " · " + j.short;
+  $("bjT").textContent = j.title;
+  ST.done = []; ST.hot = []; ST.prog = [];
+  for (var i = 0; i < 10; i++) { ST.done.push(0); ST.hot.push(0); ST.prog.push(0); }
+  ST.active = -1; ST.focus = -1;
+  if (gl) {
+    gl.bindBuffer(gl.ARRAY_BUFFER, B.t); gl.bufferSubData(gl.ARRAY_BUFFER, 0, f.tgt);
+    gl.bindBuffer(gl.ARRAY_BUFFER, B.p); gl.bufferSubData(gl.ARRAY_BUFFER, 0, f.part);
+  }
+  if (appR) { measureLabels(); buildCurves(); renderWeb(); }
+}
+
+function enterPhase() {
+  var k = PHASES[ST.ph], j = job();
+  if (k === "ingest") log(null, "INGEST", "开始吸积 · " + j.id + " " + j.title, j.parts.length + " 个子任务");
+  if (k === "collapse") log(null, "COLLAPSE", "情报坍缩 · 星核压缩中", fmt(TEL.abs) + " pkt");
+  if (k === "form") log(null, "SHAPE", "星核投影 · 完整" + j.formName.replace(/^[A-Z0-9\- ]+ /, ""));
+  if (k === "split") log(null, "EXPLODE", "拆解为 " + j.parts.length + " 个零件 · 逐件派给子 Agent");
+  if (k === "assemble") log(null, "ASSEMBLE", "零件合拢 · 整机校验", j.parts.length + "/" + j.parts.length);
+  if (k === "deliver") {
+    TEL.deliv++; ST.pulse = 0;
+    log(AGI.deploy, "DELIVER", "交付 " + j.id + " " + j.title, "✓");
+    addDelivery(j);
+  }
+  codePhase(k);
+}
+function addDelivery(j) {
+  DELIV.unshift({ t: hms().slice(0, 5), id: j.id, title: j.title, d: mmss((now - ST.jobT0) * SIMK), fresh: true });
+  if (DELIV.length > 4) DELIV.length = 4;
+  renderDeliv();
+}
+var DELIV = [
+  { t: "11:08", id: "JOB-0426", title: "竞品情报周报", d: "02:12" },
+  { t: "10:41", id: "JOB-0425", title: "落地页 A/B 改版", d: "01:47" },
+  { t: "10:02", id: "JOB-0424", title: "品牌宣传片分镜", d: "03:05" },
+  { t: "09:26", id: "JOB-0423", title: "私域 SOP 迭代", d: "01:58" }
+];
+function renderDeliv() {
+  dlBox.innerHTML = DELIV.map(function (r) {
+    return '<div class="dr' + (r.fresh ? " new" : "") + '"><span>' + r.t + "</span><span>" + r.id + '</span><span class="t">' + esc(r.title) + '</span><span class="d">' + r.d + "</span></div>";
+  }).join("");
+  DELIV.forEach(function (r) { r.fresh = false; });
+  $("delivMeta").textContent = TEL.deliv + " TOTAL";
+}
+
+function nextJob() {
+  ST.job = (ST.job + 1) % JOBS.length;
+  ST.ph = 0; ST.jobT0 = now;
+  buildJobDom(); enterPhase();
+}
+
+function updateState(dt) {
+  var k = PHASES[ST.ph], dur = phDur(k);
+  ST.t += dt;
+  if (ST.t >= dur) {
+    ST.t -= dur;
+    if (k === "build") { completePart(job().parts.length - 1); }
+    ST.ph++;
+    if (ST.ph >= PHASES.length) { nextJob(); return; }
+    enterPhase();
+    k = PHASES[ST.ph]; dur = phDur(k);
+  }
+  var p = ST.t / dur, n = job().parts.length, i;
+  if (k === "ingest") { ST.ring = 0; ST.form = 0; ST.explode = 0; ST.energy = 0.45 + 0.4 * p; ST.warm = 0; ST.holeK = 1; ST.holeA = 1; }
+  else if (k === "collapse") { ST.ring = easeIO(p); ST.form = 0; ST.explode = 0; ST.energy = 0.85 + 0.35 * p; ST.holeK = 1 + 0.12 * ease(p); ST.holeA = 1; }
+  else if (k === "form") { ST.ring = 1; ST.form = easeIO(p / 0.62); ST.explode = 0; ST.energy = 1.2 - 0.5 * p; ST.holeK = 1.12 + 0.2 * ease(p / 0.5); ST.holeA = 1 - ease(p / 0.5); }
+  else if (k === "split") { ST.ring = 1; ST.form = 1; ST.explode = easeIO(p); ST.energy = 0.7; ST.warm = 0.2 * p; ST.holeA = 0; }
+  else if (k === "build") {
+    ST.ring = 1; ST.form = 1; ST.explode = 1; ST.energy = 0.7; ST.warm = 0.55; ST.holeA = 0;
+    var idx = Math.min(n - 1, Math.floor(ST.t / PART_T)), lp = (ST.t - idx * PART_T) / PART_T;
+    if (idx !== ST.active) { if (ST.active >= 0) completePart(ST.active); startPart(idx); }
+    for (i = 0; i < n; i++) {
+      if (i < idx) { ST.done[i] = Math.min(1, ST.done[i] + dt * 3); ST.hot[i] = Math.max(0, ST.hot[i] - dt * 3); ST.prog[i] = 1; }
+      else if (i === idx) { ST.hot[i] = Math.min(1, ST.hot[i] + dt * 4); ST.prog[i] = ease(lp * 1.05); }
+    }
+  }
+  else if (k === "assemble") {
+    ST.ring = 1; ST.form = 1; ST.explode = 1 - easeIO(p); ST.energy = 0.8 + 0.4 * p; ST.warm = 0.55 * (1 - p); ST.holeA = 0;
+    for (i = 0; i < n; i++) { ST.done[i] = Math.min(1, ST.done[i] + dt * 3); ST.hot[i] = Math.max(0, ST.hot[i] - dt * 3); ST.prog[i] = 1; }
+    ST.active = -1;
+  }
+  else if (k === "deliver") { ST.ring = 1; ST.form = 1; ST.explode = 0; ST.energy = 1.3 - 0.6 * p; ST.warm = 0.25 * (1 - p); ST.holeA = 0; }
+  else if (k === "dissolve") { ST.ring = 0; ST.form = 1 - easeIO(p); ST.explode = 0.35 * easeIO(p); ST.energy = 0.6; ST.warm = 0; ST.holeK = 1; ST.holeA = ease((p - 0.35) / 0.65); }
+  ST.whole = k === "form" ? 1 : (k === "split" ? 1 - 0.75 * ST.explode : Math.max(0, ST.whole - dt * 1.5));
+  if (ST.pulse >= 0) { ST.pulse += dt / 1.6; if (ST.pulse >= 1) ST.pulse = -1; }
+  if (ST.focus >= 0) { ST.focusT -= dt; if (ST.focusT <= 0) ST.focus = -1; }
+}
+function startPart(i) {
+  ST.active = i;
+  var p = job().parts[i];
+  log(AGI[p.ag], "FORGE", pad(i + 1, 2) + " " + p.n + " ← " + p.task);
+  codePart(i);
+}
+function completePart(i) {
+  if (i < 0) return;
+  var p = job().parts[i];
+  ST.prog[i] = 1; TEL.forged++;
+  log(AGI[p.ag], "COMMIT", p.task + " 完成", (0.8 + Math.random() * 1.6).toFixed(1) + "s");
+  codeCommit(i);
+}
+
+/* =====================================================================
+   9. 流光（2D 彗星）：左边吸积、右边派发，任何阶段都有底流，显得一直在忙
+   ===================================================================== */
+var comets = [], spawnAcc = [], outAcc = [], delAcc = 0, cntIn = 0, cntOut = 0, rateIn = 0, rateOut = 0;
+var distill = [], ripples = [], flashes = [], embers = [];
+for (var si = 0; si < AGENTS.length; si++) spawnAcc.push(Math.random());
+for (var so = 0; so < 10; so++) outAcc.push(Math.random());
+function curvePt(cv, t) {
+  if (!cv.s2) return bzPt(cv.s1, t);
+  return t < cv.f ? bzPt(cv.s1, t / cv.f) : bzPt(cv.s2, (t - cv.f) / (1 - cv.f));
+}
+function cardColor(i) { var pool = outByPart[i], cv = pool && pool.length ? curvesOut[pool[0]] : null; return cv && cv.c && cv.c.charAt(0) === "#" ? cv.c : "#9cd0ff"; }
+/* 吸进黑洞的粒子在视界里消失、看不到内部；在星核里停留一小段时间后，带着来源 Agent 的颜色从右侧派发出去 */
+function pickOut() {
+  var k = PHASES[ST.ph];
+  if (k === "deliver" && curvesDel.length && Math.random() < 0.75) return { k: 2, c: Math.floor(Math.random() * curvesDel.length), p: -1 };
+  if (!outByPart.length) return null;
+  var p = (k === "build" && ST.active >= 0 && Math.random() < 0.55) ? ST.active : Math.floor(Math.random() * outByPart.length);
+  var pool = outByPart[p]; if (!pool || !pool.length) return null;
+  return { k: 1, c: pool[Math.floor(Math.random() * pool.length)], p: p };
+}
+function onArrive(m, p0) {
+  if (L.narrow || Math.random() > 0.62 || distill.length > 260) return;
+  var o = pickOut(); if (!o) return;
+  distill.push({ t: 0, d: 0.35 + Math.random() * 0.45, col: AGENTS[m.a].c, o: o });
+}
+function spawnComets(dt) {
+  var k = PHASES[ST.ph], j = job(), owner = ST.active >= 0 ? AGI[j.parts[ST.active].ag] : -1, i, rate, pool;
+  var mult = RM ? 0.35 : (L.narrow ? 0.5 : 1);
+  for (i = 0; i < AGENTS.length; i++) {
+    pool = inByAgent[i]; if (!pool || !pool.length) continue;
+    if (k === "ingest") rate = 14;
+    else if (k === "collapse") rate = 9;
+    else if (k === "build") rate = i === owner ? 18 : 4.5;
+    else if (k === "form" || k === "split" || k === "assemble") rate = 6;
+    else rate = 4.5;
+    spawnAcc[i] += dt * rate * mult;
+    while (spawnAcc[i] >= 1) { spawnAcc[i] -= 1; AG[i].emit = (AG[i].emit || 0) + 1; comets.push({ k: 0, c: pool[Math.floor(Math.random() * pool.length)], t: 0, v: 0.3 + Math.random() * 0.22, a: i }); }
+  }
+  for (i = 0; i < outByPart.length; i++) {
+    pool = outByPart[i]; if (!pool.length) continue;
+    var hotP = k === "build" && ST.active === i;
+    rate = hotP ? 7 : (k === "build" || k === "assemble" ? 1 : 0.6);
+    outAcc[i] += dt * rate * mult;
+    while (outAcc[i] >= 1) { outAcc[i] -= 1; comets.push({ k: 1, c: pool[Math.floor(Math.random() * pool.length)], t: 0, v: 0.42 + Math.random() * 0.25, hot: hotP, col: cardColor(i) }); }
+  }
+  if (curvesDel.length) {
+    delAcc += dt * (k === "deliver" ? 16 : 1.2) * mult;
+    while (delAcc >= 1) { delAcc -= 1; comets.push({ k: 2, c: Math.floor(Math.random() * curvesDel.length), t: 0, v: 0.45 + Math.random() * 0.25, col: "#ffb36b" }); }
+  }
+  if (comets.length > 1400) comets.splice(0, comets.length - 1400);
+}
+function headDot(c, x, y, col, a, r) {
+  c.fillStyle = hexA(col, 0.85 * a); c.fillRect(x - r, y - r, r * 2, r * 2);
+  c.fillStyle = "rgba(255,255,255," + (0.95 * a) + ")"; c.fillRect(x - r * 0.5, y - r * 0.5, r, r);
+}
+function drawComets(c, dt) {
+  c.globalCompositeOperation = "lighter";
+  c.lineCap = "round";
+  var i, m, cv, a, p0, p1, p2, bs = Math.max(0.7, L.bs);
+  for (i = comets.length - 1; i >= 0; i--) {
+    m = comets[i];
+    if (m.k === 0) {
+      cv = curvesIn[m.c];
+      if (!cv) { comets.splice(i, 1); continue; }
+      m.t += dt * m.v * (0.62 + m.t * 1.1);
+      if (!m.bf && cv.s2 && m.t >= cv.f) { m.bf = 1; if (flashes.length < 220) flashes.push({ x: cv.s1[6], y: cv.s1[7], t: 0, col: AGENTS[m.a].c }); }
+      if (m.t >= 1) { comets.splice(i, 1); TEL.abs++; TEL.absBucket++; cntIn++; ST.energy = Math.min(1.6, ST.energy + 0.002); onArrive(m, curvePt(cv, 1)); continue; }
+      a = m.t > 0.9 ? (1 - m.t) * 10 : Math.min(1, m.t * 8);
+      p0 = curvePt(cv, m.t); p1 = curvePt(cv, Math.max(0, m.t - 0.025)); p2 = curvePt(cv, Math.max(0, m.t - 0.05));
+      c.strokeStyle = hexA(AGENTS[m.a].c, 0.5 * a); c.lineWidth = 1;
+      c.beginPath(); c.moveTo(p2[0], p2[1]); c.lineTo(p1[0], p1[1]); c.lineTo(p0[0], p0[1]); c.stroke();
+      c.fillStyle = "rgba(240,246,255," + (0.9 * a) + ")";
+      c.fillRect(p0[0] - 1, p0[1] - 1, 2, 2);
+    } else {
+      cv = m.k === 1 ? curvesOut[m.c] : curvesDel[m.c];
+      if (!cv) { comets.splice(i, 1); continue; }
+      m.t += dt * m.v * (1.2 - m.t * 0.45);
+      var col = m.col || "#9cd0ff";
+      if (!m.bf && cv.s2 && m.t >= cv.f) { m.bf = 1; if (flashes.length < 220) flashes.push({ x: cv.s1[6], y: cv.s1[7], t: 0, col: col, big: true }); }
+      if (m.t >= 1) {
+        comets.splice(i, 1); cntOut++;
+        var e = endOf(cv); if (ripples.length < 140) ripples.push({ x: e[0], y: e[1], t: 0, col: col, big: !!m.hot || m.k === 2 });
+        continue;
+      }
+      var fade = Math.min(1, m.t * 7) * Math.min(1, (1 - m.t) * 9);
+      p0 = curvePt(cv, m.t); p1 = curvePt(cv, Math.max(0, m.t - 0.03)); p2 = curvePt(cv, Math.max(0, m.t - 0.06)); var p3 = curvePt(cv, Math.max(0, m.t - 0.095));
+      c.strokeStyle = hexA(col, 0.13 * fade); c.lineWidth = 5 * bs;
+      c.beginPath(); c.moveTo(p3[0], p3[1]); c.lineTo(p2[0], p2[1]); c.lineTo(p1[0], p1[1]); c.lineTo(p0[0], p0[1]); c.stroke();
+      c.strokeStyle = hexA(col, 0.8 * fade); c.lineWidth = 1.5 * bs;
+      c.beginPath(); c.moveTo(p2[0], p2[1]); c.lineTo(p1[0], p1[1]); c.lineTo(p0[0], p0[1]); c.stroke();
+      headDot(c, p0[0], p0[1], col, fade, (m.hot ? 1.6 : 1.2) * bs);
+      if (Math.random() < 0.22 && embers.length < 420) embers.push({ x: p0[0], y: p0[1], vx: (Math.random() - 0.5) * 14, vy: (Math.random() - 0.5) * 14, t: 0, col: col });
+    }
+  }
+  /* 星核内部看不到：只在时间上「蒸馏」，到点后从右侧视界边缘冒出来 */
+  for (i = distill.length - 1; i >= 0; i--) {
+    var ds = distill[i]; ds.t += dt / ds.d;
+    if (ds.t < 1) continue;
+    distill.splice(i, 1);
+    var o = ds.o, ocv = o.k === 1 ? curvesOut[o.c] : curvesDel[o.c];
+    if (!ocv) continue;
+    comets.push({ k: o.k, c: o.c, t: 0, v: 0.42 + Math.random() * 0.25, col: ds.col, hot: o.k === 1 && PHASES[ST.ph] === "build" && o.p === ST.active });
+  }
+  /* 右侧粒子掉下的余烬 */
+  for (i = embers.length - 1; i >= 0; i--) {
+    var em = embers[i]; em.t += dt / 0.55;
+    if (em.t >= 1) { embers.splice(i, 1); continue; }
+    em.x += em.vx * dt; em.y += em.vy * dt;
+    c.fillStyle = hexA(em.col, 0.7 * (1 - em.t)); c.fillRect(em.x - 0.75, em.y - 0.75, 1.5, 1.5);
+  }
+  /* 总线上被穿过的通道闪一下 */
+  for (i = flashes.length - 1; i >= 0; i--) {
+    var fl = flashes[i]; fl.t += dt / 0.45;
+    if (fl.t >= 1) { flashes.splice(i, 1); continue; }
+    var fw = (fl.big ? 11 : 7) * bs;
+    if (fl.big) { c.strokeStyle = hexA(fl.col, 0.25 * (1 - fl.t)); c.lineWidth = 5 * bs; c.beginPath(); c.moveTo(fl.x - fw, fl.y); c.lineTo(fl.x + fw, fl.y); c.stroke(); }
+    c.strokeStyle = hexA(fl.col, 0.9 * (1 - fl.t)); c.lineWidth = 1.5;
+    c.beginPath(); c.moveTo(fl.x - fw, fl.y); c.lineTo(fl.x + fw, fl.y); c.stroke();
+  }
+  /* 到达右侧工位 / 交付框时的涟漪 */
+  for (i = ripples.length - 1; i >= 0; i--) {
+    var rp = ripples[i]; rp.t += dt / (rp.big ? 0.8 : 0.6);
+    if (rp.t >= 1) { ripples.splice(i, 1); continue; }
+    var rr = (2 + (rp.big ? 20 : 12) * rp.t) * bs, al = 1 - rp.t;
+    c.fillStyle = hexA(rp.col, 0.9 * al); c.fillRect(rp.x - 1, rp.y - (rp.big ? 7 : 5) * bs, 2, (rp.big ? 14 : 10) * bs);
+  }
+  c.globalCompositeOperation = "source-over";
+}
+
+/* =====================================================================
+   10. 每帧：投影、标签、HUD
+   ===================================================================== */
+var VIEW = mRotX(0.36);
+function viewMat(dt) {
+  var md = MODES[modeI];
+  autoYaw += dt * (RM ? 0 : md.spin);
+  pitchBase += (md.pitch - pitchBase) * Math.min(1, dt * 2.5);
+  var pitch = clamp(pitchBase + pitchDrag, -0.25, 1.35);
+  return mMul(mRotX(pitch), mRotY(autoYaw + yawDrag));
+}
+function project(v) {
+  var pv = mApply(VIEW, v), k = CAM / Math.max(CAM - pv[2], 0.25), S = L.S * zoom;
+  return [L.cx + pv[0] * S * k, L.cy - pv[1] * S * k, pv[2]];
+}
+function partWorld(i) {
+  var f = form(), a = f.anchors[i], e = f.ex[i];
+  return mApply(f.rot, [a[0] + e[0] * ST.explode, a[1] + e[1] * ST.explode, a[2] + e[2] * ST.explode]);
+}
+var labelSlots = [];
+function placeLabels(c) {
+  var n = job().parts.length, i, kph = PHASES[ST.ph], vis = clamp((ST.form - 0.55) / 0.45, 0, 1);
+  if (kph === "dissolve") vis = clamp((ST.form - 0.7) / 0.3, 0, 1);
+  if (kph === "form") vis = 0;
+  if (kph === "split") vis = clamp(ST.explode * 1.6 - 0.4, 0, 1);
+  if (L.narrow) vis = 0;
+  if (vis <= 0.01) { for (i = 0; i < partLabels.length; i++) partLabels[i].style.opacity = "0"; return; }
+  var items = [];
+  for (i = 0; i < n; i++) { var p = project(partWorld(i)); items.push({ i: i, x: p[0], y: p[1] }); }
+  var left = [], right = [];
+  items.forEach(function (it) { (it.x >= L.cx ? right : left).push(it); });
+  var half = Math.ceil(n / 2);
+  function move(from, to, fromRight) {
+    from.sort(function (a, b) { return fromRight ? a.x - b.x : b.x - a.x; });
+    while (from.length > half) to.push(from.shift());
+  }
+  if (right.length > half) move(right, left, true);
+  if (left.length > half) move(left, right, false);
+  var bs = L.bs, S = L.S * zoom, st = L.stage, minY = st.y + 84 * bs, maxY = st.y + st.h - 112 * bs, gap = 8 * bs, lw = LBL.w * bs, lh = LBL.h * bs;
+  function column(arr, isRight) {
+    arr.sort(function (a, b) { return a.y - b.y; });
+    var ys = arr.map(function (it) { return it.y - lh / 2; }), q;
+    for (q = 0; q < ys.length; q++) { if (q === 0) ys[q] = Math.max(ys[q], minY); else ys[q] = Math.max(ys[q], ys[q - 1] + lh + gap); }
+    var over = ys.length ? ys[ys.length - 1] + lh - maxY : 0;
+    if (over > 0) for (q = ys.length - 1; q >= 0; q--) { ys[q] -= over; if (q > 0 && ys[q - 1] + lh + gap > ys[q]) over = ys[q - 1] + lh + gap - ys[q]; else over = 0; if (over <= 0) break; }
+    var x = isRight ? Math.min(L.cx + S * 1.32, st.x + st.w - lw - 4) : Math.max(L.cx - S * 1.32 - lw, st.x + 4);
+    arr.forEach(function (it, q) {
+      var el = partLabels[it.i];
+      el.style.transform = "translate(" + Math.round(x) + "px," + Math.round(ys[q]) + "px) scale(" + bs + ")";
+      var o = vis;
+      if (ST.focus >= 0 && ST.focus !== it.i) o *= 0.35;
+      el.style.opacity = String(o);
+      labelSlots[it.i] = { ax: it.x, ay: it.y, lx: isRight ? x : x + lw, ly: ys[q] + lh / 2, right: isRight, o: o };
+    });
+  }
+  column(right, true); column(left, false);
+  for (i = 0; i < n; i++) {
+    var sl = labelSlots[i]; if (!sl) continue;
+    var hot = ST.active === i && PHASES[ST.ph] === "build";
+    c.strokeStyle = hot ? "rgba(255,173,94," + (0.85 * sl.o) + ")" : "rgba(156,208,255," + (0.42 * sl.o) + ")";
+    c.lineWidth = 1;
+    var ex = sl.lx + (sl.right ? -16 : 16) * bs;
+    c.beginPath(); c.moveTo(sl.ax, sl.ay); c.lineTo(ex, sl.ly); c.lineTo(sl.lx, sl.ly); c.stroke();
+    c.beginPath(); c.arc(sl.ax, sl.ay, (hot ? 4 : 2.6) * Math.max(0.7, bs), 0, TAU); c.stroke();
+    if (hot) { c.fillStyle = "rgba(255,173,94,0.9)"; c.fillRect(sl.ax - 1, sl.ay - 1, 2, 2); }
+  }
+}
+function placeOrbitLabels() {
+  var k = PHASES[ST.ph], vis = k === "ingest" ? Math.min(1, ST.t / 1.2) : (k === "collapse" ? 1 - ST.t / PDUR.collapse : 0);
+  if (L.narrow) vis = 0;
+  for (var i = 0; i < orbitLabels.length; i++) {
+    var d = DUSTS[i], el = orbitLabels[i];
+    if (!d || vis <= 0.01) { el.style.opacity = "0"; continue; }
+    var a = d.a + dustT * d.sp, p = [Math.cos(a) * d.r, 0, Math.sin(a) * d.r];
+    p = mApply(mRotY(now * 0.025 * (0.6 + d.ix)), mApply([Math.cos(d.iz), Math.sin(d.iz), 0, -Math.sin(d.iz), Math.cos(d.iz), 0, 0, 0, 1], mApply(mRotX(d.ix), p)));
+    var s = project(p), back = s[2] < 0 ? 0.35 : 1;
+    el.style.transform = "translate(" + Math.round(s[0] + 6) + "px," + Math.round(s[1] - 6) + "px) scale(" + L.bs + ")";
+    el.style.opacity = String(vis * back * 0.9);
+  }
+}
+function drawHud(c, t) {
+  var S = L.S * zoom, r = S * 1.3, cx = L.cx, cy = L.cy, i, rot = RM ? 0 : t * 0.05, bs = Math.max(0.6, L.bs);
+  c.lineWidth = 1;
+  for (i = 0; i < 120; i++) {
+    var a = i / 120 * TAU + rot, l = (i % 10 === 0 ? 7 : 3) * bs;
+    c.strokeStyle = i % 10 === 0 ? "rgba(170,200,235,0.22)" : "rgba(170,200,235,0.09)";
+    c.beginPath(); c.moveTo(cx + Math.cos(a) * r, cy + Math.sin(a) * r); c.lineTo(cx + Math.cos(a) * (r + l), cy + Math.sin(a) * (r + l)); c.stroke();
+  }
+  c.strokeStyle = "rgba(156,208,255,0.28)";
+  for (i = 0; i < 3; i++) { var a0 = -rot * 1.6 + i * TAU / 3; c.beginPath(); c.arc(cx, cy, r - 5 * bs, a0, a0 + 0.32); c.stroke(); }
+  if (L.narrow) return;
+  var br = S * 2.05, bl = 14 * bs;
+  c.strokeStyle = "rgba(170,200,235,0.18)";
+  [[-1, -1], [1, -1], [1, 1], [-1, 1]].forEach(function (q) {
+    var x = cx + q[0] * br, y = cy + q[1] * br * 0.82;
+    c.beginPath(); c.moveTo(x, y - q[1] * bl); c.lineTo(x, y); c.lineTo(x - q[0] * bl, y); c.stroke();
+  });
+}
+
+/* =====================================================================
+   11. DOM 刷新（低频）
+   ===================================================================== */
+var uiAcc = 0, beatAcc = 0, fpsAcc = 0, fpsN = 0, fpsVal = 60, sparkAcc = 0;
+function stepIndex(k) { return k === "ingest" ? 0 : (k === "collapse" || k === "form") ? 1 : k === "split" ? 2 : k === "build" ? 3 : 4; }
+function stepProgress(k) {
+  if (k === "ingest" || k === "split" || k === "build") return ST.t / phDur(k);
+  if (k === "collapse") return ST.t / (PDUR.collapse + PDUR.form);
+  if (k === "form") return (PDUR.collapse + ST.t) / (PDUR.collapse + PDUR.form);
+  var a = PDUR.assemble, b = PDUR.deliver, c = PDUR.dissolve;
+  return (k === "assemble" ? ST.t : k === "deliver" ? a + ST.t : a + b + ST.t) / (a + b + c);
+}
+function setCls(o, cls, base) { if (o.cls !== cls) { o.cls = cls; o.el.className = base + (cls ? " " + cls : ""); } }
+function updateUI(dt) {
+  var k = PHASES[ST.ph], j = job(), n = j.parts.length, si = stepIndex(k), i;
+  stepEls.forEach(function (li, idx) {
+    var cls = idx < si ? "done" : idx === si ? "on" + (idx === 3 ? " hot" : "") : "";
+    if (li.className !== cls) li.className = cls;
+    li.querySelector("i").style.setProperty("--p", idx < si ? 1 : idx === si ? clamp(stepProgress(k), 0, 1).toFixed(3) : 0);
+  });
+  var eye = { ingest: "正在吸积 · INGESTING", collapse: "星核坍缩 · COLLAPSING", form: "星核投影 · 完整产品", split: "拆解中 · EXPLODING", build: "正在锻造 · NOW FORGING", assemble: "整机合拢 · ASSEMBLING", deliver: "交付中 · DELIVERING", dissolve: "回收星核 · RELEASING" }[k];
+  $("nowEye").textContent = eye;
+  $("smPh").textContent = j.id + " · " + k.toUpperCase();
+  var doneN = 0;
+  for (i = 0; i < n; i++) if (ST.prog[i] >= 1 && (i !== ST.active || k !== "build")) doneN++;
+  if (k === "assemble" || k === "deliver" || k === "dissolve") doneN = n;
+  $("bigN").textContent = pad(doneN, 2);
+  var jp = (k === "build") ? (doneN + (ST.active >= 0 ? ST.prog[ST.active] : 0)) / n : (doneN === n ? 1 : 0);
+  $("bjPct").textContent = Math.round(jp * 100) + "%";
+  $("bjBar").style.width = (jp * 100).toFixed(1) + "%";
+  for (i = 0; i < cardEls.length; i++) {
+    var ce = cardEls[i], hot = (k === "build" && ST.active === i), dn = !hot && ST.prog[i] >= 1, pr = hot ? ST.prog[i] : (dn ? 1 : 0);
+    setCls(ce, (hot ? "hot" : dn ? "done" : "") + (ST.focus === i ? " focus" : ""), "pc" + ((n % 2 === 1 && i === n - 1) ? " wide" : ""));
+    var st = hot ? "FORGING ↗" : dn ? "DONE ✓" : "QUEUED";
+    if (ce.s.textContent !== st) ce.s.textContent = st;
+    ce.pct.textContent = Math.round(pr * 100) + "%";
+    ce.bar.style.width = (pr * 100).toFixed(1) + "%";
+    var pl = partLabels[i];
+    if (pl) {
+      var c2 = "pl" + (hot ? " hot" : dn ? " done" : "") + (ST.focus === i ? " focus" : "");
+      if (pl.className !== c2) pl.className = c2;
+      var pp = pl.querySelector(".p"), txt = hot ? Math.round(pr * 100) + "%" : dn ? "DONE" : "QUEUED";
+      if (pp.textContent !== txt) pp.textContent = txt;
+    }
+  }
+  var owner = (k === "build" && ST.active >= 0) ? AGI[j.parts[ST.active].ag] : -1;
+  var inJob = {}; j.parts.forEach(function (p) { inJob[AGI[p.ag]] = 1; });
+  var qTotal = 0;
+  for (i = 0; i < AG.length; i++) {
+    var g = AG[i];
+    g.tLoad = i === owner ? 0.9 : (k === "ingest" ? 0.58 + 0.12 * Math.sin(i + now) : (inJob[i] ? 0.42 : 0.24));
+    var burst = Math.min(0.25, (g.emit || 0) * 0.03);
+    g.load = clamp(g.load + (g.tLoad + burst + (Math.random() - 0.5) * 0.34 - g.load) * Math.min(1, dt * 7), 0.06, 0.99);
+    g.ctx = clamp(g.ctx + (Math.random() - 0.5) * 0.09 + (i === owner ? 0.02 : -0.006), 0.12, 0.96);
+    g.port.style.opacity = g.emit ? "1" : "0.35"; g.emit = 0;
+    g.bars[0].style.width = (g.load * 100).toFixed(1) + "%"; g.vals[0].textContent = g.load.toFixed(2);
+    g.bars[1].style.width = (g.ctx * 100).toFixed(1) + "%"; g.vals[1].textContent = g.ctx.toFixed(2);
+    var cls = i === owner ? "on" : (g.load > 0.5 ? "busy" : "");
+    setCls(g, cls, "ag");
+    var stx = i === owner ? "TX" : (g.load > 0.5 ? "BUSY" : "IDLE");
+    if (g.st.textContent !== stx) g.st.textContent = stx;
+    var tk = i === owner ? j.parts[ST.active].task : g.lastBeat;
+    if (g.task.textContent !== tk) g.task.textContent = tk;
+    g.queue = clamp(g.queue + (Math.random() < 0.3 ? (Math.random() < 0.5 ? -1 : 1) : 0) + (i === owner && Math.random() < 0.15 ? 1 : 0), 0, 9);
+    qTotal += g.queue;
+    DP[i].bar.style.width = (g.load * 100).toFixed(1) + "%";
+    DP[i].q.textContent = g.queue;
+  }
+  $("dispMeta").textContent = "QUEUE " + qTotal;
+  pushHist();
+  updateOp(k, j, dt);
+  pushWave(k === "build" && ST.active >= 0);
+  TEL.mass = 0.78 + ST.energy * 0.22 + Math.sin(now * 0.7) * 0.01;
+  $("tAbs").textContent = fmt(TEL.abs);
+  $("tMass").innerHTML = TEL.mass.toFixed(2) + "<small>M</small>";
+  $("tForged").textContent = fmt(TEL.forged);
+  $("tDel").textContent = fmt(TEL.deliv);
+  var d = new Date();
+  $("clock").textContent = hms(d);
+  var doneAll = 0; for (i = 0; i < n; i++) if (ST.prog[i] >= 1) doneAll++;
+  $("sIn").textContent = Math.round(rateIn); $("sOut").textContent = Math.round(rateOut);
+  $("sbDel").textContent = fmt(TEL.deliv); $("sbAbs").textContent = fmt(TEL.abs); $("sbForged").textContent = fmt(TEL.forged); $("sbJob").textContent = j.id;
+  $("mCap").textContent = eye + " · " + j.title; $("mJob").textContent = j.id; $("mProg").textContent = doneN + " / " + n; $("mDel").textContent = fmt(TEL.deliv);
+}
+function updateOp(k, j, dt) {
+  var i;
+  if (k === "build" && ST.active >= 0) {
+    var pa = j.parts[ST.active], ag = AGENTS[AGI[pa.ag]], pr = ST.prog[ST.active], si = Math.min(4, Math.floor(pr * 5));
+    if (OP.key !== j.id + "#" + ST.active) {
+      OP.key = j.id + "#" + ST.active; OP.tokens = 0;
+      OP.code.textContent = pad(ST.active + 1, 2); OP.n.textContent = pa.n + " · " + pa.en; OP.t.textContent = pa.task;
+      OP.ag.textContent = ag.id.toUpperCase(); OP.ow.textContent = ag.id; OP.el.style.setProperty("--c", ag.c); OP.el.className = "op hot";
+    }
+    OP.tokens += dt * (1600 + Math.random() * 1100);
+    OP.tok.textContent = fmt(OP.tokens);
+    OP.elp.textContent = (pr * PART_T * SIMK).toFixed(1) + "s";
+    OP.ck.textContent = si + " / 5";
+    for (i = 0; i < OP.steps.length; i++) {
+      var c = i < si ? "done" : (i === si ? "on" : "");
+      if (OP.steps[i].className !== c) OP.steps[i].className = c;
+      if (i === si) OP.steps[i].style.setProperty("--sp", Math.round((pr * 5 - si) * 100) + "%");
+    }
+    return;
+  }
+  var key = j.id + ":" + k;
+  if (OP.key === key) return;
+  OP.key = key; OP.el.className = "op"; OP.el.style.removeProperty("--c");
+  var late = (k === "assemble" || k === "deliver" || k === "dissolve");
+  var txt = { ingest: "吸积子 Agent 情报中", collapse: "情报坍缩 · 星核压缩", form: "投影完整产品 · " + j.formName, split: "拆解为 " + j.parts.length + " 个零件", assemble: "整机合拢 · 全件校验", deliver: "交付 " + j.id, dissolve: "回收星核 · 准备下一单" }[k];
+  OP.code.textContent = late ? pad(j.parts.length, 2) : "--";
+  OP.n.textContent = late ? "ALL PARTS VERIFIED" : "WAITING FOR CORE";
+  OP.t.textContent = txt;
+  OP.ag.textContent = late ? "CHIEF" : "—"; OP.ow.textContent = late ? "chief" : "—";
+  OP.ck.textContent = late ? "5 / 5" : "0 / 5";
+  OP.elp.textContent = late ? (j.parts.length * PART_T * SIMK).toFixed(1) + "s" : "0.0s";
+  if (!late) OP.tok.textContent = "0";
+  for (i = 0; i < OP.steps.length; i++) OP.steps[i].className = late ? "done" : "";
+}
+function pushHist() {
+  for (var i = 0; i < AG.length; i++) {
+    var g = AG[i];
+    g.hv.push(clamp(g.load * (0.35 + Math.random() * 0.75), 0.04, 1));
+    if (g.hv.length > g.hist.length) g.hv.shift();
+    var off = g.hist.length - g.hv.length;
+    for (var b = 0; b < g.hist.length; b++) { var v = b >= off ? g.hv[b - off] : 0; g.hist[b].style.height = Math.max(4, Math.round(v * 100)) + "%"; }
+  }
+}
+function heartbeat() {
+  var i = Math.floor(Math.random() * AGENTS.length), a = AGENTS[i], b = a.beat[Math.floor(Math.random() * a.beat.length)];
+  var verbs = ["SYNC", "FETCH", "PARSE", "VERIFY", "EMBED"];
+  AG[i].lastBeat = b;
+  log(i, verbs[Math.floor(Math.random() * verbs.length)], b, (0.2 + Math.random() * 1.4).toFixed(1) + "s");
+}
+function drawSpark() {
+  var c = sctx, w = sparkC.width, h = sparkC.height, arr = TEL.absRate, i;
+  c.clearRect(0, 0, w, h);
+  if (arr.length < 2) return;
+  var mx = 1; for (i = 0; i < arr.length; i++) mx = Math.max(mx, arr[i]);
+  c.strokeStyle = "rgba(150,180,215,0.12)"; c.lineWidth = 1;
+  for (i = 1; i < 3; i++) { c.beginPath(); c.moveTo(0, Math.round(h * i / 3) + 0.5); c.lineTo(w, Math.round(h * i / 3) + 0.5); c.stroke(); }
+  var step = w / 59;
+  c.beginPath();
+  for (i = 0; i < arr.length; i++) { var x = w - (arr.length - 1 - i) * step, y = h - 2 - (arr[i] / mx) * (h - 6); if (i) c.lineTo(x, y); else c.moveTo(x, y); }
+  var g = c.createLinearGradient(0, 0, 0, h); g.addColorStop(0, "rgba(156,208,255,0.25)"); g.addColorStop(1, "rgba(156,208,255,0)");
+  c.strokeStyle = "rgba(156,208,255,0.9)"; c.lineWidth = 1.2 * L.dpr; c.stroke();
+  c.lineTo(w, h); c.lineTo(w - (arr.length - 1) * step, h); c.closePath(); c.fillStyle = g; c.fill();
+  var lx = w, ly = h - 2 - (arr[arr.length - 1] / mx) * (h - 6);
+  c.fillStyle = "#9cd0ff"; c.beginPath(); c.arc(lx - 2 * L.dpr, ly, 2.2 * L.dpr, 0, TAU); c.fill();
+}
+
+function drawGL(t) {
+  var dpr = L.dpr, S = L.S * zoom, f = form(), i;
+  gl.viewport(0, 0, glc.width, glc.height);
+  gl.clearColor(0.0196, 0.0275, 0.039, 1); gl.clear(gl.COLOR_BUFFER_BIT);
+  gl.blendFunc(gl.ONE, gl.ONE);
+  gl.useProgram(P_STAR);
+  gl.uniform1f(U(P_STAR, "uTime"), t); gl.uniform1f(U(P_STAR, "uDpr"), dpr); gl.uniform1f(U(P_STAR, "uLine"), 0);
+  attr(P_STAR, "aS", B.sv, 4); gl.drawArrays(gl.POINTS, 0, STAR_N); unbindAll();
+
+  gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
+  gl.useProgram(P_HOLE);
+  gl.uniform2f(U(P_HOLE, "uRes"), glc.width, glc.height);
+  gl.uniform2f(U(P_HOLE, "uCtr"), L.cx * dpr, L.cy * dpr);
+  var hr = S * HOLE * ST.holeK * dpr;
+  gl.uniform1f(U(P_HOLE, "uAlpha"), ST.holeA);
+  gl.uniform1f(U(P_HOLE, "uHalf"), hr * 6.0);
+  gl.uniform1f(U(P_HOLE, "uR"), hr);
+  gl.uniform1f(U(P_HOLE, "uTime"), t);
+  gl.uniform1f(U(P_HOLE, "uEnergy"), ST.energy);
+  gl.uniform1f(U(P_HOLE, "uPulse"), ST.pulse);
+  gl.uniform1f(U(P_HOLE, "uWarm"), ST.warm);
+  attr(P_HOLE, "aQ", B.q, 2); if (ST.holeA > 0.005) gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4); unbindAll();
+  hr *= ST.holeA > 0.5 ? 1 : 0;
+
+  gl.blendFunc(gl.ONE, gl.ONE);
+  gl.useProgram(P_ORB); setProj(P_ORB);
+  gl.uniformMatrix3fv(U(P_ORB, "uView"), false, VIEW);
+  gl.uniform1f(U(P_ORB, "uTime"), t); gl.uniform1f(U(P_ORB, "uDpr"), dpr); gl.uniform1f(U(P_ORB, "uHole"), hr);
+  gl.uniform1f(U(P_ORB, "uDT"), dustT); gl.uniform1f(U(P_ORB, "uLine"), 1); gl.uniform1f(U(P_ORB, "uDust"), 0);
+  attr(P_ORB, "aOrb", B.ov, 4); attr(P_ORB, "aMisc", B.om, 2);
+  gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, B.oi); gl.drawElements(gl.LINES, ORBIT_IDX, gl.UNSIGNED_SHORT, 0); unbindAll();
+  gl.uniform1f(U(P_ORB, "uDust"), 1); gl.uniform1f(U(P_ORB, "uLine"), 0);
+  attr(P_ORB, "aOrb", B.dv, 4); attr(P_ORB, "aMisc", B.dm, 2); gl.drawArrays(gl.POINTS, 0, DUST_N); unbindAll();
+
+  for (i = 0; i < 10; i++) {
+    var e = f.ex[i] || [0, 0, 0], a = f.anchors[i] || [0, 0, 0];
+    partOff[i * 3] = e[0]; partOff[i * 3 + 1] = e[1]; partOff[i * 3 + 2] = e[2];
+    partCtr[i * 3] = a[0]; partCtr[i * 3 + 1] = a[1]; partCtr[i * 3 + 2] = a[2];
+    partSpin[i] = (f.spin[i] || 0) * t * (RM ? 0.3 : 1);
+    partDone[i] = ST.done[i] || 0; partHot[i] = ST.hot[i] || 0;
+  }
+  gl.useProgram(P_CORE); setProj(P_CORE);
+  gl.uniformMatrix3fv(U(P_CORE, "uView"), false, VIEW);
+  gl.uniformMatrix3fv(U(P_CORE, "uFormRot"), false, f.rot);
+  gl.uniform1f(U(P_CORE, "uTime"), t);
+  gl.uniform1f(U(P_CORE, "uRing"), ST.ring); gl.uniform1f(U(P_CORE, "uForm"), ST.form); gl.uniform1f(U(P_CORE, "uExplode"), ST.explode);
+  gl.uniform1f(U(P_CORE, "uOrbScale"), 1 + Math.sin(t * 1.3) * 0.025 + (ST.energy - 0.6) * 0.05);
+  gl.uniform1f(U(P_CORE, "uDpr"), dpr); gl.uniform1f(U(P_CORE, "uPt"), L.narrow ? 1.7 : 1.55);
+  gl.uniform1f(U(P_CORE, "uFocus"), ST.focus); gl.uniform1f(U(P_CORE, "uWhole"), ST.whole); gl.uniform1f(U(P_CORE, "uHole"), hr);
+  gl.uniform3fv(U(P_CORE, "uPartOff[0]"), partOff); gl.uniform3fv(U(P_CORE, "uPartCtr[0]"), partCtr);
+  gl.uniform1fv(U(P_CORE, "uPartSpin[0]"), partSpin); gl.uniform1fv(U(P_CORE, "uPartDone[0]"), partDone); gl.uniform1fv(U(P_CORE, "uPartHot[0]"), partHot);
+  attr(P_CORE, "aO", B.oA, 4); attr(P_CORE, "aRA", B.oB, 4); attr(P_CORE, "aRB", B.oC, 4); attr(P_CORE, "aRC", B.oD, 4);
+  attr(P_CORE, "aT", B.t, 3); attr(P_CORE, "aPart", B.p, 1);
+  if (ST.form < 0.999) { gl.uniform1f(U(P_CORE, "uLine"), 1); gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, B.li); gl.drawElements(gl.LINES, N * 2, gl.UNSIGNED_SHORT, 0); }
+  gl.uniform1f(U(P_CORE, "uLine"), 0); gl.drawArrays(gl.POINTS, 0, N);
+  unbindAll();
+}
+/* =====================================================================
+   12. 渲染循环
+   ===================================================================== */
+var dustT = 0, now = 0, last = 0, partOff = new Float32Array(30), partCtr = new Float32Array(30), partSpin = new Float32Array(10), partDone = new Float32Array(10), partHot = new Float32Array(10);
+var rateAcc = 0;
+function frame(ts) {
+  requestAnimationFrame(frame);
+  if (host.hidden || document.hidden || !appR) { last = 0; return; }
+  var dt = last ? Math.min(0.05, (ts - last) / 1000) : 0.016;
+  last = ts;
+  var sdt = dt * (RM ? 0.6 : 1);
+  now += sdt;
+  dustT += sdt * (1 + ST.energy * 0.6);
+  if (!dragging) { yawDrag += yawVel * dt; pitchDrag += pitchVel * dt; yawVel *= Math.pow(0.04, dt); pitchVel *= Math.pow(0.04, dt); }
+  VIEW = viewMat(dt);
+  updateState(sdt);
+  spawnComets(sdt);
+  if (gl) drawGL(now);
+  var c = fx, d = L.dpr;
+  c.setTransform(1, 0, 0, 1, 0, 0); c.clearRect(0, 0, fxc.width, fxc.height);
+  c.drawImage(web, 0, 0);
+  c.setTransform(d, 0, 0, d, 0, 0);
+  drawHud(c, now);
+  drawComets(c, sdt);
+  codeStep(dt);
+  placeLabels(c);
+  placeOrbitLabels();
+  uiAcc += dt; beatAcc += dt; fpsAcc += dt; fpsN++; sparkAcc += dt; rateAcc += dt;
+  if (uiAcc > 0.12) { updateUI(uiAcc); uiAcc = 0; }
+  if (beatAcc > 1.6) { beatAcc = Math.random() * 0.7; if (PHASES[ST.ph] !== "build" || Math.random() < 0.6) heartbeat(); }
+  if (sparkAcc > 0.5) { TEL.absRate.push(TEL.absBucket); TEL.absBucket = 0; if (TEL.absRate.length > 60) TEL.absRate.shift(); sparkAcc = 0; if (!L.narrow) drawSpark(); }
+  if (rateAcc >= 1) { rateIn = cntIn / rateAcc; rateOut = cntOut / rateAcc; cntIn = 0; cntOut = 0; rateAcc = 0; }
+  if (fpsAcc > 0.5) { fpsVal = Math.round(fpsN / fpsAcc); fpsAcc = 0; fpsN = 0; $("fps").textContent = fpsVal + " FPS"; $("sFps").textContent = fpsVal; }
+}
+
+/* =====================================================================
+   13. 交互：拖动 / 滚轮 / 双击 / 视角 / 全屏
+   ===================================================================== */
+var dragging = false, lastX = 0, lastY = 0;
+glc.addEventListener("pointerdown", function (e) { dragging = true; lastX = e.clientX; lastY = e.clientY; glc.classList.add("drag"); try { glc.setPointerCapture(e.pointerId); } catch (er) {} });
+glc.addEventListener("pointermove", function (e) {
+  if (!dragging) return;
+  var dx = e.clientX - lastX, dy = e.clientY - lastY; lastX = e.clientX; lastY = e.clientY;
+  yawDrag += dx * 0.006; pitchDrag = clamp(pitchDrag + dy * 0.004, -0.6, 0.9);
+  yawVel = dx * 0.35; pitchVel = dy * 0.2;
+});
+function endDrag() { dragging = false; glc.classList.remove("drag"); }
+glc.addEventListener("pointerup", endDrag); glc.addEventListener("pointercancel", endDrag);
+function resetView() { yawDrag = 0; pitchDrag = 0; yawVel = 0; pitchVel = 0; if (zoom !== 1) { zoom = 1; buildCurves(); renderWeb(); } }
+glc.addEventListener("dblclick", resetView);
+var zoomTimer = 0;
+glc.addEventListener("wheel", function (e) {
+  e.preventDefault();
+  zoom = clamp(zoom * Math.exp(-e.deltaY * 0.0012), 0.7, 1.45);
+  clearTimeout(zoomTimer); zoomTimer = setTimeout(function () { buildCurves(); renderWeb(); }, 60);
+}, { passive: false });
+function focusPart(i) { ST.focus = i; ST.focusT = 6; }
+partsBox.addEventListener("click", function (e) { var b = e.target.closest(".pc"); if (b) focusPart(+b.getAttribute("data-p")); });
+labelsBox.addEventListener("click", function (e) { var b = e.target.closest(".pl"); if (b) focusPart(+b.getAttribute("data-p")); });
+function syncButtons() { [].forEach.call(SR.querySelectorAll('[data-f="mode"]'), function (b) { b.textContent = MODES[modeI].zh; }); }
+function act(name) {
+  if (name === "mode") { modeI = (modeI + 1) % MODES.length; yawDrag = 0; pitchDrag = 0; yawVel = 0; pitchVel = 0; }
+  else if (name === "full") {
+    try {
+      if (document.fullscreenElement) document.exitFullscreen().catch(function () {});
+      else if (document.documentElement.requestFullscreen) document.documentElement.requestFullscreen().catch(function () { var b = SR.querySelector('[data-f="full"]'); b.textContent = "不支持"; setTimeout(function () { b.textContent = "全屏"; }, 1500); });
+    } catch (e) { /* 部分窗口不允许全屏 */ }
+  }
+  syncButtons();
+}
+[].forEach.call(SR.querySelectorAll("[data-act]"), function (b) { b.addEventListener("click", function () { act(b.getAttribute("data-act")); }); });
+document.addEventListener("fullscreenchange", function () { var b = SR.querySelector('[data-f="full"]'); if (b) b.textContent = document.fullscreenElement ? "退出全屏" : "全屏"; });
+document.addEventListener("keydown", function (e) {
+  if (host.hidden) return;
+  var tag = (e.target && e.target.tagName) || "";
+  if (/INPUT|TEXTAREA|SELECT/.test(tag) || e.metaKey || e.ctrlKey || e.altKey) return;
+  if (e.key === "v" || e.key === "V") act("mode");
+  if (e.key === "Escape" && ST.focus >= 0) ST.focus = -1;
+});
+
+/* ---------- 开场 ---------- */
+renderDeliv();
+buildJobDom();
+ST.jobT0 = 0;
+enterPhase();
+for (var w = 0; w < 4; w++) heartbeat();
+for (var w2 = 0; w2 < 32; w2++) { AG.forEach(function (g) { g.load = clamp(g.load + (Math.random() - 0.5) * 0.12, 0.12, 0.8); }); pushHist(); }
+function clockTick() { $("clock").textContent = hms(new Date()); }
+clockTick(); setInterval(clockTick, 1000);
+syncButtons();
+var roT = 0;
+new ResizeObserver(function () { clearTimeout(roT); roT = setTimeout(layout, 60); }).observe(host);
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { layout(); });
+layout();
+// 调试用：document.getElementById('host-forge').__jump('build') / .__next()
+host.__jump = function (phase) { var i = PHASES.indexOf(phase); if (i >= 0) { ST.ph = i; ST.t = 0; enterPhase(); } };
+host.__next = function () { nextJob(); };
+host.__ff = function (sec) { for (var t = 0; t < sec; t += 0.05) { now += 0.05; dustT += 0.05; updateState(0.05); codeStep(0.05); } };
+host.__st = function () { return { job: job().id, phase: PHASES[ST.ph], t: ST.t, comets: comets.length, curvesIn: curvesIn.length, curvesOut: curvesOut.length }; };
+requestAnimationFrame(frame);
+
+}
+
 /* ================= 系列外壳：挂载主题、切换、记住选择 ================= */
 (() => {
   'use strict';
@@ -7911,9 +9985,10 @@ requestAnimationFrame(frame);
     spider: {host: 'host-spider', tpl: 'tpl-spider', mount: mountSpider},
     neural: {host: 'host-neural', tpl: 'tpl-neural', mount: mountNeural, deps: THREE_DEPS},
     factory: {host: 'host-factory', tpl: 'tpl-factory', mount: mountFactory, deps: THREE_DEPS},
-    nebula: {host: 'host-nebula', tpl: 'tpl-nebula', mount: mountNebula, deps: THREE_DEPS}
+    nebula: {host: 'host-nebula', tpl: 'tpl-nebula', mount: mountNebula, deps: THREE_DEPS},
+    forge:  {host: 'host-forge',  tpl: 'tpl-forge',  mount: mountForge}
   };
-  const ORDER = ['ops', 'spider', 'neural', 'factory', 'nebula'], KEY = 'agent-series-theme';
+  const ORDER = ['ops', 'spider', 'neural', 'factory', 'nebula', 'forge'], KEY = 'agent-series-theme';
   function loadScripts(list){
     return list.reduce((p, src) => p.then(() => new Promise(res => { const s = document.createElement('script'); s.src = src; s.onload = res; s.onerror = res; document.head.appendChild(s); })), Promise.resolve());
   }
