@@ -1,6 +1,6 @@
 <!doctype html>
 <!--
-  Agent 战术大屏 v7.0 · DEVELOPED BY @赛博老爸
+  Agent 战术大屏 v8.0 · DEVELOPED BY @赛博老爸
   SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
   Required Notice: Copyright (c) 2026 赛博老爸
   非商业用途可免费使用；商业使用需另行获得授权，联系 cyberdaddyleo@outlook.com。许可证全文见仓库 LICENSE 文件或 https://polyformproject.org/licenses/noncommercial/1.0.0
@@ -50,6 +50,7 @@ body{background:var(--page);overflow:hidden}
 .sw-forge{background:radial-gradient(circle at 58% 50%,#020306 0 8px,rgba(235,244,255,.95) 8.6px 9.6px,rgba(156,208,255,.35) 10px 13px,transparent 14px),radial-gradient(ellipse 34px 13px at 58% 50%,rgba(255,173,94,.38),transparent 72%),repeating-linear-gradient(8deg,transparent 0 4px,rgba(143,227,185,.16) 4px 5px),linear-gradient(90deg,#0a0d12 0 22%,#05070a 22%)}
 .sw-works{background:radial-gradient(circle,#fff 0 1.3px,rgba(255,214,170,.6) 2.4px,transparent 4.5px) 36px 0/12px 12px no-repeat,radial-gradient(ellipse 28px 24px at 100% 100%,transparent 92%,rgba(255,150,190,.9) 94% 97%,transparent 99%) 14px 6px/28px 24px no-repeat,radial-gradient(ellipse 18px 24px at 100% 100%,transparent 90%,rgba(255,206,140,.9) 93% 97%,transparent 99%) 24px 6px/18px 24px no-repeat,radial-gradient(ellipse 28px 24px at 0 100%,transparent 92%,rgba(150,214,255,.85) 94% 97%,transparent 99%) 42px 6px/28px 24px no-repeat,radial-gradient(ellipse 16px 24px at 0 100%,transparent 90%,rgba(255,236,220,.9) 93% 97%,transparent 99%) 42px 6px/16px 24px no-repeat,linear-gradient(90deg,transparent,rgba(255,244,232,.95),transparent) 8px 30px/68px 1.5px no-repeat,radial-gradient(circle,rgba(255,180,120,.9) 0 1px,rgba(255,180,120,.3) 2.6px,transparent 5px) 18px 34px/12px 10px no-repeat,radial-gradient(circle,rgba(255,130,180,.9) 0 1px,rgba(255,130,180,.3) 2.6px,transparent 5px) 36px 33px/12px 10px no-repeat,radial-gradient(circle,rgba(140,220,255,.9) 0 1px,rgba(140,220,255,.3) 2.6px,transparent 5px) 54px 34px/12px 10px no-repeat,radial-gradient(ellipse 40px 8px at 50% 50%,rgba(176,184,204,.34),rgba(176,184,204,.1) 70%,transparent 74%) 0 32px/84px 16px no-repeat,radial-gradient(ellipse at 12% 100%,rgba(154,92,255,.5),transparent 42%),radial-gradient(ellipse at 88% 100%,rgba(63,224,138,.45),transparent 42%),#04060a}
 .pk{max-height:calc(100dvh - 32px);overflow:auto}
+.sw-ion{background:linear-gradient(90deg,transparent 19px,rgba(255,240,230,.95) 19.6px 20.8px,transparent 21.4px 41px,rgba(255,240,230,.95) 41.6px 42.8px,transparent 43.4px 63px,rgba(255,240,230,.95) 63.6px 64.8px,transparent 65.4px),linear-gradient(90deg,transparent 14px,rgba(255,61,31,.55) 16px 24px,transparent 26px 36px,rgba(255,61,31,.55) 38px 46px,transparent 48px 58px,rgba(255,61,31,.55) 60px 68px,transparent 70px),linear-gradient(180deg,transparent 21px,#ffd23f 21px 23px,transparent 23px) 4px 0/62px 48px no-repeat,repeating-linear-gradient(180deg,transparent 0 4px,rgba(255,120,80,.22) 4px 10px,transparent 10px 12px),#0a0608}
 .tcard.next{cursor:default;border-style:dashed;opacity:.55}
 .tcard.next:hover{border-color:var(--sheet-line)}
 .sw-next{border:1px dashed var(--sheet-mute);background:repeating-linear-gradient(45deg,transparent 0 6px,rgba(125,130,152,.15) 6px 7px)}
@@ -64,6 +65,7 @@ body{background:var(--page);overflow:hidden}
 <div class="th-host" id="host-nebula" hidden></div>
 <div class="th-host" id="host-forge" hidden></div>
 <div class="th-host" id="host-works" hidden></div>
+<div class="th-host" id="host-ion" hidden></div>
 
 <div class="picker" id="picker" hidden>
  <div class="pk" role="dialog" aria-modal="true" aria-labelledby="pkT">
@@ -76,7 +78,8 @@ body{background:var(--page);overflow:hidden}
    <button class="tcard" type="button" data-theme-id="nebula"><span class="sw sw-nebula" aria-hidden="true"></span><span class="tn"><b>05 · NEBULA 星核蜘蛛</b><small>12 团智能体星云 · 星云蛛逐字审需求 · 过线才派单</small></span><em>当前</em></button>
    <button class="tcard" type="button" data-theme-id="forge"><span class="sw sw-forge" aria-hidden="true"></span><span class="tn"><b>06 · FORGE 视界熔炉</b><small>黑洞吸积子 Agent 情报 · 星核投影出整机再拆解 · 逐件交付</small></span><em>当前</em></button>
    <button class="tcard" type="button" data-theme-id="works"><span class="sw sw-works" aria-hidden="true"></span><span class="tn"><b>07 · WORKS 天工开物</b><small>总控卫星派单 · 8 台机械喷射光丝 · 粒子一滴滴织出项目</small></span><em>当前</em></button>
-   <div class="tcard next" aria-disabled="true"><span class="sw sw-next" aria-hidden="true"></span><span class="tn"><b>08 · 下一款</b><small>系列主题筹备中</small></span></div>
+   <button class="tcard" type="button" data-theme-id="ion"><span class="sw sw-ion" aria-hidden="true"></span><span class="tn"><b>08 · ION 离子回路</b><small>全屏决策电路 · 离子高速穿行 · 每个任务一种颜色</small></span><em>当前</em></button>
+   <div class="tcard next" aria-disabled="true"><span class="sw sw-next" aria-hidden="true"></span><span class="tn"><b>09 · 下一款</b><small>系列主题筹备中</small></span></div>
   </div>
   <div class="pk-f"><span>按 T 键直接轮换主题 · 选择会被记住</span><span>DEVELOPED BY @赛博老爸</span></div>
  </div>
@@ -2103,6 +2106,246 @@ button.tb:focus-visible{outline:1px solid var(--ice);outline-offset:2px}
 </div></div>
 </div>
 <div class="glfail" id="glFail" hidden>这台设备的浏览器没法显示 3D 画面（WebGL 不可用），面板数据照常在跑。换 Chrome / Edge 打开即可看到机械与织造台。</div>
+</template>
+
+<!-- ===== 主题 08 · ION 离子回路 ===== -->
+<template id="tpl-ion">
+<style>
+/* Layout: 全屏决策电路 —— 整个画面就是一面斜着退向远处的「决策卡墙」：6 列 = 一个 Agent 做决定的 6 个环节（状态 → 提问 → 推理 → 决策 → 闸门 → 执行），
+   列与列之间是竖直的等离子母线，卡片之间走着电路走线，离子沿线高速穿行，整面墙一直缓缓上滑。每跑一个任务，离子光球从左到右一列一列点亮决策节点，
+   整面电路换成这个任务的颜色，跑完后整面墙快速甩到下一段。标题、用例、读数都不加框，浮在电路上，用焊盘和走线接进电路。左上标题、右上按钮与前几款同一套写法。
+   决策卡是 DOM（透视用 matrix3d 贴上去，文字清楚），等离子与离子流是原生 WebGL（带泛光）叠加在卡片上（screen 混合），不依赖 three.js。 */
+:host{
+  color-scheme:dark;
+  --bg:#07060b; --panel:rgba(11,9,17,.84); --card:rgba(16,13,24,.86);
+  --line:rgba(200,190,255,.1); --line-2:rgba(210,200,255,.24);
+  --fg:#ece8f6; --fg-2:#a49fb6; --fg-3:#69647c; --ok:#5dffa8;
+  --c0:#ff3d1f; --hi:#ffd23f; --fil:#ff8a3d; --c0a:rgba(255,61,31,.3); --c0b:rgba(255,61,31,.14); --hia:rgba(255,210,63,.32); --hib:rgba(255,210,63,.12);
+  --display:"Syncopate","Noto Sans SC",system-ui,sans-serif;
+  --mono:"JetBrains Mono","Noto Sans SC","PingFang SC",ui-monospace,Menlo,monospace;
+  --cjk:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+}
+:host{display:block;height:100%;position:relative;overflow:hidden;background:var(--bg);color:var(--fg);font-family:var(--mono);-webkit-font-smoothing:antialiased}
+[hidden]{display:none!important}
+*{box-sizing:border-box}
+.app{position:absolute;inset:0;overflow:hidden}
+.bgc{position:absolute;inset:0;background:radial-gradient(ellipse 60% 46% at 38% 48%,var(--c0b),transparent 72%),radial-gradient(ellipse 40% 36% at 72% 52%,var(--hib),transparent 70%),linear-gradient(180deg,#07060b,#0a0710 50%,#07060b);transition:background .6s}
+.wall{position:absolute;inset:0;overflow:hidden;cursor:grab;touch-action:none}
+.wall.drag{cursor:grabbing}
+.cshade{position:absolute;inset:0;pointer-events:none}
+.gl{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none;mix-blend-mode:screen}
+.vig{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 76% 70% at 50% 50%,transparent 60%,rgba(0,0,0,.6) 100%)}
+.nr{position:absolute;inset:0;pointer-events:none}
+.fit{position:absolute;inset:0;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));pointer-events:none}
+.fit-in{position:relative;width:100%;height:100%}
+.board{position:absolute;left:50%;top:50%;width:1920px;height:1080px;transform:translate(-50%,-50%) scale(var(--s,.5));pointer-events:none}
+.pe{pointer-events:auto}
+
+/* ---------- 决策卡（DOM，matrix3d 贴到透视墙上） ---------- */
+.nd{position:absolute;left:0;top:0;width:420px;height:160px;transform-origin:0 0;padding:12.6px 16.8px 11.2px;display:flex;flex-direction:column;gap:8.4px;
+  background:linear-gradient(180deg,var(--c0b),rgba(13,10,19,.9) 55%,rgba(9,7,14,.92));border:1.4px solid var(--c0a);color:var(--fg-2);font:500 16.8px/1.2 var(--mono);
+  box-shadow:inset 0 1.4px 0 rgba(255,255,255,.05);backface-visibility:hidden;will-change:transform;contain:layout paint}
+.nd::before,.nd::after{content:"";position:absolute;width:14px;height:14px;border:2.8px solid var(--c0);opacity:.75}
+.nd::before{left:-2.8px;top:-2.8px;border-right:0;border-bottom:0}
+.nd::after{right:-2.8px;bottom:-2.8px;border-left:0;border-top:0}
+.nd-h{display:flex;align-items:center;gap:11.2px;white-space:nowrap;min-width:0}
+.nd-h i{flex:none;width:11.2px;height:11.2px;background:var(--c0);box-shadow:0 0 8.4px var(--c0)}
+.nd-h b{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;font-family:var(--cjk);font-weight:500;font-size:21px;letter-spacing:.02em;color:var(--fg)}
+.nd-h b small{font-family:var(--mono);font-size:19.6px;font-weight:500;color:var(--fg);letter-spacing:0}
+.nd-h span{flex:none;font-size:13.3px;letter-spacing:.14em;color:var(--fg-3);border:1.4px solid var(--line-2);padding:1.4px 7px}
+.nd-kv{display:grid;grid-template-columns:auto minmax(0,1fr) auto minmax(0,1fr);gap:2.8px 11.2px;font-size:15.4px;color:var(--fg-3);white-space:nowrap}
+.nd-kv em{font-style:normal;color:var(--fg-2);overflow:hidden;text-overflow:ellipsis;font-family:var(--cjk)}
+.nd-f{margin-top:auto;display:flex;align-items:flex-end;gap:11.2px;font-size:14px;color:var(--fg-3);white-space:nowrap}
+.nd-g{flex:1;display:flex;gap:2.2px;height:46px;align-items:flex-end;border-bottom:1px solid var(--c0a)}
+.nd-g u{flex:1;background:var(--fil);opacity:.42;text-decoration:none}
+.nd-f s{text-decoration:none;width:9.8px;height:9.8px;border-radius:50%;background:var(--fg-3)}
+.nd-x{display:none;position:absolute;right:14px;bottom:9.8px;font:700 16.8px/1 var(--cjk);color:#160f06;background:var(--hi);padding:4.2px 8.4px;white-space:nowrap;box-shadow:0 0 16.8px var(--hi)}
+.nd.ping{border-color:var(--fil);box-shadow:0 0 18px var(--c0a),inset 0 0 22px var(--c0b);transition:border-color .2s,box-shadow .2s}
+.nd.ping .nd-h i{background:var(--fil);box-shadow:0 0 10px var(--fil)}
+.nd.ping .nd-g u{opacity:.8}
+.nd.blip .nd-f s{background:var(--ok);box-shadow:0 0 8.4px var(--ok)}
+.nd.on{border:2.8px solid var(--hi);background:linear-gradient(180deg,var(--hia),var(--hib) 70%,rgba(11,9,17,.88));box-shadow:0 0 30.8px var(--hia),inset 0 0 36.4px var(--hib)}
+.nd.on::before,.nd.on::after{border-color:#fff;opacity:1}
+.nd.on .nd-h b,.nd.on .nd-h b small{color:#fff}
+.nd.on .nd-h i{background:#fff;box-shadow:0 0 11.2px var(--hi)}
+.nd.on .nd-h span{color:var(--hi);border-color:var(--hi)}
+.nd.on .nd-kv{color:var(--fg-2)}
+.nd.on .nd-kv em{color:var(--fg)}
+/* 点亮后的柱状图：整根拉满再上下跳，每根节奏不同 */
+.nd.on .nd-g u{height:100%!important;background:linear-gradient(0deg,var(--hib),var(--hi) 70%,#fff);opacity:.95;transform-origin:50% 100%;animation:ionbar var(--d,1.1s) ease-in-out infinite alternate}
+.nd.hot .nd-g u{animation-duration:calc(var(--d,1.1s) * .7)}
+@keyframes ionbar{0%{transform:scaleY(.22)}100%{transform:scaleY(1)}}
+.nd.on .nd-f s{background:var(--hi);box-shadow:0 0 8.4px var(--hi)}
+.nd.on .nd-x{display:block}
+.nd.hot{box-shadow:0 0 47.6px var(--hi),inset 0 0 47.6px var(--hia);animation:ionhot .5s ease-in-out infinite alternate}
+.nd.hold .nd-x{background:#ffb020;box-shadow:0 0 16.8px #ffb020}
+@keyframes ionhot{from{border-color:var(--hi)}to{border-color:#fff}}
+
+/* ---------- 浮在电路上的 HUD：没有框，只有暗角、细线和焊盘；焊盘由 WebGL 走线接进电路 ---------- */
+.shade-tl{position:absolute;left:-60px;top:-40px;width:900px;height:420px;background:radial-gradient(ellipse 700px 340px at 0 0,rgba(5,4,9,.55),rgba(5,4,9,.3) 50%,rgba(5,4,9,0) 82%)}
+.shade-tr{position:absolute;right:-60px;top:-40px;width:560px;height:440px;background:radial-gradient(ellipse 460px 380px at 100% 0,rgba(5,4,9,.5),rgba(5,4,9,.28) 50%,rgba(5,4,9,0) 84%)}
+.shade-b{position:absolute;left:0;right:0;bottom:0;height:130px;background:linear-gradient(0deg,rgba(5,4,9,.6),rgba(5,4,9,.25) 50%,rgba(5,4,9,0))}
+.hd{position:absolute;left:28px;top:22px;width:max-content;text-shadow:0 0 6px var(--bg),0 0 16px var(--bg)}
+.eb{width:max-content;font-size:10px;letter-spacing:.26em;color:var(--fg-3);white-space:nowrap}
+.eb b{color:var(--hi);font-weight:500}
+.hd h1{margin:12px 0 0;font-family:var(--display);font-weight:700;font-size:44px;line-height:1.06;letter-spacing:.05em;color:var(--fg)}
+.hd h1 span{display:block;width:max-content;white-space:nowrap}
+.hd h1 .l1{display:flex;align-items:center;width:max-content}
+.hd h1 em{font-style:normal;font-family:var(--cjk);font-weight:900;font-size:36px;line-height:1;letter-spacing:.08em;margin-left:22px;text-shadow:none;background:linear-gradient(90deg,var(--hi),var(--c0));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 12px var(--c0a))}
+.rule{position:relative;width:560px;height:9px;margin-top:10px}
+.rule::before{content:"";position:absolute;left:0;right:8px;top:4px;height:1px;background:linear-gradient(90deg,var(--hi),var(--c0) 55%,var(--c0a));box-shadow:0 0 8px var(--c0)}
+.rule::after{content:"";position:absolute;left:0;top:1px;width:46px;height:7px;background:repeating-linear-gradient(90deg,var(--hi) 0 3px,transparent 3px 7px);opacity:.85}
+.pad{position:absolute;width:9px;height:9px;border:1.5px solid var(--hi);border-radius:50%;background:var(--bg);box-shadow:0 0 10px var(--hi)}
+.rule .pad{right:0;top:0}
+.sub{width:max-content;margin-top:10px;font-family:var(--cjk);font-size:14px;letter-spacing:.06em;color:var(--fg-2);white-space:nowrap}
+.case{display:flex;align-items:center;gap:12px;margin-top:16px;white-space:nowrap}
+.cpill{flex:none;font:700 12px/1 var(--mono);letter-spacing:.1em;color:#120c04;background:var(--hi);padding:6px 9px;box-shadow:0 0 18px var(--hia)}
+.case b{font-family:var(--display);font-weight:700;font-size:21px;line-height:1;letter-spacing:.06em;color:var(--fg);text-shadow:0 0 18px var(--c0a),0 0 6px var(--bg)}
+.case em{font-style:normal;font-family:var(--cjk);font-size:15px;font-weight:700;letter-spacing:.06em;color:var(--hi)}
+.cpath{margin-top:9px;font-family:var(--cjk);font-size:13px;color:var(--fg-2);white-space:nowrap}
+.cpath i{font-style:normal;color:var(--hi);margin:0 7px}
+.cpath b{font-weight:500;color:var(--fg)}
+.ucd{display:flex;align-items:center;gap:5px;margin-top:12px}
+.ucd i{width:8px;height:8px;background:var(--uc);opacity:.35;transition:opacity .3s,transform .3s}
+.ucd i.done{opacity:.75}
+.ucd i.on{opacity:1;transform:scale(1.5);box-shadow:0 0 10px var(--uc)}
+.ucd span{margin-left:8px;font-size:9.5px;letter-spacing:.14em;color:var(--fg-3)}
+.sub2{width:max-content;margin-top:10px;font-size:10px;letter-spacing:.16em;color:var(--fg-3);white-space:nowrap}
+.sub2 b{color:var(--fg);font-weight:500;font-variant-numeric:tabular-nums}
+
+/* ---------- 右上按钮（与 03–07 同款，去掉底色） ---------- */
+.tools{position:absolute;right:28px;top:16px;display:flex;gap:6px}
+button.tb{font:500 11px/1 var(--mono);letter-spacing:.1em;color:var(--fg-2);background:rgba(8,6,12,.45);border:1px solid rgba(210,200,255,.26);padding:8px 11px;cursor:pointer;white-space:nowrap;backdrop-filter:blur(2px)}
+button.tb b{color:var(--fg);font-weight:700;font-family:var(--cjk);margin-left:6px;letter-spacing:.04em}
+button.tb:hover{border-color:var(--hi);color:var(--fg)}
+button.tb:focus-visible{outline:1px solid var(--hi);outline-offset:2px}
+.strip{position:absolute;right:28px;top:54px;display:flex;gap:16px;font-size:9.5px;letter-spacing:.12em;color:var(--fg-3);white-space:nowrap;text-shadow:0 0 6px var(--bg)}
+.strip b{color:var(--fg);font-weight:500;margin-left:5px;font-variant-numeric:tabular-nums}
+.strip .live::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--ok);margin-right:6px;vertical-align:1px;box-shadow:0 0 6px var(--ok)}
+
+/* 右上读数：右对齐的浮动数字，左侧焊盘接电路 */
+.hud{position:absolute;right:28px;top:94px;width:300px;display:flex;flex-direction:column;gap:14px;text-shadow:0 0 6px var(--bg),0 0 14px var(--bg)}
+.ro{position:relative;display:flex;flex-direction:column;align-items:flex-end;gap:4px;padding-left:24px}
+.ro .pad{left:0;top:26px}
+.ro::before{content:"";position:absolute;left:9px;right:0;top:30px;height:1px;background:linear-gradient(90deg,var(--c0a),transparent 30%,transparent 62%,var(--line-2))}
+.ro-l{font-size:9px;letter-spacing:.16em;color:var(--fg-3);white-space:nowrap}
+.ro-l em{font-style:normal;font-family:var(--cjk);font-size:10.5px;color:var(--fg-2);letter-spacing:.08em;margin-right:6px}
+.ro-v{display:flex;align-items:center;gap:10px;margin-top:6px}
+.ro-v b{font-size:32px;font-weight:700;line-height:1;letter-spacing:-.01em;color:var(--fg);font-variant-numeric:tabular-nums;white-space:nowrap}
+.ro-v small{font-size:13px;color:var(--fg-3);margin-left:-6px}
+.ro-v canvas{width:120px;height:26px}
+.ro-v .glow{color:var(--hi);text-shadow:0 0 16px var(--hia),0 0 4px var(--bg)}
+.badge{font:700 11px/1 var(--mono);letter-spacing:.12em;color:#140e04;background:var(--ok);padding:4px 8px;box-shadow:0 0 12px rgba(93,255,168,.5);text-shadow:none}
+.badge.hold{background:#ffb020;box-shadow:0 0 12px rgba(255,176,32,.55)}
+.ro-b{width:170px;height:3px;background:rgba(255,255,255,.08);position:relative}
+.ro-b i{position:absolute;left:0;top:0;bottom:0;width:0;background:linear-gradient(90deg,var(--c0),var(--hi));box-shadow:0 0 8px var(--hi);transition:width .4s}
+.ro-b em{position:absolute;top:-4px;bottom:-4px;width:1px;background:var(--fg);left:85%}
+.ro.flash .ro-v b{animation:ionflash .6s ease-out}
+@keyframes ionflash{0%{color:#fff;text-shadow:0 0 22px var(--hi)}100%{}}
+
+/* 底部：列标签 + 日志滚动 + 状态行，都不加框 */
+.colfoot{position:absolute;left:0;right:0;bottom:36px;height:22px}
+.ch{position:absolute;top:0;transform:translateX(-50%);display:flex;align-items:baseline;gap:6px;font-size:9.5px;letter-spacing:.16em;color:var(--fg-3);white-space:nowrap;padding:3px 9px 4px;border-top:1px solid var(--line-2);text-shadow:0 0 6px var(--bg);transition:color .25s,border-color .25s}
+.ch span{font-family:var(--cjk);font-size:11.5px;letter-spacing:.06em;color:var(--fg-2)}
+.ch.done{color:var(--hi);border-color:var(--c0a)}
+.ch.on{color:var(--hi);border-color:var(--hi);border-top-width:2px}
+.ch.on span{color:var(--fg)}
+.tick{position:absolute;left:28px;bottom:70px;display:flex;flex-direction:column-reverse;gap:2px;font-size:10px;line-height:15px;white-space:nowrap;text-shadow:0 0 6px var(--bg)}
+.lr{display:grid;grid-template-columns:58px 52px auto;gap:8px;color:var(--fg-3)}
+.lr .a{color:var(--hi);letter-spacing:.06em}
+.lr .x{font-family:var(--cjk);color:var(--fg-2)}
+.lr:nth-child(2){opacity:.6}
+.lr:nth-child(3){opacity:.32}
+.lr.fresh .x{color:var(--fg)}
+.sb{position:absolute;left:28px;right:28px;bottom:12px;display:flex;align-items:center;justify-content:center;gap:28px;font-size:9.5px;letter-spacing:.14em;color:var(--fg-3);white-space:nowrap;overflow:hidden;text-shadow:0 0 6px var(--bg)}
+.sb b{color:var(--fg-2);font-weight:500;font-variant-numeric:tabular-nums}
+.sb .on::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--ok);margin-right:7px;vertical-align:1px;box-shadow:0 0 6px var(--ok)}
+.sb .wm{font-family:var(--display);font-size:9px;letter-spacing:.3em;color:#5a536c}
+
+/* ---------- 窄屏 / 竖屏 ---------- */
+.mini{display:none;position:absolute;inset:0;flex-direction:column;justify-content:space-between;pointer-events:none;padding-block:10px}
+.narrow .board{display:none}
+.narrow .mini{display:flex}
+.m-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;background:linear-gradient(180deg,rgba(5,4,9,.92),rgba(5,4,9,.55) 70%,transparent);margin-inline:-16px;margin-top:-10px;padding:10px 16px 18px}
+.m-title{font-family:var(--display);font-weight:700;font-size:17px;letter-spacing:.05em;line-height:1.1;text-shadow:0 0 8px var(--bg)}
+.m-title i{display:block;font-style:normal;font-family:var(--cjk);font-weight:700;font-size:12px;color:var(--hi);letter-spacing:.12em;margin-top:5px}
+.m-btns{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:5px;max-width:210px}
+.m-btns .tb{padding:6px 8px;font-size:10px}
+.m-case{display:flex;align-items:center;gap:8px;margin-top:10px}
+.m-case .cpill{font-size:10px;padding:5px 7px}
+.m-case b{font-family:var(--display);font-size:13px;letter-spacing:.05em;white-space:nowrap}
+.m-bot{background:linear-gradient(0deg,rgba(5,4,9,.94),rgba(5,4,9,.62) 70%,transparent);margin-inline:-16px;padding:24px 16px 0}
+.m-cap{font-family:var(--cjk);font-size:12px;color:var(--fg-2);text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.m-cap i{font-style:normal;color:var(--hi);margin:0 4px}
+.m-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;border-top:1px solid var(--line-2);padding-top:8px;margin-top:8px}
+.m-stats div{display:grid;gap:2px;min-width:0}
+.m-stats span{font-size:9px;letter-spacing:.12em;color:var(--fg-3);white-space:nowrap}
+.m-stats b{font-size:15px;font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-family:var(--cjk)}
+.m-wm{margin-top:6px;font-family:var(--display);font-weight:400;font-size:8.5px;letter-spacing:.3em;color:#453f55;text-align:center}
+.glfail{position:absolute;left:50%;bottom:24px;transform:translateX(-50%);max-width:420px;text-align:center;font-family:var(--cjk);font-size:12px;line-height:1.7;color:var(--fg-2);border:1px solid var(--line-2);padding:10px 16px;background:rgba(10,8,15,.88)}
+@media (prefers-reduced-motion:reduce){.nd.hot{animation:none}.nd.on .nd-g u{animation:none}.ro.flash .ro-v b{animation:none}.ro-b i{transition:none}}
+</style>
+
+<div class="app" id="app">
+<div class="bgc" aria-hidden="true"></div>
+<div class="wall" id="wall" role="img" aria-label="离子回路：6 列决策卡组成的电路墙，离子光球按状态、提问、推理、决策、闸门、执行一列一列点亮决策节点，每个任务一种颜色。上下拖动或滚轮滑动电路墙，左右拖动改变斜角，双击复位"></div>
+<div class="cshade" id="cshade" aria-hidden="true"></div>
+<canvas class="gl" id="gl" aria-hidden="true"></canvas>
+<div class="vig" aria-hidden="true"></div>
+<div class="nr" id="nr">
+<div class="fit"><div class="fit-in" id="fitIn">
+ <div class="board" id="board">
+  <div class="shade-tl"></div><div class="shade-tr"></div><div class="shade-b"></div>
+  <header class="hd">
+   <div class="eb">AGENT OPS · THEME <b>08</b> · DECISION GRID</div>
+   <h1><span>ION</span><span class="l1">CIRCUIT<em>离子回路</em></span></h1>
+   <div class="rule"><i class="pad" id="anT"></i></div>
+   <div class="sub">每个任务一种颜色 · 离子沿决策电路高速穿行 · 节点逐个点亮</div>
+   <div class="case"><span class="cpill" id="cPill">CASE 01 / 12</span><b id="cEn">—</b><em id="cZh">—</em></div>
+   <div class="cpath" id="cPath">—</div>
+   <div class="ucd" id="ucd"></div>
+   <div class="sub2">示例数据 · 本地模拟 · 未接模型 · <b id="clock">--:--:--</b></div>
+  </header>
+  <div class="tools pe">
+   <button class="tb" type="button" data-act="mode">视角<b data-f="mode">斜视</b></button>
+   <button class="tb" type="button" data-series-pick>主题</button>
+   <button class="tb" type="button" data-act="full" data-f="full">全屏</button>
+  </div>
+  <div class="strip"><span class="live">ION BUS</span><span>CASE<b id="sCase">01/12</b></span><span>IONS/s<b id="sIon">0</b></span><span>NODES<b id="sNode">0</b></span><span>FPS<b id="sFps">60</b></span></div>
+  <section class="hud" aria-label="实时读数">
+   <div class="ro" id="ro0"><i class="pad"></i><div class="ro-l"><em>决策数</em>DECISIONS · THIS RUN</div><div class="ro-v"><b id="kDec">0</b></div></div>
+   <div class="ro" id="ro1"><i class="pad"></i><div class="ro-l"><em>中位延迟</em>MEDIAN LATENCY · P50</div><div class="ro-v"><canvas id="kWave"></canvas><b id="kLat">~256</b><small>ms</small></div></div>
+   <div class="ro" id="ro2"><i class="pad"></i><div class="ro-l"><em>单次决策用量</em>TOKENS / DECISION</div><div class="ro-v"><b id="kTok">1.8k</b><small>tok</small></div></div>
+   <div class="ro" id="ro3"><i class="pad"></i><div class="ro-l"><em>置信度</em>CONFIDENCE · 闸门 0.85</div><div class="ro-v"><span class="badge" id="kBadge">PASS</span><b class="glow" id="kConf">0.89</b></div><div class="ro-b"><i id="kConfBar"></i><em></em></div></div>
+  </section>
+  <div class="colfoot" id="colh"></div>
+  <div class="tick" id="log" aria-label="决策日志"></div>
+  <footer class="sb">
+   <span class="on">SYSTEM ONLINE</span><span>今日决策 <b id="sbDec">0</b></span><span>当前 <b id="sbCase">—</b></span><span>离子 <b id="sbIon">0</b> /s</span><span class="wm">DEVELOPED BY @赛博老爸</span>
+  </footer>
+ </div>
+
+ <div class="mini" id="mini">
+  <div class="m-top">
+   <div>
+    <div class="m-title">ION CIRCUIT<i>离子回路 · 示例数据</i></div>
+    <div class="m-case"><span class="cpill" id="mPill">CASE 01/12</span><b id="mEn">—</b></div>
+   </div>
+   <div class="m-btns pe">
+    <button class="tb" type="button" data-act="mode">视角<b data-f="mode">斜视</b></button>
+    <button class="tb" type="button" data-series-pick>主题</button>
+   </div>
+  </div>
+  <div class="m-bot">
+   <div class="m-cap" id="mCap">—</div>
+   <div class="m-stats"><div><span>当前用例</span><b id="mCase">—</b></div><div><span>决策进度</span><b id="mHop">—</b></div><div><span>今日决策</span><b id="mDec">0</b></div></div>
+   <div class="m-wm">DEVELOPED BY @赛博老爸</div>
+  </div>
+ </div>
+</div></div>
+</div>
+<div class="glfail" id="glFail" hidden>这台设备的浏览器没法显示离子特效（WebGL 不可用），决策卡和读数照常在跑。换 Chrome / Edge 打开即可看到等离子电路。</div>
+</div>
 </template>
 
 <script>
@@ -12595,6 +12838,1006 @@ host.__st = function () { var m = curModel(); return { job: job().id, phase: PHA
 requestAnimationFrame(frame);
 }
 
+/* ================= 主题 08 · ION 离子回路（DOM 决策卡 + 原生 WebGL 离子电路，不依赖 three.js） ================= */
+function mountIon(host, SR){
+"use strict";
+var TAU = Math.PI * 2;
+var RM = false;
+try { RM = window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) {}
+
+/* =====================================================================
+   1. 配置：6 个决策环节（= 电路墙的 6 列）与 12 个用例（每个用例一种电路颜色）
+   ===================================================================== */
+var STAGES = [
+  { k: "STATE", zh: "状态" }, { k: "ASK", zh: "提问" }, { k: "THINK", zh: "推理" },
+  { k: "DECIDE", zh: "决策" }, { k: "GATE", zh: "闸门" }, { k: "CODE", zh: "执行" }
+];
+/* 每列的节点池：「标签|前缀|名称」 */
+var POOLS = [
+  ["inbox", "crm_lead", "doc_index", "feed_cache", "ticket_ctx", "meeting_log", "media_lib", "calendar", "draft_queue", "repo_diff", "history", "thread_ctx", "user_pref"].map(function (n) { return "STATE|状态|" + n; }),
+  ["is_urgent?", "worth_reply?", "intent?", "in_scope?", "sentiment?", "topic?", "needs_review?", "is_highlight?", "has_owner?", "duplicate?", "is_spam?"].map(function (n) { return "ASK|提问|" + n; }),
+  ["extract_fields", "summarize", "plan_steps", "draft_outline", "classify", "compare_opts", "rank_sources", "estimate_effort"].map(function (n) { return "THINK|推理|" + n; }),
+  ["CHOICE|选择|folder", "SCORE|评分|lead_quality", "CHOICE|选择|next_action", "SCORE|评分|viral_fit", "CHOICE|选择|reply_tone", "CHOICE|选择|owner", "BOOL|判断|safe_to_sign",
+   "SCORE|评分|hook_score", "CHOICE|选择|priority", "BOOL|判断|safe_to_run", "CHOICE|选择|merge_plan", "SCORE|评分|urgency", "BOOL|判断|worth_post"],
+  ["conf ≥ 0.85", "human_ok?", "policy_check", "pii_scan", "dup_guard", "budget_ok", "rate_limit"].map(function (n) { return "GATE|闸门|" + n; }),
+  ["label_folder", "book_call", "fill_form", "post_draft", "draft_reply", "save_notes", "cut_clip", "create_task", "archive", "patch_pr", "open_ticket"].map(function (n) { return "TOOL|执行|" + n; })
+];
+/* 12 个用例：c0 = 电路主色，hi = 点亮色（节点框、路径），fil = 辅助细丝色；path 是 6 列各自的决策节点与结果 */
+var CASES = [
+  { id: "email", zh: "邮件分拣", en: "EMAIL TRIAGE", c0: "#18c8ff", hi: "#a8f0ff", fil: "#ffe066", conf: 0.92,
+    path: [["inbox", "38 封未读"], ["is_urgent?", "no 0.12"], ["extract_fields", "3 个字段"], ["选择|folder", "work/客户"], ["conf ≥ 0.85", "PASS 0.92"], ["label_folder", "已归档"]] },
+  { id: "lead", zh: "线索跟进", en: "INBOUND LEAD", c0: "#ff3d1f", hi: "#ffd23f", fil: "#ff8a3d", conf: 0.89,
+    path: [["crm_lead", "新线索 3 条"], ["worth_reply?", "yes 0.93"], ["summarize", "需求摘要"], ["评分|lead_quality", "high 0.89"], ["conf ≥ 0.85", "PASS 0.89"], ["book_call", "发送日历链接"]] },
+  { id: "browser", zh: "浏览器代理", en: "BROWSER AGENT", c0: "#8a3dff", hi: "#c9a2ff", fil: "#ffd23f", conf: 0.94,
+    path: [["doc_index", "12 个页面"], ["intent?", "填表 0.88"], ["plan_steps", "5 步"], ["选择|next_action", "type_destination"], ["human_ok?", "已确认"], ["fill_form", "表单待确认"]] },
+  { id: "social", zh: "社媒发帖", en: "SOCIAL POST", c0: "#ff2a9a", hi: "#ff7ad1", fil: "#ffb35a", conf: 0.86,
+    path: [["feed_cache", "热点 6 条"], ["in_scope?", "yes 0.81"], ["draft_outline", "3 版草稿"], ["评分|viral_fit", "0.86"], ["policy_check", "PASS"], ["post_draft", "存入草稿箱"]] },
+  { id: "support", zh: "客服工单", en: "SUPPORT TICKET", c0: "#b23dff", hi: "#ff5fd2", fil: "#ffd23f", conf: 0.9,
+    path: [["ticket_ctx", "工单 #2148"], ["sentiment?", "着急 0.71"], ["classify", "账号问题"], ["选择|reply_tone", "安抚 + 步骤"], ["pii_scan", "PASS"], ["draft_reply", "回复草稿待发"]] },
+  { id: "meeting", zh: "会议纪要", en: "MEETING NOTES", c0: "#1fff8f", hi: "#d9ff6a", fil: "#6affd6", conf: 0.91,
+    path: [["meeting_log", "47 分钟录音"], ["topic?", "排期 0.90"], ["extract_fields", "7 个待办"], ["选择|owner", "3 位负责人"], ["dup_guard", "PASS"], ["save_notes", "纪要已同步"]] },
+  { id: "contract", zh: "合同审查", en: "CONTRACT REVIEW", c0: "#ffa31a", hi: "#fff0b8", fil: "#ff6a3d", conf: 0.62, hold: true,
+    path: [["doc_index", "合同 18 页"], ["needs_review?", "yes 0.95"], ["compare_opts", "3 处差异"], ["判断|safe_to_sign", "存疑 0.62"], ["human_ok?", "HOLD 转法务"], ["save_notes", "批注已保存"]] },
+  { id: "clips", zh: "视频切片", en: "VIDEO CLIPS", c0: "#ff2440", hi: "#ff9a7a", fil: "#ffd23f", conf: 0.88,
+    path: [["media_lib", "2 小时素材"], ["is_highlight?", "12 段"], ["rank_sources", "Top 5"], ["评分|hook_score", "0.88"], ["budget_ok", "PASS"], ["cut_clip", "5 条切片"]] },
+  { id: "tasks", zh: "日程任务", en: "WEEKLY TASKS", c0: "#ffd400", hi: "#fff6a8", fil: "#ff7a2a", conf: 0.9,
+    path: [["calendar", "本周 23 项"], ["has_owner?", "17 / 23"], ["plan_steps", "排程 3 天"], ["选择|priority", "P1 × 4"], ["rate_limit", "PASS"], ["create_task", "新建 6 个任务"]] },
+  { id: "brain", zh: "知识归档", en: "BRAIN DUMP", c0: "#12e0c4", hi: "#a8fff0", fil: "#c6ff5a", conf: 0.87,
+    path: [["draft_queue", "语音笔记 9 条"], ["duplicate?", "重复 2 条"], ["classify", "4 个主题"], ["选择|folder", "知识库/产品"], ["dup_guard", "PASS"], ["archive", "归档 7 条"]] },
+  { id: "codefix", zh: "代码修复", en: "CODE FIX", c0: "#3b6bff", hi: "#8fd4ff", fil: "#b38bff", conf: 0.91,
+    path: [["repo_diff", "CI 失败 2 项"], ["in_scope?", "yes 0.90"], ["plan_steps", "补丁 2 处"], ["判断|safe_to_run", "yes 0.91"], ["human_ok?", "已审核"], ["patch_pr", "PR #312 待合并"]] },
+  { id: "swarm", zh: "多 Agent 协同", en: "AGENT SWARM", c0: "#9db4ff", hi: "#ffffff", fil: "#ff8fd6", conf: 0.87,
+    path: [["history", "子任务 6 个"], ["has_owner?", "6/6 已分派"], ["plan_steps", "3 路并行"], ["选择|merge_plan", "方案 B 0.87"], ["budget_ok", "PASS"], ["save_notes", "汇总报告已生成"]] }
+];
+var UC_SHORT = ["邮件", "线索", "浏览器", "社媒", "客服", "会议", "合同", "切片", "任务", "知识库", "代码", "协同"];
+/* 决策列节点的完整写法：「选择|folder」→ CHOICE|选择|folder */
+var DECIDE_TAG = { "选择": "CHOICE", "评分": "SCORE", "判断": "BOOL" };
+function fullNode(col, s) {
+  if (col === 3) { var p = s.split("|"); return DECIDE_TAG[p[0]] + "|" + p[0] + "|" + p[1]; }
+  return POOLS[col][0].split("|").slice(0, 2).join("|") + "|" + s;
+}
+
+/* =====================================================================
+   2. 数学与通用工具
+   ===================================================================== */
+function mulberry32(a) { return function () { a |= 0; a = a + 0x6D2B79F5 | 0; var t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+function hash2(a, b, s) { var h = Math.imul(a | 0, 374761393) + Math.imul(b | 0, 668265263) + Math.imul(s | 0, 1274126177); h = Math.imul(h ^ h >>> 13, 1274126177); h ^= h >>> 16; return (h >>> 0) / 4294967296; }
+function clamp(x, a, b) { return x < a ? a : (x > b ? b : x); }
+function ease(t) { t = clamp(t, 0, 1); return t * t * (3 - 2 * t); }
+function easeIO(t) { t = clamp(t, 0, 1); return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
+function mod(a, n) { return ((a % n) + n) % n; }
+function lerp(a, b, t) { return a + (b - a) * t; }
+function hex3(h) { var n = parseInt(h.slice(1), 16); return [(n >> 16 & 255) / 255, (n >> 8 & 255) / 255, (n & 255) / 255]; }
+function rgba3(c, a) { return "rgba(" + Math.round(c[0] * 255) + "," + Math.round(c[1] * 255) + "," + Math.round(c[2] * 255) + "," + a + ")"; }
+function mix3(a, b, t) { return [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t, a[2] + (b[2] - a[2]) * t]; }
+function pad(n, w) { n = String(n); while (n.length < w) n = "0" + n; return n; }
+function fmt(n) { return Math.round(n).toLocaleString("en-US"); }
+function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;" }[c]; }); }
+function hms(d) { d = d || new Date(); return pad(d.getHours(), 2) + ":" + pad(d.getMinutes(), 2) + ":" + pad(d.getSeconds(), 2); }
+function rpick(a) { return a[Math.floor(Math.random() * a.length)]; }
+function rint(a, b) { return a + Math.floor(Math.random() * (b - a + 1)); }
+
+/* =====================================================================
+   3. DOM 引用与 HUD 构建
+   ===================================================================== */
+function $(id) { return SR.getElementById(id); }
+var app = $("app"), wall = $("wall"), glc = $("gl"), board = $("board"), fitIn = $("fitIn"), nr = $("nr");
+var logBox = $("log");
+function setTxt(el, s) { if (el && el.__t !== s) { el.__t = s; el.textContent = s; } }
+function setCls(el, c) { if (el && el.__c !== c) { el.__c = c; el.className = c; } }
+
+/* 底部列标签（跟着透视对齐每一列） */
+var COLH = [];
+STAGES.forEach(function (s, i) {
+  var h = document.createElement("div");
+  h.className = "ch"; h.innerHTML = pad(i + 1, 2) + " " + s.k + "<span>" + s.zh + "</span>";
+  $("colh").appendChild(h); COLH.push(h);
+});
+/* 标题下的 12 个用例色点 */
+var UCD = [];
+CASES.forEach(function (c, i) {
+  var d = document.createElement("i");
+  d.style.setProperty("--uc", c.c0); d.title = pad(i + 1, 2) + " " + c.zh;
+  $("ucd").appendChild(d); UCD.push(d);
+});
+(function () { var sp = document.createElement("span"); sp.id = "ucdN"; sp.textContent = "12 个用例轮跑"; $("ucd").appendChild(sp); })();
+var RO = [0, 1, 2, 3].map(function (i) { return $("ro" + i); });
+function flashRo(i) { var el = RO[i]; if (!el || RM) return; el.classList.remove("flash"); void el.offsetWidth; el.classList.add("flash"); }
+
+/* 决策日志（左下角滚动三行） */
+var LOG = [], logDirty = true;
+function log(tag, msg) { LOG.unshift({ t: hms(), a: tag, x: msg, fresh: true }); if (LOG.length > 3) LOG.length = 3; logDirty = true; }
+function renderLog() {
+  if (!logDirty) return; logDirty = false;
+  logBox.innerHTML = LOG.map(function (r) { return '<div class="lr' + (r.fresh ? " fresh" : "") + '"><span>' + r.t + '</span><span class="a">' + r.a + '</span><span class="x">' + esc(r.x) + "</span></div>"; }).join("");
+  LOG.forEach(function (r) { r.fresh = false; });
+}
+
+/* =====================================================================
+   5. 透视墙：6 列决策卡贴在一面斜放的墙上（世界坐标 → 屏幕），卡片用 matrix3d 精确贴到透视四边形上
+   ===================================================================== */
+var W = { COLS: 6, PX: 1.0, CW: 0.74, CH: 0.28, ROW: 0.36, D: 7, CWPX: 420, CHPX: 160, POOLN: 16 };
+function colX(c) { return (c - 2.5) * W.PX; }
+function gapX(g) { return colX(g) + W.PX / 2; }
+var MODES = [{ zh: "斜视", yaw: 0.42, z: 1.4 }, { zh: "正视", yaw: 0.06, z: 1.45 }, { zh: "纵深", yaw: 0.72, z: 1.55 }, { zh: "全景", yaw: 0.42, z: 1 }];
+var modeI = 0;
+var CAM = { cs: 1, sn: 0, F: 1000, cx: 0, cy: 0, ty: 0, tx: 0, yaw: 0.42, z: 1 };
+var L = { w: 1, h: 1, dpr: 1, bs: 0.5, frX: 0, frY: 0, narrow: false, rx0: 0, rx1: 1, ry0: 0, ry1: 1, ok: false, anT: null, anR: [] };
+var VW = { s: 0, man: 0, yawOff: 0, tx: 0, sway: 0, zoom: 1 };
+var appR = null;
+
+function rawX(x) { return x * CAM.cs / (W.D + x * CAM.sn); }
+function setCam() {
+  var yaw = (L.narrow ? 0.2 : MODES[modeI].yaw) + VW.yawOff + VW.sway;
+  CAM.yaw = yaw; CAM.cs = Math.cos(yaw); CAM.sn = Math.sin(yaw);
+  /* 放大倍数：默认把墙放大到约 4 列铺满屏幕，镜头跟着光球左右平移；「全景」档看全部 6 列 */
+  var half = L.narrow ? 1.2 : 2.98 / clamp(MODES[modeI].z * VW.zoom, 1, 2.6), lim = 2.98 - half;
+  CAM.tx = lim > 0 ? clamp(VW.tx, -lim, lim) : 0; CAM.z = 2.98 / half;
+  var a = rawX(-half), b = rawX(half);
+  CAM.F = (L.rx1 - L.rx0) * (L.narrow ? 1 : 0.97) / (b - a);
+  CAM.cx = (L.rx0 + L.rx1) / 2 - (a + b) / 2 * CAM.F;
+  CAM.cy = (L.ry0 + L.ry1) / 2 + (L.narrow ? 0 : 90 * L.bs);
+  CAM.ty = -(VW.s + VW.man) * W.ROW;
+}
+/* 世界 → 屏幕（CSS 像素），返回 [x, y, 深度] */
+function proj(x, y, z) {
+  x -= CAM.tx;
+  var xr = x * CAM.cs + z * CAM.sn, zr = -x * CAM.sn + z * CAM.cs, d = W.D - zr, k = CAM.F / d;
+  return [CAM.cx + xr * k, CAM.cy - (y - CAM.ty) * k, d];
+}
+function colK(c) { return CAM.F / (W.D + (colX(c) - CAM.tx) * CAM.sn); }
+function rowY(r) { return -r * W.ROW; }
+/* 某一列当前能看见的行范围 */
+function rowRange(c) {
+  var k = colK(c), yTop = CAM.ty + (CAM.cy - L.ry0) / k, yBot = CAM.ty - (L.ry1 - CAM.cy) / k;
+  return [Math.floor(-yTop / W.ROW - 0.7), Math.ceil(-yBot / W.ROW + 0.7)];
+}
+
+function rel(el) { var r = el.getBoundingClientRect(); return { x: r.left - appR.left, y: r.top - appR.top, w: r.width, h: r.height }; }
+function layout() {
+  if (host.hidden || host.clientWidth < 2) return;
+  appR = host.getBoundingClientRect();
+  L.w = Math.max(1, appR.width); L.h = Math.max(1, appR.height);
+  L.narrow = L.w < 760 || L.w / L.h < 1.05;
+  nr.classList.toggle("narrow", L.narrow);
+  var fr = fitIn.getBoundingClientRect();
+  L.bs = Math.min(fr.width / 1920, fr.height / 1080) || 0.2;
+  board.style.width = (fr.width / L.bs) + "px"; board.style.height = (fr.height / L.bs) + "px";
+  board.style.setProperty("--s", L.bs);
+  L.frX = fr.left - appR.left; L.frY = fr.top - appR.top;
+  L.dpr = Math.min(window.devicePixelRatio || 1, L.narrow ? 1.5 : 1.75);
+  glc.width = Math.round(L.w * L.dpr); glc.height = Math.round(L.h * L.dpr);
+  if (!L.narrow) {
+    L.rx0 = 0; L.rx1 = L.w; L.ry0 = 10 * L.bs; L.ry1 = L.h - 30 * L.bs;
+    var at = rel($("anT")); L.anT = [at.x + at.w / 2, at.y + at.h / 2];
+    L.anR = RO.map(function (el) { var q = rel(el.querySelector(".pad")); return [q.x + q.w / 2, q.y + q.h / 2]; });
+  } else {
+    L.rx0 = 0; L.rx1 = L.w; L.ry0 = 96; L.ry1 = L.h - 132;
+    L.anT = null; L.anR = [];
+  }
+  /* 卡片层上的暗角：标题、读数、底部文字后面的卡片压暗，母线和离子照样从上面穿过去 */
+  var sh = $("cshade");
+  if (!L.narrow) {
+    var hr = rel(SR.querySelector(".hd")), rr2 = rel(SR.querySelector(".hud"));
+    sh.style.background = "radial-gradient(ellipse " + Math.round(hr.w * 1.35 + 80) + "px " + Math.round(hr.h * 1.45 + 60) + "px at 0 0,rgba(5,4,9,.97),rgba(5,4,9,.9) 58%,rgba(5,4,9,0) 100%)," +
+      "radial-gradient(ellipse " + Math.round(rr2.w * 1.6 + 80) + "px " + Math.round((rr2.y + rr2.h) * 1.4 + 40) + "px at 100% 0,rgba(5,4,9,.96),rgba(5,4,9,.86) 58%,rgba(5,4,9,0) 100%)," +
+      "linear-gradient(0deg,rgba(5,4,9,.9)," + "rgba(5,4,9,.55) " + Math.round(70 * L.bs) + "px,rgba(5,4,9,0) " + Math.round(150 * L.bs) + "px)";
+  } else sh.style.background = "linear-gradient(180deg,rgba(5,4,9,.85),rgba(5,4,9,0) 150px),linear-gradient(0deg,rgba(5,4,9,.85),rgba(5,4,9,0) 190px)";
+  var f = L.narrow ? 34 : 90;
+  var mk = "linear-gradient(180deg,transparent " + (L.ry0 - 4) + "px,#000 " + (L.ry0 + f) + "px,#000 " + (L.ry1 - f) + "px,transparent " + (L.ry1 + 4) + "px)";
+  wall.style.webkitMaskImage = mk; wall.style.maskImage = mk;
+  L.ok = true;
+  setCam();
+}
+
+/* ---------- 决策卡池：每列 16 个卡位，按行号取模复用 ---------- */
+var OVR = {};       // 当前与上一个用例的路径节点：key = "列:行"
+var CARDS = [];     // CARDS[c][slot]
+function kvFor(c, r) {
+  var h1 = hash2(c, r, 11), h2 = hash2(c, r, 12), h3 = hash2(c, r, 13);
+  if (c === 0) return [["src", ["imap", "crm", "api", "s3", "local", "cal"][Math.floor(h1 * 6)]], ["items", String(2 + Math.floor(h2 * 60))]];
+  if (c === 1) return [["model", ["llm-s", "llm-m", "rules", "llm-s"][Math.floor(h1 * 4)]], ["p", (0.5 + h2 * 0.49).toFixed(2)]];
+  if (c === 2) return [["tok", String(120 + Math.floor(h1 * 900))], ["steps", String(1 + Math.floor(h2 * 6))]];
+  if (c === 3) return [["conf", (0.55 + h1 * 0.44).toFixed(2)], ["alt", String(1 + Math.floor(h2 * 4))]];
+  if (c === 4) return [["min", h3 < 0.5 ? "0.85" : "0.80"], ["mode", h1 < 0.7 ? "auto" : "human"]];
+  return [["tool", ["http", "fs", "cal", "git", "mail"][Math.floor(h1 * 5)]], ["mode", h2 < 0.6 ? "dry_run" : "draft"]];
+}
+function cardHTML(c, r) {
+  var o = OVR[c + ":" + r], node = o ? o.node : POOLS[c][Math.floor(hash2(c, r, 7) * POOLS[c].length)], p = node.split("|"), kv = kvFor(c, r), g = "", i;
+  for (i = 0; i < 24; i++) { g += '<u style="height:' + Math.round(10 + 90 * hash2(c * 31 + i, r, 3)) + "%;--d:" + (0.75 + 0.9 * hash2(c * 31 + i, r, 8)).toFixed(2) + "s;animation-delay:-" + (hash2(c * 31 + i, r, 9) * 1.6).toFixed(2) + 's"></u>'; }
+  return '<div class="nd-h"><i></i><b>' + p[1] + " · <small>" + esc(p[2]) + "</small></b><span>" + p[0] + "</span></div>" +
+    '<div class="nd-kv"><span>' + kv[0][0] + "</span><em>" + kv[0][1] + "</em><span>" + kv[1][0] + "</span><em>" + kv[1][1] + "</em></div>" +
+    '<div class="nd-f"><span class="nd-g">' + g + "</span><span>" + (4 + Math.floor(hash2(c, r, 5) * 60)) + "ms</span><s></s></div>" +
+    '<div class="nd-x">' + (o ? esc(o.val) : "") + "</div>";
+}
+(function () {
+  var c, i;
+  for (c = 0; c < W.COLS; c++) {
+    CARDS.push([]);
+    for (i = 0; i < W.POOLN; i++) {
+      var el = document.createElement("div");
+      el.className = "nd"; el.style.display = "none";
+      wall.appendChild(el);
+      CARDS[c].push({ el: el, r: null, key: "", vis: false, cls: "nd", tf: "" });
+    }
+  }
+})();
+/* 单位正方形 → 任意四边形的射影矩阵（贴卡片用） */
+function quadMatrix(p0, p1, p2, p3, w, h) {
+  var x0 = p0[0], y0 = p0[1], x1 = p1[0], y1 = p1[1], x2 = p2[0], y2 = p2[1], x3 = p3[0], y3 = p3[1];
+  var dx1 = x1 - x2, dx2 = x3 - x2, dx3 = x0 - x1 + x2 - x3, dy1 = y1 - y2, dy2 = y3 - y2, dy3 = y0 - y1 + y2 - y3;
+  var a, b, c, d, e, f, g, hh;
+  if (Math.abs(dx3) < 1e-9 && Math.abs(dy3) < 1e-9) { a = x1 - x0; b = x3 - x0; c = x0; d = y1 - y0; e = y3 - y0; f = y0; g = 0; hh = 0; }
+  else {
+    var den = dx1 * dy2 - dx2 * dy1;
+    g = (dx3 * dy2 - dx2 * dy3) / den; hh = (dx1 * dy3 - dx3 * dy1) / den;
+    a = x1 - x0 + g * x1; b = x3 - x0 + hh * x3; c = x0; d = y1 - y0 + g * y1; e = y3 - y0 + hh * y3; f = y0;
+  }
+  a /= w; d /= w; g /= w; b /= h; e /= h; hh /= h;
+  return "matrix3d(" + a.toFixed(5) + "," + d.toFixed(5) + ",0," + g.toFixed(7) + "," + b.toFixed(5) + "," + e.toFixed(5) + ",0," + hh.toFixed(7) + ",0,0,1,0," + c.toFixed(2) + "," + f.toFixed(2) + ",0,1)";
+}
+/* 每帧：给能看见的行分配卡位、贴透视、更新点亮状态 */
+var VISROWS = [];
+function cardCorners(c, r) {
+  var x0 = colX(c) - W.CW / 2, x1 = colX(c) + W.CW / 2, yc = rowY(r), yt = yc + W.CH / 2, yb = yc - W.CH / 2;
+  return [proj(x0, yt, 0), proj(x1, yt, 0), proj(x1, yb, 0), proj(x0, yb, 0)];
+}
+function updateCards(t) {
+  var c, i, r;
+  for (c = 0; c < W.COLS; c++) {
+    var col = CARDS[c], rg = rowRange(c), px0 = proj(colX(c) - 0.5, 0, 0)[0], px1 = proj(colX(c) + 0.5, 0, 0)[0], on = px1 > L.rx0 - 20 && px0 < L.rx1 + 20;
+    VISROWS[c] = on ? rg : null;
+    for (i = 0; i < W.POOLN; i++) col[i].want = null;
+    if (on) for (r = rg[0]; r <= rg[1] && r < rg[0] + W.POOLN; r++) col[mod(r, W.POOLN)].want = r;
+    for (i = 0; i < W.POOLN; i++) {
+      var S = col[i];
+      if (S.want === null) { if (S.vis) { S.el.style.display = "none"; S.vis = false; } continue; }
+      r = S.want;
+      var key = r + "|" + (OVR[c + ":" + r] ? OVR[c + ":" + r].v : 0);
+      if (S.key !== key) { S.key = key; S.r = r; S.el.innerHTML = cardHTML(c, r); }
+      if (!S.vis) { S.el.style.display = ""; S.vis = true; }
+      var q = cardCorners(c, r), tf = quadMatrix(q[0], q[1], q[2], q[3], W.CWPX, W.CHPX);
+      if (S.tf !== tf) { S.tf = tf; S.el.style.transform = tf; }
+      var cls = "nd" + nodeClass(c, r, t);
+      if (S.cls !== cls) { S.cls = cls; S.el.className = cls; }
+    }
+  }
+}
+/* 底部列标签跟着透视走 */
+function placeColHeads() {
+  if (L.narrow) return;
+  for (var c = 0; c < W.COLS; c++) {
+    var p = proj(colX(c), CAM.ty, 0), bx = (p[0] - L.frX) / L.bs;
+    var s = Math.round(bx) + "px", vis = p[0] > 60 && p[0] < L.w - 60 ? "1" : "0";
+    if (COLH[c].__l !== s) { COLH[c].__l = s; COLH[c].style.left = s; }
+    if (COLH[c].__o !== vis) { COLH[c].__o = vis; COLH[c].style.opacity = vis; }
+  }
+}
+
+/* =====================================================================
+   6. WebGL：等离子母线、电路走线、离子流、光球（全部在屏幕空间画成光带 / 光点，叠加混合）
+   ===================================================================== */
+var gl = null;
+try { gl = glc.getContext("webgl", { antialias: false, alpha: false, depth: false, premultipliedAlpha: false, powerPreference: "high-performance" }); } catch (e) { gl = null; }
+if (!gl) $("glFail").hidden = false;
+
+var VS_RIB = [
+  "precision highp float;",
+  "attribute vec2 aXY; attribute vec2 aS; attribute vec4 aC;",
+  "uniform vec2 uRes;",
+  "varying vec2 vS; varying vec4 vC;",
+  "void main(){ gl_Position = vec4(aXY.x / uRes.x * 2.0 - 1.0, 1.0 - aXY.y / uRes.y * 2.0, 0.0, 1.0); vS = aS; vC = aC; }"
+].join("\n");
+var FS_RIB = [
+  "precision mediump float;",
+  "varying vec2 vS; varying vec4 vC;",
+  "void main(){",
+  "  float v = vS.x, h = vS.y;",
+  "  float soft = exp(-v * v * 3.0), core = exp(-v * v * 20.0), hot = exp(-v * v * 110.0);",
+  "  float a = vC.a * mix(soft, core * 0.8 + hot * 0.6, h);",
+  "  vec3 c = mix(vC.rgb, vec3(1.0), clamp(hot * h * 0.75, 0.0, 1.0));",
+  "  gl_FragColor = vec4(c * a, a);",
+  "}"
+].join("\n");
+var VS_SPR = [
+  "precision highp float;",
+  "attribute vec2 aXY; attribute vec2 aUV; attribute vec4 aC; attribute float aK;",
+  "uniform vec2 uRes;",
+  "varying vec2 vUV; varying vec4 vC; varying float vK;",
+  "void main(){ gl_Position = vec4(aXY.x / uRes.x * 2.0 - 1.0, 1.0 - aXY.y / uRes.y * 2.0, 0.0, 1.0); vUV = aUV; vC = aC; vK = aK; }"
+].join("\n");
+var FS_SPR = [
+  "precision mediump float;",
+  "varying vec2 vUV; varying vec4 vC; varying float vK;",
+  "void main(){",
+  "  vec2 q = vUV; float d2 = dot(q, q), d = sqrt(d2), a;",
+  "  if (vK < 0.5) a = exp(-d2 * 5.0) * 0.7 + exp(-d2 * 40.0);",
+  "  else if (vK < 1.5) { float e = (d - 0.84) / 0.045; a = exp(-e * e) + exp(-d2 * 3.0) * 0.12; }",
+  "  else if (vK < 2.5) a = exp(-d2 * 7.0) * 0.8 + (exp(-q.y * q.y * 900.0) * exp(-abs(q.x) * 2.6) + exp(-q.x * q.x * 900.0) * exp(-abs(q.y) * 2.6)) * 0.7;",
+  "  else { float e3 = (d - 0.9) / 0.016, e4 = (d - 0.9) / 0.07; a = exp(-e3 * e3) + exp(-e4 * e4) * 0.3 + exp(-d2 * 2.2) * 0.07; }",
+  "  a *= (1.0 - smoothstep(0.92, 1.0, d)) * vC.a;",
+  "  vec3 c = mix(vC.rgb, vec3(1.0), clamp(exp(-d2 * 60.0), 0.0, 1.0) * step(vK, 0.5));",
+  "  gl_FragColor = vec4(c * a, a);",
+  "}"
+].join("\n");
+var VS_GLOW = [
+  "precision highp float;",
+  "attribute vec3 aXYW; attribute vec2 aUV; attribute vec4 aC; attribute float aA;",
+  "uniform vec2 uRes;",
+  "varying vec2 vUV; varying vec4 vC; varying float vAsp;",
+  "void main(){ vec2 n = vec2(aXYW.x / uRes.x * 2.0 - 1.0, 1.0 - aXYW.y / uRes.y * 2.0); gl_Position = vec4(n * aXYW.z, 0.0, aXYW.z); vUV = aUV; vC = aC; vAsp = aA; }"
+].join("\n");
+var FS_GLOW = [
+  "precision mediump float;",
+  "varying vec2 vUV; varying vec4 vC; varying float vAsp;",
+  "void main(){",
+  "  vec2 q = vUV;",
+  "  vec2 o = max(max(-q, q - 1.0), 0.0); o.x *= vAsp;",
+  "  float d = length(o), ins = 1.0 - step(0.00001, d);",
+  "  float e = min(min(q.x, 1.0 - q.x) * vAsp, min(q.y, 1.0 - q.y));",
+  "  float rim = ins * exp(-e * e / 0.0014) + (1.0 - ins) * exp(-d * d / 0.002);",
+  "  float halo = (1.0 - ins) * exp(-d * 5.5);",
+  "  float a = vC.a * (rim * 0.85 + halo * 0.55 + ins * 0.06);",
+  "  gl_FragColor = vec4(mix(vC.rgb, vec3(1.0), rim * 0.3) * a, a);",
+  "}"
+].join("\n");
+
+/* 泛光：先把整层离子画进离屏纹理，再缩到 1/4 做两轮高斯模糊，最后叠回去 */
+var VS_Q = "precision highp float; attribute vec2 aP; varying vec2 vUV; void main(){ vUV = aP * 0.5 + 0.5; gl_Position = vec4(aP, 0.0, 1.0); }";
+var FS_DOWN = "precision mediump float; varying vec2 vUV; uniform sampler2D uT; uniform vec2 uPx; void main(){ vec4 s = texture2D(uT, vUV + uPx * vec2(-1.0, -1.0)) + texture2D(uT, vUV + uPx * vec2(1.0, -1.0)) + texture2D(uT, vUV + uPx * vec2(-1.0, 1.0)) + texture2D(uT, vUV + uPx * vec2(1.0, 1.0)); gl_FragColor = s * 0.25; }";
+var FS_BLUR = [
+  "precision mediump float; varying vec2 vUV; uniform sampler2D uT; uniform vec2 uDir;",
+  "void main(){",
+  "  vec4 s = texture2D(uT, vUV) * 0.227027;",
+  "  s += (texture2D(uT, vUV + uDir) + texture2D(uT, vUV - uDir)) * 0.1945946;",
+  "  s += (texture2D(uT, vUV + uDir * 2.0) + texture2D(uT, vUV - uDir * 2.0)) * 0.1216216;",
+  "  s += (texture2D(uT, vUV + uDir * 3.0) + texture2D(uT, vUV - uDir * 3.0)) * 0.054054;",
+  "  s += (texture2D(uT, vUV + uDir * 4.0) + texture2D(uT, vUV - uDir * 4.0)) * 0.016216;",
+  "  gl_FragColor = s;",
+  "}"
+].join("\n");
+var FS_COPY = "precision mediump float; varying vec2 vUV; uniform sampler2D uT; uniform float uK; void main(){ gl_FragColor = vec4(texture2D(uT, vUV).rgb * uK, 1.0); }";
+var P_RIB, P_SPR, P_GLOW, P_DOWN, P_BLUR, P_COPY, B = {}, FB = null;
+var RIBV = new Float32Array(90000 * 8), SPRV = new Float32Array(9000 * 9), GLOWV = new Float32Array(600 * 10);
+var nRib = 0, nSpr = 0, nGlow = 0;
+function glSetup() {
+  function shd(type, src) { var s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) console.error(gl.getShaderInfoLog(s)); return s; }
+  function prog(vs, fs) { var p = gl.createProgram(); gl.attachShader(p, shd(gl.VERTEX_SHADER, vs)); gl.attachShader(p, shd(gl.FRAGMENT_SHADER, fs)); gl.linkProgram(p); if (!gl.getProgramParameter(p, gl.LINK_STATUS)) console.error(gl.getProgramInfoLog(p)); p.u = {}; p.a = {}; return p; }
+  P_RIB = prog(VS_RIB, FS_RIB); P_SPR = prog(VS_SPR, FS_SPR); P_GLOW = prog(VS_GLOW, FS_GLOW);
+  P_DOWN = prog(VS_Q, FS_DOWN); P_BLUR = prog(VS_Q, FS_BLUR); P_COPY = prog(VS_Q, FS_COPY);
+  B.rib = gl.createBuffer(); B.spr = gl.createBuffer(); B.glow = gl.createBuffer();
+  B.q = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, B.q); gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW);
+}
+function U(p, n) { if (!(n in p.u)) p.u[n] = gl.getUniformLocation(p, n); return p.u[n]; }
+function A(p, n) { if (!(n in p.a)) p.a[n] = gl.getAttribLocation(p, n); return p.a[n]; }
+var BOUND = [];
+function attr(p, n, size, stride, off) { var l = A(p, n); if (l < 0) return; gl.enableVertexAttribArray(l); gl.vertexAttribPointer(l, size, gl.FLOAT, false, stride, off); BOUND.push(l); }
+function unbindAll() { BOUND.forEach(function (l) { gl.disableVertexAttribArray(l); }); BOUND = []; }
+if (gl) glSetup();
+function mkTarget(w, h) {
+  var t = gl.createTexture(); gl.bindTexture(gl.TEXTURE_2D, t);
+  gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, w, h, 0, gl.RGBA, gl.UNSIGNED_BYTE, null);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+  var f = gl.createFramebuffer(); gl.bindFramebuffer(gl.FRAMEBUFFER, f);
+  gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, t, 0);
+  var ok = gl.checkFramebufferStatus(gl.FRAMEBUFFER) === gl.FRAMEBUFFER_COMPLETE;
+  gl.bindFramebuffer(gl.FRAMEBUFFER, null);
+  return { t: t, f: f, w: w, h: h, ok: ok };
+}
+function freeTarget(x) { if (x) { gl.deleteTexture(x.t); gl.deleteFramebuffer(x.f); } }
+function ensureFB() {
+  var w = glc.width, h = glc.height;
+  if (FB && FB.w === w && FB.h === h) return FB.ok;
+  if (FB) { freeTarget(FB.a); freeTarget(FB.b); freeTarget(FB.c); }
+  var qw = Math.max(1, Math.ceil(w / 4)), qh = Math.max(1, Math.ceil(h / 4));
+  FB = { w: w, h: h, a: mkTarget(w, h), b: mkTarget(qw, qh), c: mkTarget(qw, qh), qw: qw, qh: qh };
+  FB.ok = FB.a.ok && FB.b.ok && FB.c.ok;
+  return FB.ok;
+}
+function quad(P, tex) { gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, tex); gl.uniform1i(U(P, "uT"), 0); gl.bindBuffer(gl.ARRAY_BUFFER, B.q); attr(P, "aP", 2, 8, 0); gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4); unbindAll(); }
+
+/* ---------- 几何构建（CSS 像素进，设备像素出） ---------- */
+function fadeAt(x, y) {
+  var f = 36;
+  return clamp((y - L.ry0 + 6) / f, 0, 1) * clamp((L.ry1 + 6 - y) / f, 0, 1) * clamp((x - L.rx0 + 10) / 50, 0, 1) * clamp((L.rx1 + 10 - x) / 50, 0, 1);
+}
+/* 光带：pts = [[x,y],...]，hw 半宽（像素），col [r,g,b]，al 透明度（数字或数组），hard 0 = 柔光 1 = 硬芯 */
+function addRib(pts, hw, col, al, hard, noFade) {
+  var n = pts.length, d = L.dpr, i, o;
+  if (n < 2 || nRib + (n - 1) * 6 > 90000) return;
+  var NX = [], NY = [], AL = [];
+  for (i = 0; i < n; i++) {
+    var a = pts[Math.max(0, i - 1)], b = pts[Math.min(n - 1, i + 1)], tx = b[0] - a[0], ty = b[1] - a[1], tl = Math.sqrt(tx * tx + ty * ty) || 1;
+    NX.push(-ty / tl); NY.push(tx / tl);
+    AL.push((typeof al === "number" ? al : al[i]) * (noFade ? 1 : fadeAt(pts[i][0], pts[i][1])));
+  }
+  var W2 = typeof hw === "number" ? null : hw;
+  function put(j, side) {
+    o = nRib * 8;
+    var w = (W2 ? W2[j] : hw) * d;
+    RIBV[o] = pts[j][0] * d + NX[j] * w * side; RIBV[o + 1] = pts[j][1] * d + NY[j] * w * side;
+    RIBV[o + 2] = side; RIBV[o + 3] = hard;
+    RIBV[o + 4] = col[0]; RIBV[o + 5] = col[1]; RIBV[o + 6] = col[2]; RIBV[o + 7] = AL[j];
+    nRib++;
+  }
+  for (i = 0; i < n - 1; i++) {
+    if (AL[i] < 0.002 && AL[i + 1] < 0.002) continue;
+    put(i, -1); put(i, 1); put(i + 1, -1);
+    put(i, 1); put(i + 1, 1); put(i + 1, -1);
+  }
+}
+var SQ = [[-1, -1], [1, -1], [-1, 1], [1, -1], [1, 1], [-1, 1]];
+function addSpr(x, y, r, col, al, kind, noFade) {
+  if (!noFade) al *= fadeAt(x, y);
+  if (al < 0.003 || nSpr + 6 > 9000) return;
+  var d = L.dpr, i, o;
+  for (i = 0; i < 6; i++) {
+    o = nSpr * 9;
+    SPRV[o] = (x + SQ[i][0] * r) * d; SPRV[o + 1] = (y + SQ[i][1] * r) * d; SPRV[o + 2] = SQ[i][0]; SPRV[o + 3] = SQ[i][1];
+    SPRV[o + 4] = col[0]; SPRV[o + 5] = col[1]; SPRV[o + 6] = col[2]; SPRV[o + 7] = al; SPRV[o + 8] = kind;
+    nSpr++;
+  }
+}
+/* 决策卡外的光晕框（世界坐标贴合卡片，透视正确） */
+function addGlow(c, r, col, inten) {
+  if (nGlow + 6 > 600) return;
+  var m = 0.13, x0 = colX(c) - W.CW / 2 - m, x1 = colX(c) + W.CW / 2 + m, yc = rowY(r), yt = yc + W.CH / 2 + m, yb = yc - W.CH / 2 - m;
+  var u0 = -m / W.CW, u1 = 1 + m / W.CW, v0 = -m / W.CH, v1 = 1 + m / W.CH;
+  var P = [[x0, yt, u0, v0], [x1, yt, u1, v0], [x0, yb, u0, v1], [x1, yt, u1, v0], [x1, yb, u1, v1], [x0, yb, u0, v1]], d = L.dpr, i, o;
+  var fy = fadeAt(proj(colX(c), yc, 0)[0], proj(colX(c), yc, 0)[1]);
+  for (i = 0; i < 6; i++) {
+    var p = proj(P[i][0], P[i][1], 0); o = nGlow * 10;
+    GLOWV[o] = p[0] * d; GLOWV[o + 1] = p[1] * d; GLOWV[o + 2] = p[2];
+    GLOWV[o + 3] = P[i][2]; GLOWV[o + 4] = P[i][3];
+    GLOWV[o + 5] = col[0]; GLOWV[o + 6] = col[1]; GLOWV[o + 7] = col[2]; GLOWV[o + 8] = inten * fy; GLOWV[o + 9] = W.CW / W.CH;
+    nGlow++;
+  }
+}
+
+/* ---------- 电路走线：卡片右缘 → 母线 → 拐弯 → 下一列卡片左缘（圆角直角走线） ---------- */
+/* 走线：卡片右缘水平出发 → 弯进母线顺着走 → 再弯出来水平接进下一列卡片左缘（平滑 S 形，和视频里的光纤一样） */
+function mkRoute(xa, ya, xb, yb, gx) {
+  var pts = [], i, n = 28;
+  if (Math.abs(yb - ya) < 0.005) pts = [[xa, ya], [(xa + xb) / 2, ya], [xb, yb]];
+  else {
+    var p1x = gx + (gx - xa) * 0.12, p2x = gx - (xb - gx) * 0.12;
+    for (i = 0; i <= n; i++) {
+      var u = i / n, v = 1 - u;
+      pts.push([v * v * v * xa + 3 * v * v * u * p1x + 3 * v * u * u * p2x + u * u * u * xb, v * v * v * ya + 3 * v * v * u * ya + 3 * v * u * u * yb + u * u * u * yb]);
+    }
+  }
+  var cum = [0], L0 = 0;
+  for (i = 1; i < pts.length; i++) { L0 += Math.sqrt(Math.pow(pts[i][0] - pts[i - 1][0], 2) + Math.pow(pts[i][1] - pts[i - 1][1], 2)); cum.push(L0); }
+  return { p: pts, cum: cum, len: L0 };
+}
+function routeAt(rt, s) {
+  var tl = clamp(s, 0, 1) * rt.len, i = 1;
+  while (i < rt.cum.length - 1 && rt.cum[i] < tl) i++;
+  var a = rt.p[i - 1], b = rt.p[i], seg = rt.cum[i] - rt.cum[i - 1] || 1, f = (tl - rt.cum[i - 1]) / seg;
+  return [a[0] + (b[0] - a[0]) * f, a[1] + (b[1] - a[1]) * f];
+}
+/* 走线截取 [s0, s1] 并投影到屏幕 */
+function routeScreen(rt, s0, s1) {
+  var out = [], i, t0 = s0 * rt.len, t1 = s1 * rt.len, p;
+  p = routeAt(rt, s0); out.push(proj(p[0], p[1], 0));
+  for (i = 1; i < rt.p.length - 1; i++) if (rt.cum[i] > t0 && rt.cum[i] < t1) out.push(proj(rt.p[i][0], rt.p[i][1], 0));
+  p = routeAt(rt, s1); out.push(proj(p[0], p[1], 0));
+  return out;
+}
+
+var LINKS = [], linkAcc = 0.3, PING = {};
+var JIT = [0, 0, 0, 0, 0, 0], jitT = 0;
+/* 粒子场：一大片粒子整体往后（画面右侧远处）飘，速度、方向、亮度各有差别，不那么规整 */
+var PF = [];
+(function () { var rr = mulberry32(3131), i; for (i = 0; i < 280; i++) PF.push({ x: (rr() * 2 - 1) * 3.8, y: (rr() * 2 - 1) * 3.6, z: 0.05 + rr() * 1.15, m: 0.45 + rr() * 1.3, ph: rr() * TAU, ph2: rr() * TAU, s: 0.7 + rr() * 1.9, f: rr(), tw: 0.6 + rr() * 2.4, init: false }); })();
+var PFV = [0.3, 0.07, -0.1];
+var WAVE = { t0: -9 };
+
+/* ---------- 每帧组装整面离子电路 ---------- */
+var COL = { c0: hex3(CASES[0].c0), hi: hex3(CASES[0].hi), fil: hex3(CASES[0].fil) };
+var SPI = [0.6, 0.6, 0.6, 0.6, 0.6];
+var ORBTR = [], RINGS = [];
+var WHITE = [1, 1, 1], AMBER = hex3("#ffb020");
+function pxs() { return L.narrow ? clamp(L.w / 760, 0.42, 0.8) : L.bs * (0.65 + 0.35 * CAM.z); }
+function vline(sx, k, n, fx) {
+  var pts = [], i, y0 = L.ry0 - 12, y1 = L.ry1 + 12;
+  for (i = 0; i < n; i++) { var sy = y0 + (y1 - y0) * i / (n - 1), wy = CAM.ty + (CAM.cy - sy) / k; pts.push([sx + (fx ? fx(wy, i) * k : 0), sy, wy]); }
+  return pts;
+}
+function buildCircuit(t, dt) {
+  nRib = 0; nSpr = 0; nGlow = 0;
+  var PS = pxs(), c0 = COL.c0, hi = COL.hi, fil = COL.fil, g, i, j, r, k;
+  var c0w = mix3(c0, WHITE, 0.4), c0h = mix3(c0, WHITE, 0.62), vel = Math.abs(ST.vel), boost = clamp(vel / 6, 0, 1.6);
+  jitT -= dt; if (jitT <= 0) { jitT = 0.045 + Math.random() * 0.05; for (j = 0; j < JIT.length; j++) JIT[j] = Math.random() * TAU; }
+
+  /* 1) 卡片之间互相连接的线网：每张卡从左右边缘牵出 2~4 根线，有的连到同一列上下几行的卡（在空隙里绕成弧），
+        有的斜着连到右边一两列、上下错开几行的卡。很多根交叠在一起，空隙里就形成错杂的光线，而不是一根根竖条 */
+  for (g = 0; g < 6; g++) {
+    var rgw = VISROWS[g]; if (!rgw) continue;
+    for (r = rgw[0] - 2; r <= rgw[1] + 1; r++) {
+      var nL = 4 + Math.floor(hash2(g, r, 71) * 4);
+      for (j = 0; j < nL; j++) {
+        var hs = hash2(g * 7 + j, r, 72), ty2 = hash2(g * 7 + j, r, 73), ya = rowY(r) + (hash2(g * 7 + j, r, 74) - 0.5) * W.CH * 0.8, P0x, P0y, P1x, P1y, P2x, P2y, P3x, P3y, gi, sway = 0.035 * Math.sin(t * (0.35 + hs * 0.5) + hs * 40);
+        if (ty2 < 0.42) {
+          /* 同一列上下连：从卡片侧边出去，在空隙里绕一道弧，接到下面 1~3 行的卡 */
+          var sd = (g === 0 ? 1 : (g === 5 ? -1 : (hash2(g * 7 + j, r, 75) < 0.5 ? -1 : 1))), dd = 1 + Math.floor(hash2(g * 7 + j, r, 76) * 3), ex = colX(g) + sd * W.CW / 2, yb3 = rowY(r + dd) + (hash2(g * 7 + j, r, 77) - 0.5) * W.CH * 0.8, bl = 0.05 + hash2(g * 7 + j, r, 78) * 0.22;
+          P0x = ex; P0y = ya; P3x = ex; P3y = yb3; P1x = ex + sd * (bl + sway); P1y = ya + (yb3 - ya) * (0.1 + 0.2 * hs); P2x = ex + sd * (bl * (0.5 + hs) - sway); P2y = yb3 - (yb3 - ya) * (0.1 + 0.25 * ty2);
+          gi = sd > 0 ? g : g - 1;
+        } else {
+          /* 斜着连到右边 1~2 列、上下错开几行的卡 */
+          var sp2 = (ty2 > 0.84 && g < 4) ? 2 : 1; if (g + sp2 > 5) continue;
+          var dr3 = Math.floor(hash2(g * 7 + j, r, 79) * 7) - 3, yb4 = rowY(r + dr3) + (hash2(g * 7 + j, r, 80) - 0.5) * W.CH * 0.8, xa3 = colX(g) + W.CW / 2, xb3 = colX(g + sp2) - W.CW / 2, tn = 0.1 + hash2(g * 7 + j, r, 81) * 0.3;
+          P0x = xa3; P0y = ya; P3x = xb3; P3y = yb4; P1x = xa3 + tn + sway; P1y = ya + (hash2(g * 7 + j, r, 82) - 0.5) * 0.5; P2x = xb3 - tn * (0.6 + hs) - sway; P2y = yb4 + (hash2(g * 7 + j, r, 83) - 0.5) * 0.5;
+          gi = g;
+        }
+        if (gi < 0 || gi > 4) continue;
+        var Iw = Math.min(1.5, SPI[gi]), isF2 = hs < 0.22, fl2 = 0.5 + 0.5 * Math.sin(t * (0.3 + ty2 * 0.6) + hs * 50), wpts = [], wal = [], q;
+        for (q = 0; q <= 18; q++) {
+          var u = q / 18, v = 1 - u, X = v * v * v * P0x + 3 * v * v * u * P1x + 3 * v * u * u * P2x + u * u * u * P3x, Y = v * v * v * P0y + 3 * v * v * u * P1y + 3 * v * u * u * P2y + u * u * u * P3y, pw = proj(X, Y, 0);
+          wpts.push([pw[0], pw[1]]); wal.push((isF2 ? 0.9 : 0.8) * Iw * (0.4 + 0.6 * fl2) * (0.6 + 0.4 * Math.sin(u * Math.PI)));
+        }
+        var lcw = isF2 ? mix3(fil, WHITE, 0.15) : mix3(c0, WHITE, 0.3 + 0.45 * ty2);
+        var wd = hash2(g * 7 + j, r, 84);
+        if (wd > 0.4) addRib(wpts, (4 + 4 * wd) * PS + 1, lcw, 0.13 * Iw * (0.4 + 0.6 * fl2), 0);
+        addRib(wpts, (0.8 + 1.1 * wd) * PS + 0.4, lcw, wal, 1);
+        addSpr(wpts[0][0], wpts[0][1], 3 * PS + 1, mix3(lcw, WHITE, 0.5), 0.6 * Iw, 0);
+        addSpr(wpts[18][0], wpts[18][1], 3 * PS + 1, mix3(lcw, WHITE, 0.5), 0.6 * Iw, 0);
+        if (((t * 0.3 + hs * 7) % 1) < 0.6 && !RM) {
+          var bs2 = (t * (0.35 + ty2 * 0.5) + hs * 3) % 1, bi2 = Math.floor(bs2 * 18), bb = wpts[bi2], bt = wpts[Math.max(0, bi2 - 2)];
+          addRib([bt, bb], 1.3 * PS + 0.4, mix3(lcw, WHITE, 0.4), [0, 0.8], 1);
+          addSpr(bb[0], bb[1], 3.6 * PS + 1.2, mix3(lcw, WHITE, 0.6), 0.9, 0);
+        }
+      }
+    }
+  }
+  /* 4b) 旁路联动：别的卡片之间也会时不时连一条线，光点跑过去，两头的卡片跟着亮一下 */
+  linkAcc -= dt;
+  if (linkAcc <= 0 && !RM) {
+    linkAcc = 0.28 + Math.random() * 0.4;
+    if (LINKS.length < 8) {
+      var lc = Math.floor(Math.random() * 5), lc2 = Math.min(5, lc + (Math.random() < 0.7 ? 1 : 2)), ra = VISROWS[lc], rb = VISROWS[lc2];
+      if (ra && rb && ra[1] - ra[0] > 2 && rb[1] - rb[0] > 2) {
+        var lr = rint(ra[0] + 1, ra[1] - 1), lr2 = clamp(lr + rint(-3, 3), rb[0] + 1, rb[1] - 1), lgx = lc2 - lc === 1 ? gapX(lc) : colX(lc + 1) + (Math.random() - 0.5) * 0.3;
+        LINKS.push({ rt: mkRoute(colX(lc) + W.CW / 2, rowY(lr) + (Math.random() - 0.5) * 0.1, colX(lc2) - W.CW / 2, rowY(lr2) + (Math.random() - 0.5) * 0.1, lgx), t0: t, life: 1.9 + Math.random() * 0.8, f: Math.random() < 0.45, c: lc, r: lr, c2: lc2, r2: lr2, hit: false });
+        PING[lc + ":" + lr] = now;
+      }
+    }
+  }
+  for (i = LINKS.length - 1; i >= 0; i--) {
+    var lk = LINKS[i], le = (t - lk.t0) / lk.life;
+    if (le >= 1) { LINKS.splice(i, 1); continue; }
+    var grow = clamp((t - lk.t0) / 0.5, 0, 1), fade = le > 0.7 ? 1 - (le - 0.7) / 0.3 : 1, lcol = lk.f ? fil : c0h;
+    if (grow >= 1 && !lk.hit) { lk.hit = true; PING[lk.c2 + ":" + lk.r2] = now; var ep = routeAt(lk.rt, 1); RINGS.push({ x: ep[0], y: ep[1], t0: t, c: lcol.slice(), small: true }); }
+    var lp = routeScreen(lk.rt, 0, easeIO(grow));
+    addRib(lp, 5 * PS + 1, lcol, 0.16 * fade, 0);
+    addRib(lp, 1.1 * PS + 0.4, mix3(lcol, WHITE, 0.25), 0.8 * fade, 1);
+    var hp4 = routeAt(lk.rt, grow < 1 ? easeIO(grow) : (t * 0.9 + i * 0.3) % 1), hs4 = proj(hp4[0], hp4[1], 0);
+    addSpr(hs4[0], hs4[1], 5 * PS + 1.5, mix3(lcol, WHITE, 0.5), 0.9 * fade, 0);
+  }
+  /* 4c) 卡片上的星点连线：几颗亮点用细线连成小网，忽明忽暗（视频里那种冷色连线） */
+  var COOL = [0.55, 0.78, 1];
+  for (g = 0; g < 6; g++) {
+    var rgc = VISROWS[g]; if (!rgc) continue;
+    for (r = rgc[0]; r <= rgc[1]; r++) {
+      var slot = Math.floor(t / 3.2 + hash2(g, r, 62)), hm = hash2(g * 13 + r, slot, 61);
+      if (hm > 0.11) continue;
+      var phm = Math.sin(((t / 3.2 + hash2(g, r, 62)) % 1) * Math.PI), mp = [], mi;
+      for (mi = 0; mi < 5; mi++) { var mu = hash2(g * 7 + mi, r + slot * 3, 63), mv = hash2(g * 7 + mi, r + slot * 3, 64), mpp = proj(colX(g) - W.CW / 2 + W.CW * (0.08 + 0.84 * mu), rowY(r) + W.CH / 2 - W.CH * (0.12 + 0.76 * mv), 0); mp.push([mpp[0], mpp[1]]); }
+      for (mi = 0; mi < 5; mi++) { addRib([mp[mi], mp[(mi + 1) % 5]], 0.7 * PS + 0.3, COOL, 0.55 * phm, 1); addSpr(mp[mi][0], mp[mi][1], 3.2 * PS + 1, mix3(COOL, WHITE, 0.4), 0.9 * phm, 0); }
+      addRib([mp[0], mp[2]], 0.6 * PS + 0.3, COOL, 0.35 * phm, 1);
+    }
+  }
+  /* 5) 快速滑动时的纵向拖影 */
+  if (vel > 0.6 && !RM) {
+    var rr = mulberry32(Math.floor(t * 30)), sl = Math.min(620, vel * 70) * PS, sa = Math.min(0.7, vel * 0.075);
+    for (i = 0; i < 40; i++) {
+      var xs = L.rx0 + rr() * (L.rx1 - L.rx0), ys = L.ry0 + rr() * (L.ry1 - L.ry0);
+      addRib([[xs, ys - sl / 2], [xs, ys], [xs, ys + sl / 2]], (0.8 + rr() * 1.2) * PS + 0.3, rr() < 0.3 ? fil : c0w, [0, sa, 0], 1);
+    }
+  }
+  /* 5b) 粒子场：整体往后飘（朝画面右侧远处），带一点上浮，每颗速度和摆动都不同 */
+  var PXH = 3.9, PYH = 3.7;
+  for (i = 0; i < PF.length; i++) {
+    var pa = PF[i];
+    if (!pa.init) { pa.x += CAM.tx; pa.y += CAM.ty; pa.init = true; }
+    var vx = PFV[0] * pa.m + 0.07 * Math.sin(t * 0.9 + pa.ph), vy = PFV[1] * pa.m + 0.06 * Math.cos(t * 0.7 + pa.ph2), vz = PFV[2] * pa.m;
+    var sm = RM ? 0.3 : 1;
+    pa.x += vx * dt * sm; pa.y += vy * dt * sm; pa.z += vz * dt * sm;
+    if (pa.x > CAM.tx + PXH) pa.x -= 2 * PXH; else if (pa.x < CAM.tx - PXH) pa.x += 2 * PXH;
+    if (pa.y > CAM.ty + PYH) pa.y -= 2 * PYH; else if (pa.y < CAM.ty - PYH) pa.y += 2 * PYH;
+    if (pa.z < 0.03) pa.z += 1.15;
+    var pp2 = proj(pa.x, pa.y, pa.z), pt2 = proj(pa.x - vx * 0.16, pa.y - vy * 0.16, pa.z - vz * 0.16), kk2 = CAM.F / pp2[2] / 330;
+    var twk = 0.35 + 0.65 * Math.pow(0.5 + 0.5 * Math.sin(t * pa.tw + pa.ph), 2), pc = pa.f < 0.6 ? c0h : (pa.f < 0.85 ? fil : WHITE);
+    addRib([[pt2[0], pt2[1]], [pp2[0], pp2[1]]], (0.7 + 0.5 * pa.s) * kk2 * PS + 0.3, pc, [0, 0.55 * twk], 1);
+    addSpr(pp2[0], pp2[1], pa.s * 2 * kk2 * PS + 0.8, pc, 0.75 * twk, 0);
+  }
+  /* 5c) 换色时从左到右扫过的一道光幕 */
+  var we = (t - WAVE.t0) / 0.7;
+  if (we >= 0 && we < 1 && !RM) {
+    var wx = L.rx0 - 80 + (L.rx1 - L.rx0 + 160) * easeIO(we), wa2 = 0.5 * Math.sin(we * Math.PI);
+    addRib([[wx, L.ry0], [wx, (L.ry0 + L.ry1) / 2], [wx, L.ry1]], 70 * PS + 10, hi, [0, wa2, 0], 0, true);
+    addRib([[wx, L.ry0], [wx, (L.ry0 + L.ry1) / 2], [wx, L.ry1]], 2.5 * PS + 0.6, WHITE, [0, wa2 * 1.4, 0], 1, true);
+  }
+  /* 5d) 标题和右上读数的焊盘：走线接到最近的母线上，离子往读数里流 */
+  if (L.anT || L.anR.length) {
+    var hudLines = [];
+    if (L.anT) hudLines.push({ p: L.anT, dir: 1, k: 0 });
+    for (i = 0; i < L.anR.length; i++) hudLines.push({ p: L.anR[i], dir: -1, k: i + 1 });
+    for (i = 0; i < hudLines.length; i++) {
+      var hl = hudLines[i], ax2 = hl.p[0], ay2 = hl.p[1], best = null;
+      for (g = 0; g < 5; g++) { var gxs = proj(gapX(g), CAM.ty, 0)[0]; if ((gxs - ax2) * hl.dir > 50 && (best === null || Math.abs(gxs - ax2) < Math.abs(best - ax2))) best = gxs; }
+      if (best === null) continue;
+      var drop = 34 + hl.k * 6, jog = clamp(Math.min(drop, (Math.abs(best - ax2) - 34) * 0.4), 0, drop), mx2 = best - hl.dir * (jog + 14);
+      var hp2 = [[ax2 + hl.dir * 6, ay2], [mx2 - hl.dir * jog, ay2], [mx2, ay2 + jog], [best - hl.dir * 6, ay2 + jog], [best, ay2 + jog + 6]];
+      addRib(hp2, 6 * PS + 2, c0, 0.16, 0, true);
+      addRib(hp2, 1.1 * PS + 0.5, mix3(hi, WHITE, 0.2), 0.7, 1, true);
+      var hs2 = (t * 0.9 + i * 0.29) % 1, pl = 0, segs = [], q2;
+      for (q2 = 1; q2 < hp2.length; q2++) { var sl2 = Math.sqrt(Math.pow(hp2[q2][0] - hp2[q2 - 1][0], 2) + Math.pow(hp2[q2][1] - hp2[q2 - 1][1], 2)); segs.push(sl2); pl += sl2; }
+      var want = (1 - hs2) * pl, acc = 0;
+      for (q2 = 1; q2 < hp2.length; q2++) { if (acc + segs[q2 - 1] >= want) { var ff = (want - acc) / (segs[q2 - 1] || 1); addSpr(hp2[q2 - 1][0] + (hp2[q2][0] - hp2[q2 - 1][0]) * ff, hp2[q2 - 1][1] + (hp2[q2][1] - hp2[q2 - 1][1]) * ff, 5 * PS + 2, mix3(hi, WHITE, 0.5), 0.95, 0, true); break; } acc += segs[q2 - 1]; }
+      addSpr(ax2, ay2, 16 * PS + 4, hi, 0.55 + 0.25 * Math.sin(t * 3 + i), 2, true);
+      addSpr(best, ay2 + jog + 6, 8 * PS + 2, c0h, 0.8, 0, true);
+    }
+  }
+  /* 6) 当前任务的决策路径：已走过的走线常亮，正在走的那段画到光球为止 */
+  if (ST.RT.length) {
+    for (j = 0; j < ST.RT.length; j++) {
+      var s1 = routeFill(j);
+      if (s1 <= 0.001) continue;
+      var rp = routeScreen(ST.RT[j], 0, s1);
+      addRib(rp, 9 * PS + 1, hi, 0.26, 0);
+      addRib(rp, 2 * PS + 0.6, mix3(hi, WHITE, 0.3), 0.95, 1);
+      if (s1 >= 1 && !RM) {
+        var ps2 = (t * 1.6 + j * 0.37) % 1, pq = routeAt(ST.RT[j], ps2), pqs = proj(pq[0], pq[1], 0);
+        addSpr(pqs[0], pqs[1], 7 * PS + 2, mix3(hi, WHITE, 0.5), 0.9, 0);
+      }
+    }
+  }
+  /* 7) 点亮的决策卡外框光晕 */
+  if (ST.ci >= 0 && ST.ph !== "slide") {
+    var lit = ST.ph === "result" ? 5 : ST.lit, cs = CASES[ST.ci];
+    for (j = 0; j <= lit; j++) {
+      var hot = ST.ph === "run" && ST.sub === "work" && j === ST.hop;
+      var inten = hot ? 0.75 + 0.2 * Math.sin(t * 12) : (ST.ph === "result" ? 0.65 + 0.15 * Math.sin(t * 6 + j) : 0.45);
+      addGlow(j, ST.PR[j], j === 4 && cs.hold ? AMBER : hi, inten);
+      /* 横向光条：点亮的节点整条横向发亮（视频里那种亮条） */
+      var bxa = j === 0 ? colX(0) - 0.75 : gapX(j - 1), bxb = j === 5 ? colX(5) + 0.75 : gapX(j), byy = rowY(ST.PR[j]), bpts = [], bq2;
+      for (bq2 = 0; bq2 <= 8; bq2++) { var bpp = proj(bxa + (bxb - bxa) * bq2 / 8, byy, 0); bpts.push([bpp[0], bpp[1]]); }
+      var bk = CAM.F / proj(colX(j), byy, 0)[2], bal = []; for (bq2 = 0; bq2 <= 8; bq2++) bal.push((hot ? 0.16 : 0.1) * Math.sin(bq2 / 8 * Math.PI) + 0.03);
+      addRib(bpts, W.CH * 0.62 * bk, j === 4 && cs.hold ? AMBER : hi, bal, 0);
+    }
+  }
+  /* 8) 光球、拖尾、到达光环 */
+  var orbP = orbPos();
+  if (orbP) {
+    var os = proj(orbP[0], orbP[1], 0);
+    ORBTR.push([os[0], os[1]]); if (ORBTR.length > 16) ORBTR.shift();
+    if (ORBTR.length > 2) { var oa = []; for (i = 0; i < ORBTR.length; i++) oa.push(Math.pow(i / (ORBTR.length - 1), 1.6) * 0.9); var ow = []; for (i = 0; i < ORBTR.length; i++) ow.push((1 + 6 * i / ORBTR.length) * PS + 0.5); addRib(ORBTR, ow, mix3(hi, WHITE, 0.4), oa, 1); }
+    var onCard = ST.ph === "run" && ST.sub === "work";
+    addSpr(os[0], os[1], 44 * PS + 6, hi, onCard ? 0.28 : 0.5, 0);
+    addSpr(os[0], os[1], (onCard ? 8 : 12) * PS + 2, WHITE, onCard ? 0.75 : 1, 0);
+    addSpr(os[0], os[1], 60 * PS + 8, mix3(hi, WHITE, 0.4), onCard ? 0.3 : 0.55, 2);
+  } else ORBTR.length = 0;
+  /* 到达光圈：一圈细光环从节点处慢慢晕开、变淡（参考视频 2），旁路连线到达时是小一号的 */
+  for (i = RINGS.length - 1; i >= 0; i--) {
+    var rg3 = RINGS[i], dur = rg3.small ? 0.9 : 1.6, e = (t - rg3.t0) / dur;
+    if (e >= 1) { RINGS.splice(i, 1); continue; }
+    var rs = proj(rg3.x, rg3.y, 0), ee = 1 - Math.pow(1 - e, 3);
+    if (rg3.small) { addSpr(rs[0], rs[1], (8 + 62 * ee) * PS + 3, rg3.c, 0.6 * (1 - e), 3); continue; }
+    var rad = (26 + 260 * ee) * PS + 6;
+    addSpr(rs[0], rs[1], rad, mix3(rg3.c, WHITE, 0.25), 0.95 * Math.pow(1 - e, 1.3), 3);
+    addSpr(rs[0], rs[1], rad * 0.8, rg3.c, 0.2 * Math.pow(1 - e, 2), 0);
+    if (e < 0.22) addSpr(rs[0], rs[1], 84 * PS + 10, mix3(rg3.c, WHITE, 0.5), 0.85 * (1 - e / 0.22), 2);
+  }
+}
+function drawScene() {
+  var P;
+  if (nRib) {
+    P = P_RIB; gl.useProgram(P); gl.uniform2f(U(P, "uRes"), glc.width, glc.height);
+    gl.bindBuffer(gl.ARRAY_BUFFER, B.rib); gl.bufferData(gl.ARRAY_BUFFER, RIBV.subarray(0, nRib * 8), gl.STREAM_DRAW);
+    attr(P, "aXY", 2, 32, 0); attr(P, "aS", 2, 32, 8); attr(P, "aC", 4, 32, 16);
+    gl.drawArrays(gl.TRIANGLES, 0, nRib); unbindAll();
+  }
+  if (nGlow) {
+    P = P_GLOW; gl.useProgram(P); gl.uniform2f(U(P, "uRes"), glc.width, glc.height);
+    gl.bindBuffer(gl.ARRAY_BUFFER, B.glow); gl.bufferData(gl.ARRAY_BUFFER, GLOWV.subarray(0, nGlow * 10), gl.STREAM_DRAW);
+    attr(P, "aXYW", 3, 40, 0); attr(P, "aUV", 2, 40, 12); attr(P, "aC", 4, 40, 20); attr(P, "aA", 1, 40, 36);
+    gl.drawArrays(gl.TRIANGLES, 0, nGlow); unbindAll();
+  }
+  if (nSpr) {
+    P = P_SPR; gl.useProgram(P); gl.uniform2f(U(P, "uRes"), glc.width, glc.height);
+    gl.bindBuffer(gl.ARRAY_BUFFER, B.spr); gl.bufferData(gl.ARRAY_BUFFER, SPRV.subarray(0, nSpr * 9), gl.STREAM_DRAW);
+    attr(P, "aXY", 2, 36, 0); attr(P, "aUV", 2, 36, 8); attr(P, "aC", 4, 36, 16); attr(P, "aK", 1, 36, 32);
+    gl.drawArrays(gl.TRIANGLES, 0, nSpr); unbindAll();
+  }
+}
+function drawGL() {
+  var bloom = ensureFB(), P;
+  gl.bindFramebuffer(gl.FRAMEBUFFER, bloom ? FB.a.f : null);
+  gl.viewport(0, 0, glc.width, glc.height);
+  gl.clearColor(0, 0, 0, 1); gl.clear(gl.COLOR_BUFFER_BIT);
+  gl.enable(gl.BLEND); gl.blendFunc(gl.ONE, gl.ONE);
+  drawScene();
+  if (!bloom) return;
+  gl.disable(gl.BLEND);
+  gl.bindFramebuffer(gl.FRAMEBUFFER, FB.b.f); gl.viewport(0, 0, FB.qw, FB.qh);
+  P = P_DOWN; gl.useProgram(P); gl.uniform2f(U(P, "uPx"), 1 / FB.w, 1 / FB.h); quad(P, FB.a.t);
+  P = P_BLUR; gl.useProgram(P);
+  var it, sp;
+  for (it = 0; it < 2; it++) {
+    sp = it ? 2.4 : 1.2;
+    gl.bindFramebuffer(gl.FRAMEBUFFER, FB.c.f); gl.uniform2f(U(P, "uDir"), sp / FB.qw, 0); quad(P, FB.b.t);
+    gl.bindFramebuffer(gl.FRAMEBUFFER, FB.b.f); gl.uniform2f(U(P, "uDir"), 0, sp / FB.qh); quad(P, FB.c.t);
+  }
+  gl.bindFramebuffer(gl.FRAMEBUFFER, null); gl.viewport(0, 0, glc.width, glc.height);
+  P = P_COPY; gl.useProgram(P);
+  gl.uniform1f(U(P, "uK"), 1); quad(P, FB.a.t);
+  gl.enable(gl.BLEND); gl.blendFunc(gl.ONE, gl.ONE);
+  gl.uniform1f(U(P, "uK"), L.narrow ? 0.95 : 1.1); quad(P, FB.b.t);
+}
+
+/* =====================================================================
+   7. 任务状态机：滑到新一段电路（换色）→ 光球从左到右逐列点亮 6 个决策节点 → 结果 → 下一个用例
+   ===================================================================== */
+var DUR = { slide: 0.95, travel: 0.48, work: 0.95, result: 1.9 };
+if (RM) { DUR.slide = 0.6; DUR.travel = 0.7; }
+var ST = { ci: -1, ph: "slide", t: 0, hop: 0, sub: "travel", st: 0, PR: [0, 0, 0, 0, 0, 0], RT: [], orb: 0, lit: -1, rc: 0,
+  from: 0, to: 0, vel: 0, recol: false, dec: 4812, gateConf: 0.89, gateHold: false, round: 1 };
+var OVV = 0, now = 0;
+function cs() { return CASES[Math.max(0, ST.ci)]; }
+function nodeName(c, s) { return s.indexOf("|") >= 0 ? s.split("|")[1] : s; }
+function setVars(c) {
+  var a = hex3(c.c0), h = hex3(c.hi), f = hex3(c.fil), s = app.style;
+  s.setProperty("--c0", c.c0); s.setProperty("--hi", c.hi); s.setProperty("--fil", c.fil);
+  s.setProperty("--c0a", rgba3(a, 0.3)); s.setProperty("--c0b", rgba3(a, 0.14)); s.setProperty("--hia", rgba3(h, 0.32)); s.setProperty("--hib", rgba3(h, 0.12));
+  void f;
+}
+function startCase(i) {
+  var c = CASES[i], k;
+  if (i === 0 && ST.ci >= 0) ST.round++;
+  ST.ci = i; ST.ph = "slide"; ST.t = 0; ST.recol = false; ST.hop = 0; ST.sub = "travel"; ST.st = 0; ST.lit = -1; ST.orb = 0;
+  /* 整面墙一直往上滑；换用例时猛地甩过 5~8 行。路径放在画面中线下方，跑完时正好滑到中线上方 */
+  ST.from = VW.s;
+  ST.to = VW.s + 5 + Math.floor(Math.random() * 4);
+  ST.rc = Math.round(ST.to);
+  OVR = {};
+  /* 路径每次随机：每一列可以往上或往下跳 0~3 行（多数会拐），整体限制在中线上下 3 行内，镜头会跟着光球上下走 */
+  var STEP = [-3, -2, -2, -1, -1, 0, 1, 1, 2, 2, 3];
+  ST.PR[0] = ST.rc + rint(-2, 2);
+  for (k = 1; k < 6; k++) {
+    var nx = ST.PR[k - 1] + rpick(STEP);
+    if (nx > ST.rc + 3 || nx < ST.rc - 3) nx = ST.PR[k - 1] - (nx - ST.PR[k - 1]);
+    ST.PR[k] = clamp(nx, ST.rc - 3, ST.rc + 3);
+  }
+  for (k = 0; k < 6; k++) OVR[k + ":" + ST.PR[k]] = { node: fullNode(k, c.path[k][0]), val: c.path[k][1], v: ++OVV };
+  ST.RT = [mkRoute(colX(0) - 0.98, rowY(ST.PR[0]), colX(0) - W.CW / 2, rowY(ST.PR[0]), 0)];
+  for (k = 1; k < 6; k++) ST.RT.push(mkRoute(colX(k - 1) + W.CW / 2, rowY(ST.PR[k - 1]), colX(k) - W.CW / 2, rowY(ST.PR[k]), gapX(k - 1)));
+  ST.RT.push(mkRoute(colX(5) + W.CW / 2, rowY(ST.PR[5]), colX(5) + 1.05, rowY(ST.PR[5]), 0));
+  /* 标题下的用例信息 */
+  var p3 = c.path[3][0].split("|");
+  setTxt($("cPill"), "CASE " + pad(i + 1, 2) + " / 12"); setTxt($("cEn"), c.en); setTxt($("cZh"), c.zh);
+  $("cPath").innerHTML = "<b>" + p3[0] + " · " + esc(p3[1]) + "</b><i>→</i>" + esc(c.path[3][1]) + "<i>→</i>" + esc(c.path[5][0]) + "<i>→</i>" + esc(c.path[5][1]);
+  setTxt($("mPill"), "CASE " + pad(i + 1, 2) + "/12"); setTxt($("mEn"), c.en);
+  $("mCap").innerHTML = esc(p3[0] + " · " + p3[1]) + "<i>→</i>" + esc(c.path[3][1]) + "<i>→</i>" + esc(c.path[5][1]);
+  setTxt($("mCase"), c.zh);
+  UCD.forEach(function (d2, j) { setCls(d2, j === i ? "on" : (j < i ? "done" : "")); });
+  setTxt($("ucdN"), "第 " + ST.round + " 轮 · " + pad(i + 1, 2) + " / 12");
+  setTxt($("sCase"), pad(i + 1, 2) + "/12"); setTxt($("sbCase"), c.zh);
+  log("CASE", c.zh + " 进入决策电路");
+}
+function recolor() {
+  var c = cs();
+  TGT = { c0: hex3(c.c0), hi: hex3(c.hi), fil: hex3(c.fil) };
+  setVars(c);
+  WAVE.t0 = now;
+}
+var TGT = { c0: COL.c0, hi: COL.hi, fil: COL.fil };
+var METHOD = { CHOICE: "choose", SCORE: "score", BOOL: "judge" };
+function hopArrive(h) {
+  var c = cs(), nm = c.path[h][0], val = c.path[h][1];
+  ST.lit = h;
+  RINGS.push({ x: colX(h) - W.CW / 2 + W.CW * 0.18, y: rowY(ST.PR[h]), t0: now, c: h === 4 && c.hold ? AMBER : COL.hi.slice() });
+  ST.dec++; flashRo(0);
+  log(STAGES[h].k, STAGES[h].zh + " · " + nodeName(h, nm) + " → " + val);
+  if (h === 4) { ST.gateConf = c.conf; ST.gateHold = !!c.hold; flashRo(3); }
+}
+function updateState(dt) {
+  var c = cs(), prevS = VW.s, k;
+  ST.t += dt;
+  if (ST.ph === "slide") {
+    var e = easeIO(ST.t / DUR.slide);
+    VW.s = lerp(ST.from, ST.to, e);
+    if (!ST.recol && ST.t > DUR.slide * 0.38) { ST.recol = true; recolor(); }
+    if (ST.t >= DUR.slide) { ST.ph = "run"; ST.hop = 0; ST.sub = "travel"; ST.st = 0; ST.orb = 0; }
+  } else if (ST.ph === "run") {
+    ST.st += dt;
+    if (ST.sub === "travel") {
+      ST.orb = easeIO(ST.st / DUR.travel);
+      if (ST.st >= DUR.travel) { ST.sub = "work"; ST.st = 0; ST.orb = 1; hopArrive(ST.hop); }
+    } else if (ST.st >= DUR.work * (ST.hop === 4 && c.hold ? 1.5 : 1)) {
+      ST.hop++; ST.st = 0;
+      if (ST.hop > 5) { ST.ph = "result"; ST.t = 0; ST.orb = 0; ST.hop = 5; log("DONE", c.zh + (c.hold ? " · 已转人工复核" : " · 完成") + " · 决策 #" + decStr(ST.dec)); }
+      else { ST.sub = "travel"; ST.orb = 0; }
+    }
+  } else if (ST.ph === "result") {
+    ST.orb = easeIO(ST.t / 0.55);
+    if (ST.t >= DUR.result) startCase((ST.ci + 1) % CASES.length);
+  }
+  ST.vel = dt > 0 ? (VW.s - prevS) / dt : 0;
+  if (!dragging) VW.man *= Math.max(0, 1 - dt * 1.4);
+  /* 颜色、母线亮度、横向镜头（窄屏跟着光球走） */
+  var kk = Math.min(1, dt * 7);
+  COL.c0 = mix3(COL.c0, TGT.c0, kk); COL.hi = mix3(COL.hi, TGT.hi, kk); COL.fil = mix3(COL.fil, TGT.fil, kk);
+  for (k = 0; k < 5; k++) {
+    var want = 0.55 + 0.12 * Math.sin(now * 7.3 + k * 1.7) + (Math.random() < 0.04 ? 0.5 : 0);
+    if (ST.ph === "run" && ST.sub === "travel" && ST.hop - 1 === k) want = 1.45;
+    if (ST.ph === "result") want = 1.05;
+    if (ST.ph === "slide") want = 0.9;
+    var wv = (now - WAVE.t0) / 0.7 * 6 - k - 0.5; if (wv > -1 && wv < 1.5) want += 1.1 * Math.exp(-wv * wv * 3);
+    SPI[k] += (want - SPI[k]) * Math.min(1, dt * 9);
+  }
+  /* 镜头跟着光球走：横向平移 + 纵向跟行，换用例时甩回最左边 */
+  var op = orbPos(), ftx, fs;
+  if (ST.ph === "slide") { ftx = colX(0) - 0.6; fs = null; }
+  else if (op) { ftx = op[0] + 0.35; fs = -op[1] / W.ROW; }
+  else { ftx = colX(5) + 0.4; fs = ST.PR[5]; }
+  VW.tx += (ftx - VW.tx) * Math.min(1, dt * (ST.ph === "slide" ? 4 : 2.2));
+  if (fs !== null) VW.s += (fs - VW.s) * Math.min(1, dt * 2.4) + (RM ? 0 : 0.05 * Math.sin(now * 0.7) * dt);
+  VW.sway = RM ? 0 : 0.022 * Math.sin(now * 0.33);
+}
+/* 某一路段的走线该画到哪里（0 = 不画，1 = 整段） */
+function routeFill(j) {
+  if (ST.ph === "result") return j < 6 ? 1 : ST.orb;
+  if (ST.ph !== "run") return 0;
+  if (j < ST.hop) return 1;
+  if (j === ST.hop) return ST.sub === "travel" ? ST.orb : 1;
+  return 0;
+}
+function orbPos() {
+  if (ST.ph === "run") {
+    if (ST.sub === "travel") return routeAt(ST.RT[ST.hop], ST.orb);
+    var f = easeIO(ST.st / DUR.work), y = rowY(ST.PR[ST.hop]);
+    return [colX(ST.hop) - W.CW / 2 + W.CW * f, y];
+  }
+  if (ST.ph === "result" && ST.orb < 1) return routeAt(ST.RT[6], ST.orb);
+  return null;
+}
+function nodeClass(c, r, t) {
+  var s = "";
+  if (ST.ci >= 0 && ST.ph !== "slide" && r === ST.PR[c]) {
+    var lit = ST.ph === "result" ? 5 : ST.lit;
+    if (c <= lit) {
+      s = " on";
+      if (ST.ph === "run" && ST.sub === "work" && c === ST.hop) s += " hot";
+      if (c === 4 && cs().hold) s += " hold";
+    }
+  }
+  if (!s) { var pg = PING[c + ":" + r]; if (pg !== undefined && now - pg < 1.1) s = " ping"; }
+  if (!s && hash2(c * 7 + r, Math.floor(t * 2.5), 41) < 0.07) s = " blip";
+  return s;
+}
+
+/* =====================================================================
+   8. HUD：右上读数、延迟小波形、列标签状态
+   ===================================================================== */
+var LAT = [], latV = 256, ionRate = 4800;
+for (var q0 = 0; q0 < 60; q0++) LAT.push(250 + Math.random() * 14);
+function sizeCanvas(cv) { var r = cv.getBoundingClientRect(), d2 = Math.min(window.devicePixelRatio || 1, 2), w = Math.max(1, Math.round(r.width * d2)), h = Math.max(1, Math.round(r.height * d2)); if (cv.width !== w || cv.height !== h) { cv.width = w; cv.height = h; } return d2; }
+function drawWave() {
+  var cv = $("kWave"), d2 = sizeCanvas(cv), c = cv.getContext("2d"), w = cv.width, h = cv.height, i, mn = 236, mx = 280;
+  c.clearRect(0, 0, w, h);
+  c.strokeStyle = rgba3(COL.hi, 0.95); c.lineWidth = 1.4 * d2; c.shadowColor = rgba3(COL.hi, 0.8); c.shadowBlur = 6 * d2;
+  c.beginPath();
+  for (i = 0; i < LAT.length; i++) { var x = i / (LAT.length - 1) * w, y = h - (LAT[i] - mn) / (mx - mn) * h; if (i) c.lineTo(x, y); else c.moveTo(x, y); }
+  c.stroke(); c.shadowBlur = 0;
+}
+function pushSeries() {
+  latV = clamp(latV + (Math.random() - 0.5) * 9 + (256 - latV) * 0.08, 238, 278);
+  LAT.push(latV); if (LAT.length > 60) LAT.shift();
+}
+function decStr(n) { return fmt(n).replace(/,/g, " "); }
+function updateUI() {
+  var i;
+  setTxt($("kDec"), decStr(ST.dec));
+  setTxt($("kLat"), "~" + Math.round(latV));
+  setTxt($("kTok"), (1.4 + (ST.dec % 7) * 0.09).toFixed(1) + "k");
+  setTxt($("kConf"), ST.gateConf.toFixed(2));
+  var bd = $("kBadge"); setTxt(bd, ST.gateHold ? "HOLD" : "PASS"); setCls(bd, "badge" + (ST.gateHold ? " hold" : ""));
+  $("kConfBar").style.width = Math.round(ST.gateConf * 100) + "%";
+  for (i = 0; i < 6; i++) {
+    var st = ST.ph === "result" ? "done" : (ST.ph === "run" ? (i < ST.hop ? "done" : (i === ST.hop ? "on" : "")) : "");
+    setCls(COLH[i], "ch" + (st ? " " + st : ""));
+  }
+  ionRate = clamp(ionRate + (Math.random() - 0.5) * 300 + (ST.ph === "slide" ? 400 : 0) + (4800 - ionRate) * 0.1, 3600, 7200);
+  setTxt($("sIon"), fmt(ionRate)); setTxt($("sbIon"), fmt(ionRate));
+  var nv = 0; VISROWS.forEach(function (rg) { if (rg) nv += rg[1] - rg[0] + 1; });
+  setTxt($("sNode"), String(nv));
+  setTxt($("sbDec"), decStr(ST.dec));
+  setTxt($("mHop"), ST.ph === "slide" ? "换线中" : (ST.ph === "result" ? "6 / 6 ✓" : (ST.hop + (ST.sub === "work" ? 1 : 0)) + " / 6"));
+  setTxt($("mDec"), decStr(ST.dec));
+  renderLog();
+}
+
+/* =====================================================================
+   9. 渲染循环
+   ===================================================================== */
+var last = 0, uiAcc = 0, chAcc = 0, fpsAcc = 0, fpsN = 0;
+function frame(ts) {
+  requestAnimationFrame(frame);
+  if (host.hidden || document.hidden || !L.ok) { last = 0; return; }
+  var dt = last ? Math.min(0.05, (ts - last) / 1000) : 0.016;
+  last = ts;
+  now += dt;
+  updateState(dt);
+  setCam();
+  updateCards(now);
+  placeColHeads();
+  if (gl) { buildCircuit(now, dt); drawGL(); }
+  uiAcc += dt; chAcc += dt; fpsAcc += dt; fpsN++;
+  if (chAcc > 0.08) { chAcc = 0; pushSeries(); if (!L.narrow) drawWave(); }
+  if (uiAcc > 0.12) { uiAcc = 0; updateUI(); }
+  if (fpsAcc > 0.5) { setTxt($("sFps"), String(Math.round(fpsN / fpsAcc))); fpsAcc = 0; fpsN = 0; }
+}
+
+/* =====================================================================
+   10. 交互：上下拖动 / 滚轮滑动电路墙，左右拖动改斜角，双击复位；视角 / 全屏
+   ===================================================================== */
+var dragging = false, lastX = 0, lastY = 0;
+wall.addEventListener("pointerdown", function (e) { dragging = true; lastX = e.clientX; lastY = e.clientY; wall.classList.add("drag"); try { wall.setPointerCapture(e.pointerId); } catch (er) {} });
+wall.addEventListener("pointermove", function (e) {
+  if (!dragging) return;
+  var dx = e.clientX - lastX, dy = e.clientY - lastY; lastX = e.clientX; lastY = e.clientY;
+  VW.yawOff = clamp(VW.yawOff + dx * 0.0016, -0.45, 0.45);
+  VW.man -= dy / (W.ROW * colK(2));
+});
+function endDrag() { dragging = false; wall.classList.remove("drag"); }
+wall.addEventListener("pointerup", endDrag); wall.addEventListener("pointercancel", endDrag);
+wall.addEventListener("dblclick", function () { VW.yawOff = 0; VW.man = 0; VW.zoom = 1; });
+wall.addEventListener("wheel", function (e) { e.preventDefault(); VW.zoom = clamp(VW.zoom * Math.exp(-clamp(e.deltaY, -120, 120) * 0.0015), 0.55, 1.7); }, { passive: false });
+function syncButtons() { [].forEach.call(SR.querySelectorAll('[data-f="mode"]'), function (b) { b.textContent = MODES[modeI].zh; }); }
+function act(name) {
+  if (name === "mode") { modeI = (modeI + 1) % MODES.length; VW.yawOff = 0; VW.zoom = 1; }
+  else if (name === "full") {
+    try {
+      if (document.fullscreenElement) document.exitFullscreen().catch(function () {});
+      else if (document.documentElement.requestFullscreen) document.documentElement.requestFullscreen().catch(function () { var b = SR.querySelector('[data-f="full"]'); b.textContent = "不支持"; setTimeout(function () { b.textContent = "全屏"; }, 1500); });
+    } catch (e) { /* 部分窗口不允许全屏 */ }
+  }
+  syncButtons();
+}
+[].forEach.call(SR.querySelectorAll("[data-act]"), function (b) { b.addEventListener("click", function () { act(b.getAttribute("data-act")); }); });
+document.addEventListener("fullscreenchange", function () { var b = SR.querySelector('[data-f="full"]'); if (b) b.textContent = document.fullscreenElement ? "退出全屏" : "全屏"; });
+document.addEventListener("keydown", function (e) {
+  if (host.hidden) return;
+  var tag = (e.target && e.target.tagName) || "";
+  if (/INPUT|TEXTAREA|SELECT/.test(tag) || e.metaKey || e.ctrlKey || e.altKey) return;
+  if (e.key === "v" || e.key === "V") act("mode");
+});
+
+/* ---------- 开场 ---------- */
+setVars(CASES[0]);
+setTxt($("clock"), hms()); setInterval(function () { if (!host.hidden) setTxt($("clock"), hms()); }, 1000);
+syncButtons();
+var roT = 0;
+new ResizeObserver(function () { clearTimeout(roT); roT = setTimeout(layout, 60); }).observe(host);
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { layout(); });
+layout();
+log("BUS", "离子母线上线 · 6 个环节 · 12 个用例");
+startCase(0);
+ST.t = DUR.slide * 0.9;
+// 调试用：document.getElementById('host-ion').__next() / .__hop(3) / .__ff(2)
+host.__next = function () { startCase((ST.ci + 1) % CASES.length); ST.t = DUR.slide * 0.99; };
+host.__case = function (i) { startCase(i); ST.t = DUR.slide * 0.99; };
+host.__perf = function (n) { var t0 = performance.now(), i; for (i = 0; i < n; i++) { now += 0.016; updateState(0.016); setCam(); updateCards(now); placeColHeads(); } var t1 = performance.now(); for (i = 0; i < n; i++) { now += 0.016; buildCircuit(now, 0.016); } var t2 = performance.now(); return { cards: (t1 - t0) / n, circuit: (t2 - t1) / n, rib: nRib, spr: nSpr }; };
+host.__slide = function (i, f) { startCase(i); ST.t = DUR.slide * f - 0.05; updateState(0.05); };
+host.__hop = function (h) { ST.ph = "run"; ST.hop = h; ST.sub = "work"; ST.st = 0.2; ST.lit = h; ST.recol = true; recolor(); WAVE.t0 = -9; COL.c0 = TGT.c0; COL.hi = TGT.hi; COL.fil = TGT.fil; VW.s = ST.PR[h]; VW.tx = colX(h) + 0.35; };
+host.__arrive = function (h) { RINGS.push({ x: colX(h) - W.CW / 2 + W.CW * 0.18, y: rowY(ST.PR[h]), t0: now - 0.35, c: COL.hi.slice() }); };
+host.__ff = function (sec) { for (var t = 0; t < sec; t += 0.05) { now += 0.05; updateState(0.05); pushSeries(); } updateUI(); };
+host.__st = function () { return { ci: ST.ci, ph: ST.ph, hop: ST.hop, sub: ST.sub, s: VW.s, rib: nRib, spr: nSpr, glow: nGlow, vis: VISROWS.map(function (r) { return r ? r.join("-") : "x"; }).join(" ") }; };
+requestAnimationFrame(frame);
+}
+
 /* ================= 系列外壳：挂载主题、切换、记住选择 ================= */
 (() => {
   'use strict';
@@ -12610,9 +13853,10 @@ requestAnimationFrame(frame);
     factory: {host: 'host-factory', tpl: 'tpl-factory', mount: mountFactory, deps: THREE_DEPS},
     nebula: {host: 'host-nebula', tpl: 'tpl-nebula', mount: mountNebula, deps: THREE_DEPS},
     forge:  {host: 'host-forge',  tpl: 'tpl-forge',  mount: mountForge},
-    works:  {host: 'host-works',  tpl: 'tpl-loom',   mount: mountLoom}
+    works:  {host: 'host-works',  tpl: 'tpl-loom',   mount: mountLoom},
+    ion:    {host: 'host-ion',    tpl: 'tpl-ion',    mount: mountIon}
   };
-  const ORDER = ['ops', 'spider', 'neural', 'factory', 'nebula', 'forge', 'works'], KEY = 'agent-series-theme';
+  const ORDER = ['ops', 'spider', 'neural', 'factory', 'nebula', 'forge', 'works', 'ion'], KEY = 'agent-series-theme';
   function loadScripts(list){
     return list.reduce((p, src) => p.then(() => new Promise(res => { const s = document.createElement('script'); s.src = src; s.onload = res; s.onerror = res; document.head.appendChild(s); })), Promise.resolve());
   }

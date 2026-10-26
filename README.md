@@ -1,10 +1,10 @@
-# Agent 战术大屏 · v7.0
+# Agent 战术大屏 · v8.0
 
-一个纯前端的 **AI 智能体调度可视化大屏**。v7.0 新增原生 WebGL 主题 WORKS 天工开物：总控卫星派单，8 台机械喷射彩色光丝汇入 7 个织位，再由光点一滴滴织出项目。在同一个 HTML 页面里切换 OPS、SPIDER、NEURAL、FACTORY、NEBULA、FORGE、WORKS 七款主题，展示任务流、质检、交付与模拟指标。
+一个纯前端的 **AI 智能体调度可视化大屏**。v8.0 新增原生 WebGL 主题 ION 离子回路：整屏是一面决策电路墙，离子光球依次点亮 6 个决策环节，12 个任务用例各用一种颜色，任务切换时电路墙快速滑动并换色。在同一个 HTML 页面里切换 OPS、SPIDER、NEURAL、FACTORY、NEBULA、FORGE、WORKS、ION 八款主题，展示任务流、质检、交付与模拟指标。
 
 单文件，无需构建、无需后端，双击即可打开。自 v5.0 起源码公开，采用 PolyForm Noncommercial License 1.0.0：非商业用途免费，商业用途需授权，详见文末「授权 License」。
 
-> 页面中的任务、需求文本、需求评分、追问回答、工单、Agent 负载、业务指标、token 与成本全部是**模拟示例数据**，由内置模拟器生成，并未连接真实 agent、账单或业务接口；FORGE 的吸积数据包、星核质量、已锻零件、交付记录与吞吐，以及 WORKS 的织造项目、织位进度、光丝活动、丝线总长、结点与交付记录，也均为本地模拟。真实数据接入需要自行改造，见「配置」一节。SPIDER、NEURAL、FACTORY 的 token 成本使用示例单价：输入 ¥2 / 百万 token、缓存命中 ¥0.5 / 百万 token、输出 ¥8 / 百万 token。
+> 页面中的任务、需求文本、需求评分、追问回答、工单、Agent 负载、业务指标、token 与成本全部是**模拟示例数据**，由内置模拟器生成，并未连接真实 agent、账单或业务接口；FORGE 的吸积数据包、星核质量、已锻零件、交付记录与吞吐，以及 WORKS 的织造项目、织位进度、光丝活动、丝线总长、结点与交付记录，以及 ION 的任务用例、决策路径、决策数、延迟、用量、置信度与 PASS/HOLD，也均为本地模拟。真实数据接入需要自行改造，见「配置」一节。SPIDER、NEURAL、FACTORY 的 token 成本使用示例单价：输入 ¥2 / 百万 token、缓存命中 ¥0.5 / 百万 token、输出 ¥8 / 百万 token。
 
 ## 主题
 
@@ -17,10 +17,11 @@
 | 05 | NEBULA 星核蜘蛛 | 3D 智能体星云 + 逐字审需求 + 评分派单 | `index.html#nebula` |
 | 06 | FORGE 视界熔炉 | 黑洞吸积子 Agent 情报 + 星核投影出整机再拆解 + 逐件锻造交付 | `index.html#forge` |
 | 07 | WORKS 天工开物 | 总控卫星派单 · 8 台机械喷射光丝 · 粒子一滴滴织出项目 | `index.html#works` |
+| 08 | ION 离子回路 | 全屏决策电路 · 离子高速穿行 · 每个任务一种颜色 | `index.html#ion` |
 
-点各主题的「主题 / 换主题」按钮打开主题面板，按 T 键依次轮换 OPS → SPIDER → NEURAL → FACTORY → NEBULA → FORGE → WORKS，再回到 OPS；按 Esc 关闭面板。选择保存在 localStorage；地址中的 `#ops`、`#spider`、`#neural`、`#factory`、`#nebula`、`#forge` 或 `#works` 优先于上次选择。没有有效选择记录时默认打开 SPIDER。
+点各主题的「主题 / 换主题」按钮打开主题面板，按 T 键依次轮换 OPS → SPIDER → NEURAL → FACTORY → NEBULA → FORGE → WORKS → ION，再回到 OPS；按 Esc 关闭面板。选择保存在 localStorage；地址中的 `#ops`、`#spider`、`#neural`、`#factory`、`#nebula`、`#forge`、`#works` 或 `#ion` 优先于上次选择。没有有效选择记录时默认打开 SPIDER。
 
-每款主题运行在独立的 Shadow DOM 中，样式和元素 id 互不干扰。隐藏主题暂停主动画与主要模拟刷新，减少资源占用。七款主题和主题面板使用系列水印「DEVELOPED BY @赛博老爸」。主题面板另有「08 · 下一款」占位，内容超出屏幕高度时可以滚动。
+每款主题运行在独立的 Shadow DOM 中，样式和元素 id 互不干扰。隐藏主题暂停主动画与主要模拟刷新，减少资源占用。八款主题和主题面板使用系列水印「DEVELOPED BY @赛博老爸」。主题面板另有「09 · 下一款」占位，内容超出屏幕高度时可以滚动。
 
 ## 功能一览
 
@@ -106,13 +107,25 @@ three.js（WebGL）渲染的整座 3D 机器人车间，以俯瞰视角展示「
 - **视角与交互**：拖动旋转织造台、滚轮缩放、双击复位；「视角」按钮或 V 键切换环绕、正视、俯瞰。点击织位卡或右侧织位列表暂时聚焦，稍后自动解除，也可按 Esc 取消；T 键轮换主题，`#works` 直达。
 - **适配与动态效果**：以 1920×1080 为基准等比缩放，手机或竖屏使用精简版。系统开启「减少动态效果」时停止自动环绕并减少部分流光、转动与闪烁，模拟流程继续以较慢速度运行。
 
-当前七款主题均无暂停按钮与空格键暂停；SPIDER 无倍速按钮。系统开启「减少动态效果」时，大屏仍会运行，部分 CSS 动画和故障闪烁减少；FORGE 与 WORKS 另有上述动态效果降级。
+### 08 · ION 离子回路
+
+整屏是一面斜向远处延伸的决策电路墙。决策卡以 DOM + matrix3d 贴在透视墙上；原生 WebGL 绘制交错线路、粒子与离子光球，带泛光，不依赖 three.js。
+
+- **六个环节**：状态 STATE → 提问 ASK → 推理 THINK → 决策 DECIDE → 闸门 GATE → 执行 CODE。每个任务随机生成路径，每列可上下跳 0–3 行，离子光球逐列点亮节点。
+- **12 个用例与配色**：邮件分拣（青）、线索跟进（红橙 + 金）、浏览器代理（紫）、社媒发帖（洋红）、客服工单（紫 + 粉）、会议纪要（绿）、合同审查（琥珀）、视频切片（深红）、日程任务（黄）、知识归档（青绿）、代码修复（蓝）、多 Agent 协同（冰蓝）。用例自动轮跑；换用例时电路墙快速滑动，光幕扫过、连线依次爆亮后整体换色。
+- **电路与粒子**：卡片向同列上下和相邻列牵出交错线网，光点沿线游走；主路径使用平滑 S 形走线，旁路光点带动两端卡片闪亮，粒子整体向远处飘动。
+- **决策卡与闸门**：节点点亮时显示亮框、横向光条、结果标签和 24 根动态柱状图，光球抵达后晕开光环。合同审查演示闸门不通过，显示「HOLD 转法务」和琥珀色置信度。
+- **浮动信息**：标题、用例与四个读数不加外框，以焊盘和走线接入电路；读数包含决策数、中位延迟、单次决策用量、置信度及 PASS/HOLD。底部保留六列标签、三行决策日志和状态行。
+- **视角与交互**：镜头跟随光球；「视角」按钮或 V 键切换斜视、正视、纵深、全景；滚轮缩放，上下拖动临时滑动电路墙、左右拖动改变斜角，双击复位。T 键轮换主题，`#ion` 直达。
+- **适配与动态效果**：以 1920×1080 为基准等比缩放，手机或竖屏自动精简；支持系统「减少动态效果」设置。
+
+当前八款主题均无暂停按钮与空格键暂停；SPIDER 无倍速按钮。系统开启「减少动态效果」时，大屏仍会运行，部分 CSS 动画和故障闪烁减少；FORGE、WORKS 与 ION 另有上述动态效果降级。
 
 ## 快速开始
 
 ### 本地打开
 
-直接双击 `index.html`，用支持 Shadow DOM 和 Canvas 的现代 Chrome / Edge / Safari / Firefox 打开。NEURAL、FACTORY 与 NEBULA 的 3D 画面另需 WebGL 与可访问 jsDelivr 的网络；首次切入其中任一款时加载共用的 three.js 及后处理脚本，正常加载完成后可供这三款主题复用。FORGE 与 WORKS 同样需要 WebGL，但使用原生实现，切入时无需加载 three.js 或其他外部脚本。
+直接双击 `index.html`，用支持 Shadow DOM 和 Canvas 的现代 Chrome / Edge / Safari / Firefox 打开。NEURAL、FACTORY 与 NEBULA 的 3D 画面另需 WebGL 与可访问 jsDelivr 的网络；首次切入其中任一款时加载共用的 three.js 及后处理脚本，正常加载完成后可供这三款主题复用。FORGE、WORKS 与 ION 同样需要 WebGL，但使用原生实现，切入时无需加载 three.js 或其他外部脚本。
 
 也可以任选一种方式启动静态服务器：
 
@@ -122,19 +135,19 @@ python3 -m http.server 8000
 npx serve .
 ```
 
-使用 Python 命令后访问 `http://localhost:8000`；使用 `npx serve .` 时访问终端显示的地址。加上 `#ops`、`#spider`、`#neural`、`#factory`、`#nebula`、`#forge` 或 `#works` 可直达主题。
+使用 Python 命令后访问 `http://localhost:8000`；使用 `npx serve .` 时访问终端显示的地址。加上 `#ops`、`#spider`、`#neural`、`#factory`、`#nebula`、`#forge`、`#works` 或 `#ion` 可直达主题。
 
 ### 部署到 GitHub Pages
 
 1. 将文件推送到 GitHub 仓库。
 2. 在仓库 Settings → Pages 中，将 Source 选为 `Deploy from a branch`，分支选 `main`，目录选 `/ (root)`。
-3. 等待部署完成，使用 Pages 设置页提供的地址访问；在地址末尾加 `#ops`、`#spider`、`#neural`、`#factory`、`#nebula`、`#forge` 或 `#works` 检查七款主题。
+3. 等待部署完成，使用 Pages 设置页提供的地址访问；在地址末尾加 `#ops`、`#spider`、`#neural`、`#factory`、`#nebula`、`#forge`、`#works` 或 `#ion` 检查八款主题。
 
 也可以部署到其他静态托管服务，无需安装运行时或构建项目。
 
 ### 放到大屏上
 
-在电脑或小主机上打开页面，使用浏览器全屏功能；常见快捷键为 F11（Mac 为 Ctrl+Cmd+F）。七款主题的桌面布局均提供「全屏」按钮。推荐 1920×1080 或更高分辨率。
+在电脑或小主机上打开页面，使用浏览器全屏功能；常见快捷键为 F11（Mac 为 Ctrl+Cmd+F）。八款主题的桌面布局均提供「全屏」按钮。推荐 1920×1080 或更高分辨率。
 
 ## 配置（换成你自己的数据）
 
@@ -172,7 +185,10 @@ npx serve .
 | `mountLoom(host, SR)` 的状态机段 | `PHASES`、`PD`、`planJob()`、`ST` | 六阶段、阶段时长、织位开始时间与持续时长、当前项目状态 |
 | `mountLoom(host, SR)` | `TEL`、`DELIV`、`HEATN`、`HEAT_SLOT` | 模拟遥测和交付初值、热力格历史长度与采样间隔 |
 | `mountLoom(host, SR)` 的布局段 | `MODES`、`CAM`、`L` | 三档视角、透视参数、缩放与窄屏布局 |
-| 系列外壳脚本 | `THREE_CDN`、`THREE_DEPS` | NEURAL、FACTORY、NEBULA 共用的 CDN 基址与按需脚本列表；FORGE、WORKS 不使用这组依赖 |
+| `mountIon(host, SR)` | `STAGES`、`POOLS`、`CASES` | 六个决策环节、节点池、12 个用例及配色、置信度、闸门状态和路径结果 |
+| `mountIon(host, SR)` 的状态机段 | `ST`、`DUR`、`startCase()`、`hopArrive()`、`updateState(dt)` | 当前任务与节点状态、模拟时长、任务轮换、节点到达与流程推进 |
+| `mountIon(host, SR)` 的布局段 | `W`、`MODES`、`CAM`、`VW` | 电路墙尺寸、四档视角、镜头与拖动缩放参数 |
+| 系列外壳脚本 | `THREE_CDN`、`THREE_DEPS` | NEURAL、FACTORY、NEBULA 共用的 CDN 基址与按需脚本列表；FORGE、WORKS、ION 不使用这组依赖 |
 
 配色在对应 `<template>` 内的 `<style>` 中。OPS 使用 `:host` 定义纸面配色，使用 `:host([data-theme="dark"])` 和系统深色媒体查询定义粒子荧光配色；Canvas 从这些变量读取颜色。
 
@@ -187,6 +203,7 @@ npx serve .
 - **NEBULA**：`mountNebula` 的「3. 模拟」段由 `newTask()` 生成需求，`simStep(dt)` 推进审查，`calcScore()` 计算示例评分；`VAGUE` 的问答与 `PASS` 阈值均为演示配置。接入真实需求需要自行实现文本解析、追问与回答、评分证据和派单接口，并替换模拟初始化、读词与评分流程。
 - **FORGE**：`mountForge` 的 `updateState(dt)` 按固定时长推进工单，`startPart()`、`completePart()` 与 `addDelivery()` 更新零件和交付，`heartbeat()` 生成示例事件；`updateUI()`、`updateOp()`、流光生成逻辑等还会生成负载、队列、token 与吸积指标。接入需要把真实工单、子任务、运行事件、用量和交付记录映射到 `JOBS`、`ST`、`AG`、`TEL` 与 `DELIV`，替换固定时长推进、随机指标及示例初值。新增投影需同时维护 `FORM_DEFS` 与工单零件的对应关系；只修改工单文案不会连接真实 Agent。
 - **WORKS**：`mountLoom` 的 `planJob()` 为织片分配示例时序，`updateState(dt)` 推进六阶段，`startSec()`、`doneSec()`、`addDelivery()` 更新任务与交付；`heartbeat()`、`TEL` 和热力格包含模拟指标与初值。接入时需要将真实项目、子任务、Agent 状态和交付事件映射到 `JOBS`、`ST`、`TEL` 与 `DELIV`，替换固定时间推进及随机数据。新增项目模型需同步维护 `MODEL_DEFS` 与 `JOBS.secs` 的织片顺序；只修改任务文案不会连接真实 Agent。
+- **ION**：`mountIon` 的 `CASES` 定义示例任务、配色、置信度和六列决策结果，`startCase()` 随机生成路径，`updateState(dt)` 按预设时长推进，`hopArrive()` 更新节点与闸门状态。真实接入需要将任务、决策事件、人工审核结果和用量映射到这些状态，并替换模拟流程及读数初值；颜色变化和 HOLD 演示本身不会执行外部操作。
 - `PRICE`、`TOKR`、`INR` 等参数的调整只会改变演示，不会自动接入真实账单或 agent 执行记录。
 
 ## 新增主题的步骤
@@ -199,25 +216,25 @@ npx serve .
 
 ## 技术说明
 
-- 单文件 HTML，无构建步骤。OPS 与 SPIDER 使用原生 JavaScript + CSS + Canvas 2D；NEURAL、FACTORY 与 NEBULA 使用 three.js（WebGL）与后处理效果；FORGE 使用原生 WebGL 绘制星核与投影，Canvas 2D 绘制线束、流光和 HUD；WORKS 使用原生 WebGL 绘制机械、织造模型、粒子与光丝，并以 Canvas 2D 补充光点、垂丝和 HUD。FORGE、WORKS 均不依赖 three.js。
+- 单文件 HTML，无构建步骤。OPS 与 SPIDER 使用原生 JavaScript + CSS + Canvas 2D；NEURAL、FACTORY 与 NEBULA 使用 three.js（WebGL）与后处理效果；FORGE 使用原生 WebGL 绘制星核与投影，Canvas 2D 绘制线束、流光和 HUD；WORKS 使用原生 WebGL 绘制机械、织造模型、粒子与光丝，并以 Canvas 2D 补充光点、垂丝和 HUD。ION 的决策卡使用 DOM + matrix3d，电路、光球、粒子与泛光使用原生 WebGL。FORGE、WORKS、ION 均不依赖 three.js。
 - 系列外壳按需挂载主题；每款主题由 `<template>`、独立 Shadow DOM 与对应的 `mountXxx(host, SR)` 函数组成。选择保存在 localStorage 的 `agent-series-theme` 中。
-- **three.js 按需依赖**：首次切入 NEURAL、FACTORY 或 NEBULA 时，从 `https://cdn.jsdelivr.net/npm/three@0.147.0/` 依次加载 `build/three.min.js`，以及 `examples/js` 下的 CopyShader、LuminosityHighPassShader、EffectComposer、RenderPass、ShaderPass、UnrealBloomPass。这三款主题使用同一份 `THREE_DEPS`，正常加载完成后可复用。建议首次加载完成后再切换另一款使用 three.js 的主题；加载中快速切换可能重复请求或缺少辉光，异常时刷新重试。打开 OPS、SPIDER、FORGE 或 WORKS 时不会请求这组脚本。
-- **3D 故障提示**：五款 WebGL 主题在无法初始化 WebGL 时显示画面不可用提示，数据面板仍可运行，OPS 与 SPIDER 不受影响。NEURAL、FACTORY、NEBULA 的依赖加载失败也会触发提示；网络请求长时间无响应可能延迟这三款主题初始化，恢复后可刷新重试。若仅辉光后处理不可用，源码会关闭辉光渲染。FORGE 与 WORKS 没有这组外部脚本依赖。
-- 字体为 Archivo、JetBrains Mono、Noto Sans SC、Michroma、Big Shoulders Stencil Display（FACTORY 标题）、Syncopate（NEBULA、FORGE 与 WORKS 标题），经 Google Fonts 加载。字体无法加载时回退至系统字体；完全离线使用需要自行本地化字体及 NEURAL、FACTORY、NEBULA 的依赖脚本。
-- 系统的 `prefers-reduced-motion` 设置不会让大屏默认停住；部分 CSS 动画及故障闪烁仍会降级。FORGE 在挂载时读取该设置，减少流光、停止自动环绕与 HUD 转动，并减慢模拟与零件转动。WORKS 同样在挂载时读取该设置，停止自动环绕、减弱部分动态光效、放慢机械转动和模拟。
+- **three.js 按需依赖**：首次切入 NEURAL、FACTORY 或 NEBULA 时，从 `https://cdn.jsdelivr.net/npm/three@0.147.0/` 依次加载 `build/three.min.js`，以及 `examples/js` 下的 CopyShader、LuminosityHighPassShader、EffectComposer、RenderPass、ShaderPass、UnrealBloomPass。这三款主题使用同一份 `THREE_DEPS`，正常加载完成后可复用。建议首次加载完成后再切换另一款使用 three.js 的主题；加载中快速切换可能重复请求或缺少辉光，异常时刷新重试。打开 OPS、SPIDER、FORGE、WORKS 或 ION 时不会请求这组脚本。
+- **3D 故障提示**：六款 WebGL 主题在无法初始化 WebGL 时显示画面不可用提示，数据面板仍可运行，OPS 与 SPIDER 不受影响。NEURAL、FACTORY、NEBULA 的依赖加载失败也会触发提示；网络请求长时间无响应可能延迟这三款主题初始化，恢复后可刷新重试。若仅辉光后处理不可用，源码会关闭辉光渲染。FORGE、WORKS 与 ION 没有这组外部脚本依赖。
+- 字体为 Archivo、JetBrains Mono、Noto Sans SC、Michroma、Big Shoulders Stencil Display（FACTORY 标题）、Syncopate（NEBULA、FORGE、WORKS 与 ION 标题），经 Google Fonts 加载。字体无法加载时回退至系统字体；完全离线使用需要自行本地化字体及 NEURAL、FACTORY、NEBULA 的依赖脚本。
+- 系统的 `prefers-reduced-motion` 设置不会让大屏默认停住；部分 CSS 动画及故障闪烁仍会降级。FORGE 在挂载时读取该设置，减少流光、停止自动环绕与 HUD 转动，并减慢模拟与零件转动。WORKS 同样在挂载时读取该设置，停止自动环绕、减弱部分动态光效、放慢机械转动和模拟。ION 在挂载时读取该设置，减少部分闪烁、粒子与镜头摆动，模拟仍继续运行。
 - OPS 的部分静态图层使用离屏画布缓存；荧光发光会增加渲染开销。不支持 Canvas 柔光或锥形渐变时，相关效果会降级。
 
 ## 目录结构
 
 ```text
 agent-display/
-├── index.html          # 七款主题与系列外壳（HTML + CSS + JS）
+├── index.html          # 八款主题与系列外壳（HTML + CSS + JS）
 ├── README.md
 ├── CHANGELOG.md
 └── LICENSE             # PolyForm Noncommercial 1.0.0
 ```
 
-当前版本为 **v7.0（2026-10-25）**：新增 WORKS 天工开物，主题面板预留第 08 款位置，内容超高时可滚动；前六款主题代码未改动。完整版本记录见 [CHANGELOG.md](CHANGELOG.md)。
+当前版本为 **v8.0（2026-10-26）**：新增 ION 离子回路，主题面板加入第 08 款并预留第 09 款位置；前七款主题代码未改动。完整版本记录见 [CHANGELOG.md](CHANGELOG.md)。
 
 ## 版本沿革
 
@@ -229,6 +246,7 @@ agent-display/
 | 5.0 | 新增 NEBULA 星核蜘蛛；许可证改为 PolyForm Noncommercial 1.0.0 + 商用授权 |
 | 6.0 | 新增 FORGE 视界熔炉 |
 | 7.0 | 新增 WORKS 天工开物 |
+| 8.0 | 新增 ION 离子回路 |
 
 ## 致谢
 
