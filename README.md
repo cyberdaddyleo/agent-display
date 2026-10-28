@@ -1,10 +1,10 @@
-# Agent 战术大屏 · v9.0
+# Agent 战术大屏 · v10.0
 
-一个纯前端的 **AI 智能体调度可视化大屏**。v9.0 新增原生 WebGL 主题 PARK 智造园区：调度中枢与 6 座车间组成微缩工业园区，28 道工序接力加工；点击厂房进入车间，调度台可控制启停、产能、派单权重和检修。在同一个 HTML 页面里切换 OPS、SPIDER、NEURAL、FACTORY、NEBULA、FORGE、WORKS、ION、PARK 九款主题，展示任务流、质检、交付与模拟指标。
+一个纯前端的 **AI 智能体调度可视化大屏**。v10.0 新增原生 WebGL 主题 HQ 智能总部：中央 Chief 总经理办公室与 8 个职能部门组成回字形总部沙盘，默认 31 名成员；点击 Chief 新增任务，点击人事部管理成员，在全景、部门、项目与人员视图中查看协作进度。在同一个 HTML 页面里切换 OPS、SPIDER、NEURAL、FACTORY、NEBULA、FORGE、WORKS、ION、PARK、HQ 十款主题，展示任务流、审核、交付与模拟指标。
 
 单文件，无需构建、无需后端，双击即可打开。自 v5.0 起源码公开，采用 PolyForm Noncommercial License 1.0.0：非商业用途免费，商业用途需授权，详见文末「授权 License」。
 
-> 页面中的任务、需求文本、需求评分、追问回答、工单、Agent 负载、业务指标、token 与成本全部是**模拟示例数据**，由内置模拟器生成，并未连接真实 agent、账单或业务接口；FORGE 的吸积数据包、星核质量、已锻零件、交付记录与吞吐，WORKS 的织造项目、织位进度、光丝活动、丝线总长、结点与交付记录，ION 的任务用例、决策路径、决策数、延迟、用量、置信度与 PASS/HOLD，以及 PARK 的工单、车间进度、产能、质检结果、设备读数与交付记录，也均为本地模拟。PARK 调度台只控制页面内的模拟状态。真实数据接入需要自行改造，见「配置」一节。SPIDER、NEURAL、FACTORY 的 token 成本使用示例单价：输入 ¥2 / 百万 token、缓存命中 ¥0.5 / 百万 token、输出 ¥8 / 百万 token。
+> 页面中的任务、需求文本、需求评分、追问回答、工单、Agent 负载、业务指标、token 与成本全部是**模拟示例数据**，由内置模拟器生成，并未连接真实 agent、账单或业务接口；FORGE 的吸积数据包、星核质量、已锻零件、交付记录与吞吐，WORKS 的织造项目、织位进度、光丝活动、丝线总长、结点与交付记录，ION 的任务用例、决策路径、决策数、延迟、用量、置信度与 PASS/HOLD，以及 PARK 的工单、车间进度、产能、质检结果、设备读数与交付记录，也均为本地模拟。PARK 调度台只控制页面内的模拟状态；HQ 的项目、成员工作、负责人审核、Token 与交付指标也由本地模拟生成，界面新增任务不会调用真实 Agent，「真人督办」是模拟角色。HQ 成员名单可保存在当前浏览器，任务与进度不会随刷新保留。真实数据接入需要自行改造，见「配置」一节。SPIDER、NEURAL、FACTORY 的 token 成本使用示例单价：输入 ¥2 / 百万 token、缓存命中 ¥0.5 / 百万 token、输出 ¥8 / 百万 token。
 
 ## 主题
 
@@ -19,10 +19,11 @@
 | 07 | WORKS 天工开物 | 总控卫星派单 · 8 台机械喷射光丝 · 粒子一滴滴织出项目 | `index.html#works` |
 | 08 | ION 离子回路 | 全屏决策电路 · 离子高速穿行 · 每个任务一种颜色 | `index.html#ion` |
 | 09 | PARK 智造园区 | 微缩工业园区 · 6 座车间 = 6 条工作流 · 调度台控启停 | `index.html#park` |
+| 10 | HQ 智能总部 | 回字形总部沙盘 · 中央总经理办公室 · 8 个部门 31 名成员 · 点 Chief 派任务、点 HR 管人员 | `index.html#hq` |
 
-点各主题的「主题 / 换主题」按钮打开主题面板，按 T 键依次轮换 OPS → SPIDER → NEURAL → FACTORY → NEBULA → FORGE → WORKS → ION → PARK，再回到 OPS；按 Esc 关闭面板。选择保存在 localStorage；地址中的 `#ops`、`#spider`、`#neural`、`#factory`、`#nebula`、`#forge`、`#works`、`#ion` 或 `#park` 优先于上次选择。没有有效选择记录时默认打开 SPIDER。
+点各主题的「主题 / 换主题」按钮打开主题面板，按 T 键依次轮换 OPS → SPIDER → NEURAL → FACTORY → NEBULA → FORGE → WORKS → ION → PARK → HQ，再回到 OPS；按 Esc 关闭面板。选择保存在 localStorage；地址中的 `#ops`、`#spider`、`#neural`、`#factory`、`#nebula`、`#forge`、`#works`、`#ion`、`#park` 或 `#hq` 优先于上次选择。没有有效选择记录时默认打开 SPIDER。v10.0 修复了主题内部输入框中按 T 误切主题的问题。
 
-每款主题运行在独立的 Shadow DOM 中，样式和元素 id 互不干扰。隐藏主题暂停主动画与主要模拟刷新，减少资源占用。九款主题和主题面板使用系列水印「DEVELOPED BY @赛博老爸」。主题面板另有「10 · 下一款」占位，内容超出屏幕高度时可以滚动。
+每款主题运行在独立的 Shadow DOM 中，样式和元素 id 互不干扰。隐藏主题暂停主动画与主要模拟刷新，减少资源占用。十款主题和主题面板使用系列水印「DEVELOPED BY @赛博老爸」。主题面板另有「11 · 下一款」占位，内容超出屏幕高度时可以滚动。
 
 ## 功能一览
 
@@ -142,13 +143,26 @@ three.js（WebGL）渲染的整座 3D 机器人车间，以俯瞰视角展示「
 - **昼夜**：昼夜按钮或 N 键切换实时、白天、黄昏、夜晚、循环五档，夜间窗灯、路灯与编号发光。
 - **渲染与适配**：原生 WebGL，包含阴影、移轴虚化、泛光与机械臂 IK，不依赖 three.js。按 1920×1080 基准缩放，手机或竖屏使用精简版；低帧率时逐级关闭多重采样、降低分辨率、关闭阴影，支持系统「减少动态效果」。
 
-前八款主题均无暂停按钮与空格键暂停；SPIDER 无倍速按钮。PARK 提供车间启停和中枢接单控制，停止车间加工时场景仍会渲染。系统开启「减少动态效果」时，大屏仍会运行，部分 CSS 动画和故障闪烁减少；FORGE、WORKS、ION 与 PARK 另有上述动态效果降级。
+### 10 · HQ 智能总部
+
+一座放在深色底座上的单层回字形总部沙盘：中央是 Chief 的总经理办公室，周围是产品、设计、市场、运营、研发、人事、财务、法务行政 8 个部门，南侧大堂有会议室、前台大门和茶水间。原生 WebGL 绘制楼体、家具、人物和文件夹，不依赖 three.js。
+
+- **默认成员**：Chief 小枢 + 25 个部门 Agent + 5 位真人督办，共 31 名。Agent 用青色光环标识，真人督办审核时脚下亮金色光环；各部门负责人可以是 Agent 或真人督办。这里的审核与工作均为模拟行为。
+- **新增任务**：点击 Chief、总经理办公室或「新增任务」按钮，也可按 C。支持产品功能、营销活动、招聘需求、合同审查、预算申请、内容生产、运营专项 7 种类型，以及最多 5 步的自定义流程（Chief 终审也计入这 5 步）；设置拆分项数和普通 / 加急后，Chief 按部门顺序派单。你派的项目排在列表最前，完成 90 秒后移除。
+- **人员管理**：点击人事部的人员管理入口、人事部成员、前台大门或按 H，可按部门筛选、搜索、新增、编辑和移出成员，调整岗位、技能、外观、类型、部门及负责人。新成员从大门入职，离职成员先移交工作再离开；工位满、重名和移出 Chief 会被拦截。名单保存在当前浏览器对应来源的 localStorage，刷新后保留，但不会跨域名、端口或设备同步；恢复默认需要两次确认。任务和项目进度不持久化。
+- **项目流转**：开场有 App 3.0 新版本、年度品牌活动、春季招聘、合作协议审查、Q4 部门预算、品牌内容月、用户增长季、用户成长中心 8 个示例项目。Agent 处理 → 负责人审核 → 步行或飞送文件交接 → Chief 归档；合同、预算类包含 Chief 终审，审核不通过会返工。示例项目交付约 24 秒后进入下一期。
+- **公司日常**：项目评审会、总经理办公室负责人周会、茶水间休息与 Chief 巡视，派单、交接、入职和离职时显示对话气泡。
+- **数据与视图**：左右两侧不放框，公司总进度和六项指标直接显示在背景上，右侧为渐隐日志。底部第一行固定显示 8 个部门，第二行随全景 / 部门 / 项目 / 人员视图切换项目进度、部门成员、阶段流水线与个人档案。
+- **操作**：V 切换全景 / 巡游 / 俯视，N 切换实时 / 白天 / 黄昏 / 夜晚 / 循环，C 新增任务，H 人员管理，1–8 进部门，0 回全景，P 轮换项目，← / → 切换，Esc 返回或关闭弹窗。拖动旋转、滚轮缩放、双击复位；T 换主题，`#hq` 直达。
+- **渲染与适配**：阴影、昼夜光照、点光源、移轴与泛光；人物和文件夹批量绘制，走路使用节点图和最短路径。以 1920×1080 为基准等比缩放，手机或竖屏使用精简版，弹窗自适应，支持系统「减少动态效果」。
+
+前八款主题均无暂停按钮与空格键暂停；SPIDER 无倍速按钮。PARK 提供车间启停和中枢接单控制，停止车间加工时场景仍会渲染。系统开启「减少动态效果」时，大屏仍会运行，部分 CSS 动画和故障闪烁减少；FORGE、WORKS、ION、PARK 与 HQ 另有动态效果降级。
 
 ## 快速开始
 
 ### 本地打开
 
-直接双击 `index.html`，用支持 Shadow DOM 和 Canvas 的现代 Chrome / Edge / Safari / Firefox 打开。NEURAL、FACTORY 与 NEBULA 的 3D 画面另需 WebGL 与可访问 jsDelivr 的网络；首次切入其中任一款时加载共用的 three.js 及后处理脚本，正常加载完成后可供这三款主题复用。FORGE、WORKS、ION 与 PARK 同样需要 WebGL，但使用原生实现，切入时无需加载 three.js 或其他外部脚本。
+直接双击 `index.html`，用支持 Shadow DOM 和 Canvas 的现代 Chrome / Edge / Safari / Firefox 打开。NEURAL、FACTORY 与 NEBULA 的 3D 画面另需 WebGL 与可访问 jsDelivr 的网络；首次切入其中任一款时加载共用的 three.js 及后处理脚本，正常加载完成后可供这三款主题复用。FORGE、WORKS、ION、PARK 与 HQ 同样需要 WebGL，但使用原生实现，切入时无需加载 three.js 或其他外部脚本。
 
 也可以任选一种方式启动静态服务器：
 
@@ -158,19 +172,19 @@ python3 -m http.server 8000
 npx serve .
 ```
 
-使用 Python 命令后访问 `http://localhost:8000`；使用 `npx serve .` 时访问终端显示的地址。加上 `#ops`、`#spider`、`#neural`、`#factory`、`#nebula`、`#forge`、`#works`、`#ion` 或 `#park` 可直达主题。
+使用 Python 命令后访问 `http://localhost:8000`；使用 `npx serve .` 时访问终端显示的地址。加上 `#ops`、`#spider`、`#neural`、`#factory`、`#nebula`、`#forge`、`#works`、`#ion`、`#park` 或 `#hq` 可直达主题。
 
 ### 部署到 GitHub Pages
 
 1. 将文件推送到 GitHub 仓库。
 2. 在仓库 Settings → Pages 中，将 Source 选为 `Deploy from a branch`，分支选 `main`，目录选 `/ (root)`。
-3. 等待部署完成，使用 Pages 设置页提供的地址访问；在地址末尾加 `#ops`、`#spider`、`#neural`、`#factory`、`#nebula`、`#forge`、`#works`、`#ion` 或 `#park` 检查九款主题。
+3. 等待部署完成，使用 Pages 设置页提供的地址访问；在地址末尾加 `#ops`、`#spider`、`#neural`、`#factory`、`#nebula`、`#forge`、`#works`、`#ion`、`#park` 或 `#hq` 检查十款主题。
 
 也可以部署到其他静态托管服务，无需安装运行时或构建项目。
 
 ### 放到大屏上
 
-在电脑或小主机上打开页面，使用浏览器全屏功能；常见快捷键为 F11（Mac 为 Ctrl+Cmd+F）。九款主题的桌面布局均提供「全屏」按钮。推荐 1920×1080 或更高分辨率。
+在电脑或小主机上打开页面，使用浏览器全屏功能；常见快捷键为 F11（Mac 为 Ctrl+Cmd+F）。十款主题的桌面布局均提供「全屏」按钮。推荐 1920×1080 或更高分辨率。
 
 ## 配置（换成你自己的数据）
 
@@ -214,7 +228,10 @@ npx serve .
 | `mountPark(host, SR)` | `WS`、`CH`、`CAT`、`TELE` | 六条工作流、工序与机器类型、示例工单、交付渠道、工单类别和遥测标签 |
 | `mountPark(host, SR)` 的调度段 | `PK`、`H`、`BOXES`、`FEEDQ`、`RETQ` | 园区与车间状态、工单箱、进料与回收队列、示例统计初值 |
 | `mountPark(host, SR)` 的控制台段 | `CTRL`、`MNT_T`、`hallAct()`、`setSpd()`、`globalAct()` | 中枢接单、速率、检修时长、车间启停、产能与派单权重 |
-| 系列外壳脚本 | `THREE_CDN`、`THREE_DEPS` | NEURAL、FACTORY、NEBULA 共用的 CDN 基址与按需脚本列表；FORGE、WORKS、ION、PARK 不使用这组依赖 |
+| `mountHQ(host, SR)` | `DEPTS`、`DEF_ROSTER`、`TPL`、`PRESET` | 8 个部门、默认成员、任务类型与阶段链、开场示例项目 |
+| `mountHQ(host, SR)` 的任务与模拟段 | `PEOPLE`、`PROJS`、`ST`、`createTask()`、`updateSim(dt)` | 成员、项目与统计状态、用户派单和本地模拟推进 |
+| `mountHQ(host, SR)` 的人员管理段 | `hrAdd()`、`hrEdit()`、`hrRemove()`、`saveRoster()`、`loadRoster()`、`ROSTER_KEY` | 成员增改移出、工作移交和浏览器名单存取 |
+| 系列外壳脚本 | `THREE_CDN`、`THREE_DEPS` | NEURAL、FACTORY、NEBULA 共用的 CDN 基址与按需脚本列表；FORGE、WORKS、ION、PARK、HQ 不使用这组依赖 |
 
 配色在对应 `<template>` 内的 `<style>` 中。OPS 使用 `:host` 定义纸面配色，使用 `:host([data-theme="dark"])` 和系统深色媒体查询定义粒子荧光配色；Canvas 从这些变量读取颜色。
 
@@ -231,6 +248,7 @@ npx serve .
 - **WORKS**：`mountLoom` 的 `planJob()` 为织片分配示例时序，`updateState(dt)` 推进六阶段，`startSec()`、`doneSec()`、`addDelivery()` 更新任务与交付；`heartbeat()`、`TEL` 和热力格包含模拟指标与初值。接入时需要将真实项目、子任务、Agent 状态和交付事件映射到 `JOBS`、`ST`、`TEL` 与 `DELIV`，替换固定时间推进及随机数据。新增项目模型需同步维护 `MODEL_DEFS` 与 `JOBS.secs` 的织片顺序；只修改任务文案不会连接真实 Agent。
 - **ION**：`mountIon` 的 `CASES` 定义示例任务、配色、置信度和六列决策结果，`startCase()` 随机生成路径，`updateState(dt)` 按预设时长推进，`hopArrive()` 更新节点与闸门状态。真实接入需要将任务、决策事件、人工审核结果和用量映射到这些状态，并替换模拟流程及读数初值；颜色变化和 HOLD 演示本身不会执行外部操作。
 - **PARK**：`mountPark` 的 `WS` 定义工作流、工序和机器，`newOrder()` 生成示例工单，`updatePark(dt)` 派单并推进运输，`updateHall()`、`completeStation()` 处理加工和质检。接入时需要将真实任务、工序、人工审核、运行事件与交付结果映射到 `PK`、`H`、`BOXES` 及队列，替换随机工单、质检结果、遥测及预置统计；调度台的 `hallAct()`、`setSpd()`、`globalAct()` 还需连接实际控制接口、确认回执和错误处理。当前启停、产能和检修仅影响本地模拟。
+- **HQ**：`mountHQ` 的 `DEPTS`、`DEF_ROSTER`、`TPL`、`PRESET` 定义部门、默认名单、任务模板与示例项目；`createTask()` / `mkProject()` 创建本地项目，`updateSim(dt)` 推进派单、处理、模拟审核和交付。接入时需把真实项目、子任务、成员与 Agent 状态、人工审核回执及用量映射到 `PEOPLE`、`PROJS`、`ST`，替换示例初始化和自动推进；`hrAdd()`、`hrEdit()`、`hrRemove()` 需接入实际成员管理与工作移交逻辑。当前 `saveRoster()` / `loadRoster()` 只保存浏览器内的名单，不能代替后端存储、身份权限或真实审批。
 - `PRICE`、`TOKR`、`INR` 等参数的调整只会改变演示，不会自动接入真实账单或 agent 执行记录。
 
 ## 新增主题的步骤
@@ -243,25 +261,25 @@ npx serve .
 
 ## 技术说明
 
-- 单文件 HTML，无构建步骤。OPS 与 SPIDER 使用原生 JavaScript + CSS + Canvas 2D；NEURAL、FACTORY 与 NEBULA 使用 three.js（WebGL）与后处理效果；FORGE 使用原生 WebGL 绘制星核与投影，Canvas 2D 绘制线束、流光和 HUD；WORKS 使用原生 WebGL 绘制机械、织造模型、粒子与光丝，并以 Canvas 2D 补充光点、垂丝和 HUD。ION 的决策卡使用 DOM + matrix3d，电路、光球、粒子与泛光使用原生 WebGL。PARK 使用原生 WebGL 绘制园区和车间，包含阴影、环境光、点光源、ACES 色调映射、移轴与泛光。FORGE、WORKS、ION、PARK 均不依赖 three.js。
+- 单文件 HTML，无构建步骤。OPS 与 SPIDER 使用原生 JavaScript + CSS + Canvas 2D；NEURAL、FACTORY 与 NEBULA 使用 three.js（WebGL）与后处理效果；FORGE 使用原生 WebGL 绘制星核与投影，Canvas 2D 绘制线束、流光和 HUD；WORKS 使用原生 WebGL 绘制机械、织造模型、粒子与光丝，并以 Canvas 2D 补充光点、垂丝和 HUD。ION 的决策卡使用 DOM + matrix3d，电路、光球、粒子与泛光使用原生 WebGL。PARK 使用原生 WebGL 绘制园区和车间，包含阴影、环境光、点光源、ACES 色调映射、移轴与泛光。HQ 使用原生 WebGL 绘制总部、人物和文件流转，包含阴影、昼夜光照、移轴与泛光。FORGE、WORKS、ION、PARK、HQ 均不依赖 three.js。
 - 系列外壳按需挂载主题；每款主题由 `<template>`、独立 Shadow DOM 与对应的 `mountXxx(host, SR)` 函数组成。选择保存在 localStorage 的 `agent-series-theme` 中。
-- **three.js 按需依赖**：首次切入 NEURAL、FACTORY 或 NEBULA 时，从 `https://cdn.jsdelivr.net/npm/three@0.147.0/` 依次加载 `build/three.min.js`，以及 `examples/js` 下的 CopyShader、LuminosityHighPassShader、EffectComposer、RenderPass、ShaderPass、UnrealBloomPass。这三款主题使用同一份 `THREE_DEPS`，正常加载完成后可复用。建议首次加载完成后再切换另一款使用 three.js 的主题；加载中快速切换可能重复请求或缺少辉光，异常时刷新重试。打开 OPS、SPIDER、FORGE、WORKS、ION 或 PARK 时不会请求这组脚本。
-- **3D 故障提示**：七款 WebGL 主题在无法初始化 WebGL 时显示画面不可用提示，数据面板仍可运行，OPS 与 SPIDER 不受影响。NEURAL、FACTORY、NEBULA 的依赖加载失败也会触发提示；网络请求长时间无响应可能延迟这三款主题初始化，恢复后可刷新重试。若仅辉光后处理不可用，源码会关闭辉光渲染。FORGE、WORKS、ION 与 PARK 没有这组外部脚本依赖。
-- 字体为 Archivo、JetBrains Mono、Noto Sans SC、Michroma、Big Shoulders Stencil Display（FACTORY 标题）、Syncopate（NEBULA、FORGE、WORKS、ION 与 PARK 标题），经 Google Fonts 加载。字体无法加载时回退至系统字体；完全离线使用需要自行本地化字体及 NEURAL、FACTORY、NEBULA 的依赖脚本。
-- 系统的 `prefers-reduced-motion` 设置不会让大屏默认停住；部分 CSS 动画及故障闪烁仍会降级。FORGE 在挂载时读取该设置，减少流光、停止自动环绕与 HUD 转动，并减慢模拟与零件转动。WORKS 同样在挂载时读取该设置，停止自动环绕、减弱部分动态光效、放慢机械转动和模拟。ION 在挂载时读取该设置，减少部分闪烁、粒子与镜头摆动，模拟仍继续运行。PARK 缩短镜头切换与屋顶动画，并放慢接单和工序模拟；场景与流水线继续运行。
+- **three.js 按需依赖**：首次切入 NEURAL、FACTORY 或 NEBULA 时，从 `https://cdn.jsdelivr.net/npm/three@0.147.0/` 依次加载 `build/three.min.js`，以及 `examples/js` 下的 CopyShader、LuminosityHighPassShader、EffectComposer、RenderPass、ShaderPass、UnrealBloomPass。这三款主题使用同一份 `THREE_DEPS`，正常加载完成后可复用。建议首次加载完成后再切换另一款使用 three.js 的主题；加载中快速切换可能重复请求或缺少辉光，异常时刷新重试。打开 OPS、SPIDER、FORGE、WORKS、ION、PARK 或 HQ 时不会请求这组脚本。
+- **3D 故障提示**：八款 WebGL 主题在无法初始化 WebGL 时显示画面不可用提示，数据面板仍可运行，OPS 与 SPIDER 不受影响。NEURAL、FACTORY、NEBULA 的依赖加载失败也会触发提示；网络请求长时间无响应可能延迟这三款主题初始化，恢复后可刷新重试。若仅辉光后处理不可用，源码会关闭辉光渲染。FORGE、WORKS、ION、PARK 与 HQ 没有这组外部脚本依赖。
+- 字体为 Archivo、JetBrains Mono、Noto Sans SC、Michroma、Big Shoulders Stencil Display（FACTORY 标题）、Syncopate（NEBULA、FORGE、WORKS、ION、PARK 与 HQ 标题），经 Google Fonts 加载。字体无法加载时回退至系统字体；完全离线使用需要自行本地化字体及 NEURAL、FACTORY、NEBULA 的依赖脚本。
+- 系统的 `prefers-reduced-motion` 设置不会让大屏默认停住；部分 CSS 动画及故障闪烁仍会降级。FORGE 在挂载时读取该设置，减少流光、停止自动环绕与 HUD 转动，并减慢模拟与零件转动。WORKS 同样在挂载时读取该设置，停止自动环绕、减弱部分动态光效、放慢机械转动和模拟。ION 在挂载时读取该设置，减少部分闪烁、粒子与镜头摆动，模拟仍继续运行。PARK 缩短镜头切换与屋顶动画，并放慢接单和工序模拟；场景与流水线继续运行。HQ 在挂载时读取该设置，对镜头和部分动画进行降级，项目模拟继续运行。
 - OPS 的部分静态图层使用离屏画布缓存；荧光发光会增加渲染开销。不支持 Canvas 柔光或锥形渐变时，相关效果会降级。
 
 ## 目录结构
 
 ```text
 agent-display/
-├── index.html          # 九款主题与系列外壳（HTML + CSS + JS）
+├── index.html          # 十款主题与系列外壳（HTML + CSS + JS）
 ├── README.md
 ├── CHANGELOG.md
 └── LICENSE             # PolyForm Noncommercial 1.0.0
 ```
 
-当前版本为 **v9.0（2026-10-27）**：新增 PARK 智造园区，主题面板加入第 09 款并预留第 10 款位置；前八款主题代码未改动。完整版本记录见 [CHANGELOG.md](CHANGELOG.md)。
+当前版本为 **v10.0（2026-10-28）**：新增 HQ 智能总部，支持新增模拟任务和人员管理；主题面板加入第 10 款并预留第 11 款位置，修复主题输入框中按 T 误切主题。前九款主题代码未改动。完整版本记录见 [CHANGELOG.md](CHANGELOG.md)。
 
 ## 版本沿革
 
@@ -275,6 +293,7 @@ agent-display/
 | 7.0 | 新增 WORKS 天工开物 |
 | 8.0 | 新增 ION 离子回路 |
 | 9.0 | 新增 PARK 智造园区 |
+| 10.0 | 新增 HQ 智能总部 |
 
 ## 致谢
 
